@@ -1,0 +1,56 @@
+require "fun/vac/algorithms/meta/Search"
+require "fun/vac/util/SequenceBuilder"
+require "fun/vac/util/TestRunner"
+
+def testBinarySearch()
+    size = 32768
+
+    arr = Array.new(size)
+    SequenceBuilder.packIncreasing(arr)
+
+    if Search.binarySearch(arr, -1) != size
+        return false
+    end
+
+    if Search.binarySearch(arr, 2_147_483_647) != size
+        return false
+    end
+
+    arr.each_index do |i|
+        if Search.binarySearch(arr, arr[i]) != i
+            return false
+        end
+    end
+
+    return true
+end
+
+def testLinearSearch()
+    size = 32768
+
+    arr = Array.new(size)
+    SequenceBuilder.packIncreasing(arr)
+
+    if Search.linearSearch(arr, -1) != size
+        return false
+    end
+
+    if Search.linearSearch(arr, 2_147_483_647) != size
+        return false
+    end
+
+    arr.each_index do |i|
+        if Search.linearSearch(arr, arr[i]) != i
+            return false
+        end
+    end
+
+    return true
+end
+
+if __FILE__ == $0
+
+    TestRunner.parseTest(testBinarySearch())
+
+    TestRunner.parseTest(testLinearSearch())
+end
