@@ -4,9 +4,9 @@ let TestRunner_TestIndex = 0
 
 exports.parseTest = (ok) => {
     if (ok) {
-        console.log("< Test [%d] Passed >", TestRunner_TestIndex)
+        console.log("✓ Test [%d] Passed", TestRunner_TestIndex)
     } else {
-        console.error("X Test [%d] Failed X", TestRunner_TestIndex)
+        console.error("✗ Test [%d] Failed", TestRunner_TestIndex)
     }
 
     TestRunner_TestIndex += 1

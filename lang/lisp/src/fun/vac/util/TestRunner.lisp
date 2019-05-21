@@ -11,7 +11,7 @@
 
 (defun parse-test (ok)
   (if ok
-    (format t "< Test [~D] Passed >~%" *test-runner-test-index*)
-    (format t "X Test [~D] Failed X~%" *test-runner-test-index*))
+    (format t "✓ Test [~D] Passed~%" *test-runner-test-index*)
+    (format t "✗ Test [~D] Failed~%" *test-runner-test-index*))
 
   (incf *test-runner-test-index*) nil)

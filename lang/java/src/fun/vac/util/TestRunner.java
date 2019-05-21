@@ -8,9 +8,9 @@ public class TestRunner {
 
     public static void parseTest(boolean ok) {
         if (ok) {
-            System.out.printf("< Test [%d] Passed >\n", TestRunner_TestIndex);
+            System.out.printf("✓ Test [%d] Passed\n", TestRunner_TestIndex);
         } else {
-            System.err.printf("X Test [%d] Failed X\n", TestRunner_TestIndex);
+            System.err.printf("✗ Test [%d] Failed\n", TestRunner_TestIndex);
         }
 
         TestRunner_TestIndex += 1;

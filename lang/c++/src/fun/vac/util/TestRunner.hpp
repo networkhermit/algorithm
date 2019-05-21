@@ -10,9 +10,9 @@ namespace TestRunner {
         static std::size_t TestRunner_TestIndex = 0;
 
         if (ok) {
-            std::cout << "< Test [" << TestRunner_TestIndex << "] Passed >" << std::endl;
+            std::cout << "✓ Test [" << TestRunner_TestIndex << "] Passed" << std::endl;
         } else {
-            std::cerr << "X Test [" << TestRunner_TestIndex << "] Failed X" << std::endl;
+            std::cerr << "✗ Test [" << TestRunner_TestIndex << "] Failed" << std::endl;
         }
 
         TestRunner_TestIndex += 1;

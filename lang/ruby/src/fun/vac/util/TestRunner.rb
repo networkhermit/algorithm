@@ -4,9 +4,9 @@ module TestRunner
 
     def self.parseTest(ok)
         if ok
-            puts("< Test [%s] Passed >" % $TestRunner_TestIndex)
+            puts("✓ Test [%s] Passed" % $TestRunner_TestIndex)
         else
-            STDERR.puts("X Test [%s] Failed X" % $TestRunner_TestIndex)
+            STDERR.puts("✗ Test [%s] Failed" % $TestRunner_TestIndex)
         end
 
         $TestRunner_TestIndex += 1

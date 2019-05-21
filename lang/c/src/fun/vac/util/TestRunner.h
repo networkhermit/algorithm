@@ -8,9 +8,9 @@ void TestRunner_parseTest(bool ok) {
     static size_t TestRunner_TestIndex = 0;
 
     if (ok) {
-        printf("< Test [%d] Passed >\n", TestRunner_TestIndex);
+        printf("✓ Test [%d] Passed\n", TestRunner_TestIndex);
     } else {
-        fprintf(stderr, "X Test [%d] Failed X\n", TestRunner_TestIndex);
+        fprintf(stderr, "✗ Test [%d] Failed\n", TestRunner_TestIndex);
     }
 
     TestRunner_TestIndex += 1;
