@@ -1,0 +1,33 @@
+#!/bin/bash
+
+set -o errexit
+
+if (( $# > 1 )); then
+    echo "✗ number of arguments exceeds limit: ‘${#}/1’" 1>&2
+    exit 1
+elif (( $# == 1 )); then
+    PLT=${1}
+fi
+
+if [ -z "${PLT}" ]; then
+    echo "✗ shell variable is unset or null: ‘PLT’" 1>&2
+    exit 1
+elif [ ! -d "${PLT}" ]; then
+    echo "✗ not a directory: ‘${PLT}’" 1>&2
+    exit 1
+elif [ ! -r "${PLT}" ]; then
+    echo "✗ read permission not granted: ‘${PLT}’" 1>&2
+    exit 1
+fi
+
+ROOT="$(dirname "$(dirname "$(realpath "${0}")")")"
+
+for i in "${ROOT}"/codes/Algorithms/*/* "${ROOT}"/codes/DataStructures/*; do
+    (
+    cd "${i}"
+    rm --force --recursive Implementation Test
+    mkdir --parents Implementation Test
+    find -L "${PLT}" -type f -name "$(basename "${PWD}")"'.*' -exec ln --symbolic --verbose {} Implementation/ \;
+    find -L "${PLT}" -type f -name "$(basename "${PWD}")"'Test.*' -exec ln --symbolic --verbose {} Test/ \;
+    )
+done

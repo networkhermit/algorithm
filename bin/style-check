@@ -1,17 +1,22 @@
 #!/bin/bash
 
-set -e
+set -o errexit
 
 if (( $# > 2 )); then
-    exit
+    echo "✗ number of arguments exceeds limit: ‘${#}/2’" 1>&2
+    exit 1
 fi
 
 if [ -z "${1}" ]; then
-    ROOT=.
-elif [ -d "${1}" ]; then
-    ROOT=${1}
+    ROOT=${PWD}
+elif [ ! -d "${1}" ]; then
+    echo "✗ not a directory: ‘${1}’" 1>&2
+    exit 1
+elif [ ! -r "${1}" ]; then
+    echo "✗ read permission not granted: ‘${1}’" 1>&2
+    exit 1
 else
-    exit
+    ROOT=${1}
 fi
 
 styleCheckPhaseC () {
@@ -287,7 +292,8 @@ case "${2}" in
         time styleCheckPhaseRuby
         ;;
     *)
-        exit
+        echo "✗ unknown language: ‘${2}’" 1>&2
+        exit 1
         ;;
 esac
 
