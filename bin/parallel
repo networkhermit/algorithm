@@ -1,16 +1,18 @@
 #!/bin/bash
 
 set -o errexit
+set -o nounset
+set -o pipefail
 
 if (( $# > 1 )); then
     echo "✗ number of arguments exceeds limit: ‘${#}/1’" 1>&2
     exit 1
-elif (( $# == 1 )); then
-    PLT=${1}
 fi
 
+PLT=${1:-}
+
 if [ -z "${PLT}" ]; then
-    echo "✗ shell variable is unset or null: ‘PLT’" 1>&2
+    echo "✗ shell variable is empty: ‘PLT’" 1>&2
     exit 1
 elif [ ! -d "${PLT}" ]; then
     echo "✗ not a directory: ‘${PLT}’" 1>&2

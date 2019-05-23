@@ -1,22 +1,24 @@
 #!/bin/bash
 
 set -o errexit
+set -o nounset
+set -o pipefail
 
 if (( $# > 2 )); then
     echo "✗ number of arguments exceeds limit: ‘${#}/2’" 1>&2
     exit 1
 fi
 
-if [ -z "${1}" ]; then
+ROOT=${2:-}
+
+if [ -z "${ROOT}" ]; then
     ROOT=${PWD}
-elif [ ! -d "${1}" ]; then
-    echo "✗ not a directory: ‘${1}’" 1>&2
+elif [ ! -d "${ROOT}" ]; then
+    echo "✗ not a directory: ‘${ROOT}’" 1>&2
     exit 1
-elif [ ! -r "${1}" ]; then
-    echo "✗ read permission not granted: ‘${1}’" 1>&2
+elif [ ! -r "${ROOT}" ]; then
+    echo "✗ read permission not granted: ‘${ROOT}’" 1>&2
     exit 1
-else
-    ROOT=${1}
 fi
 
 styleCheckPhaseC () {
@@ -241,8 +243,10 @@ styleCheckPhaseRuby () {
 
 echo '================= STYLE CHECKING -- [STARTED] =================='
 
-case "${2}" in
-    '')
+LANG=${1:-}
+
+case "${LANG}" in
+    all)
         styleCheckPhaseC
         styleCheckPhaseCPP
         styleCheckPhaseGo
@@ -292,7 +296,7 @@ case "${2}" in
         time styleCheckPhaseRuby
         ;;
     *)
-        echo "✗ unknown language: ‘${2}’" 1>&2
+        echo "✗ unknown language: ‘${LANG}’" 1>&2
         exit 1
         ;;
 esac
