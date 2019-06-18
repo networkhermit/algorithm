@@ -4,21 +4,29 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-if (( $# > 1 )); then
-    echo "✗ number of arguments exceeds limit: ‘${#}/1’" 1>&2
+ARGC=1
+LEAST_ARGC=0
+
+if (( $# > ARGC )); then
+    echo "✗ number of arguments exceeds limit: ‘${#}/${ARGC}’" 1>&2
+    exit 1
+elif (( $# < LEAST_ARGC )); then
+    echo "✗ too few arguments: ‘${#}/${LEAST_ARGC}’" 1>&2
     exit 1
 fi
 
-PLT=${1:-}
+PLT_PATH=${PLT_PATH:-}
 
-if [ -z "${PLT}" ]; then
-    echo "✗ shell variable is empty: ‘PLT’" 1>&2
+PLT_PATH=${1:-${PLT_PATH}}
+
+if [ -z "${PLT_PATH}" ]; then
+    echo "✗ shell variable is empty: ‘PLT_PATH’" 1>&2
     exit 1
-elif [ ! -d "${PLT}" ]; then
-    echo "✗ not a directory: ‘${PLT}’" 1>&2
+elif [ ! -d "${PLT_PATH}" ]; then
+    echo "✗ not a directory: ‘${PLT_PATH}’" 1>&2
     exit 1
-elif [ ! -r "${PLT}" ]; then
-    echo "✗ read permission not granted: ‘${PLT}’" 1>&2
+elif [ ! -r "${PLT_PATH}" ]; then
+    echo "✗ read permission not granted: ‘${PLT_PATH}’" 1>&2
     exit 1
 fi
 
@@ -29,7 +37,7 @@ for i in "${ROOT}"/codes/Algorithms/*/* "${ROOT}"/codes/DataStructures/*; do
     cd "${i}"
     rm --force --recursive Implementation Test
     mkdir --parents Implementation Test
-    find -L "${PLT}" -type f -name "$(basename "${PWD}")"'.*' -exec ln --symbolic --verbose {} Implementation/ \;
-    find -L "${PLT}" -type f -name "$(basename "${PWD}")"'Test.*' -exec ln --symbolic --verbose {} Test/ \;
+    find -L "${PLT_PATH}" -type f -name "$(basename "${PWD}")"'.*' -exec ln --symbolic --verbose {} Implementation/ \;
+    find -L "${PLT_PATH}" -type f -name "$(basename "${PWD}")"'Test.*' -exec ln --symbolic --verbose {} Test/ \;
     )
 done

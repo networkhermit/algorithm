@@ -4,12 +4,20 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-if (( $# > 2 )); then
-    echo "✗ number of arguments exceeds limit: ‘${#}/2’" 1>&2
+ARGC=2
+LEAST_ARGC=0
+
+if (( $# > ARGC )); then
+    echo "✗ number of arguments exceeds limit: ‘${#}/${ARGC}’" 1>&2
+    exit 1
+elif (( $# < LEAST_ARGC )); then
+    echo "✗ too few arguments: ‘${#}/${LEAST_ARGC}’" 1>&2
     exit 1
 fi
 
-ROOT=${1:-}
+LANG=${1:-}
+
+ROOT=${2:-}
 
 if [ -z "${ROOT}" ]; then
     ROOT=${PWD}
@@ -152,8 +160,6 @@ testingPhaseOfRuby () {
 }
 
 echo '=============== TESTING AUTOMATION -- [STARTED] ================'
-
-LANG=${1:-}
 
 case "${LANG}" in
     all)
