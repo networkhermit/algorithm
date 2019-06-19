@@ -17,11 +17,9 @@ fi
 
 LANG=${1:-}
 
-ROOT=${2:-}
+ROOT=${2:-${PWD}}
 
-if [ -z "${ROOT}" ]; then
-    ROOT=${PWD}
-elif [ ! -d "${ROOT}" ]; then
+if [ ! -d "${ROOT}" ]; then
     echo "✗ not a directory: ‘${ROOT}’" 1>&2
     exit 1
 elif [ ! -r "${ROOT}" ]; then

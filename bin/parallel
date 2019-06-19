@@ -15,9 +15,7 @@ elif (( $# < LEAST_ARGC )); then
     exit 1
 fi
 
-PLT_PATH=${PLT_PATH:-}
-
-PLT_PATH=${1:-${PLT_PATH}}
+PLT_PATH=${1:-${PLT_PATH:-}}
 
 if [ -z "${PLT_PATH}" ]; then
     echo "✗ shell variable is empty: ‘PLT_PATH’" 1>&2
