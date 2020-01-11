@@ -35,7 +35,7 @@ for i in "${ROOT}"/codes/Algorithms/*/* "${ROOT}"/codes/DataStructures/*; do
     cd "${i}"
     rm --force --recursive Implementation Test
     mkdir --parents Implementation Test
-    find -L "${PLT_PATH}" -type f -name "$(basename "${PWD}")"'.*' -exec ln --symbolic --verbose {} Implementation/ \;
-    find -L "${PLT_PATH}" -type f -name "$(basename "${PWD}")"'Test.*' -exec ln --symbolic --verbose {} Test/ \;
+    find -L "${PLT_PATH}" -type f -name "$(basename "${PWD}").*" -exec ln --symbolic --verbose {} Implementation/ \;
+    find -L "${PLT_PATH}" -type f -name "$(basename "${PWD}")Test.*" -exec ln --symbolic --verbose {} Test/ \;
     )
 done
