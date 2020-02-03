@@ -4,20 +4,58 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-ARGC=2
-LEAST_ARGC=0
+trap 'echo ✗ fatal error: errexit trapped with status $? 1>&2' ERR
 
-if (( $# > ARGC )); then
-    echo "✗ number of arguments exceeds limit: ‘${#}/${ARGC}’" 1>&2
-    exit 1
-elif (( $# < LEAST_ARGC )); then
-    echo "✗ too few arguments: ‘${#}/${LEAST_ARGC}’" 1>&2
+ROOT=${PWD}
+
+while (( $# > 0 )); do
+    case "${1}" in
+        --root)
+            ROOT=${2?✗ argument parsing failed: missing parameter for argument ‘${1}’}
+            shift 2
+            ;;
+        -h | --help)
+            cat << EOF
+Usage:
+    ${0##*/} [OPTION]... SPEC
+
+Optional arguments:
+    --root
+        starting point
+    -h, --help
+        show this help message and exit
+    -v, --version
+        output version information and exit
+
+Positional arguments:
+    SPEC
+        runtime spec
+EOF
+            shift
+            exit
+            ;;
+        -v | --version)
+            echo v0.1.0
+            shift
+            exit
+            ;;
+        --)
+            shift
+            break
+            ;;
+        *)
+            break
+            ;;
+    esac
+done
+
+SPEC=${1?✗ argument parsing failed: missing positional argument ‘SPEC’}
+shift
+
+if (( $# > 0 )); then
+    echo "✗ argument parsing failed: unrecognizable argument ‘${1}’" 1>&2
     exit 1
 fi
-
-LANG=${1:-}
-
-ROOT=${2:-${PWD}}
 
 if [ ! -d "${ROOT}" ]; then
     echo "✗ not a directory: ‘${ROOT}’" 1>&2
@@ -159,7 +197,7 @@ testingPhaseOfRuby () {
 
 echo '=============== TESTING AUTOMATION -- [STARTED] ================'
 
-case "${LANG}" in
+case "${SPEC}" in
     all)
         testingPhaseOfC
         testingPhaseOfCPP
@@ -198,7 +236,7 @@ case "${LANG}" in
     ruby)
         testingPhaseOfRuby
         ;;
-    -)
+    perf)
         time testingPhaseOfC
         time testingPhaseOfCPP
         time testingPhaseOfGo
@@ -210,7 +248,7 @@ case "${LANG}" in
         time testingPhaseOfRuby
         ;;
     *)
-        echo "✗ unknown language: ‘${LANG}’" 1>&2
+        echo "✗ unknown spec: ‘${SPEC}’" 1>&2
         exit 1
         ;;
 esac

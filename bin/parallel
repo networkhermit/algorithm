@@ -4,27 +4,58 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-ARGC=1
-LEAST_ARGC=0
+trap 'echo ✗ fatal error: errexit trapped with status $? 1>&2' ERR
 
-if (( $# > ARGC )); then
-    echo "✗ number of arguments exceeds limit: ‘${#}/${ARGC}’" 1>&2
-    exit 1
-elif (( $# < LEAST_ARGC )); then
-    echo "✗ too few arguments: ‘${#}/${LEAST_ARGC}’" 1>&2
+while (( $# > 0 )); do
+    case "${1}" in
+        --library-path)
+            PLT_LIB_PATH=${2?✗ argument parsing failed: missing parameter for argument ‘${1}’}
+            shift 2
+            ;;
+        -h | --help)
+            cat << EOF
+Usage:
+    ${0##*/} [OPTION]...
+
+Optional arguments:
+    --library-path
+        use the specified library path (default: PLT_LIB_PATH)
+    -h, --help
+        show this help message and exit
+    -v, --version
+        output version information and exit
+EOF
+            shift
+            exit
+            ;;
+        -v | --version)
+            echo v0.1.0
+            shift
+            exit
+            ;;
+        --)
+            shift
+            break
+            ;;
+        *)
+            break
+            ;;
+    esac
+done
+
+if (( $# > 0 )); then
+    echo "✗ argument parsing failed: unrecognizable argument ‘${1}’" 1>&2
     exit 1
 fi
 
-PLT_PATH=${1:-${PLT_PATH:-}}
-
-if [ -z "${PLT_PATH}" ]; then
-    echo "✗ shell variable is empty: ‘PLT_PATH’" 1>&2
+if [ -z "${PLT_LIB_PATH}" ]; then
+    echo "✗ unexpected error: cannot resolve environment variable ‘PLT_LIB_PATH’" 1>&2
     exit 1
-elif [ ! -d "${PLT_PATH}" ]; then
-    echo "✗ not a directory: ‘${PLT_PATH}’" 1>&2
+elif [ ! -d "${PLT_LIB_PATH}" ]; then
+    echo "✗ not a directory: ‘${PLT_LIB_PATH}’" 1>&2
     exit 1
-elif [ ! -r "${PLT_PATH}" ]; then
-    echo "✗ read permission not granted: ‘${PLT_PATH}’" 1>&2
+elif [ ! -r "${PLT_LIB_PATH}" ]; then
+    echo "✗ read permission not granted: ‘${PLT_LIB_PATH}’" 1>&2
     exit 1
 fi
 
@@ -35,7 +66,7 @@ for i in "${ROOT}"/codes/Algorithms/*/* "${ROOT}"/codes/DataStructures/*; do
     cd "${i}"
     rm --force --recursive Implementation Test
     mkdir --parents Implementation Test
-    find -L "${PLT_PATH}" -type f -name "$(basename "${PWD}").*" -exec ln --symbolic --verbose {} Implementation/ \;
-    find -L "${PLT_PATH}" -type f -name "$(basename "${PWD}")Test.*" -exec ln --symbolic --verbose {} Test/ \;
+    find -L "${PLT_LIB_PATH}" -type f -name "$(basename "${PWD}").*" -exec ln --symbolic --verbose {} Implementation/ \;
+    find -L "${PLT_LIB_PATH}" -type f -name "$(basename "${PWD}")Test.*" -exec ln --symbolic --verbose {} Test/ \;
     )
 done
