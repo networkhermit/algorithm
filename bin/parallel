@@ -18,8 +18,8 @@ Usage:
     ${0##*/} [OPTION]...
 
 Optional arguments:
-    --library-path
-        use the specified library path (default: PLT_LIB_PATH)
+    --library-path DIRECTORY
+        use the specified library path (default: env#PLT_LIB_PATH)
     -h, --help
         show this help message and exit
     -v, --version

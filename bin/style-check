@@ -20,8 +20,8 @@ Usage:
     ${0##*/} [OPTION]... SPEC
 
 Optional arguments:
-    --root
-        starting point
+    --root DIRECTORY
+        starting point (default: env#PWD)
     -h, --help
         show this help message and exit
     -v, --version
