@@ -8,6 +8,18 @@ trap 'echo ✗ fatal error: errexit trapped with status $? 1>&2' ERR
 
 ROOT=${PWD}
 
+readonly -A lang=( \
+    [c]=C \
+    [cpp]=C++ \
+    [go]=Go \
+    [java]=Java \
+    [lisp]=Lisp \
+    [node]=NodeJS \
+    [php]=PHP \
+    [python]=Python \
+    [ruby]=Ruby \
+)
+
 while (( $# > 0 )); do
     case "${1}" in
         --root)
@@ -28,7 +40,7 @@ Optional arguments:
         output version information and exit
 
 Positional arguments:
-    SPEC
+    SPEC (all | c | cpp | go | java | lisp | node | php | python | ruby | perf)
         runtime spec
 EOF
             shift
@@ -49,7 +61,16 @@ EOF
     esac
 done
 
-SPEC=${1?✗ argument parsing failed: missing positional argument ‘SPEC’}
+: "${1?✗ argument parsing failed: missing positional argument ‘SPEC’}"
+case "${1}" in
+    all | c | cpp | go | java | lisp | node | php | python | ruby | perf)
+        SPEC=${1}
+        ;;
+    *)
+        echo "✗ argument parsing failed: acceptable values for ‘SPEC’ are all | c | cpp | go | java | lisp | node | php | python | ruby | perf" 1>&2
+        exit 1
+        ;;
+esac
 shift
 
 if (( $# > 0 )); then
@@ -65,277 +86,242 @@ elif [ ! -r "${ROOT}" ]; then
     exit 1
 fi
 
-styleCheckPhaseC () {
-    echo '---------------------------[ C ]--------------------------------'
+run_style_check () {
+    local prefix=---------------------------
+    local suffix=---------------------------------
+    case "${1}" in
+        c)
+            echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
 
-    for instance in $(find -L "${ROOT}" -type f -name "*.c" | sort); do
-        fname=$(basename "${instance}" .c)
+            for instance in $(find -L "${ROOT}" -type f -name "*.c" | sort); do
+                fname=$(basename "${instance}" .c)
 
-        if grep -q '\s$' "${instance}"; then
-            echo '>>>> TRAILING WHITESPACE <<<<'
-            echo -e "\\t\\t---------------------------    [${fname}]"
-        fi
+                if grep -q '\s$' "${instance}"; then
+                    echo '>>>> TRAILING WHITESPACE <<<<'
+                    printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
+                fi
 
-        if grep -q '(\s*)\s*{$' "${instance}"; then
-            echo '>>>> MISSING PARAMETER LIST <<<<'
-            echo -e "\\t\\t---------------------------    [${fname}]"
-        fi
-    done
+                if grep -q '(\s*)\s*{$' "${instance}"; then
+                    echo '>>>> MISSING PARAMETER LIST <<<<'
+                    printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
+                fi
+            done
 
-    for instance in $(find -L "${ROOT}" -type f -name "*.h" | sort); do
-        fname=$(basename "${instance}" .h)
+            for instance in $(find -L "${ROOT}" -type f -name "*.h" | sort); do
+                fname=$(basename "${instance}" .h)
 
-        if grep -q '\s$' "${instance}"; then
-            echo '>>>> TRAILING WHITESPACE <<<<'
-            echo -e "\\t\\t---------------------------    [${fname}]"
-        fi
+                if grep -q '\s$' "${instance}"; then
+                    echo '>>>> TRAILING WHITESPACE <<<<'
+                    printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
+                fi
 
-        if grep -q '(\s*)\s*{$' "${instance}"; then
-            echo '>>>> MISSING PARAMETER LIST <<<<'
-            echo -e "\\t\\t---------------------------    [${fname}]"
-        fi
-    done
-}
+                if grep -q '(\s*)\s*{$' "${instance}"; then
+                    echo '>>>> MISSING PARAMETER LIST <<<<'
+                    printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
+                fi
+            done
+            ;;
+        cpp)
+            echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
 
-styleCheckPhaseCPP () {
-    echo '---------------------------[ C++ ]------------------------------'
+            for instance in $(find -L "${ROOT}" -type f -name "*.cpp" | sort); do
+                fname=$(basename "${instance}" .cpp)
 
-    for instance in $(find -L "${ROOT}" -type f -name "*.cpp" | sort); do
-        fname=$(basename "${instance}" .cpp)
+                if grep -q '\s$' "${instance}"; then
+                    echo '>>>> TRAILING WHITESPACE <<<<'
+                    printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
+                fi
 
-        if grep -q '\s$' "${instance}"; then
-            echo '>>>> TRAILING WHITESPACE <<<<'
-            echo -e "\\t\\t---------------------------    [${fname}]"
-        fi
+                if ! grep -q '\<using\s*namespace\s*std\>' "${instance}"; then
+                    echo '>>>> NOT USING DEFAULT NAMESPACE <<<<'
+                    printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
+                fi
+            done
 
-        if ! grep -q '\<using\s*namespace\s*std\>' "${instance}"; then
-            echo '>>>> NOT USING DEFAULT NAMESPACE <<<<'
-            echo -e "\\t\\t---------------------------    [${fname}]"
-        fi
-    done
+            for instance in $(find -L "${ROOT}" -type f -name "*.hpp" | sort); do
+                fname=$(basename "${instance}" .hpp)
 
-    for instance in $(find -L "${ROOT}" -type f -name "*.hpp" | sort); do
-        fname=$(basename "${instance}" .hpp)
+                if grep -q '\s$' "${instance}"; then
+                    echo '>>>> TRAILING WHITESPACE <<<<'
+                    printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
+                fi
 
-        if grep -q '\s$' "${instance}"; then
-            echo '>>>> TRAILING WHITESPACE <<<<'
-            echo -e "\\t\\t---------------------------    [${fname}]"
-        fi
+                if grep -q '\<using\s*namespace\>' "${instance}"; then
+                    echo '>>>> NOT USING DEFAULT NAMESPACE <<<<'
+                    printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
+                fi
+            done
+            ;;
+        go)
+            echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
 
-        if grep -q '\<using\s*namespace\>' "${instance}"; then
-            echo '>>>> NOT USING DEFAULT NAMESPACE <<<<'
-            echo -e "\\t\\t---------------------------    [${fname}]"
-        fi
-    done
-}
+            for instance in $(find -L "${ROOT}" -type f -name "*.go" | sort); do
+                fname=$(basename "${instance}" .go)
 
-styleCheckPhaseGo () {
-    echo '---------------------------[ Go ]-------------------------------'
+                if grep -q '\s$' "${instance}"; then
+                    echo '>>>> TRAILING WHITESPACE <<<<'
+                    printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
+                fi
 
-    for instance in $(find -L "${ROOT}" -type f -name "*.go" | sort); do
-        fname=$(basename "${instance}" .go)
+                if grep -q ';$' "${instance}"; then
+                    echo '>>>> REDUNDANT SEMICOLON <<<<'
+                    printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
+                fi
 
-        if grep -q '\s$' "${instance}"; then
-            echo '>>>> TRAILING WHITESPACE <<<<'
-            echo -e "\\t\\t---------------------------    [${fname}]"
-        fi
+                if grep -q '\<if\s*(.*)\s*{$' "${instance}"; then
+                    echo '>>>> REDUNDANT PARENTHESIS <<<<'
+                    printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
+                fi
 
-        if grep -q ';$' "${instance}"; then
-            echo '>>>> REDUNDANT SEMICOLON <<<<'
-            echo -e "\\t\\t---------------------------    [${fname}]"
-        fi
+                if grep -q '\<for\s*(.*)\s*{$' "${instance}"; then
+                    echo '>>>> REDUNDANT PARENTHESIS <<<<'
+                    printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
+                fi
+            done
+            ;;
+        java)
+            echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
 
-        if grep -q '\<if\s*(.*)\s*{$' "${instance}"; then
-            echo '>>>> REDUNDANT PARENTHESIS <<<<'
-            echo -e "\\t\\t---------------------------    [${fname}]"
-        fi
+            for instance in $(find -L "${ROOT}" -type f -name "*.java" | sort); do
+                fname=$(basename "${instance}" .java)
 
-        if grep -q '\<for\s*(.*)\s*{$' "${instance}"; then
-            echo '>>>> REDUNDANT PARENTHESIS <<<<'
-            echo -e "\\t\\t---------------------------    [${fname}]"
-        fi
-    done
-}
+                if grep -q '\s$' "${instance}"; then
+                    echo '>>>> TRAILING WHITESPACE <<<<'
+                    printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
+                fi
 
-styleCheckPhaseJava () {
-    echo '---------------------------[ Java ]-----------------------------'
+                if grep -q '[^[:upper:]>]>>[^>]' "${instance}"; then
+                    echo '>>>> NOT USING LOGICAL RIGHT SHIFT <<<<'
+                    printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
+                fi
+            done
+            ;;
+        lisp)
+            echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
 
-    for instance in $(find -L "${ROOT}" -type f -name "*.java" | sort); do
-        fname=$(basename "${instance}" .java)
+            for instance in $(find -L "${ROOT}" -type f -name "*.lisp" | sort); do
+                fname=$(basename "${instance}" .lisp)
 
-        if grep -q '\s$' "${instance}"; then
-            echo '>>>> TRAILING WHITESPACE <<<<'
-            echo -e "\\t\\t---------------------------    [${fname}]"
-        fi
+                if grep -q '\s$' "${instance}"; then
+                    echo '>>>> TRAILING WHITESPACE <<<<'
+                    printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
+                fi
+            done
+            ;;
+        node)
+            echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
 
-        if grep -q '[^[:upper:]>]>>[^>]' "${instance}"; then
-            echo '>>>> NOT USING LOGICAL RIGHT SHIFT <<<<'
-            echo -e "\\t\\t---------------------------    [${fname}]"
-        fi
-    done
-}
+            for instance in $(find -L "${ROOT}" -type f -name "*.js" | sort); do
+                fname=$(basename "${instance}" .js)
 
-styleCheckPhaseLisp () {
-    echo '---------------------------[ Lisp ]-----------------------------'
+                if grep -q '\s$' "${instance}"; then
+                    echo '>>>> TRAILING WHITESPACE <<<<'
+                    printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
+                fi
 
-    for instance in $(find -L "${ROOT}" -type f -name "*.lisp" | sort); do
-        fname=$(basename "${instance}" .lisp)
+                if grep -q ';$' "${instance}"; then
+                    echo '>>>> REDUNDANT SEMICOLON <<<<'
+                    printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
+                fi
 
-        if grep -q '\s$' "${instance}"; then
-            echo '>>>> TRAILING WHITESPACE <<<<'
-            echo -e "\\t\\t---------------------------    [${fname}]"
-        fi
-    done
-}
+                if grep -q '[^>]>>[^>]' "${instance}"; then
+                    echo '>>>> NOT USING LOGICAL RIGHT SHIFT <<<<'
+                    printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
+                fi
 
-styleCheckPhaseNodeJS () {
-    echo '---------------------------[ NodeJS ]---------------------------'
+                if grep -q '[^!=][!=]=[^=]' "${instance}"; then
+                    echo '>>>> NOT USING STRICT (IN)EQUALITY <<<<'
+                    printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
+                fi
+            done
+            ;;
+        php)
+            echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
 
-    for instance in $(find -L "${ROOT}" -type f -name "*.js" | sort); do
-        fname=$(basename "${instance}" .js)
+            for instance in $(find -L "${ROOT}" -type f -name "*.php" | sort); do
+                fname=$(basename "${instance}" .php)
 
-        if grep -q '\s$' "${instance}"; then
-            echo '>>>> TRAILING WHITESPACE <<<<'
-            echo -e "\\t\\t---------------------------    [${fname}]"
-        fi
+                if grep -q '\s$' "${instance}"; then
+                    echo '>>>> TRAILING WHITESPACE <<<<'
+                    printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
+                fi
+            done
+            ;;
+        python)
+            echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
 
-        if grep -q ';$' "${instance}"; then
-            echo '>>>> REDUNDANT SEMICOLON <<<<'
-            echo -e "\\t\\t---------------------------    [${fname}]"
-        fi
+            for instance in $(find -L "${ROOT}" -type f -name "*.py" | sort); do
+                fname=$(basename "${instance}" .py)
 
-        if grep -q '[^>]>>[^>]' "${instance}"; then
-            echo '>>>> NOT USING LOGICAL RIGHT SHIFT <<<<'
-            echo -e "\\t\\t---------------------------    [${fname}]"
-        fi
+                if grep -q '\s$' "${instance}"; then
+                    echo '>>>> TRAILING WHITESPACE <<<<'
+                    printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
+                fi
 
-        if grep -q '[^!=][!=]=[^=]' "${instance}"; then
-            echo '>>>> NOT USING STRICT (IN)EQUALITY <<<<'
-            echo -e "\\t\\t---------------------------    [${fname}]"
-        fi
-    done
-}
+                if grep -q ';$' "${instance}"; then
+                    echo '>>>> REDUNDANT SEMICOLON <<<<'
+                    printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
+                fi
 
-styleCheckPhasePHP () {
-    echo '---------------------------[ PHP ]------------------------------'
+                if grep -q '\<\(el\)\?if\s*(.*)\s*:$' "${instance}"; then
+                    echo '>>>> REDUNDANT PARENTHESIS <<<<'
+                    printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
+                fi
 
-    for instance in $(find -L "${ROOT}" -type f -name "*.php" | sort); do
-        fname=$(basename "${instance}" .php)
+                if grep -q '\<while\s*(.*)\s*:$' "${instance}"; then
+                    echo '>>>> REDUNDANT PARENTHESIS <<<<'
+                    printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
+                fi
+            done
+            ;;
+        ruby)
+            echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
 
-        if grep -q '\s$' "${instance}"; then
-            echo '>>>> TRAILING WHITESPACE <<<<'
-            echo -e "\\t\\t---------------------------    [${fname}]"
-        fi
-    done
-}
+            for instance in $(find -L "${ROOT}" -type f -name "*.rb" | sort); do
+                fname=$(basename "${instance}" .rb)
 
-styleCheckPhasePython () {
-    echo '---------------------------[ Python ]---------------------------'
+                if grep -q '\s$' "${instance}"; then
+                    echo '>>>> TRAILING WHITESPACE <<<<'
+                    printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
+                fi
 
-    for instance in $(find -L "${ROOT}" -type f -name "*.py" | sort); do
-        fname=$(basename "${instance}" .py)
+                if grep -q ';$' "${instance}"; then
+                    echo '>>>> REDUNDANT SEMICOLON <<<<'
+                    printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
+                fi
 
-        if grep -q '\s$' "${instance}"; then
-            echo '>>>> TRAILING WHITESPACE <<<<'
-            echo -e "\\t\\t---------------------------    [${fname}]"
-        fi
+                if grep -q '\<\(els\)\?if\s*(.*)$' "${instance}"; then
+                    echo '>>>> REDUNDANT PARENTHESIS <<<<'
+                    printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
+                fi
 
-        if grep -q ';$' "${instance}"; then
-            echo '>>>> REDUNDANT SEMICOLON <<<<'
-            echo -e "\\t\\t---------------------------    [${fname}]"
-        fi
-
-        if grep -q '\<\(el\)\?if\s*(.*)\s*:$' "${instance}"; then
-            echo '>>>> REDUNDANT PARENTHESIS <<<<'
-            echo -e "\\t\\t---------------------------    [${fname}]"
-        fi
-
-        if grep -q '\<while\s*(.*)\s*:$' "${instance}"; then
-            echo '>>>> REDUNDANT PARENTHESIS <<<<'
-            echo -e "\\t\\t---------------------------    [${fname}]"
-        fi
-    done
-}
-
-styleCheckPhaseRuby () {
-    echo '---------------------------[ Ruby ]-----------------------------'
-
-    for instance in $(find -L "${ROOT}" -type f -name "*.rb" | sort); do
-        fname=$(basename "${instance}" .rb)
-
-        if grep -q '\s$' "${instance}"; then
-            echo '>>>> TRAILING WHITESPACE <<<<'
-            echo -e "\\t\\t---------------------------    [${fname}]"
-        fi
-
-        if grep -q ';$' "${instance}"; then
-            echo '>>>> REDUNDANT SEMICOLON <<<<'
-            echo -e "\\t\\t---------------------------    [${fname}]"
-        fi
-
-        if grep -q '\<\(els\)\?if\s*(.*)$' "${instance}"; then
-            echo '>>>> REDUNDANT PARENTHESIS <<<<'
-            echo -e "\\t\\t---------------------------    [${fname}]"
-        fi
-
-        if grep -q '\<while\s*(.*)$' "${instance}"; then
-            echo '>>>> REDUNDANT PARENTHESIS <<<<'
-            echo -e "\\t\\t---------------------------    [${fname}]"
-        fi
-    done
+                if grep -q '\<while\s*(.*)$' "${instance}"; then
+                    echo '>>>> REDUNDANT PARENTHESIS <<<<'
+                    printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
+                fi
+            done
+            ;;
+        *)
+            return 1
+            ;;
+    esac
 }
 
 echo '================= STYLE CHECKING -- [STARTED] =================='
 
 case "${SPEC}" in
     all)
-        styleCheckPhaseC
-        styleCheckPhaseCPP
-        styleCheckPhaseGo
-        styleCheckPhaseJava
-        styleCheckPhaseLisp
-        styleCheckPhaseNodeJS
-        styleCheckPhasePHP
-        styleCheckPhasePython
-        styleCheckPhaseRuby
+        for k in "${!lang[@]}"; do
+            run_style_check "${k}"
+        done
         ;;
-    c)
-        styleCheckPhaseC
-        ;;
-    c++)
-        styleCheckPhaseCPP
-        ;;
-    go)
-        styleCheckPhaseGo
-        ;;
-    java)
-        styleCheckPhaseJava
-        ;;
-    lisp)
-        styleCheckPhaseLisp
-        ;;
-    node)
-        styleCheckPhaseNodeJS
-        ;;
-    php)
-        styleCheckPhasePHP
-        ;;
-    python)
-        styleCheckPhasePython
-        ;;
-    ruby)
-        styleCheckPhaseRuby
+    c | cpp | go | java | lisp | node | php | python | ruby)
+        run_style_check "${SPEC}"
         ;;
     perf)
-        time styleCheckPhaseC
-        time styleCheckPhaseCPP
-        time styleCheckPhaseGo
-        time styleCheckPhaseJava
-        time styleCheckPhaseLisp
-        time styleCheckPhaseNodeJS
-        time styleCheckPhasePHP
-        time styleCheckPhasePython
-        time styleCheckPhaseRuby
+        for k in "${!lang[@]}"; do
+            time run_style_check "${k}"
+        done
         ;;
     *)
         echo "✗ unknown spec: ‘${SPEC}’" 1>&2

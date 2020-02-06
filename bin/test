@@ -8,6 +8,18 @@ trap 'echo ✗ fatal error: errexit trapped with status $? 1>&2' ERR
 
 ROOT=${PWD}
 
+readonly -A lang=( \
+    [c]=C \
+    [cpp]=C++ \
+    [go]=Go \
+    [java]=Java \
+    [lisp]=Lisp \
+    [node]=NodeJS \
+    [php]=PHP \
+    [python]=Python \
+    [ruby]=Ruby \
+)
+
 while (( $# > 0 )); do
     case "${1}" in
         --root)
@@ -28,7 +40,7 @@ Optional arguments:
         output version information and exit
 
 Positional arguments:
-    SPEC
+    SPEC (all | c | cpp | go | java | lisp | node | php | python | ruby | perf)
         runtime spec
 EOF
             shift
@@ -49,7 +61,16 @@ EOF
     esac
 done
 
-SPEC=${1?✗ argument parsing failed: missing positional argument ‘SPEC’}
+: "${1?✗ argument parsing failed: missing positional argument ‘SPEC’}"
+case "${1}" in
+    all | c | cpp | go | java | lisp | node | php | python | ruby | perf)
+        SPEC=${1}
+        ;;
+    *)
+        echo "✗ argument parsing failed: acceptable values for ‘SPEC’ are all | c | cpp | go | java | lisp | node | php | python | ruby | perf" 1>&2
+        exit 1
+        ;;
+esac
 shift
 
 if (( $# > 0 )); then
@@ -65,187 +86,152 @@ elif [ ! -r "${ROOT}" ]; then
     exit 1
 fi
 
-testingPhaseOfC () {
-    echo '---------------------------[ C ]--------------------------------'
+run_test () {
+    local prefix=---------------------------
+    local suffix=---------------------------------
+    case "${1}" in
+        c)
+            echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
 
-    for instance in $(find -L "${ROOT}" -type f -name "*.c" | sort); do
-        fname=$(basename "${instance}" .c)
+            for instance in $(find -L "${ROOT}" -type f -name "*.c" | sort); do
+                fname=$(basename "${instance}" .c)
 
-        if gcc   -O0 -g3 -Wall -Werror -std=c11 -x c -o "${fname}" "${instance}" -lm; then
-            ./"${fname}"
-            rm -f "${fname}"
-        fi
+                if gcc   -O0 -g3 -Wall -Werror -std=c11 -x c -o "${fname}" "${instance}" -lm; then
+                    ./"${fname}"
+                    rm -f "${fname}"
+                fi
 
-        if clang -O0 -g3 -Wall -Werror -std=c11 -x c -o "${fname}" "${instance}" -lm; then
-            ./"${fname}"
-            rm -f "${fname}"
-        fi
+                if clang -O0 -g3 -Wall -Werror -std=c11 -x c -o "${fname}" "${instance}" -lm; then
+                    ./"${fname}"
+                    rm -f "${fname}"
+                fi
 
-        echo -e "\\t\\t---------------------------    [${fname}]"
-    done
-}
+                printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
+            done
+            ;;
+        cpp)
+            echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
 
-testingPhaseOfCPP () {
-    echo '---------------------------[ C++ ]------------------------------'
+            for instance in $(find -L "${ROOT}" -type f -name "*.cpp" | sort); do
+                fname=$(basename "${instance}" .cpp)
 
-    for instance in $(find -L "${ROOT}" -type f -name "*.cpp" | sort); do
-        fname=$(basename "${instance}" .cpp)
+                if g++     -O0 -g3 -Wall -Werror -std=c++14 -x c++ -o "${fname}" "${instance}"; then
+                    ./"${fname}"
+                    rm -f "${fname}"
+                fi
 
-        if g++     -O0 -g3 -Wall -Werror -std=c++14 -x c++ -o "${fname}" "${instance}"; then
-            ./"${fname}"
-            rm -f "${fname}"
-        fi
+                if clang++ -O0 -g3 -Wall -Werror -std=c++14 -x c++ -o "${fname}" "${instance}"; then
+                    ./"${fname}"
+                    rm -f "${fname}"
+                fi
 
-        if clang++ -O0 -g3 -Wall -Werror -std=c++14 -x c++ -o "${fname}" "${instance}"; then
-            ./"${fname}"
-            rm -f "${fname}"
-        fi
+                printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
+            done
+            ;;
+        go)
+            echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
 
-        echo -e "\\t\\t---------------------------    [${fname}]"
-    done
-}
+            for instance in $(find -L "${ROOT}" -type f -name "*.go" | sort); do
+                fname=$(basename "${instance}" .go)
 
-testingPhaseOfGo () {
-    echo '---------------------------[ Go ]-------------------------------'
+                if go run "${instance}"; then
+                    go clean -cache
+                fi
 
-    for instance in $(find -L "${ROOT}" -type f -name "*.go" | sort); do
-        fname=$(basename "${instance}" .go)
+                printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
+            done
+            ;;
+        java)
+            echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
 
-        if go run "${instance}"; then
-            go clean -cache
-        fi
+            for instance in $(find -L "${ROOT}" -type f -name "*.java" | sort); do
+                fname=$(basename "${instance}" .java)
 
-        echo -e "\\t\\t---------------------------    [${fname}]"
-    done
-}
+                if javac -d local_build -g -deprecation -Werror -Xlint:all,-path "${instance}"; then
+                    java -cp local_build -ea "${fname}"
+                    rm -rf local_build
+                fi
 
-testingPhaseOfJava () {
-    echo '---------------------------[ Java ]-----------------------------'
+                printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
+            done
+            ;;
+        lisp)
+            echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
 
-    for instance in $(find -L "${ROOT}" -type f -name "*.java" | sort); do
-        fname=$(basename "${instance}" .java)
+            for instance in $(find -L "${ROOT}" -type f -name "*.lisp" | sort); do
+                fname=$(basename "${instance}" .lisp)
 
-        if javac -d local_build -g -deprecation -Werror -Xlint:all,-path "${instance}"; then
-            java -cp local_build -ea "${fname}"
-            rm -rf local_build
-        fi
+                sbcl --noinform --non-interactive --no-sysinit --userinit ~/.fun/minimal.lisp \
+                    --load "${instance}" --eval "(when (fboundp 'main) (main))"
 
-        echo -e "\\t\\t---------------------------    [${fname}]"
-    done
-}
+                printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
+            done
+            ;;
+        node)
+            echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
 
-testingPhaseOfLisp () {
-    echo '---------------------------[ Lisp ]-----------------------------'
+            for instance in $(find -L "${ROOT}" -type f -name "*.js" | sort); do
+                fname=$(basename "${instance}" .js)
 
-    for instance in $(find -L "${ROOT}" -type f -name "*.lisp" | sort); do
-        fname=$(basename "${instance}" .lisp)
+                node --throw-deprecation --trace-warnings "${instance}"
 
-        sbcl --noinform --non-interactive --no-sysinit --userinit ~/.fun/minimal.lisp \
-            --load "${instance}" --eval "(when (fboundp 'main) (main))"
+                printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
+            done
+            ;;
+        php)
+            echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
 
-        echo -e "\\t\\t---------------------------    [${fname}]"
-    done
-}
+            for instance in $(find -L "${ROOT}" -type f -name "*.php" | sort); do
+                fname=$(basename "${instance}" .php)
 
-testingPhaseOfNodeJS () {
-    echo '---------------------------[ NodeJS ]---------------------------'
+                php -e "${instance}"
 
-    for instance in $(find -L "${ROOT}" -type f -name "*.js" | sort); do
-        fname=$(basename "${instance}" .js)
+                printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
+            done
+            ;;
+        python)
+            echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
 
-        node --throw-deprecation --trace-warnings "${instance}"
+            for instance in $(find -L "${ROOT}" -type f -name "*.py" | sort); do
+                fname=$(basename "${instance}" .py)
 
-        echo -e "\\t\\t---------------------------    [${fname}]"
-    done
-}
+                python3 -d -W:all -B "${instance}"
 
-testingPhaseOfPHP () {
-    echo '---------------------------[ PHP ]------------------------------'
+                printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
+            done
+            ;;
+        ruby)
+            echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
 
-    for instance in $(find -L "${ROOT}" -type f -name "*.php" | sort); do
-        fname=$(basename "${instance}" .php)
+            for instance in $(find -L "${ROOT}" -type f -name "*.rb" | sort); do
+                fname=$(basename "${instance}" .rb)
 
-        php -e "${instance}"
+                ruby -w "${instance}"
 
-        echo -e "\\t\\t---------------------------    [${fname}]"
-    done
-}
-
-testingPhaseOfPython () {
-    echo '---------------------------[ Python ]---------------------------'
-
-    for instance in $(find -L "${ROOT}" -type f -name "*.py" | sort); do
-        fname=$(basename "${instance}" .py)
-
-        python3 -d -W:all -B "${instance}"
-
-        echo -e "\\t\\t---------------------------    [${fname}]"
-    done
-}
-
-testingPhaseOfRuby () {
-    echo '---------------------------[ Ruby ]-----------------------------'
-
-    for instance in $(find -L "${ROOT}" -type f -name "*.rb" | sort); do
-        fname=$(basename "${instance}" .rb)
-
-        ruby -w "${instance}"
-
-        echo -e "\\t\\t---------------------------    [${fname}]"
-    done
+                printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
+            done
+            ;;
+        *)
+            return 1
+            ;;
+    esac
 }
 
 echo '=============== TESTING AUTOMATION -- [STARTED] ================'
 
 case "${SPEC}" in
     all)
-        testingPhaseOfC
-        testingPhaseOfCPP
-        testingPhaseOfGo
-        testingPhaseOfJava
-        testingPhaseOfLisp
-        testingPhaseOfNodeJS
-        testingPhaseOfPHP
-        testingPhaseOfPython
-        testingPhaseOfRuby
+        for k in "${!lang[@]}"; do
+            run_test "${k}"
+        done
         ;;
-    c)
-        testingPhaseOfC
-        ;;
-    c++)
-        testingPhaseOfCPP
-        ;;
-    go)
-        testingPhaseOfGo
-        ;;
-    java)
-        testingPhaseOfJava
-        ;;
-    lisp)
-        testingPhaseOfLisp
-        ;;
-    node)
-        testingPhaseOfNodeJS
-        ;;
-    php)
-        testingPhaseOfPHP
-        ;;
-    python)
-        testingPhaseOfPython
-        ;;
-    ruby)
-        testingPhaseOfRuby
+    c | cpp | go | java | lisp | node | php | python | ruby)
+        run_test "${SPEC}"
         ;;
     perf)
-        time testingPhaseOfC
-        time testingPhaseOfCPP
-        time testingPhaseOfGo
-        time testingPhaseOfJava
-        time testingPhaseOfLisp
-        time testingPhaseOfNodeJS
-        time testingPhaseOfPHP
-        time testingPhaseOfPython
-        time testingPhaseOfRuby
+        for k in "${!lang[@]}"; do
+            time run_test "${k}"
+        done
         ;;
     *)
         echo "✗ unknown spec: ‘${SPEC}’" 1>&2
