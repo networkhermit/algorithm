@@ -1,0 +1,3 @@
+(defun import-module (module)
+  (load (merge-pathnames (concatenate 'string module ".lisp")
+                         #p"~/STEM/lib/plt/lisp/src/")))
