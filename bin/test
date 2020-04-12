@@ -147,6 +147,7 @@ run_test () {
             for instance in $(find -L "${ROOT}" -type f -name "*.java" | sort); do
                 fname=$(basename "${instance}" .java)
 
+                unset _JAVA_OPTIONS
                 if javac -d local_build -g -deprecation -Werror -Xlint:all,-path "${instance}"; then
                     java -cp local_build -ea "${fname}"
                     rm -rf local_build
@@ -161,7 +162,7 @@ run_test () {
             for instance in $(find -L "${ROOT}" -type f -name "*.lisp" | sort); do
                 fname=$(basename "${instance}" .lisp)
 
-                sbcl --noinform --non-interactive --no-sysinit --userinit ~/.fun/minimal.lisp \
+                sbcl --noinform --non-interactive --no-sysinit \
                     --load "${instance}" --eval "(when (fboundp 'main) (main))"
 
                 printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
