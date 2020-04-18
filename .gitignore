@@ -1,6 +1,6 @@
-# Symbolic Link
-Implementation
-Test
-
 # Vim swap files
 *.swp
+
+# Symbolic links
+Implementation/
+Test/
