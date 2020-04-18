@@ -307,7 +307,7 @@ run_style_check () {
     esac
 }
 
-echo '================= STYLE CHECKING -- [STARTED] =================='
+echo '====================== style check starts ======================'
 
 case "${SPEC}" in
     all)
@@ -329,4 +329,4 @@ case "${SPEC}" in
         ;;
 esac
 
-echo '================= STYLE CHECKING -- [FINISHED] ================='
+echo '===================== style check finished ====================='

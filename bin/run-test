@@ -218,7 +218,7 @@ run_test () {
     esac
 }
 
-echo '=============== TESTING AUTOMATION -- [STARTED] ================'
+echo '===================== test session starts ======================'
 
 case "${SPEC}" in
     all)
@@ -240,4 +240,4 @@ case "${SPEC}" in
         ;;
 esac
 
-echo '=============== TESTING AUTOMATION -- [FINISHED] ==============='
+echo '==================== test session finished ====================='

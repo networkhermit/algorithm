@@ -48,10 +48,9 @@ if (( $# > 0 )); then
     exit 1
 fi
 
-if [ -z "${PLT_LIB_PATH}" ]; then
-    echo "✗ unexpected error: cannot resolve environment variable ‘PLT_LIB_PATH’" 1>&2
-    exit 1
-elif [ ! -d "${PLT_LIB_PATH}" ]; then
+: "${PLT_LIB_PATH?✗ unexpected error: please specify the library path using environment variable ‘PLT_LIB_PATH’ or the ‘--library-path’ option}"
+
+if [ ! -d "${PLT_LIB_PATH}" ]; then
     echo "✗ not a directory: ‘${PLT_LIB_PATH}’" 1>&2
     exit 1
 elif [ ! -r "${PLT_LIB_PATH}" ]; then
@@ -61,12 +60,11 @@ fi
 
 ROOT="$(dirname "$(dirname "$(realpath "${0}")")")"
 
-for i in "${ROOT}"/codes/Algorithms/*/* "${ROOT}"/codes/DataStructures/*; do
-    (
-    cd "${i}"
+for i in "${ROOT}"/symlink/Algorithms/*/* "${ROOT}"/symlink/DataStructures/*; do
+    pushd "${i}"
     rm --force --recursive Implementation Test
     mkdir --parents Implementation Test
     find -L "${PLT_LIB_PATH}" -type f -name "$(basename "${PWD}").*" -exec ln --symbolic --verbose {} Implementation/ \;
     find -L "${PLT_LIB_PATH}" -type f -name "$(basename "${PWD}")Test.*" -exec ln --symbolic --verbose {} Test/ \;
-    )
+    popd
 done
