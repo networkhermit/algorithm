@@ -10,11 +10,11 @@ ROOT=${PWD}
 
 readonly -A lang=( \
     [c]=C \
-    [cpp]=C++ \
+    [c++]=C++ \
     [go]=Go \
     [java]=Java \
     [lisp]=Lisp \
-    [node]=NodeJS \
+    [nodejs]=NodeJS \
     [php]=PHP \
     [python]=Python \
     [ruby]=Ruby \
@@ -40,7 +40,7 @@ Optional arguments:
         output version information and exit
 
 Positional arguments:
-    SPEC (all | c | cpp | go | java | lisp | node | php | python | ruby | perf)
+    SPEC (all | perf | c | c++ | go | java | lisp | nodejs | php | python | ruby)
         runtime spec
 EOF
             shift
@@ -63,11 +63,11 @@ done
 
 : "${1?✗ argument parsing failed: missing positional argument ‘SPEC’}"
 case "${1}" in
-    all | c | cpp | go | java | lisp | node | php | python | ruby | perf)
+    all | perf | c | c++ | go | java | lisp | nodejs | php | python | ruby)
         SPEC=${1}
         ;;
     *)
-        echo "✗ argument parsing failed: acceptable values for ‘SPEC’ are all | c | cpp | go | java | lisp | node | php | python | ruby | perf" 1>&2
+        echo "✗ argument parsing failed: acceptable values for ‘SPEC’ are all | perf | c | c++ | go | java | lisp | nodejs | php | python | ruby" 1>&2
         exit 1
         ;;
 esac
@@ -121,7 +121,7 @@ run_style_check () {
                 fi
             done
             ;;
-        cpp)
+        c++)
             echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
 
             for instance in $(find -L "${ROOT}" -type f -name "*.cpp" | sort); do
@@ -208,7 +208,7 @@ run_style_check () {
                 fi
             done
             ;;
-        node)
+        nodejs)
             echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
 
             for instance in $(find -L "${ROOT}" -type f -name "*.js" | sort); do
@@ -315,17 +315,13 @@ case "${SPEC}" in
             run_style_check "${k}"
         done
         ;;
-    c | cpp | go | java | lisp | node | php | python | ruby)
-        run_style_check "${SPEC}"
-        ;;
     perf)
         for k in "${!lang[@]}"; do
             time run_style_check "${k}"
         done
         ;;
     *)
-        echo "✗ unknown spec: ‘${SPEC}’" 1>&2
-        exit 1
+        run_style_check "${SPEC}"
         ;;
 esac
 
