@@ -3,8 +3,7 @@
   (:use common-lisp)
   (:export
     iterative-procedure
-    recursive-procedure
-    ))
+    recursive-procedure))
 
 (in-package fibonacci-number)
 

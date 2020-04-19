@@ -3,8 +3,7 @@
 
 (defun test-fibonacci-number ()
   (let ((mapping (make-array '(63 2) :initial-contents
-                             '(
-                               (-31 1346269)
+                             '((-31 1346269)
                                (-30 -832040)
                                (-29  514229)
                                (-28 -317811)
@@ -66,8 +65,7 @@
                                ( 28  317811)
                                ( 29  514229)
                                ( 30  832040)
-                               ( 31 1346269)
-                               ))))
+                               ( 31 1346269)))))
 
     (let ((instances (array-dimension mapping 0)))
 

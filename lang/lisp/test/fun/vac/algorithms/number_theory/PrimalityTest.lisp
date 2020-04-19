@@ -3,8 +3,7 @@
 
 (defun test-primality ()
   (let ((mapping (make-array '(256 2) :initial-contents
-                             '(
-                               (       0 1)
+                             '((       0 1)
                                (       1 1)
                                (       2 2)
                                (       3 2)
@@ -259,8 +258,7 @@
                                ( 2291487 4)
                                ( 3893849 2)
                                ( 1308913 4)
-                               (14162880 4)
-                               ))))
+                               (14162880 4)))))
 
     (let ((instances (array-dimension mapping 0)))
 

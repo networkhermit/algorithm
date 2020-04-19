@@ -6,8 +6,7 @@
     integer-n
     generate-integer
     generate-even
-    generate-odd
-    ))
+    generate-odd))
 
 (in-package random-factory)
 

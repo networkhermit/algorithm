@@ -3,8 +3,7 @@
   (:use common-lisp)
   (:export
     is-prime
-    is-composite
-    ))
+    is-composite))
 
 (in-package primality)
 

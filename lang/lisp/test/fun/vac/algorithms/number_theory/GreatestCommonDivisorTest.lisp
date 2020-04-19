@@ -3,8 +3,7 @@
 
 (defun test-greatest-common-divisor ()
   (let ((mapping (make-array '(128 3) :initial-contents
-                             '(
-                               (          0           1   1)
+                             '((          0           1   1)
                                (          1           0   1)
                                (          1           1   1)
                                (         -1          -1   1)
@@ -131,8 +130,7 @@
                                ( 1483217656  1658473101   1)
                                (-1069835847  1308503268   3)
                                ( 2147483647 -1884119046   1)
-                               (  645159694 -2147483647   1)
-                               ))))
+                               (  645159694 -2147483647   1)))))
 
     (let ((instances (array-dimension mapping 0)))
 

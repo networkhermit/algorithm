@@ -3,8 +3,7 @@
 
 (defun test-parity ()
   (let ((mapping (make-array '(128 2) :initial-contents
-                             '(
-                               (          0 0)
+                             '((          0 0)
                                (          1 1)
                                (         -1 1)
                                (         60 0)
@@ -131,8 +130,7 @@
                                ( -846034014 0)
                                (  411817058 0)
                                ( 2147483647 1)
-                               (-2147483648 0)
-                               ))))
+                               (-2147483648 0)))))
 
     (let ((instances (array-dimension mapping 0)))
 

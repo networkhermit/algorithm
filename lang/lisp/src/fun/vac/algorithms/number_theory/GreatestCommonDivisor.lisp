@@ -5,8 +5,7 @@
     iterative-binary-gcd
     recursive-binary-gcd
     iterative-euclidean
-    recursive-euclidean
-    ))
+    recursive-euclidean))
 
 (in-package greatest-common-divisor)
 

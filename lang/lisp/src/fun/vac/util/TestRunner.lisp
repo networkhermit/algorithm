@@ -2,8 +2,7 @@
   (:nicknames test-runner)
   (:use common-lisp)
   (:export
-    parse-test
-    ))
+    parse-test))
 
 (in-package test-runner)
 

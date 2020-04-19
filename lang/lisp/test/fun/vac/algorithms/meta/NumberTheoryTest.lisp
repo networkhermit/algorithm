@@ -3,8 +3,7 @@
 
 (defun test-is-coprime ()
   (let ((mapping (make-array '(128 3) :initial-contents
-                             '(
-                               (          0           1 1)
+                             '((          0           1 1)
                                (          1           0 1)
                                (          1           1 1)
                                (         -1          -1 1)
@@ -131,8 +130,7 @@
                                (  442691160  1680572092 0)
                                ( 1241208470  -647438045 0)
                                ( 2147483647  -561158902 1)
-                               (  761395308 -2147483647 1)
-                               ))))
+                               (  761395308 -2147483647 1)))))
 
     (let ((instances (array-dimension mapping 0)))
 
@@ -147,8 +145,7 @@
 
 (defun test-factorial ()
   (let ((mapping (make-array '(13 2) :initial-contents
-                             '(
-                               ( 0         1)
+                             '(( 0         1)
                                ( 1         1)
                                ( 2         2)
                                ( 3         6)
@@ -160,8 +157,7 @@
                                ( 9    362880)
                                (10   3628800)
                                (11  39916800)
-                               (12 479001600)
-                               ))))
+                               (12 479001600)))))
 
     (let ((instances (array-dimension mapping 0)))
 
@@ -173,8 +169,7 @@
 
 (defun test-fibonacci ()
   (let ((mapping (make-array '(63 2) :initial-contents
-                             '(
-                               (-31 1346269)
+                             '((-31 1346269)
                                (-30 -832040)
                                (-29  514229)
                                (-28 -317811)
@@ -236,8 +231,7 @@
                                ( 28  317811)
                                ( 29  514229)
                                ( 30  832040)
-                               ( 31 1346269)
-                               ))))
+                               ( 31 1346269)))))
 
     (let ((instances (array-dimension mapping 0)))
 
@@ -249,8 +243,7 @@
 
 (defun test-gcd ()
   (let ((mapping (make-array '(128 3) :initial-contents
-                             '(
-                               (          0           1   1)
+                             '((          0           1   1)
                                (          1           0   1)
                                (          1           1   1)
                                (         -1          -1   1)
@@ -377,8 +370,7 @@
                                ( 1483217656  1658473101   1)
                                (-1069835847  1308503268   3)
                                ( 2147483647 -1884119046   1)
-                               (  645159694 -2147483647   1)
-                               ))))
+                               (  645159694 -2147483647   1)))))
 
     (let ((instances (array-dimension mapping 0)))
 
@@ -390,8 +382,7 @@
 
 (defun test-lcm ()
   (let ((mapping (make-array '(128 3) :initial-contents
-                             '(
-                               (     1      1          1)
+                             '((     1      1          1)
                                (    -1     -1          1)
                                (   -85     -8        680)
                                (    33     -2         66)
@@ -518,8 +509,7 @@
                                ( 30250 -28845  174512250)
                                ( 45203 -23693 1070994679)
                                ( 46340  46341 2147441940)
-                               (-46340 -46341 2147441940)
-                               ))))
+                               (-46340 -46341 2147441940)))))
 
     (let ((instances (array-dimension mapping 0)))
 
@@ -531,8 +521,7 @@
 
 (defun test-is-even ()
   (let ((mapping (make-array '(128 2) :initial-contents
-                             '(
-                               (          0 0)
+                             '((          0 0)
                                (          1 1)
                                (         -1 1)
                                (         60 0)
@@ -659,8 +648,7 @@
                                ( -846034014 0)
                                (  411817058 0)
                                ( 2147483647 1)
-                               (-2147483648 0)
-                               ))))
+                               (-2147483648 0)))))
 
     (let ((instances (array-dimension mapping 0)))
 
@@ -675,8 +663,7 @@
 
 (defun test-is-odd ()
   (let ((mapping (make-array '(128 2) :initial-contents
-                             '(
-                               (          0 0)
+                             '((          0 0)
                                (          1 1)
                                (         -1 1)
                                (         60 0)
@@ -803,8 +790,7 @@
                                ( -846034014 0)
                                (  411817058 0)
                                ( 2147483647 1)
-                               (-2147483648 0)
-                               ))))
+                               (-2147483648 0)))))
 
     (let ((instances (array-dimension mapping 0)))
 
@@ -819,8 +805,7 @@
 
 (defun test-is-prime ()
   (let ((mapping (make-array '(256 2) :initial-contents
-                             '(
-                               (       0 1)
+                             '((       0 1)
                                (       1 1)
                                (       2 2)
                                (       3 2)
@@ -1075,8 +1060,7 @@
                                ( 2291487 4)
                                ( 3893849 2)
                                ( 1308913 4)
-                               (14162880 4)
-                               ))))
+                               (14162880 4)))))
 
     (let ((instances (array-dimension mapping 0)))
 
@@ -1095,8 +1079,7 @@
 
 (defun test-is-composite ()
   (let ((mapping (make-array '(256 2) :initial-contents
-                             '(
-                               (       0 1)
+                             '((       0 1)
                                (       1 1)
                                (       2 2)
                                (       3 2)
@@ -1351,8 +1334,7 @@
                                ( 2291487 4)
                                ( 3893849 2)
                                ( 1308913 4)
-                               (14162880 4)
-                               ))))
+                               (14162880 4)))))
 
     (let ((instances (array-dimension mapping 0)))
 

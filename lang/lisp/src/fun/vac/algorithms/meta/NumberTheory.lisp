@@ -19,8 +19,7 @@
     is-even
     is-odd
     is-prime
-    is-composite
-    ))
+    is-composite))
 
 (in-package number-theory)
 

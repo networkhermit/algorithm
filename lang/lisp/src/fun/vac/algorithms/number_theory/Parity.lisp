@@ -5,8 +5,7 @@
     modulo-is-even
     modulo-is-odd
     bitwise-is-even
-    bitwise-is-odd
-    ))
+    bitwise-is-odd))
 
 (in-package parity)
 
