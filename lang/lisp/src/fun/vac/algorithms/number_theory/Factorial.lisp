@@ -11,12 +11,10 @@
   (when (< n 0)
     (return-from iterative-procedure 0))
 
-  (let ((result 1))
-    (do ((i 1 (1+ i)))
-      ((> i n))
-      (setf result (* result i)))
-
-    (return-from iterative-procedure result)))
+  (do ((result 1)
+       (i 1 (1+ i)))
+    ((> i n) result)
+    (setf result (* result i))))
 
 (defun recursive-procedure (n)
   (when (< n 0)

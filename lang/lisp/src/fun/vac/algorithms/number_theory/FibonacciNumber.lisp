@@ -11,24 +11,21 @@
   (let ((sign 1))
 
     (when (< n 0)
-      (progn
-        (when (= (logand n 1) 0)
-          (setf sign -1))
-        (setf n (- n))))
+      (when (= (logand n 1) 0)
+        (setf sign -1))
+      (setf n (- n)))
 
     (when (< n 2)
       (return-from iterative-procedure n))
 
-    (let ((prev 0)
-          (curr 1)
+    (do ((prev 0)
+         (curr 1)
 
-          next)
-      (do ((i 2 (1+ i)))
-        ((> i n))
-        (setf next (+ prev curr))
-        (shiftf prev curr next))
-
-      (return-from iterative-procedure (* sign curr)))))
+         next
+         (i 2 (1+ i)))
+      ((> i n) (* sign curr))
+      (setf next (+ prev curr))
+      (shiftf prev curr next))))
 
 (defun recursive-procedure (n)
   (cond ((< n 0)

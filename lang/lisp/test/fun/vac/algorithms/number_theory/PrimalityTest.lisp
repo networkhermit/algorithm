@@ -264,23 +264,20 @@
 
       (dotimes (i instances)
         (cond ((= (aref mapping i 1) 1)
-               (progn
-                 (when (primality:is-prime (aref mapping i 0))
-                   (return-from test-primality nil))
-                 (when (primality:is-composite (aref mapping i 0))
-                   (return-from test-primality nil))))
+               (when (primality:is-prime (aref mapping i 0))
+                 (return-from test-primality nil))
+               (when (primality:is-composite (aref mapping i 0))
+                 (return-from test-primality nil)))
               ((= (aref mapping i 1) 2)
-               (progn
-                 (unless (primality:is-prime (aref mapping i 0))
-                   (return-from test-primality nil))
-                 (when (primality:is-composite (aref mapping i 0))
-                   (return-from test-primality nil))))
+               (unless (primality:is-prime (aref mapping i 0))
+                 (return-from test-primality nil))
+               (when (primality:is-composite (aref mapping i 0))
+                 (return-from test-primality nil)))
               (t
-                (progn
-                  (when (primality:is-prime (aref mapping i 0))
-                    (return-from test-primality nil))
-                  (unless (primality:is-composite (aref mapping i 0))
-                    (return-from test-primality nil))))))))
+                (when (primality:is-prime (aref mapping i 0))
+                  (return-from test-primality nil))
+                (unless (primality:is-composite (aref mapping i 0))
+                  (return-from test-primality nil)))))))
 
   t)
 
