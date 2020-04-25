@@ -15,7 +15,7 @@
   (when (< n 0)
     (setf n (- n)))
 
-  (if (or (= m 0) (= n 0))
+  (if (or (zerop m) (zerop n))
     0
     (* (truncate m (greatest-common-divisor::iterative-binary-gcd m n)) n)))
 
@@ -25,6 +25,6 @@
   (when (< n 0)
     (setf n (- n)))
 
-  (if (or (= m 0) (= n 0))
+  (if (or (zerop m) (zerop n))
     0
     (* (truncate m (greatest-common-divisor::iterative-euclidean m n)) n)))

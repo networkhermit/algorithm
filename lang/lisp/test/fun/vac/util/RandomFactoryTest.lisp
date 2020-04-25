@@ -18,7 +18,7 @@
   (let (value)
     (dotimes (i 8192)
       (setf value (random-factory:generate-odd))
-      (when (= (logand value 1) 0)
+      (when (zerop (logand value 1))
         (return nil))))
 
   t)

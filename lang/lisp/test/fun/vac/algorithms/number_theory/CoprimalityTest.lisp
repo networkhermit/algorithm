@@ -135,14 +135,14 @@
     (let ((instances (array-dimension mapping 0)))
 
       (dotimes (i instances)
-        (if (= (aref mapping i 2) 0)
+        (if (zerop (aref mapping i 2))
           (when (coprimality:reduce-to-binary-gcd (aref mapping i 0) (aref mapping i 1))
             (return-from test-coprimality nil))
           (unless (coprimality:reduce-to-binary-gcd (aref mapping i 0) (aref mapping i 1))
             (return-from test-coprimality nil))))
 
       (dotimes (i instances)
-        (if (= (aref mapping i 2) 0)
+        (if (zerop (aref mapping i 2))
           (when (coprimality:reduce-to-euclidean (aref mapping i 0) (aref mapping i 1))
             (return-from test-coprimality nil))
           (unless (coprimality:reduce-to-euclidean (aref mapping i 0) (aref mapping i 1))

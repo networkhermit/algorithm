@@ -10,13 +10,13 @@
 (in-package parity)
 
 (defun modulo-is-even (n)
-  (= (rem n 2) 0))
+  (zerop (rem n 2)))
 
 (defun modulo-is-odd (n)
   (/= (rem n 2) 0))
 
 (defun bitwise-is-even (n)
-  (= (logand n 1) 0))
+  (zerop (logand n 1)))
 
 (defun bitwise-is-odd (n)
   (/= (logand n 1) 0))

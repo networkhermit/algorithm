@@ -11,7 +11,7 @@
   (let ((sign 1))
 
     (when (< n 0)
-      (when (= (logand n 1) 0)
+      (when (zerop (logand n 1))
         (setf sign -1))
       (setf n (- n)))
 
@@ -29,7 +29,7 @@
 
 (defun recursive-procedure (n)
   (cond ((< n 0)
-         (if (= (logand n 1) 0)
+         (if (zerop (logand n 1))
            (- (recursive-procedure (- n)))
            (recursive-procedure (- n))))
         ((< n 2)

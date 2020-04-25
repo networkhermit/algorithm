@@ -135,7 +135,7 @@
     (let ((instances (array-dimension mapping 0)))
 
       (dotimes (i instances)
-        (if (= (aref mapping i 2) 0)
+        (if (zerop (aref mapping i 2))
           (when (number-theory:is-coprime (aref mapping i 0) (aref mapping i 1))
             (return-from test-is-coprime nil))
           (unless (number-theory:is-coprime (aref mapping i 0) (aref mapping i 1))
@@ -653,7 +653,7 @@
     (let ((instances (array-dimension mapping 0)))
 
       (dotimes (i instances)
-        (if (= (aref mapping i 1) 0)
+        (if (zerop (aref mapping i 1))
           (unless (number-theory:is-even (aref mapping i 0))
             (return-from test-is-even nil))
           (when (number-theory:is-even (aref mapping i 0))
@@ -795,7 +795,7 @@
     (let ((instances (array-dimension mapping 0)))
 
       (dotimes (i instances)
-        (if (= (aref mapping i 1) 0)
+        (if (zerop (aref mapping i 1))
           (when (number-theory:is-odd (aref mapping i 0))
             (return-from test-is-odd nil))
           (unless (number-theory:is-odd (aref mapping i 0))

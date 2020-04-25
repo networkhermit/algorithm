@@ -10,13 +10,13 @@
 (defun is-prime (n)
   (when (< n 2)
     (return-from is-prime nil))
-  (when (and (= (logand n 1) 0) (/= n 2))
+  (when (and (zerop (logand n 1)) (/= n 2))
     (return-from is-prime nil))
 
   (do ((bound (isqrt n))
        (i 3 (+ i 2)))
     ((> i bound) t)
-    (when (= (rem n i) 0)
+    (when (zerop (rem n i))
       (return-from is-prime nil))))
 
 (defun is-composite (n)

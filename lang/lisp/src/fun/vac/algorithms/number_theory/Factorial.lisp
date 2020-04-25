@@ -20,6 +20,6 @@
   (when (< n 0)
     (return-from recursive-procedure 0))
 
-  (if (= n 0)
+  (if (zerop n)
     1
     (* (recursive-procedure (- n 1)) n)))
