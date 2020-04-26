@@ -10,9 +10,9 @@
 (in-package greatest-common-divisor)
 
 (defun iterative-binary-gcd (m n)
-  (when (< m 0)
+  (when (minusp m)
     (setf m (- m)))
-  (when (< n 0)
+  (when (minusp n)
     (setf n (- n)))
 
   (do ((shift 0))
@@ -37,9 +37,9 @@
           (setf n (ash (- n m) -1)))))))
 
 (defun recursive-binary-gcd (m n)
-  (when (< m 0)
+  (when (minusp m)
     (setf m (- m)))
-  (when (< n 0)
+  (when (minusp n)
     (setf n (- n)))
 
   (when (= m n)
@@ -60,9 +60,9 @@
         (return-from recursive-binary-gcd (recursive-binary-gcd m (ash (- n m) -1)))))))
 
 (defun iterative-euclidean (m n)
-  (when (< m 0)
+  (when (minusp m)
     (setf m (- m)))
-  (when (< n 0)
+  (when (minusp n)
     (setf n (- n)))
 
   (do (r)
@@ -71,9 +71,9 @@
     (shiftf m n r)))
 
 (defun recursive-euclidean (m n)
-  (when (< m 0)
+  (when (minusp m)
     (setf m (- m)))
-  (when (< n 0)
+  (when (minusp n)
     (setf n (- n)))
 
   (if (zerop n)

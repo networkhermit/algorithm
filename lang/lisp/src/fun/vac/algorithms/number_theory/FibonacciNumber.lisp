@@ -10,7 +10,7 @@
 (defun iterative-procedure (n)
   (let ((sign 1))
 
-    (when (< n 0)
+    (when (minusp n)
       (when (zerop (logand n 1))
         (setf sign -1))
       (setf n (- n)))
@@ -28,7 +28,7 @@
       (shiftf prev curr next))))
 
 (defun recursive-procedure (n)
-  (cond ((< n 0)
+  (cond ((minusp n)
          (if (zerop (logand n 1))
            (- (recursive-procedure (- n)))
            (recursive-procedure (- n))))

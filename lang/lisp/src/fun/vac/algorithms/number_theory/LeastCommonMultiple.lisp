@@ -10,9 +10,9 @@
 (in-package least-common-multiple)
 
 (defun reduce-to-binary-gcd (m n)
-  (when (< m 0)
+  (when (minusp m)
     (setf m (- m)))
-  (when (< n 0)
+  (when (minusp n)
     (setf n (- n)))
 
   (if (or (zerop m) (zerop n))
@@ -20,9 +20,9 @@
     (* (truncate m (greatest-common-divisor::iterative-binary-gcd m n)) n)))
 
 (defun reduce-to-euclidean (m n)
-  (when (< m 0)
+  (when (minusp m)
     (setf m (- m)))
-  (when (< n 0)
+  (when (minusp n)
     (setf n (- n)))
 
   (if (or (zerop m) (zerop n))

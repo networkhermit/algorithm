@@ -8,7 +8,7 @@
 (in-package factorial)
 
 (defun iterative-procedure (n)
-  (when (< n 0)
+  (when (minusp n)
     (return-from iterative-procedure 0))
 
   (do ((result 1)
@@ -17,7 +17,7 @@
     (setf result (* result i))))
 
 (defun recursive-procedure (n)
-  (when (< n 0)
+  (when (minusp n)
     (return-from recursive-procedure 0))
 
   (if (zerop n)
