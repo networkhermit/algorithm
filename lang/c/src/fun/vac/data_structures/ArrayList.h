@@ -29,7 +29,7 @@ ArrayList * ArrayList_new(size_t physicalSize) {
     if (physicalSize > 1) {
         list->physicalSize = physicalSize;
     }
-    list->data = (array_list_type *) malloc(sizeof(array_list_type) * list->physicalSize);
+    list->data = (array_list_type *) malloc(list->physicalSize * sizeof(array_list_type));
 
     return list;
 }
@@ -73,7 +73,7 @@ void ArrayList_insert(ArrayList *list, size_t index, array_list_type element) {
             newCapacity = list->physicalSize + (list->physicalSize >> 1);
         }
 
-        array_list_type *temp = (array_list_type *) malloc(sizeof(array_list_type) * newCapacity);
+        array_list_type *temp = (array_list_type *) malloc(newCapacity * sizeof(array_list_type));
 
         for (size_t i = 0, length = list->logicalSize; i < length; i++) {
             temp[i] = list->data[i];
@@ -138,7 +138,7 @@ size_t ArrayList_capacity(ArrayList *list) {
 }
 
 void ArrayList_shrink(ArrayList *list) {
-    array_list_type *temp = (array_list_type *) malloc(sizeof(array_list_type) * list->logicalSize);
+    array_list_type *temp = (array_list_type *) malloc(list->logicalSize * sizeof(array_list_type));
 
     for (size_t i = 0, length = list->logicalSize; i < length; i++) {
         temp[i] = list->data[i];

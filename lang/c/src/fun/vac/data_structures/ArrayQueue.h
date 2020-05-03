@@ -31,7 +31,7 @@ ArrayQueue * ArrayQueue_new(size_t physicalSize) {
     if (physicalSize > 1) {
         queue->physicalSize = physicalSize;
     }
-    queue->data = (array_queue_type *) malloc(sizeof(array_queue_type) * queue->physicalSize);
+    queue->data = (array_queue_type *) malloc(queue->physicalSize * sizeof(array_queue_type));
 
     return queue;
 }
@@ -61,7 +61,7 @@ void ArrayQueue_enqueue(ArrayQueue *queue, array_queue_type element) {
             newCapacity = queue->physicalSize + (queue->physicalSize >> 1);
         }
 
-        array_queue_type *temp = (array_queue_type *) malloc(sizeof(array_queue_type) * newCapacity);
+        array_queue_type *temp = (array_queue_type *) malloc(newCapacity * sizeof(array_queue_type));
 
         size_t cursor = queue->front;
 
@@ -103,7 +103,7 @@ size_t ArrayQueue_capacity(ArrayQueue *queue) {
 }
 
 void ArrayQueue_shrink(ArrayQueue *queue) {
-    array_queue_type *temp = (array_queue_type *) malloc(sizeof(array_queue_type) * queue->logicalSize);
+    array_queue_type *temp = (array_queue_type *) malloc(queue->logicalSize * sizeof(array_queue_type));
 
     size_t cursor = queue->front;
 

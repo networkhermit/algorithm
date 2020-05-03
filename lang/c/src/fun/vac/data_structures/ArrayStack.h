@@ -29,7 +29,7 @@ ArrayStack * ArrayStack_new(size_t physicalSize) {
     if (physicalSize > 1) {
         stack->physicalSize = physicalSize;
     }
-    stack->data = (array_stack_type *) malloc(sizeof(array_stack_type) * stack->physicalSize);
+    stack->data = (array_stack_type *) malloc(stack->physicalSize * sizeof(array_stack_type));
 
     return stack;
 }
@@ -59,7 +59,7 @@ void ArrayStack_push(ArrayStack *stack, array_stack_type element) {
             newCapacity = stack->physicalSize + (stack->physicalSize >> 1);
         }
 
-        array_stack_type *temp = (array_stack_type *) malloc(sizeof(array_stack_type) * newCapacity);
+        array_stack_type *temp = (array_stack_type *) malloc(newCapacity * sizeof(array_stack_type));
 
         for (size_t i = 0, length = stack->logicalSize; i < length; i++) {
             temp[i] = stack->data[i];
@@ -92,7 +92,7 @@ size_t ArrayStack_capacity(ArrayStack *stack) {
 }
 
 void ArrayStack_shrink(ArrayStack *stack) {
-    array_stack_type *temp = (array_stack_type *) malloc(sizeof(array_stack_type) * stack->logicalSize);
+    array_stack_type *temp = (array_stack_type *) malloc(stack->logicalSize * sizeof(array_stack_type));
 
     for (size_t i = 0, length = stack->logicalSize; i < length; i++) {
         temp[i] = stack->data[i];

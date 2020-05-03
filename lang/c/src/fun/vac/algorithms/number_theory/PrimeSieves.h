@@ -31,7 +31,7 @@ size_t * PrimeSieves_sieveOfEratosthenes(size_t n, size_t *length) {
     }
 
     *length = numPrimes;
-    size_t *primes = (size_t *) malloc(sizeof(size_t) * (*length));
+    size_t *primes = (size_t *) malloc(*length * sizeof(size_t));
 
     primes[0] = 2;
 
