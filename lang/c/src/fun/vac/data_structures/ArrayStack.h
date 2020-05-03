@@ -19,7 +19,7 @@ typedef struct {
     size_t physicalSize;
 } ArrayStack;
 
-ArrayStack * ArrayStack_new(size_t physicalSize) {
+ArrayStack *ArrayStack_new(size_t physicalSize) {
     ArrayStack *stack = (ArrayStack *) malloc(sizeof(ArrayStack));
 
     stack->data = NULL;

@@ -22,7 +22,7 @@ typedef struct {
     size_t length;
 } LinkedList;
 
-LinkedList * LinkedList_new(void) {
+LinkedList *LinkedList_new(void) {
     LinkedList *list = (LinkedList *) malloc(sizeof(LinkedList));
 
     list->head = NULL;

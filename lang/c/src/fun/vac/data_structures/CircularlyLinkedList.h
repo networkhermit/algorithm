@@ -21,7 +21,7 @@ typedef struct {
     size_t length;
 } CircularlyLinkedList;
 
-CircularlyLinkedList * CircularlyLinkedList_new(void) {
+CircularlyLinkedList *CircularlyLinkedList_new(void) {
     CircularlyLinkedList *list = (CircularlyLinkedList *) malloc(sizeof(CircularlyLinkedList));
 
     list->tail = NULL;

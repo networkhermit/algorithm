@@ -23,7 +23,7 @@ typedef struct {
     size_t length;
 } DoublyLinkedList;
 
-DoublyLinkedList * DoublyLinkedList_new(void) {
+DoublyLinkedList *DoublyLinkedList_new(void) {
     DoublyLinkedList *list = (DoublyLinkedList *) malloc(sizeof(DoublyLinkedList));
 
     list->head = NULL;

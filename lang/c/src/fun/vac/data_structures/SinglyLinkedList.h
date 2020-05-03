@@ -21,7 +21,7 @@ typedef struct {
     size_t length;
 } SinglyLinkedList;
 
-SinglyLinkedList * SinglyLinkedList_new(void) {
+SinglyLinkedList *SinglyLinkedList_new(void) {
     SinglyLinkedList *list = (SinglyLinkedList *) malloc(sizeof(SinglyLinkedList));
 
     list->head = NULL;

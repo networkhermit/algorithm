@@ -46,7 +46,7 @@ bool NumberTheory_isComposite(long n) {
     return Primality_isComposite(n);
 }
 
-size_t * NumberTheory_sieveOfPrimes(size_t n, size_t *length) {
+size_t *NumberTheory_sieveOfPrimes(size_t n, size_t *length) {
     return PrimeSieves_sieveOfEratosthenes(n, length);
 }
 

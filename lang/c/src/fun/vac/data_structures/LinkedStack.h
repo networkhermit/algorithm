@@ -22,7 +22,7 @@ typedef struct {
     size_t length;
 } LinkedStack;
 
-LinkedStack * LinkedStack_new(void) {
+LinkedStack *LinkedStack_new(void) {
     LinkedStack *stack = (LinkedStack *) malloc(sizeof(LinkedStack));
 
     stack->head = NULL;

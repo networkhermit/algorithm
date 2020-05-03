@@ -20,7 +20,7 @@ typedef struct {
     size_t physicalSize;
 } ArrayQueue;
 
-ArrayQueue * ArrayQueue_new(size_t physicalSize) {
+ArrayQueue *ArrayQueue_new(size_t physicalSize) {
     ArrayQueue *queue = (ArrayQueue *) malloc(sizeof(ArrayQueue));
 
     queue->data = NULL;

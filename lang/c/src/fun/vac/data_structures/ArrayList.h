@@ -19,7 +19,7 @@ typedef struct {
     size_t physicalSize;
 } ArrayList;
 
-ArrayList * ArrayList_new(size_t physicalSize) {
+ArrayList *ArrayList_new(size_t physicalSize) {
     ArrayList *list = (ArrayList *) malloc(sizeof(ArrayList));
 
     list->data = NULL;

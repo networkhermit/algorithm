@@ -22,7 +22,7 @@ typedef struct {
     size_t length;
 } LinkedQueue;
 
-LinkedQueue * LinkedQueue_new(void) {
+LinkedQueue *LinkedQueue_new(void) {
     LinkedQueue *queue = (LinkedQueue *) malloc(sizeof(LinkedQueue));
 
     queue->head = NULL;
