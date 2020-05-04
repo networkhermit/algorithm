@@ -56,9 +56,8 @@
         for ($i = $size; $i >= 1; $i--) {
             if ($list->back() != $i) {
                 return false;
-            } else {
-                $list->eject();
             }
+            $list->eject();
         }
 
         if (!$list->isEmpty()) {

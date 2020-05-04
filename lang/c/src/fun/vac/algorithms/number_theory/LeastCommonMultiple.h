@@ -13,9 +13,8 @@ long LeastCommonMultiple_reduceToBinaryGCD(long m, long n) {
 
     if (m == 0 || n == 0) {
         return 0;
-    } else {
-        return m / GreatestCommonDivisor_iterativeBinaryGCD(m, n) * n;
     }
+    return m / GreatestCommonDivisor_iterativeBinaryGCD(m, n) * n;
 }
 
 long LeastCommonMultiple_reduceToEuclidean(long m, long n) {
@@ -28,9 +27,8 @@ long LeastCommonMultiple_reduceToEuclidean(long m, long n) {
 
     if (m == 0 || n == 0) {
         return 0;
-    } else {
-        return m / GreatestCommonDivisor_iterativeEuclidean(m, n) * n;
     }
+    return m / GreatestCommonDivisor_iterativeEuclidean(m, n) * n;
 }
 
 #endif

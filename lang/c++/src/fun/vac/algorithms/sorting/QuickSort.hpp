@@ -22,7 +22,7 @@ namespace QuickSort {
                     arr[i] = pivot;
                     break;
                 }
-                right -= 1;
+                right--;
             }
             for (std::size_t i = left; i < right; i++) {
                 if (arr[i] > pivot) {
@@ -30,7 +30,7 @@ namespace QuickSort {
                     arr[i] = pivot;
                     break;
                 }
-                left += 1;
+                left++;
             }
         }
 

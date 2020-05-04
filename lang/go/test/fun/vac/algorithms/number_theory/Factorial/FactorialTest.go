@@ -22,13 +22,13 @@ func testFactorial() bool {
         {12, 479001600},
     }
 
-    for i, _ := range mapping {
+    for i := range mapping {
         if Factorial.IterativeProcedure(mapping[i][0]) != mapping[i][1] {
             return false
         }
     }
 
-    for i, _ := range mapping {
+    for i := range mapping {
         if Factorial.RecursiveProcedure(mapping[i][0]) != mapping[i][1] {
             return false
         }

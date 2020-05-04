@@ -18,7 +18,7 @@
                     $arr[$i] = $pivot;
                     break;
                 }
-                $right -= 1;
+                $right--;
             }
             for ($i = $left; $i < $right; $i++) {
                 if ($arr[$i] > $pivot) {
@@ -26,7 +26,7 @@
                     $arr[$i] = $pivot;
                     break;
                 }
-                $left += 1;
+                $left++;
             }
         }
 

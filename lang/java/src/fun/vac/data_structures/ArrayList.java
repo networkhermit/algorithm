@@ -80,7 +80,7 @@ public class ArrayList<E> implements IList<E> {
 
         data[index] = element;
 
-        logicalSize += 1;
+        logicalSize++;
     }
 
     @Override
@@ -93,7 +93,7 @@ public class ArrayList<E> implements IList<E> {
             data[i - 1] = data[i];
         }
 
-        logicalSize -= 1;
+        logicalSize--;
 
         data[logicalSize] = null;
     }

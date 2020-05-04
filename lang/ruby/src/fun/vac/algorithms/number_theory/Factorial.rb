@@ -20,8 +20,7 @@ module Factorial
 
         if n == 0
             return 1
-        else
-            return recursiveProcedure(n - 1) * n
         end
+        return recursiveProcedure(n - 1) * n
     end
 end

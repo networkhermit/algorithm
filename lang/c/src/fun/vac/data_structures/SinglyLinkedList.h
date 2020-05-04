@@ -93,7 +93,7 @@ void SinglyLinkedList_insert(SinglyLinkedList *list, size_t index, singly_linked
         cursor->next = node;
     }
 
-    list->length += 1;
+    list->length++;
 }
 
 void SinglyLinkedList_remove(SinglyLinkedList *list, size_t index) {
@@ -123,7 +123,7 @@ void SinglyLinkedList_remove(SinglyLinkedList *list, size_t index) {
     target->data = (singly_linked_list_type) 0;
     free(target);
 
-    list->length -= 1;
+    list->length--;
 }
 
 singly_linked_list_type SinglyLinkedList_front(SinglyLinkedList *list) {

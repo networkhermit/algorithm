@@ -141,7 +141,7 @@ func testPrimeSieves() bool {
 
     var arr []int
 
-    for i, _ := range mapping {
+    for i := range mapping {
         arr = PrimeSieves.SieveOfEratosthenes(mapping[i][0])
 
         if len(arr) != mapping[i][1] {

@@ -137,7 +137,7 @@ func testParity() bool {
         {-2147483648, 0},
     }
 
-    for i, _ := range mapping {
+    for i := range mapping {
         if mapping[i][1] == 0 {
             if !Parity.ModuloIsEven(mapping[i][0]) {
                 return false
@@ -149,7 +149,7 @@ func testParity() bool {
         }
     }
 
-    for i, _ := range mapping {
+    for i := range mapping {
         if mapping[i][1] == 0 {
             if !Parity.BitwiseIsEven(mapping[i][0]) {
                 return false
@@ -161,7 +161,7 @@ func testParity() bool {
         }
     }
 
-    for i, _ := range mapping {
+    for i := range mapping {
         if mapping[i][1] == 0 {
             if Parity.ModuloIsOdd(mapping[i][0]) {
                 return false
@@ -173,7 +173,7 @@ func testParity() bool {
         }
     }
 
-    for i, _ := range mapping {
+    for i := range mapping {
         if mapping[i][1] == 0 {
             if Parity.BitwiseIsOdd(mapping[i][0]) {
                 return false

@@ -6,11 +6,11 @@
 
 (in-package test-runner)
 
-(defvar *test-runner-test-index* 0)
+(defvar *test-runner-item-index* 0)
 
 (defun parse-test (ok)
   (if ok
-    (format t "✓ Test [~D] Passed~%" *test-runner-test-index*)
-    (format t "✗ Test [~D] Failed~%" *test-runner-test-index*))
+    (format t "✓ Item [~D] PASSED~%" *test-runner-item-index*)
+    (format t "✗ Item [~D] FAILED~%" *test-runner-item-index*))
 
-  (incf *test-runner-test-index*) nil)
+  (incf *test-runner-item-index*))

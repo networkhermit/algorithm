@@ -43,7 +43,7 @@ exports.LinkedQueue = class {
 
         this.tail = node
 
-        this.length += 1
+        this.length++
     }
 
     dequeue() {
@@ -62,6 +62,6 @@ exports.LinkedQueue = class {
 
         target.data = null
 
-        this.length -= 1
+        this.length--
     }
 }

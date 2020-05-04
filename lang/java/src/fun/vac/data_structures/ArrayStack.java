@@ -63,7 +63,7 @@ public class ArrayStack<E> implements IStack<E> {
 
         data[logicalSize] = element;
 
-        logicalSize += 1;
+        logicalSize++;
     }
 
     @Override
@@ -72,7 +72,7 @@ public class ArrayStack<E> implements IStack<E> {
             throw new RuntimeException("[PANIC - NoSuchElement]");
         }
 
-        logicalSize -= 1;
+        logicalSize--;
 
         data[logicalSize] = null;
     }

@@ -63,7 +63,7 @@ namespace ArrayStack {
 
             data[logicalSize] = element;
 
-            logicalSize += 1;
+            logicalSize++;
         }
 
         void pop() {
@@ -71,7 +71,7 @@ namespace ArrayStack {
                 throw std::runtime_error("[PANIC - NoSuchElement]");
             }
 
-            logicalSize -= 1;
+            logicalSize--;
 
             data[logicalSize] = static_cast<E>(0);
         }

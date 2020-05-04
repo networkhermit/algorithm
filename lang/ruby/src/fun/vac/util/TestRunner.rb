@@ -1,14 +1,14 @@
 module TestRunner
 
-    $TestRunner_TestIndex = 0
+    $TestRunnerItemIndex = 0
 
     def self.parseTest(ok)
         if ok
-            puts("✓ Test [%s] Passed" % $TestRunner_TestIndex)
+            puts("✓ Item [%s] PASSED" % $TestRunnerItemIndex)
         else
-            STDERR.puts("✗ Test [%s] Failed" % $TestRunner_TestIndex)
+            STDERR.puts("✗ Item [%s] FAILED" % $TestRunnerItemIndex)
         end
 
-        $TestRunner_TestIndex += 1
+        $TestRunnerItemIndex += 1
     end
 end

@@ -49,7 +49,7 @@ exports.ArrayStack = class {
 
         this.data[this.logicalSize] = element
 
-        this.logicalSize += 1
+        this.logicalSize++
     }
 
     pop() {
@@ -57,7 +57,7 @@ exports.ArrayStack = class {
             throw new Error("[PANIC - NoSuchElement]")
         }
 
-        this.logicalSize -= 1
+        this.logicalSize--
 
         this.data[this.logicalSize] = null
     }

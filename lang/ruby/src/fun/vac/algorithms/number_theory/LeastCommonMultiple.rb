@@ -12,9 +12,8 @@ module LeastCommonMultiple
 
         if m == 0 || n == 0
             return 0
-        else
-            return m / GreatestCommonDivisor.iterativeBinaryGCD(m, n) * n
         end
+        return m / GreatestCommonDivisor.iterativeBinaryGCD(m, n) * n
     end
 
     def self.reduceToEuclidean(m, n)
@@ -27,8 +26,7 @@ module LeastCommonMultiple
 
         if m == 0 || n == 0
             return 0
-        else
-            return m / GreatestCommonDivisor.iterativeEuclidean(m, n) * n
         end
+        return m / GreatestCommonDivisor.iterativeEuclidean(m, n) * n
     end
 end

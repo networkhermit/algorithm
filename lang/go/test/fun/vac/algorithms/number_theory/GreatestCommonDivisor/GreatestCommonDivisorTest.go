@@ -137,25 +137,25 @@ func testGreatestCommonDivisor() bool {
         {  645159694, -2147483647,   1},
     }
 
-    for i, _ := range mapping {
+    for i := range mapping {
         if GreatestCommonDivisor.IterativeBinaryGCD(mapping[i][0], mapping[i][1]) != mapping[i][2] {
             return false
         }
     }
 
-    for i, _ := range mapping {
+    for i := range mapping {
         if GreatestCommonDivisor.RecursiveBinaryGCD(mapping[i][0], mapping[i][1]) != mapping[i][2] {
             return false
         }
     }
 
-    for i, _ := range mapping {
+    for i := range mapping {
         if GreatestCommonDivisor.IterativeEuclidean(mapping[i][0], mapping[i][1]) != mapping[i][2] {
             return false
         }
     }
 
-    for i, _ := range mapping {
+    for i := range mapping {
         if GreatestCommonDivisor.RecursiveEuclidean(mapping[i][0], mapping[i][1]) != mapping[i][2] {
             return false
         }

@@ -72,13 +72,13 @@ func testFibonacciNumber() bool {
         { 31, 1346269},
     }
 
-    for i, _ := range mapping {
+    for i := range mapping {
         if FibonacciNumber.IterativeProcedure(mapping[i][0]) != mapping[i][1] {
             return false
         }
     }
 
-    for i, _ := range mapping {
+    for i := range mapping {
         if FibonacciNumber.RecursiveProcedure(mapping[i][0]) != mapping[i][1] {
             return false
         }

@@ -16,7 +16,7 @@ exports.partition = (arr, lo, hi) => {
                 arr[i] = pivot
                 break
             }
-            right -= 1
+            right--
         }
         for (let i = left; i < right; i++) {
             if (arr[i] > pivot) {
@@ -24,7 +24,7 @@ exports.partition = (arr, lo, hi) => {
                 arr[i] = pivot
                 break
             }
-            left += 1
+            left++
         }
     }
 

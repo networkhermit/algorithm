@@ -91,7 +91,7 @@ void ArrayList_insert(ArrayList *list, size_t index, array_list_type element) {
 
     list->data[index] = element;
 
-    list->logicalSize += 1;
+    list->logicalSize++;
 }
 
 void ArrayList_remove(ArrayList *list, size_t index) {
@@ -104,7 +104,7 @@ void ArrayList_remove(ArrayList *list, size_t index) {
         list->data[i - 1] = list->data[i];
     }
 
-    list->logicalSize -= 1;
+    list->logicalSize--;
 
     list->data[list->logicalSize] = (array_list_type) 0;
 }

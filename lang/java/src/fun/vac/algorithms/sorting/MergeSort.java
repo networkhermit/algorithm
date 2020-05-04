@@ -20,17 +20,17 @@ public class MergeSort {
         for (int i = 0, length = sorted.length; i < length; i++) {
             if (m != mid && (n == hi || arr[m].compareTo(arr[n]) < 0)) {
                 sorted[i] = arr[m];
-                m += 1;
+                m++;
             } else {
                 sorted[i] = arr[n];
-                n += 1;
+                n++;
             }
         }
 
         int cursor = 0;
         for (int i = lo; i < hi; i++) {
             arr[i] = sorted[cursor];
-            cursor += 1;
+            cursor++;
         }
     }
 

@@ -107,7 +107,7 @@ exports.DoublyLinkedList = class {
             cursor.prev = node
         }
 
-        this.length += 1
+        this.length++
     }
 
     remove(index) {
@@ -148,7 +148,7 @@ exports.DoublyLinkedList = class {
 
         target.data = null
 
-        this.length -= 1
+        this.length--
     }
 
     front() {

@@ -61,7 +61,7 @@ public class ArrayQueue<E> implements IQueue<E> {
                     cursor = 0;
                 }
                 temp[i] = data[cursor];
-                cursor += 1;
+                cursor++;
             }
 
             data = temp;
@@ -71,7 +71,7 @@ public class ArrayQueue<E> implements IQueue<E> {
 
         data[(front + logicalSize) % physicalSize] = element;
 
-        logicalSize += 1;
+        logicalSize++;
     }
 
     @Override
@@ -84,7 +84,7 @@ public class ArrayQueue<E> implements IQueue<E> {
 
         front = (front + 1) % physicalSize;
 
-        logicalSize -= 1;
+        logicalSize--;
     }
 
     public int capacity() {
@@ -102,7 +102,7 @@ public class ArrayQueue<E> implements IQueue<E> {
                 cursor = 0;
             }
             temp[i] = data[cursor];
-            cursor += 1;
+            cursor++;
         }
 
         data = temp;

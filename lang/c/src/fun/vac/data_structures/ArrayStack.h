@@ -73,7 +73,7 @@ void ArrayStack_push(ArrayStack *stack, array_stack_type element) {
 
     stack->data[stack->logicalSize] = element;
 
-    stack->logicalSize += 1;
+    stack->logicalSize++;
 }
 
 void ArrayStack_pop(ArrayStack *stack) {
@@ -82,7 +82,7 @@ void ArrayStack_pop(ArrayStack *stack) {
         exit(EXIT_FAILURE);
     }
 
-    stack->logicalSize -= 1;
+    stack->logicalSize--;
 
     stack->data[stack->logicalSize] = (array_stack_type) 0;
 }

@@ -32,14 +32,13 @@ long FibonacciNumber_recursiveProcedure(long n) {
     if (n < 0) {
         if ((n & 1) == 0) {
             return -FibonacciNumber_recursiveProcedure(-n);
-        } else {
-            return FibonacciNumber_recursiveProcedure(-n);
         }
-    } else if (n < 2) {
-        return n;
-    } else {
-        return FibonacciNumber_recursiveProcedure(n - 2) + FibonacciNumber_recursiveProcedure(n - 1);
+        return FibonacciNumber_recursiveProcedure(-n);
     }
+    if (n < 2) {
+        return n;
+    }
+    return FibonacciNumber_recursiveProcedure(n - 2) + FibonacciNumber_recursiveProcedure(n - 1);
 }
 
 #endif

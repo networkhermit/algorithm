@@ -51,9 +51,8 @@ bool testCircularlyLinkedList(void) {
     for (size_t i = size; i >= 1; i--) {
         if ((size_t) CircularlyLinkedList_back(list) != i) {
             return false;
-        } else {
-            CircularlyLinkedList_eject(list);
         }
+        CircularlyLinkedList_eject(list);
     }
 
     if (!CircularlyLinkedList_isEmpty(list)) {

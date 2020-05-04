@@ -86,9 +86,12 @@ elif [ ! -r "${ROOT}" ]; then
     exit 1
 fi
 
+readonly prefix=---------------------------
+readonly suffix=---------------------------------
+
 run_test () {
-    local prefix=---------------------------
-    local suffix=---------------------------------
+    local instance
+    local fname
     case "${1}" in
         c)
             echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"

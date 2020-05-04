@@ -50,7 +50,7 @@
 
             $this->tail = $node;
 
-            $this->length += 1;
+            $this->length++;
         }
 
         public function pop(): void {
@@ -74,7 +74,7 @@
 
             $target->data = NULL;
 
-            $this->length -= 1;
+            $this->length--;
         }
     }
 ?>

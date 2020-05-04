@@ -54,7 +54,7 @@
                         $cursor = 0;
                     }
                     $temp[$i] = $this->data[$cursor];
-                    $cursor += 1;
+                    $cursor++;
                 }
 
                 $this->data = $temp;
@@ -64,7 +64,7 @@
 
             $this->data[($this->front + $this->logicalSize) % $this->physicalSize] = $element;
 
-            $this->logicalSize += 1;
+            $this->logicalSize++;
         }
 
         public function dequeue(): void {
@@ -76,7 +76,7 @@
 
             $this->front = ($this->front + 1) % $this->physicalSize;
 
-            $this->logicalSize -= 1;
+            $this->logicalSize--;
         }
 
         public function capacity(): int {
@@ -93,7 +93,7 @@
                     $cursor = 0;
                 }
                 $temp[$i] = $this->data[$cursor];
-                $cursor += 1;
+                $cursor++;
             }
 
             $this->data = $temp;

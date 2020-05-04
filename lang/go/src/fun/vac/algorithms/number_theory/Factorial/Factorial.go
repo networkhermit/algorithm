@@ -20,7 +20,6 @@ func RecursiveProcedure(n int64) int64 {
 
     if n == 0 {
         return 1
-    } else {
-        return RecursiveProcedure(n - 1) * n
     }
+    return RecursiveProcedure(n - 1) * n
 }

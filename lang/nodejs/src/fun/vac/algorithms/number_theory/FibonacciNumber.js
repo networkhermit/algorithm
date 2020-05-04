@@ -31,12 +31,11 @@ exports.recursiveProcedure = (n) => {
     if (n < 0) {
         if ((n & 1) === 0) {
             return -this.recursiveProcedure(-n)
-        } else {
-            return this.recursiveProcedure(-n)
         }
-    } else if (n < 2) {
-        return n
-    } else {
-        return this.recursiveProcedure(n - 2) + this.recursiveProcedure(n - 1)
+        return this.recursiveProcedure(-n)
     }
+    if (n < 2) {
+        return n
+    }
+    return this.recursiveProcedure(n - 2) + this.recursiveProcedure(n - 1)
 }

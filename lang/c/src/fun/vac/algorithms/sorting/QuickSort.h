@@ -25,7 +25,7 @@ void QuickSort_partition(quick_sort_type *arr, size_t lo, size_t hi) {
                 arr[i] = pivot;
                 break;
             }
-            right -= 1;
+            right--;
         }
         for (size_t i = left; i < right; i++) {
             if (arr[i] > pivot) {
@@ -33,7 +33,7 @@ void QuickSort_partition(quick_sort_type *arr, size_t lo, size_t hi) {
                 arr[i] = pivot;
                 break;
             }
-            left += 1;
+            left++;
         }
     }
 

@@ -63,7 +63,7 @@ void LinkedQueue_enqueue(LinkedQueue *queue, linked_queue_type element) {
 
     queue->tail = node;
 
-    queue->length += 1;
+    queue->length++;
 }
 
 void LinkedQueue_dequeue(LinkedQueue *queue) {
@@ -84,7 +84,7 @@ void LinkedQueue_dequeue(LinkedQueue *queue) {
     target->data = (linked_queue_type) 0;
     free(target);
 
-    queue->length -= 1;
+    queue->length--;
 }
 
 #endif

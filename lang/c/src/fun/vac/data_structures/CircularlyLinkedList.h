@@ -104,7 +104,7 @@ void CircularlyLinkedList_insert(CircularlyLinkedList *list, size_t index, circu
         cursor->next = node;
     }
 
-    list->length += 1;
+    list->length++;
 }
 
 void CircularlyLinkedList_remove(CircularlyLinkedList *list, size_t index) {
@@ -137,7 +137,7 @@ void CircularlyLinkedList_remove(CircularlyLinkedList *list, size_t index) {
     target->data = (circularly_linked_list_type) 0;
     free(target);
 
-    list->length -= 1;
+    list->length--;
 }
 
 circularly_linked_list_type CircularlyLinkedList_front(CircularlyLinkedList *list) {

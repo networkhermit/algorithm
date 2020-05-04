@@ -51,9 +51,8 @@ bool testLinkedList(void) {
     for (size_t i = size; i >= 1; i--) {
         if ((size_t) DoublyLinkedList_back(list) != i) {
             return false;
-        } else {
-            DoublyLinkedList_eject(list);
         }
+        DoublyLinkedList_eject(list);
     }
 
     if (!DoublyLinkedList_isEmpty(list)) {

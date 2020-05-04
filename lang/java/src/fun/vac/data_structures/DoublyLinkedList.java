@@ -117,7 +117,7 @@ public class DoublyLinkedList<E> implements IList<E> {
             cursor.prev = node;
         }
 
-        length += 1;
+        length++;
     }
 
     @Override
@@ -159,7 +159,7 @@ public class DoublyLinkedList<E> implements IList<E> {
 
         target.data = null;
 
-        length -= 1;
+        length--;
     }
 
     @Override

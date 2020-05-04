@@ -59,9 +59,8 @@ bool testArrayList() {
     for (size_t i = size; i >= 1; i--) {
         if (static_cast<size_t>(list->back()) != i) {
             return false;
-        } else {
-            list->eject();
         }
+        list->eject();
     }
 
     list->shrink();

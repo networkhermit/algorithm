@@ -44,7 +44,7 @@ func (queue *LinkedQueue) Enqueue(element int) {
 
     queue.tail = node
 
-    queue.length += 1
+    queue.length++
 }
 
 func (queue *LinkedQueue) Dequeue() {
@@ -63,5 +63,5 @@ func (queue *LinkedQueue) Dequeue() {
 
     target.data = int(0)
 
-    queue.length -= 1
+    queue.length--
 }

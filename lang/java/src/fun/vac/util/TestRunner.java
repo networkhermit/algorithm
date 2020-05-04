@@ -2,17 +2,17 @@ package fun.vac.util;
 
 public class TestRunner {
 
-    private static int TestRunner_TestIndex = 0;
+    private static int TestRunnerItemIndex = 0;
 
     private TestRunner() {}
 
     public static void parseTest(boolean ok) {
         if (ok) {
-            System.out.printf("✓ Test [%d] Passed\n", TestRunner_TestIndex);
+            System.out.printf("✓ Item [%d] PASSED\n", TestRunnerItemIndex);
         } else {
-            System.err.printf("✗ Test [%d] Failed\n", TestRunner_TestIndex);
+            System.err.printf("✗ Item [%d] FAILED\n", TestRunnerItemIndex);
         }
 
-        TestRunner_TestIndex += 1;
+        TestRunnerItemIndex++;
     }
 }

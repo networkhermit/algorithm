@@ -43,7 +43,7 @@ exports.LinkedStack = class {
 
         this.tail = node
 
-        this.length += 1
+        this.length++
     }
 
     pop() {
@@ -67,6 +67,6 @@ exports.LinkedStack = class {
 
         target.data = null
 
-        this.length -= 1
+        this.length--
     }
 }

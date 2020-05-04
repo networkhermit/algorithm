@@ -137,13 +137,13 @@ func testLeastCommonMultiple() bool {
         {-46340, -46341, 2147441940},
     }
 
-    for i, _ := range mapping {
+    for i := range mapping {
         if LeastCommonMultiple.ReduceToBinaryGCD(mapping[i][0], mapping[i][1]) != mapping[i][2] {
             return false
         }
     }
 
-    for i, _ := range mapping {
+    for i := range mapping {
         if LeastCommonMultiple.ReduceToEuclidean(mapping[i][0], mapping[i][1]) != mapping[i][2] {
             return false
         }

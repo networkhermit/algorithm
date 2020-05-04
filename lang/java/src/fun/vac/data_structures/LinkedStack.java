@@ -52,7 +52,7 @@ public class LinkedStack<E> implements IStack<E> {
 
         tail = node;
 
-        length += 1;
+        length++;
     }
 
     @Override
@@ -77,6 +77,6 @@ public class LinkedStack<E> implements IStack<E> {
 
         target.data = null;
 
-        length -= 1;
+        length--;
     }
 }

@@ -60,7 +60,7 @@ namespace LinkedStack {
 
             tail = node;
 
-            length += 1;
+            length++;
         }
 
         void pop() {
@@ -85,7 +85,7 @@ namespace LinkedStack {
             target->data = static_cast<E>(0);
             delete target;
 
-            length -= 1;
+            length--;
         }
     };
 }

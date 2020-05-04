@@ -70,7 +70,7 @@ void ArrayQueue_enqueue(ArrayQueue *queue, array_queue_type element) {
                 cursor = 0;
             }
             temp[i] = queue->data[cursor];
-            cursor += 1;
+            cursor++;
         }
 
         free(queue->data);
@@ -82,7 +82,7 @@ void ArrayQueue_enqueue(ArrayQueue *queue, array_queue_type element) {
 
     queue->data[(queue->front + queue->logicalSize) % queue->physicalSize] = element;
 
-    queue->logicalSize += 1;
+    queue->logicalSize++;
 }
 
 void ArrayQueue_dequeue(ArrayQueue *queue) {
@@ -95,7 +95,7 @@ void ArrayQueue_dequeue(ArrayQueue *queue) {
 
     queue->front = (queue->front + 1) % queue->physicalSize;
 
-    queue->logicalSize -= 1;
+    queue->logicalSize--;
 }
 
 size_t ArrayQueue_capacity(ArrayQueue *queue) {
@@ -112,7 +112,7 @@ void ArrayQueue_shrink(ArrayQueue *queue) {
             cursor = 0;
         }
         temp[i] = queue->data[cursor];
-        cursor += 1;
+        cursor++;
     }
 
     free(queue->data);

@@ -88,7 +88,7 @@ exports.LinkedList = class {
             cursor.next = node
         }
 
-        this.length += 1
+        this.length++
     }
 
     remove(index) {
@@ -120,7 +120,7 @@ exports.LinkedList = class {
 
         target.data = null
 
-        this.length -= 1
+        this.length--
     }
 
     front() {

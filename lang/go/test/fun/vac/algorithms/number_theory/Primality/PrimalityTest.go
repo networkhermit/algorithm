@@ -265,7 +265,7 @@ func testPrimality() bool {
         {14162880, 4},
     }
 
-    for i, _ := range mapping {
+    for i := range mapping {
         if mapping[i][1] == 1 {
             if Primality.IsPrime(mapping[i][0]) {
                 return false

@@ -16,17 +16,17 @@ exports.merge = (arr, lo, mid, hi) => {
     for (let i = 0, length = sorted.length; i < length; i++) {
         if (m !== mid && (n === hi || arr[m] < arr[n])) {
             sorted[i] = arr[m]
-            m += 1
+            m++
         } else {
             sorted[i] = arr[n]
-            n += 1
+            n++
         }
     }
 
     let cursor = 0
     for (let i = lo; i < hi; i++) {
         arr[i] = sorted[cursor]
-        cursor += 1
+        cursor++
     }
 }
 

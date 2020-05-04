@@ -57,9 +57,8 @@ bool testArrayList(void) {
     for (size_t i = size; i >= 1; i--) {
         if ((size_t) ArrayList_back(list) != i) {
             return false;
-        } else {
-            ArrayList_eject(list);
         }
+        ArrayList_eject(list);
     }
 
     ArrayList_shrink(list);

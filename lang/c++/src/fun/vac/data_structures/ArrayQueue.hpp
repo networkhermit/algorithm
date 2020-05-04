@@ -59,7 +59,7 @@ namespace ArrayQueue {
                         cursor = 0;
                     }
                     temp[i] = data[cursor];
-                    cursor += 1;
+                    cursor++;
                 }
 
                 delete[] data;
@@ -71,7 +71,7 @@ namespace ArrayQueue {
 
             data[(front + logicalSize) % physicalSize] = element;
 
-            logicalSize += 1;
+            logicalSize++;
         }
 
         void dequeue() {
@@ -83,7 +83,7 @@ namespace ArrayQueue {
 
             front = (front + 1) % physicalSize;
 
-            logicalSize -= 1;
+            logicalSize--;
         }
 
         std::size_t capacity() {
@@ -100,7 +100,7 @@ namespace ArrayQueue {
                     cursor = 0;
                 }
                 temp[i] = data[cursor];
-                cursor += 1;
+                cursor++;
             }
 
             delete[] data;

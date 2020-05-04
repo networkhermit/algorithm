@@ -29,7 +29,7 @@ public class GreatestCommonDivisor {
                 if ((n & 1) == 0) {
                     m >>>= 1;
                     n >>>= 1;
-                    shift += 1;
+                    shift++;
                 } else {
                     m >>>= 1;
                 }
@@ -68,20 +68,16 @@ public class GreatestCommonDivisor {
         if ((m & 1) == 0) {
             if ((n & 1) == 0) {
                 return recursiveBinaryGCD(m >>> 1, n >>> 1) << 1;
-            } else {
-                return recursiveBinaryGCD(m >>> 1, n);
             }
-        } else {
-            if ((n & 1) == 0) {
-                return recursiveBinaryGCD(m, n >>> 1);
-            } else {
-                if (m > n) {
-                    return recursiveBinaryGCD((m - n) >>> 1, n);
-                } else {
-                    return recursiveBinaryGCD(m, (n - m) >>> 1);
-                }
-            }
+            return recursiveBinaryGCD(m >>> 1, n);
         }
+        if ((n & 1) == 0) {
+            return recursiveBinaryGCD(m, n >>> 1);
+        }
+        if (m > n) {
+            return recursiveBinaryGCD((m - n) >>> 1, n);
+        }
+        return recursiveBinaryGCD(m, (n - m) >>> 1);
     }
 
     public static long iterativeEuclidean(long m, long n) {
@@ -112,8 +108,7 @@ public class GreatestCommonDivisor {
 
         if (n == 0) {
             return m;
-        } else {
-            return recursiveEuclidean(n, m % n);
         }
+        return recursiveEuclidean(n, m % n);
     }
 }

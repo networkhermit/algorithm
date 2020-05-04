@@ -73,7 +73,7 @@ func (list *ArrayList) Insert(index int, element int) {
 
     list.data[index] = element
 
-    list.logicalSize += 1
+    list.logicalSize++
 }
 
 func (list *ArrayList) Remove(index int) {
@@ -85,7 +85,7 @@ func (list *ArrayList) Remove(index int) {
         list.data[i - 1] = list.data[i]
     }
 
-    list.logicalSize -= 1
+    list.logicalSize--
 
     list.data[list.logicalSize] = int(0)
 }

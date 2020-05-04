@@ -22,17 +22,17 @@ namespace MergeSort {
         for (std::size_t i = 0, length = hi - lo; i < length; i++) {
             if (m != mid && (n == hi || arr[m] < arr[n])) {
                 sorted[i] = arr[m];
-                m += 1;
+                m++;
             } else {
                 sorted[i] = arr[n];
-                n += 1;
+                n++;
             }
         }
 
         std::size_t cursor = 0;
         for (std::size_t i = lo; i < hi; i++) {
             arr[i] = sorted[cursor];
-            cursor += 1;
+            cursor++;
         }
 
         delete[] sorted;

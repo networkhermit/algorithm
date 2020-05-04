@@ -55,9 +55,8 @@ func testLinkedList() bool {
     for i := size; i >= 1; i-- {
         if list.Back() != i {
             return false
-        } else {
-            list.Eject()
         }
+        list.Eject()
     }
 
     if !list.IsEmpty() {

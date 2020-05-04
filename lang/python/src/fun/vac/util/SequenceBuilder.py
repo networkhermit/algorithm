@@ -3,9 +3,9 @@ from fun.vac.util import Sequences
 
 def packIncreasing(arr: list) -> None:
     RandomFactory.seed()
-    arr[0] = RandomFactory.integerN(1, 4)
+    arr[0] = RandomFactory.integerN(1, 3)
     for i in range(1, len(arr)):
-        arr[i] = arr[i - 1] + RandomFactory.integerN(1, 4)
+        arr[i] = arr[i - 1] + RandomFactory.integerN(1, 3)
 
 def packRandom(arr: list) -> None:
     RandomFactory.seed()

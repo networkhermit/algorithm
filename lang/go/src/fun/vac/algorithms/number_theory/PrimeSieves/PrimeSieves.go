@@ -19,7 +19,7 @@ func SieveOfEratosthenes(n int) []int {
         for j := i * i; j <= n; j += i << 1 {
             if !arr[j >> 1] {
                 arr[j >> 1] = true
-                numPrimes -= 1
+                numPrimes--
             }
         }
     }
@@ -32,7 +32,7 @@ func SieveOfEratosthenes(n int) []int {
     for i, bound := 3, n + 1; i < bound; i += 2 {
         if !arr[i >> 1] {
             primes[curr] = i
-            curr += 1
+            curr++
         }
     }
 

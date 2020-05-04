@@ -2,14 +2,14 @@
     namespace fun\vac\util\TestRunner;
 
     function parseTest(bool $ok): void {
-        static $TestRunner_TestIndex = 0;
+        static $TestRunnerItemIndex = 0;
 
         if ($ok) {
-            printf("✓ Test [%d] Passed\n", $TestRunner_TestIndex);
+            printf("✓ Item [%d] PASSED\n", $TestRunnerItemIndex);
         } else {
-            fprintf(STDERR, "✗ Test [%d] Failed\n", $TestRunner_TestIndex);
+            fprintf(STDERR, "✗ Item [%d] FAILED\n", $TestRunnerItemIndex);
         }
 
-        $TestRunner_TestIndex += 1;
+        $TestRunnerItemIndex++;
     }
 ?>

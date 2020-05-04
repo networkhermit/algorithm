@@ -64,20 +64,16 @@ module GreatestCommonDivisor
         if (m & 1) == 0
             if (n & 1) == 0
                 return recursiveBinaryGCD(m >> 1, n >> 1) << 1
-            else
-                return recursiveBinaryGCD(m >> 1, n)
             end
-        else
-            if (n & 1) == 0
-                return recursiveBinaryGCD(m, n >> 1)
-            else
-                if m > n
-                    return recursiveBinaryGCD((m - n) >> 1, n)
-                else
-                    return recursiveBinaryGCD(m, (n - m) >> 1)
-                end
-            end
+            return recursiveBinaryGCD(m >> 1, n)
         end
+        if (n & 1) == 0
+            return recursiveBinaryGCD(m, n >> 1)
+        end
+        if m > n
+            return recursiveBinaryGCD((m - n) >> 1, n)
+        end
+        return recursiveBinaryGCD(m, (n - m) >> 1)
     end
 
     def self.iterativeEuclidean(m, n)
@@ -105,8 +101,7 @@ module GreatestCommonDivisor
 
         if n == 0
             return m
-        else
-            return recursiveEuclidean(n, m % n)
         end
+        return recursiveEuclidean(n, m % n)
     end
 end

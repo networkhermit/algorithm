@@ -17,17 +17,17 @@
         foreach ($sorted as &$v) {
             if ($m != $mid && ($n == $hi || $arr[$m] < $arr[$n])) {
                 $v = $arr[$m];
-                $m += 1;
+                $m++;
             } else {
                 $v = $arr[$n];
-                $n += 1;
+                $n++;
             }
         }
 
         $cursor = 0;
         for ($i = $lo; $i < $hi; $i++) {
             $arr[$i] = $sorted[$cursor];
-            $cursor += 1;
+            $cursor++;
         }
     }
 

@@ -109,7 +109,7 @@ func (list *DoublyLinkedList) Insert(index int, element int) {
         cursor.prev = node
     }
 
-    list.length += 1
+    list.length++
 }
 
 func (list *DoublyLinkedList) Remove(index int) {
@@ -150,7 +150,7 @@ func (list *DoublyLinkedList) Remove(index int) {
 
     target.data = int(0)
 
-    list.length -= 1
+    list.length--
 }
 
 func (list *DoublyLinkedList) Front() int {

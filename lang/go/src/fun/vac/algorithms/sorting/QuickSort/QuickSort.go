@@ -16,7 +16,7 @@ func Partition(arr []int, lo int, hi int) {
                 arr[i] = pivot
                 break
             }
-            right -= 1
+            right--
         }
         for i := left; i < right; i++ {
             if arr[i] > pivot {
@@ -24,7 +24,7 @@ func Partition(arr []int, lo int, hi int) {
                 arr[i] = pivot
                 break
             }
-            left += 1
+            left++
         }
     }
 

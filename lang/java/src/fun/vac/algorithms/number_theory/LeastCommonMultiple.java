@@ -16,9 +16,8 @@ public class LeastCommonMultiple {
 
         if (m == 0 || n == 0) {
             return 0;
-        } else {
-            return m / GreatestCommonDivisor.iterativeBinaryGCD(m, n) * n;
         }
+        return m / GreatestCommonDivisor.iterativeBinaryGCD(m, n) * n;
     }
 
     public static long reduceToEuclidean(long m, long n) {
@@ -31,8 +30,7 @@ public class LeastCommonMultiple {
 
         if (m == 0 || n == 0) {
             return 0;
-        } else {
-            return m / GreatestCommonDivisor.iterativeEuclidean(m, n) * n;
         }
+        return m / GreatestCommonDivisor.iterativeEuclidean(m, n) * n;
     }
 }

@@ -95,7 +95,7 @@
                 $cursor->next = $node;
             }
 
-            $this->length += 1;
+            $this->length++;
         }
 
         public function remove(int $index): void {
@@ -127,7 +127,7 @@
 
             $target->data = NULL;
 
-            $this->length -= 1;
+            $this->length--;
         }
 
         public function front(): int {

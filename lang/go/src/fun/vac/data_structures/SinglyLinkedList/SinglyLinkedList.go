@@ -73,7 +73,7 @@ func (list *SinglyLinkedList) Insert(index int, element int) {
         cursor.next = node
     }
 
-    list.length += 1
+    list.length++
 }
 
 func (list *SinglyLinkedList) Remove(index int) {
@@ -101,7 +101,7 @@ func (list *SinglyLinkedList) Remove(index int) {
 
     target.data = int(0)
 
-    list.length -= 1
+    list.length--
 }
 
 func (list *SinglyLinkedList) Front() int {

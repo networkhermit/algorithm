@@ -110,7 +110,7 @@ void LinkedList_insert(LinkedList *list, size_t index, linked_list_type element)
         cursor->next = node;
     }
 
-    list->length += 1;
+    list->length++;
 }
 
 void LinkedList_remove(LinkedList *list, size_t index) {
@@ -144,7 +144,7 @@ void LinkedList_remove(LinkedList *list, size_t index) {
     target->data = (linked_list_type) 0;
     free(target);
 
-    list->length -= 1;
+    list->length--;
 }
 
 linked_list_type LinkedList_front(LinkedList *list) {

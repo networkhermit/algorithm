@@ -138,7 +138,7 @@ func testIsCoprime() bool {
         {  761395308, -2147483647, 1},
     }
 
-    for i, _ := range mapping {
+    for i := range mapping {
         if mapping[i][2] == 0 {
             if NumberTheory.IsCoprime(mapping[i][0], mapping[i][1]) {
                 return false
@@ -170,7 +170,7 @@ func testFactorial() bool {
         {12, 479001600},
     }
 
-    for i, _ := range mapping {
+    for i := range mapping {
         if NumberTheory.Factorial(mapping[i][0]) != mapping[i][1] {
             return false
         }
@@ -246,7 +246,7 @@ func testFibonacci() bool {
         { 31, 1346269},
     }
 
-    for i, _ := range mapping {
+    for i := range mapping {
         if NumberTheory.Fibonacci(mapping[i][0]) != mapping[i][1] {
             return false
         }
@@ -387,7 +387,7 @@ func testGCD() bool {
         {  645159694, -2147483647,   1},
     }
 
-    for i, _ := range mapping {
+    for i := range mapping {
         if NumberTheory.GCD(mapping[i][0], mapping[i][1]) != mapping[i][2] {
             return false
         }
@@ -528,7 +528,7 @@ func testLCM() bool {
         {-46340, -46341, 2147441940},
     }
 
-    for i, _ := range mapping {
+    for i := range mapping {
         if NumberTheory.LCM(mapping[i][0], mapping[i][1]) != mapping[i][2] {
             return false
         }
@@ -669,7 +669,7 @@ func testIsEven() bool {
         {-2147483648, 0},
     }
 
-    for i, _ := range mapping {
+    for i := range mapping {
         if mapping[i][1] == 0 {
             if !NumberTheory.IsEven(mapping[i][0]) {
                 return false
@@ -816,7 +816,7 @@ func testIsOdd() bool {
         {-2147483648, 0},
     }
 
-    for i, _ := range mapping {
+    for i := range mapping {
         if mapping[i][1] == 0 {
             if NumberTheory.IsOdd(mapping[i][0]) {
                 return false
@@ -1091,7 +1091,7 @@ func testIsPrime() bool {
         {14162880, 4},
     }
 
-    for i, _ := range mapping {
+    for i := range mapping {
         if mapping[i][1] == 1 {
             if NumberTheory.IsPrime(mapping[i][0]) {
                 return false
@@ -1370,7 +1370,7 @@ func testIsComposite() bool {
         {14162880, 4},
     }
 
-    for i, _ := range mapping {
+    for i := range mapping {
         if mapping[i][1] == 1 {
             if NumberTheory.IsComposite(mapping[i][0]) {
                 return false
@@ -1524,7 +1524,7 @@ func testSieveOfPrimes() bool {
 
     var arr []int
 
-    for i, _ := range mapping {
+    for i := range mapping {
         arr = NumberTheory.SieveOfPrimes(mapping[i][0])
 
         if len(arr) != mapping[i][1] {

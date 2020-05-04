@@ -1,14 +1,14 @@
 import sys
 
-global TestRunner_TestIndex
-TestRunner_TestIndex = 0
+global TestRunnerItemIndex
+TestRunnerItemIndex = 0
 
 def parseTest(ok: bool) -> None:
-    global TestRunner_TestIndex
+    global TestRunnerItemIndex
 
     if ok:
-        print("✓ Test [%d] Passed" % TestRunner_TestIndex)
+        print("✓ Item [%d] PASSED" % TestRunnerItemIndex)
     else:
-        print("✗ Test [%d] Failed" % TestRunner_TestIndex, file = sys.stderr)
+        print("✗ Item [%d] FAILED" % TestRunnerItemIndex, file = sys.stderr)
 
-    TestRunner_TestIndex += 1
+    TestRunnerItemIndex += 1

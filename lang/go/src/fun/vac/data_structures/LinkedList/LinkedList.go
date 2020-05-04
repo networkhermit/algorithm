@@ -89,7 +89,7 @@ func (list *LinkedList) Insert(index int, element int) {
         cursor.next = node
     }
 
-    list.length += 1
+    list.length++
 }
 
 func (list *LinkedList) Remove(index int) {
@@ -121,7 +121,7 @@ func (list *LinkedList) Remove(index int) {
 
     target.data = int(0)
 
-    list.length -= 1
+    list.length--
 }
 
 func (list *LinkedList) Front() int {

@@ -8,8 +8,7 @@ def reduceToBinaryGCD(m: int, n: int) -> int:
 
     if m == 0 or n == 0:
         return 0
-    else:
-        return m // GreatestCommonDivisor.iterativeBinaryGCD(m, n) * n
+    return m // GreatestCommonDivisor.iterativeBinaryGCD(m, n) * n
 
 def reduceToEuclidean(m: int, n: int) -> int:
     if m < 0:
@@ -19,5 +18,4 @@ def reduceToEuclidean(m: int, n: int) -> int:
 
     if m == 0 or n == 0:
         return 0
-    else:
-        return m // GreatestCommonDivisor.iterativeEuclidean(m, n) * n
+    return m // GreatestCommonDivisor.iterativeEuclidean(m, n) * n

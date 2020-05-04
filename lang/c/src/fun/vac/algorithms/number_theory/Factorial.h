@@ -21,9 +21,8 @@ long Factorial_recursiveProcedure(long n) {
 
     if (n == 0) {
         return 1;
-    } else {
-        return Factorial_recursiveProcedure(n - 1) * n;
     }
+    return Factorial_recursiveProcedure(n - 1) * n;
 }
 
 #endif

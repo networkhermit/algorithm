@@ -48,8 +48,7 @@ def testArrayList()-> bool:
     for i in range(size, 0, -1):
         if list.back() != i:
             return False
-        else:
-            list.eject()
+        list.eject()
 
     list.shrink()
 

@@ -44,7 +44,7 @@ func (stack *LinkedStack) Push(element int) {
 
     stack.tail = node
 
-    stack.length += 1
+    stack.length++
 }
 
 func (stack *LinkedStack) Pop() {
@@ -68,5 +68,5 @@ func (stack *LinkedStack) Pop() {
 
     target.data = int(0)
 
-    stack.length -= 1
+    stack.length--
 }

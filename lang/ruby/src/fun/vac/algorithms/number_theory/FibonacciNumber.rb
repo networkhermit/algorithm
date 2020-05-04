@@ -28,13 +28,12 @@ module FibonacciNumber
         if n < 0
             if (n & 1) == 0
                 return -recursiveProcedure(-n)
-            else
-                return recursiveProcedure(-n)
             end
-        elsif n < 2
-            return n
-        else
-            return recursiveProcedure(n - 2) + recursiveProcedure(n - 1)
+            return recursiveProcedure(-n)
         end
+        if n < 2
+            return n
+        end
+        return recursiveProcedure(n - 2) + recursiveProcedure(n - 1)
     end
 end

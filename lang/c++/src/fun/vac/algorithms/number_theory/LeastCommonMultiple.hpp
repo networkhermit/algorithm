@@ -15,9 +15,8 @@ namespace LeastCommonMultiple {
 
         if (m == 0 || n == 0) {
             return 0;
-        } else {
-            return m / GreatestCommonDivisor::iterativeBinaryGCD(m, n) * n;
         }
+        return m / GreatestCommonDivisor::iterativeBinaryGCD(m, n) * n;
     }
 
     long reduceToEuclidean(long m, long n) {
@@ -30,9 +29,8 @@ namespace LeastCommonMultiple {
 
         if (m == 0 || n == 0) {
             return 0;
-        } else {
-            return m / GreatestCommonDivisor::iterativeEuclidean(m, n) * n;
         }
+        return m / GreatestCommonDivisor::iterativeEuclidean(m, n) * n;
     }
 }
 

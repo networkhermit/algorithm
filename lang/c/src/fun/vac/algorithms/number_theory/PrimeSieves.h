@@ -25,7 +25,7 @@ size_t *PrimeSieves_sieveOfEratosthenes(size_t n, size_t *length) {
         for (size_t j = i * i; j <= n; j += i << 1) {
             if (!arr[j >> 1]) {
                 arr[j >> 1] = true;
-                numPrimes -= 1;
+                numPrimes--;
             }
         }
     }
@@ -39,7 +39,7 @@ size_t *PrimeSieves_sieveOfEratosthenes(size_t n, size_t *length) {
     for (size_t i = 3, bound = n + 1; i < bound; i += 2) {
         if (!arr[i >> 1]) {
             primes[curr] = i;
-            curr += 1;
+            curr++;
         }
     }
 

@@ -54,9 +54,8 @@ def testSinglyLinkedList()
     while i >= 1
         if list.back() != i
             return false
-        else
-            list.eject()
         end
+        list.eject()
         i -= 1
     end
 

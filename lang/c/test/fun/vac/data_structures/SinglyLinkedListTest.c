@@ -51,9 +51,8 @@ bool testSinglyLinkedList(void) {
     for (size_t i = size; i >= 1; i--) {
         if ((size_t) SinglyLinkedList_back(list) != i) {
             return false;
-        } else {
-            SinglyLinkedList_eject(list);
         }
+        SinglyLinkedList_eject(list);
     }
 
     if (!SinglyLinkedList_isEmpty(list)) {

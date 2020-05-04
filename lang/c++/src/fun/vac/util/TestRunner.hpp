@@ -7,15 +7,15 @@
 namespace TestRunner {
 
     void parseTest(bool ok) {
-        static std::size_t TestRunner_TestIndex = 0;
+        static std::size_t TestRunnerItemIndex = 0;
 
         if (ok) {
-            std::cout << "✓ Test [" << TestRunner_TestIndex << "] Passed" << std::endl;
+            std::cout << "✓ Item [" << TestRunnerItemIndex << "] PASSED" << std::endl;
         } else {
-            std::cerr << "✗ Test [" << TestRunner_TestIndex << "] Failed" << std::endl;
+            std::cerr << "✗ Item [" << TestRunnerItemIndex << "] FAILED" << std::endl;
         }
 
-        TestRunner_TestIndex += 1;
+        TestRunnerItemIndex++;
     }
 }
 

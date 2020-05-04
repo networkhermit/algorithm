@@ -16,17 +16,17 @@ func Merge(arr []int, lo int, mid int, hi int) {
     for i, length := 0, len(sorted); i < length; i++ {
         if m != mid && (n == hi || arr[m] < arr[n]) {
             sorted[i] = arr[m]
-            m += 1
+            m++
         } else {
             sorted[i] = arr[n]
-            n += 1
+            n++
         }
     }
 
     cursor := 0
     for i := lo; i < hi; i++ {
         arr[i] = sorted[cursor]
-        cursor += 1
+        cursor++
     }
 }
 

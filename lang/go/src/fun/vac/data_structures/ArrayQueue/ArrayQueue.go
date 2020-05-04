@@ -55,7 +55,7 @@ func (queue *ArrayQueue) Enqueue(element int) {
                 cursor = 0
             }
             temp[i] = queue.data[cursor]
-            cursor += 1
+            cursor++
         }
 
         queue.data = temp
@@ -65,7 +65,7 @@ func (queue *ArrayQueue) Enqueue(element int) {
 
     queue.data[(queue.front + queue.logicalSize) % queue.physicalSize] = element
 
-    queue.logicalSize += 1
+    queue.logicalSize++
 }
 
 func (queue *ArrayQueue) Dequeue() {
@@ -77,7 +77,7 @@ func (queue *ArrayQueue) Dequeue() {
 
     queue.front = (queue.front + 1) % queue.physicalSize
 
-    queue.logicalSize -= 1
+    queue.logicalSize--
 }
 
 func (queue *ArrayQueue) Capacity() int {
@@ -94,7 +94,7 @@ func (queue *ArrayQueue) Shrink() {
             cursor = 0
         }
         temp[i] = queue.data[cursor]
-        cursor += 1
+        cursor++
     }
 
     queue.data = temp

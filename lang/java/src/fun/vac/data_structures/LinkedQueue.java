@@ -52,7 +52,7 @@ public class LinkedQueue<E> implements IQueue<E> {
 
         tail = node;
 
-        length += 1;
+        length++;
     }
 
     @Override
@@ -72,6 +72,6 @@ public class LinkedQueue<E> implements IQueue<E> {
 
         target.data = null;
 
-        length -= 1;
+        length--;
     }
 }

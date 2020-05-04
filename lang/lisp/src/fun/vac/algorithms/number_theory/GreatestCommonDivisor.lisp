@@ -26,9 +26,10 @@
 
     (if (zerop (logand m 1))
       (if (zerop (logand n 1))
-        (setf m (ash m -1)
-              n (ash n -1)
-              shift (1+ shift))
+        (progn
+          (setf m (ash m -1)
+                n (ash n -1))
+          (incf shift))
         (setf m (ash m -1)))
       (if (zerop (logand n 1))
         (setf n (ash n -1))
@@ -51,13 +52,13 @@
 
   (if (zerop (logand m 1))
     (if (zerop (logand n 1))
-      (return-from recursive-binary-gcd (ash (recursive-binary-gcd (ash m -1) (ash n -1)) 1))
-      (return-from recursive-binary-gcd (recursive-binary-gcd (ash m -1) n)))
+      (ash (recursive-binary-gcd (ash m -1) (ash n -1)) 1)
+      (recursive-binary-gcd (ash m -1) n))
     (if (zerop (logand n 1))
-      (return-from recursive-binary-gcd (recursive-binary-gcd m (ash n -1)))
+      (recursive-binary-gcd m (ash n -1))
       (if (> m n)
-        (return-from recursive-binary-gcd (recursive-binary-gcd (ash (- m n) -1) n))
-        (return-from recursive-binary-gcd (recursive-binary-gcd m (ash (- n m) -1)))))))
+        (recursive-binary-gcd (ash (- m n) -1) n)
+        (recursive-binary-gcd m (ash (- n m) -1))))))
 
 (defun iterative-euclidean (m n)
   (when (minusp m)

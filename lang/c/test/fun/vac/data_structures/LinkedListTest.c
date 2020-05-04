@@ -51,9 +51,8 @@ bool testLinkedList(void) {
     for (size_t i = size; i >= 1; i--) {
         if ((size_t) LinkedList_back(list) != i) {
             return false;
-        } else {
-            LinkedList_eject(list);
         }
+        LinkedList_eject(list);
     }
 
     if (!LinkedList_isEmpty(list)) {

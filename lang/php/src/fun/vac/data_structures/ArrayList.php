@@ -72,7 +72,7 @@
 
             $this->data[$index] = $element;
 
-            $this->logicalSize += 1;
+            $this->logicalSize++;
         }
 
         public function remove(int $index): void {
@@ -84,7 +84,7 @@
                 $this->data[$i - 1] = $this->data[$i];
             }
 
-            $this->logicalSize -= 1;
+            $this->logicalSize--;
 
             $this->data[$this->logicalSize] = NULL;
         }

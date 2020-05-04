@@ -130,7 +130,7 @@ void DoublyLinkedList_insert(DoublyLinkedList *list, size_t index, doubly_linked
         cursor->prev = node;
     }
 
-    list->length += 1;
+    list->length++;
 }
 
 void DoublyLinkedList_remove(DoublyLinkedList *list, size_t index) {
@@ -173,7 +173,7 @@ void DoublyLinkedList_remove(DoublyLinkedList *list, size_t index) {
     target->data = (doubly_linked_list_type) 0;
     free(target);
 
-    list->length -= 1;
+    list->length--;
 }
 
 doubly_linked_list_type DoublyLinkedList_front(DoublyLinkedList *list) {

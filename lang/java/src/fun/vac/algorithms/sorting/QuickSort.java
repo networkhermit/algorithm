@@ -20,7 +20,7 @@ public class QuickSort {
                     arr[i] = pivot;
                     break;
                 }
-                right -= 1;
+                right--;
             }
             for (int i = left; i < right; i++) {
                 if (arr[i].compareTo(pivot) > 0) {
@@ -28,7 +28,7 @@ public class QuickSort {
                     arr[i] = pivot;
                     break;
                 }
-                left += 1;
+                left++;
             }
         }
 

@@ -137,7 +137,7 @@ func testCoprimality() bool {
         {  761395308, -2147483647, 1},
     }
 
-    for i, _ := range mapping {
+    for i := range mapping {
         if mapping[i][2] == 0 {
             if Coprimality.ReduceToBinaryGCD(mapping[i][0], mapping[i][1]) {
                 return false
@@ -149,7 +149,7 @@ func testCoprimality() bool {
         }
     }
 
-    for i, _ := range mapping {
+    for i := range mapping {
         if mapping[i][2] == 0 {
             if Coprimality.ReduceToEuclidean(mapping[i][0], mapping[i][1]) {
                 return false

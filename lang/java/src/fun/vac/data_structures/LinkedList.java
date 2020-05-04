@@ -98,7 +98,7 @@ public class LinkedList<E> implements IList<E> {
             cursor.next = node;
         }
 
-        length += 1;
+        length++;
     }
 
     @Override
@@ -131,7 +131,7 @@ public class LinkedList<E> implements IList<E> {
 
         target.data = null;
 
-        length -= 1;
+        length--;
     }
 
     @Override

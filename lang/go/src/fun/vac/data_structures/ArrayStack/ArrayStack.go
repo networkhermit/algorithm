@@ -57,7 +57,7 @@ func (stack *ArrayStack) Push(element int) {
 
     stack.data[stack.logicalSize] = element
 
-    stack.logicalSize += 1
+    stack.logicalSize++
 }
 
 func (stack *ArrayStack) Pop() {
@@ -65,7 +65,7 @@ func (stack *ArrayStack) Pop() {
         panic(errors.New("[PANIC - NoSuchElement]"))
     }
 
-    stack.logicalSize -= 1
+    stack.logicalSize--
 
     stack.data[stack.logicalSize] = int(0)
 }

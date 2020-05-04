@@ -79,7 +79,7 @@ namespace ArrayList {
 
             data[index] = element;
 
-            logicalSize += 1;
+            logicalSize++;
         }
 
         void remove(std::size_t index) {
@@ -91,7 +91,7 @@ namespace ArrayList {
                 data[i - 1] = data[i];
             }
 
-            logicalSize -= 1;
+            logicalSize--;
 
             data[logicalSize] = static_cast<E>(0);
         }

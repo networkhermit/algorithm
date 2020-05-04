@@ -23,9 +23,8 @@ namespace Factorial {
 
         if (n == 0) {
             return 1;
-        } else {
-            return recursiveProcedure(n - 1) * n;
         }
+        return recursiveProcedure(n - 1) * n;
     }
 }
 

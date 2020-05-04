@@ -47,7 +47,7 @@ exports.ArrayQueue = class {
                     cursor = 0
                 }
                 temp[i] = this.data[cursor]
-                cursor += 1
+                cursor++
             }
 
             this.data = temp
@@ -57,7 +57,7 @@ exports.ArrayQueue = class {
 
         this.data[(this.front + this.logicalSize) % this.physicalSize] = element
 
-        this.logicalSize += 1
+        this.logicalSize++
     }
 
     dequeue() {
@@ -69,7 +69,7 @@ exports.ArrayQueue = class {
 
         this.front = (this.front + 1) % this.physicalSize
 
-        this.logicalSize -= 1
+        this.logicalSize--
     }
 
     capacity() {
@@ -86,7 +86,7 @@ exports.ArrayQueue = class {
                 cursor = 0
             }
             temp[i] = this.data[cursor]
-            cursor += 1
+            cursor++
         }
 
         this.data = temp

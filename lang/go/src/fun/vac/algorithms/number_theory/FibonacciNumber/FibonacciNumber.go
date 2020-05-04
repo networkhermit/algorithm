@@ -28,12 +28,11 @@ func RecursiveProcedure(n int64) int64 {
     if n < 0 {
         if (n & 1) == 0 {
             return -RecursiveProcedure(-n)
-        } else {
-            return RecursiveProcedure(-n)
         }
-    } else if n < 2 {
-        return n
-    } else {
-        return RecursiveProcedure(n - 2) + RecursiveProcedure(n - 1)
+        return RecursiveProcedure(-n)
     }
+    if n < 2 {
+        return n
+    }
+    return RecursiveProcedure(n - 2) + RecursiveProcedure(n - 1)
 }

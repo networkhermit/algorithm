@@ -1,13 +1,13 @@
 "use strict"
 
-let TestRunner_TestIndex = 0
+let TestRunnerItemIndex = 0
 
 exports.parseTest = (ok) => {
     if (ok) {
-        console.log("✓ Test [%d] Passed", TestRunner_TestIndex)
+        console.log("✓ Item [%d] PASSED", TestRunnerItemIndex)
     } else {
-        console.error("✗ Test [%d] Failed", TestRunner_TestIndex)
+        console.error("✗ Item [%d] FAILED", TestRunnerItemIndex)
     }
 
-    TestRunner_TestIndex += 1
+    TestRunnerItemIndex++
 }

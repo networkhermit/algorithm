@@ -28,7 +28,7 @@ long GreatestCommonDivisor_iterativeBinaryGCD(long m, long n) {
             if ((n & 1) == 0) {
                 m >>= 1;
                 n >>= 1;
-                shift += 1;
+                shift++;
             } else {
                 m >>= 1;
             }
@@ -67,20 +67,16 @@ long GreatestCommonDivisor_recursiveBinaryGCD(long m, long n) {
     if ((m & 1) == 0) {
         if ((n & 1) == 0) {
             return GreatestCommonDivisor_recursiveBinaryGCD(m >> 1, n >> 1) << 1;
-        } else {
-            return GreatestCommonDivisor_recursiveBinaryGCD(m >> 1, n);
         }
-    } else {
-        if ((n & 1) == 0) {
-            return GreatestCommonDivisor_recursiveBinaryGCD(m, n >> 1);
-        } else {
-            if (m > n) {
-                return GreatestCommonDivisor_recursiveBinaryGCD((m - n) >> 1, n);
-            } else {
-                return GreatestCommonDivisor_recursiveBinaryGCD(m, (n - m) >> 1);
-            }
-        }
+        return GreatestCommonDivisor_recursiveBinaryGCD(m >> 1, n);
     }
+    if ((n & 1) == 0) {
+        return GreatestCommonDivisor_recursiveBinaryGCD(m, n >> 1);
+    }
+    if (m > n) {
+        return GreatestCommonDivisor_recursiveBinaryGCD((m - n) >> 1, n);
+    }
+    return GreatestCommonDivisor_recursiveBinaryGCD(m, (n - m) >> 1);
 }
 
 long GreatestCommonDivisor_iterativeEuclidean(long m, long n) {
@@ -111,9 +107,8 @@ long GreatestCommonDivisor_recursiveEuclidean(long m, long n) {
 
     if (n == 0) {
         return m;
-    } else {
-        return GreatestCommonDivisor_recursiveEuclidean(n, m % n);
     }
+    return GreatestCommonDivisor_recursiveEuclidean(n, m % n);
 }
 
 #endif

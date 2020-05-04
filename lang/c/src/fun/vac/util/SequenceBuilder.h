@@ -8,9 +8,9 @@
 
 void SequenceBuilder_packIncreasing(int *arr, size_t length) {
     RandomFactory_seed();
-    arr[0] = RandomFactory_integerN(1, 4);
+    arr[0] = RandomFactory_integerN(1, 3);
     for (size_t i = 1; i < length; i++) {
-        arr[i] = arr[i - 1] + RandomFactory_integerN(1, 4);
+        arr[i] = arr[i - 1] + RandomFactory_integerN(1, 3);
     }
 }
 

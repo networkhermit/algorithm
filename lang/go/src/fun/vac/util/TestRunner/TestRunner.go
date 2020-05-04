@@ -5,14 +5,14 @@ import (
     "os"
 )
 
-var TestRunner_TestIndex int
+var TestRunnerItemIndex int
 
 func ParseTest(ok bool) {
     if ok {
-        fmt.Printf("✓ Test [%d] Passed\n", TestRunner_TestIndex)
+        fmt.Printf("✓ Item [%d] PASSED\n", TestRunnerItemIndex)
     } else {
-        fmt.Fprintf(os.Stderr, "✗ Test [%d] Failed\n", TestRunner_TestIndex)
+        fmt.Fprintf(os.Stderr, "✗ Item [%d] FAILED\n", TestRunnerItemIndex)
     }
 
-    TestRunner_TestIndex += 1
+    TestRunnerItemIndex++
 }

@@ -56,7 +56,7 @@
 
             $this->data[$this->logicalSize] = $element;
 
-            $this->logicalSize += 1;
+            $this->logicalSize++;
         }
 
         public function pop(): void {
@@ -64,7 +64,7 @@
                 throw new RuntimeException("[PANIC - NoSuchElement]");
             }
 
-            $this->logicalSize -= 1;
+            $this->logicalSize--;
 
             $this->data[$this->logicalSize] = NULL;
         }

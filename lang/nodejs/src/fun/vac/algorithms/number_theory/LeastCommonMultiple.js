@@ -12,9 +12,8 @@ exports.reduceToBinaryGCD = (m, n) => {
 
     if (m === 0 || n === 0) {
         return 0
-    } else {
-        return m / GreatestCommonDivisor.iterativeBinaryGCD(m, n) * n
     }
+    return m / GreatestCommonDivisor.iterativeBinaryGCD(m, n) * n
 }
 
 exports.reduceToEuclidean = (m, n) => {
@@ -27,7 +26,6 @@ exports.reduceToEuclidean = (m, n) => {
 
     if (m === 0 || n === 0) {
         return 0
-    } else {
-        return m / GreatestCommonDivisor.iterativeEuclidean(m, n) * n
     }
+    return m / GreatestCommonDivisor.iterativeEuclidean(m, n) * n
 }

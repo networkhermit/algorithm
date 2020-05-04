@@ -63,7 +63,7 @@ void LinkedStack_push(LinkedStack *stack, linked_stack_type element) {
 
     stack->tail = node;
 
-    stack->length += 1;
+    stack->length++;
 }
 
 void LinkedStack_pop(LinkedStack *stack) {
@@ -89,7 +89,7 @@ void LinkedStack_pop(LinkedStack *stack) {
     target->data = (linked_stack_type) 0;
     free(target);
 
-    stack->length -= 1;
+    stack->length--;
 }
 
 #endif

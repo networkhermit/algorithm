@@ -84,7 +84,7 @@ func (list *CircularlyLinkedList) Insert(index int, element int) {
         cursor.next = node
     }
 
-    list.length += 1
+    list.length++
 }
 
 func (list *CircularlyLinkedList) Remove(index int) {
@@ -115,7 +115,7 @@ func (list *CircularlyLinkedList) Remove(index int) {
 
     target.data = int(0)
 
-    list.length -= 1
+    list.length--
 }
 
 func (list *CircularlyLinkedList) Front() int {

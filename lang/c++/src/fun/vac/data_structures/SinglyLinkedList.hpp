@@ -89,7 +89,7 @@ namespace SinglyLinkedList {
                 cursor->next = node;
             }
 
-            length += 1;
+            length++;
         }
 
         void remove(std::size_t index) {
@@ -118,7 +118,7 @@ namespace SinglyLinkedList {
             target->data = static_cast<E>(0);
             delete target;
 
-            length -= 1;
+            length--;
         }
 
         E front() {
