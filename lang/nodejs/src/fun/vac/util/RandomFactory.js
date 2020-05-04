@@ -1,6 +1,6 @@
 "use strict"
 
-exports.launch = () => {
+exports.seed = () => {
     // preserve for consistent interface
 }
 

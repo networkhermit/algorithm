@@ -1,11 +1,11 @@
 module RandomFactory
 
-    def self.launch()
+    def self.seed()
         # preserve for consistent interface
     end
 
     def self.integerN(min, max)
-        return min + rand(max - min)
+        return min + rand(max - min + 1)
     end
 
     def self.generateInteger()

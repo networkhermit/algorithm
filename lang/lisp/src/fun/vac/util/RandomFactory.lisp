@@ -2,7 +2,7 @@
   (:nicknames random-factory)
   (:use common-lisp)
   (:export
-    launch
+    seed
     integer-n
     generate-integer
     generate-even
@@ -10,11 +10,11 @@
 
 (in-package random-factory)
 
-(defun launch ()
+(defun seed ()
   (setf *random-state* (make-random-state t)) nil)
 
 (defun integer-n (min max)
-  (+ min (random (- max min))))
+  (+ min (random (- max min -1))))
 
 (defun generate-integer ()
   (integer-n 0 2147483647))

@@ -5,13 +5,41 @@ import (
     "fun/vac/util/TestRunner"
 )
 
-func testGenerateEven() bool {
-    RandomFactory.Launch()
+func testIntegerN() bool {
+    RandomFactory.Seed()
 
     var value int
     for i := 0; i < 8192; i++ {
-        value = RandomFactory.GenerateEven()
-        if (value & 1) != 0 {
+        if RandomFactory.IntegerN(0, 0) != 0 {
+            return false
+        }
+
+        if RandomFactory.IntegerN(1, 1) != 1 {
+            return false
+        }
+
+        value = RandomFactory.IntegerN(0, 1)
+        if value < 0 || 1 < value {
+            return false
+        }
+
+        value = RandomFactory.IntegerN(100, 10000)
+        if RandomFactory.IntegerN(value, value) != value {
+            return false
+        }
+        if value < 100 || 10000 < value {
+            return false
+        }
+    }
+
+    return true
+}
+
+func testGenerateEven() bool {
+    RandomFactory.Seed()
+
+    for i := 0; i < 8192; i++ {
+        if (RandomFactory.GenerateEven() & 1) != 0 {
             return false
         }
     }
@@ -20,12 +48,10 @@ func testGenerateEven() bool {
 }
 
 func testGenerateOdd() bool {
-    RandomFactory.Launch()
+    RandomFactory.Seed()
 
-    var value int
     for i := 0; i < 8192; i++ {
-        value = RandomFactory.GenerateOdd()
-        if (value & 1) == 0 {
+        if (RandomFactory.GenerateOdd() & 1) == 0 {
             return false
         }
     }
@@ -34,6 +60,8 @@ func testGenerateOdd() bool {
 }
 
 func main() {
+
+    TestRunner.ParseTest(testIntegerN())
 
     TestRunner.ParseTest(testGenerateEven())
 

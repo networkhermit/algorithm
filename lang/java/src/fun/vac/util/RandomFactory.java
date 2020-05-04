@@ -4,7 +4,7 @@ public class RandomFactory {
 
     private RandomFactory() {}
 
-    public static void launch() {
+    public static void seed() {
         // preserve for consistent interface
     }
 

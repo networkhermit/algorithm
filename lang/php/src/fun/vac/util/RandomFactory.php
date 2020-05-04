@@ -1,12 +1,12 @@
 <?php
     namespace fun\vac\util\RandomFactory;
 
-    function launch(): void {
-        mt_srand(time());
+    function seed(): void {
+        // preserve for consistent interface
     }
 
     function integerN(int $min, int $max): int {
-        return $min + mt_rand() % ($max - $min);
+        return random_int($min, $max);
     }
 
     function generateInteger(): int {

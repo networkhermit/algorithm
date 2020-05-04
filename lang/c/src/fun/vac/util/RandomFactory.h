@@ -4,12 +4,12 @@
 #include <stdlib.h>
 #include <time.h>
 
-void RandomFactory_launch(void) {
+void RandomFactory_seed(void) {
     srand((unsigned) time(NULL));
 }
 
 int RandomFactory_integerN(int min, int max) {
-    return min + rand() % (max - min);
+    return min + rand() % (max - min + 1);
 }
 
 int RandomFactory_generateInteger(void) {

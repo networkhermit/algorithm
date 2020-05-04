@@ -5,13 +5,41 @@
     use fun\vac\util\RandomFactory;
     use fun\vac\util\TestRunner;
 
-    function testGenerateEven(): bool {
-        RandomFactory\launch();
+    function testIntegerN(): bool {
+        RandomFactory\seed();
 
         $value = 0;
         for ($i = 0; $i < 8192; $i++) {
-            $value = RandomFactory\generateEven();
-            if (($value & 1) != 0) {
+            if (RandomFactory\integerN(0, 0) != 0) {
+                return false;
+            }
+
+            if (RandomFactory\integerN(1, 1) != 1) {
+                return false;
+            }
+
+            $value = RandomFactory\integerN(0, 1);
+            if ($value < 0 || 1 < $value) {
+                return false;
+            }
+
+            $value = RandomFactory\integerN(100, 10000);
+            if (RandomFactory\integerN($value, $value) != $value) {
+                return false;
+            }
+            if ($value < 100 || 10000 < $value) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    function testGenerateEven(): bool {
+        RandomFactory\seed();
+
+        for ($i = 0; $i < 8192; $i++) {
+            if ((RandomFactory\generateEven() & 1) != 0) {
                 return false;
             }
         }
@@ -20,12 +48,10 @@
     }
 
     function testGenerateOdd(): bool {
-        RandomFactory\launch();
+        RandomFactory\seed();
 
-        $value = 0;
         for ($i = 0; $i < 8192; $i++) {
-            $value = RandomFactory\generateOdd();
-            if (($value & 1) == 0) {
+            if ((RandomFactory\generateOdd() & 1) == 0) {
                 return false;
             }
         }
@@ -34,6 +60,8 @@
     }
 
     if (count(debug_backtrace()) == 0) {
+
+        TestRunner\parseTest(testIntegerN());
 
         TestRunner\parseTest(testGenerateEven());
 

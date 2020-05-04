@@ -1,13 +1,41 @@
 require "fun/vac/util/RandomFactory"
 require "fun/vac/util/TestRunner"
 
-def testGenerateEven()
-    RandomFactory.launch()
+def testIntegerN()
+    RandomFactory.seed()
 
     value = 0
     (0 ... 8192).each do |i|
-        value = RandomFactory.generateEven()
-        if (value & 1) != 0
+        if RandomFactory.integerN(0, 0) != 0
+            return false
+        end
+
+        if RandomFactory.integerN(1, 1) != 1
+            return false
+        end
+
+        value = RandomFactory.integerN(0, 1)
+        if value < 0 || 1 < value
+            return false
+        end
+
+        value = RandomFactory.integerN(100, 10000)
+        if RandomFactory.integerN(value, value) != value
+            return false
+        end
+        if value < 100 || 10000 < value
+            return false
+        end
+    end
+
+    return true
+end
+
+def testGenerateEven()
+    RandomFactory.seed()
+
+    (0 ... 8192).each do |i|
+        if (RandomFactory.generateEven() & 1) != 0
             return false
         end
     end
@@ -16,12 +44,10 @@ def testGenerateEven()
 end
 
 def testGenerateOdd()
-    RandomFactory.launch()
+    RandomFactory.seed()
 
-    value = 0
     (0 ... 8192).each do |i|
-        value = RandomFactory.generateOdd()
-        if (value & 1) == 0
+        if (RandomFactory.generateOdd() & 1) == 0
             return false
         end
     end
@@ -30,6 +56,8 @@ def testGenerateOdd()
 end
 
 if __FILE__ == $0
+
+    TestRunner.parseTest(testIntegerN())
 
     TestRunner.parseTest(testGenerateEven())
 

@@ -1,10 +1,10 @@
 import random
 
-def launch() -> None:
+def seed() -> None:
     random.seed()
 
 def integerN(min: int, max: int) -> int:
-    return random.randint(min, max - 1)
+    return random.randint(min, max)
 
 def generateInteger() -> int:
     return integerN(0, 2_147_483_647)

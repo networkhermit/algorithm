@@ -51,7 +51,7 @@ public class Sequences {
         int k;
         Integer temp;
 
-        RandomFactory.launch();
+        RandomFactory.seed();
         for (int i = 0, length = arr.length; i < length; i++) {
             k = RandomFactory.integerN(i, length);
             temp = arr[i];

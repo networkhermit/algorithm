@@ -6,12 +6,12 @@
 
 namespace RandomFactory {
 
-    void launch() {
+    void seed() {
         std::srand(static_cast<unsigned>(std::time(nullptr)));
     }
 
     int integerN(int min, int max) {
-        return min + std::rand() % (max - min);
+        return min + std::rand() % (max - min + 1);
     }
 
     int generateInteger() {

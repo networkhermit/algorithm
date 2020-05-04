@@ -4,7 +4,7 @@ const RandomFactory = require("fun/vac/util/RandomFactory")
 const Sequences     = require("fun/vac/util/Sequences")
 
 exports.packIncreasing = (arr) => {
-    RandomFactory.launch()
+    RandomFactory.seed()
     arr[0] = RandomFactory.integerN(1, 4)
     for (let i = 1, length = arr.length; i < length; i++) {
         arr[i] = arr[i - 1] + RandomFactory.integerN(1, 4)
@@ -12,7 +12,7 @@ exports.packIncreasing = (arr) => {
 }
 
 exports.packRandom = (arr) => {
-    RandomFactory.launch()
+    RandomFactory.seed()
     for (let i = 0, length = arr.length; i < length; i++) {
         arr[i] = RandomFactory.generateInteger()
     }

@@ -45,7 +45,7 @@ module Sequences
         k = 0
         length = arr.length
 
-        RandomFactory.launch()
+        RandomFactory.seed()
         for i in 0 ... arr.length
             k = RandomFactory.integerN(i, length)
             arr[i], arr[k] = arr[k], arr[i]

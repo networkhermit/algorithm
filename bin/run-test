@@ -96,12 +96,12 @@ run_test () {
             for instance in $(find -L "${ROOT}" -type f -name "*.c" | sort); do
                 fname=$(basename "${instance}" .c)
 
-                if gcc   -O0 -g3 -Wall -Werror -std=c11 -x c -o "${fname}" "${instance}" -lm; then
+                if gcc   -O0 -g3 -Wall -Werror -std=c18 -x c -o "${fname}" "${instance}" -lm; then
                     ./"${fname}"
                     rm -f "${fname}"
                 fi
 
-                if clang -O0 -g3 -Wall -Werror -std=c11 -x c -o "${fname}" "${instance}" -lm; then
+                if clang -O0 -g3 -Wall -Werror -std=c18 -x c -o "${fname}" "${instance}" -lm; then
                     ./"${fname}"
                     rm -f "${fname}"
                 fi
@@ -115,12 +115,12 @@ run_test () {
             for instance in $(find -L "${ROOT}" -type f -name "*.cpp" | sort); do
                 fname=$(basename "${instance}" .cpp)
 
-                if g++     -O0 -g3 -Wall -Werror -std=c++14 -x c++ -o "${fname}" "${instance}"; then
+                if g++     -O0 -g3 -Wall -Werror -std=c++17 -x c++ -o "${fname}" "${instance}"; then
                     ./"${fname}"
                     rm -f "${fname}"
                 fi
 
-                if clang++ -O0 -g3 -Wall -Werror -std=c++14 -x c++ -o "${fname}" "${instance}"; then
+                if clang++ -O0 -g3 -Wall -Werror -std=c++17 -x c++ -o "${fname}" "${instance}"; then
                     ./"${fname}"
                     rm -f "${fname}"
                 fi
