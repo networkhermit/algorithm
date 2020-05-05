@@ -3,7 +3,7 @@ from fun.vac.algorithms.number_theory import PrimeSieves
 from fun.vac.util import TestRunner
 
 def testPrimeSieves() -> bool:
-    mapping = [
+    sample = [
         [      0,     0],
         [      1,     0],
         [    180,    41],
@@ -134,14 +134,12 @@ def testPrimeSieves() -> bool:
         [1294061, 99610],
     ]
 
-    instances = len(mapping)
-
     arr = None
 
-    for i in range(instances):
-        arr = PrimeSieves.sieveOfEratosthenes(mapping[i][0])
+    for i in range(len(sample)):
+        arr = PrimeSieves.sieveOfEratosthenes(sample[i][0])
 
-        if len(arr) != mapping[i][1]:
+        if len(arr) != sample[i][1]:
             return False
 
         for v in arr:

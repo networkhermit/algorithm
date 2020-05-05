@@ -6,7 +6,7 @@ import (
 )
 
 func testPrimality() bool {
-    mapping := [][2]int64{
+    sample := [][2]int64{
         {       0, 1},
         {       1, 1},
         {       2, 2},
@@ -265,26 +265,26 @@ func testPrimality() bool {
         {14162880, 4},
     }
 
-    for i := range mapping {
-        if mapping[i][1] == 1 {
-            if Primality.IsPrime(mapping[i][0]) {
+    for i := range sample {
+        if sample[i][1] == 1 {
+            if Primality.IsPrime(sample[i][0]) {
                 return false
             }
-            if Primality.IsComposite(mapping[i][0]) {
+            if Primality.IsComposite(sample[i][0]) {
                 return false
             }
-        } else if mapping[i][1] == 2 {
-            if !Primality.IsPrime(mapping[i][0]) {
+        } else if sample[i][1] == 2 {
+            if !Primality.IsPrime(sample[i][0]) {
                 return false
             }
-            if Primality.IsComposite(mapping[i][0]) {
+            if Primality.IsComposite(sample[i][0]) {
                 return false
             }
         } else {
-            if Primality.IsPrime(mapping[i][0]) {
+            if Primality.IsPrime(sample[i][0]) {
                 return false
             }
-            if !Primality.IsComposite(mapping[i][0]) {
+            if !Primality.IsComposite(sample[i][0]) {
                 return false
             }
         }

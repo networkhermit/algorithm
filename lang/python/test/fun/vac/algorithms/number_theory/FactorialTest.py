@@ -2,7 +2,7 @@ from fun.vac.algorithms.number_theory import Factorial
 from fun.vac.util import TestRunner
 
 def testFactorial() -> bool:
-    mapping = [
+    sample = [
         [ 0,           1],
         [ 1,           1],
         [ 2,           2],
@@ -18,14 +18,12 @@ def testFactorial() -> bool:
         [12, 479_001_600],
     ]
 
-    instances = len(mapping)
-
-    for i in range(instances):
-        if Factorial.iterativeProcedure(mapping[i][0]) != mapping[i][1]:
+    for i in range(len(sample)):
+        if Factorial.iterativeProcedure(sample[i][0]) != sample[i][1]:
             return False
 
-    for i in range(instances):
-        if Factorial.recursiveProcedure(mapping[i][0]) != mapping[i][1]:
+    for i in range(len(sample)):
+        if Factorial.recursiveProcedure(sample[i][0]) != sample[i][1]:
             return False
 
     return True

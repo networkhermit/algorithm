@@ -6,7 +6,7 @@
     use fun\vac\util\TestRunner;
 
     function testCoprimality(): bool {
-        $mapping = [
+        $sample = [
             [          0,           1, 1],
             [          1,           0, 1],
             [          1,           1, 1],
@@ -137,27 +137,25 @@
             [  761395308, -2147483647, 1],
         ];
 
-        $instances = count($mapping);
-
-        for ($i = 0; $i < $instances; $i++) {
-            if ($mapping[$i][2] == 0) {
-                if (Coprimality\reduceToBinaryGCD($mapping[$i][0], $mapping[$i][1])) {
+        for ($i = 0, $size = count($sample); $i < $size; $i++) {
+            if ($sample[$i][2] == 0) {
+                if (Coprimality\reduceToBinaryGCD($sample[$i][0], $sample[$i][1])) {
                     return false;
                 }
             } else {
-                if (!Coprimality\reduceToBinaryGCD($mapping[$i][0], $mapping[$i][1])) {
+                if (!Coprimality\reduceToBinaryGCD($sample[$i][0], $sample[$i][1])) {
                     return false;
                 }
             }
         }
 
-        for ($i = 0; $i < $instances; $i++) {
-            if ($mapping[$i][2] == 0) {
-                if (Coprimality\reduceToEuclidean($mapping[$i][0], $mapping[$i][1])) {
+        for ($i = 0, $size = count($sample); $i < $size; $i++) {
+            if ($sample[$i][2] == 0) {
+                if (Coprimality\reduceToEuclidean($sample[$i][0], $sample[$i][1])) {
                     return false;
                 }
             } else {
-                if (!Coprimality\reduceToEuclidean($mapping[$i][0], $mapping[$i][1])) {
+                if (!Coprimality\reduceToEuclidean($sample[$i][0], $sample[$i][1])) {
                     return false;
                 }
             }

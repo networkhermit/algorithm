@@ -4,7 +4,7 @@ import fun.vac.util.TestRunner;
 public class LeastCommonMultipleTest {
 
     public static boolean testLeastCommonMultiple() {
-        long[][] mapping = {
+        long[][] sample = {
             {     1,      1,             1},
             {    -1,     -1,             1},
             {   -85,     -8,           680},
@@ -135,16 +135,14 @@ public class LeastCommonMultipleTest {
             {-46340, -46341, 2_147_441_940},
         };
 
-        int instances = mapping.length;
-
-        for (int i = 0; i < instances; i++) {
-            if (LeastCommonMultiple.reduceToBinaryGCD(mapping[i][0], mapping[i][1]) != mapping[i][2]) {
+        for (int i = 0, size = sample.length; i < size; i++) {
+            if (LeastCommonMultiple.reduceToBinaryGCD(sample[i][0], sample[i][1]) != sample[i][2]) {
                 return false;
             }
         }
 
-        for (int i = 0; i < instances; i++) {
-            if (LeastCommonMultiple.reduceToEuclidean(mapping[i][0], mapping[i][1]) != mapping[i][2]) {
+        for (int i = 0, size = sample.length; i < size; i++) {
+            if (LeastCommonMultiple.reduceToEuclidean(sample[i][0], sample[i][1]) != sample[i][2]) {
                 return false;
             }
         }

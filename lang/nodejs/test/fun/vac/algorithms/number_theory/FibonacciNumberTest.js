@@ -4,7 +4,7 @@ const FibonacciNumber = require("fun/vac/algorithms/number_theory/FibonacciNumbe
 const TestRunner      = require("fun/vac/util/TestRunner")
 
 const testFibonacciNumber = () => {
-    let mapping = [
+    let sample = [
         [-31, 1346269],
         [-30, -832040],
         [-29,  514229],
@@ -70,16 +70,14 @@ const testFibonacciNumber = () => {
         [ 31, 1346269],
     ]
 
-    let instances = mapping.length
-
-    for (let i = 0; i < instances; i++) {
-        if (FibonacciNumber.iterativeProcedure(mapping[i][0]) !== mapping[i][1]) {
+    for (let i = 0, size = sample.length; i < size; i++) {
+        if (FibonacciNumber.iterativeProcedure(sample[i][0]) !== sample[i][1]) {
             return false
         }
     }
 
-    for (let i = 0; i < instances; i++) {
-        if (FibonacciNumber.recursiveProcedure(mapping[i][0]) !== mapping[i][1]) {
+    for (let i = 0, size = sample.length; i < size; i++) {
+        if (FibonacciNumber.recursiveProcedure(sample[i][0]) !== sample[i][1]) {
             return false
         }
     }

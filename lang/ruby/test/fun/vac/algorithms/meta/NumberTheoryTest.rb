@@ -3,7 +3,7 @@ require "fun/vac/algorithms/number_theory/Primality"
 require "fun/vac/util/TestRunner"
 
 def testIsCoprime()
-    mapping = [
+    sample = [
         [             0,              1, 1],
         [             1,              0, 1],
         [             1,              1, 1],
@@ -134,13 +134,13 @@ def testIsCoprime()
         [   761_395_308, -2_147_483_647, 1],
     ]
 
-    mapping.each_index do |i|
-        if mapping[i][2] == 0
-            if NumberTheory.isCoprime(mapping[i][0], mapping[i][1])
+    sample.each_index do |i|
+        if sample[i][2] == 0
+            if NumberTheory.isCoprime(sample[i][0], sample[i][1])
                 return false
             end
         else
-            unless NumberTheory.isCoprime(mapping[i][0], mapping[i][1])
+            unless NumberTheory.isCoprime(sample[i][0], sample[i][1])
                 return false
             end
         end
@@ -150,7 +150,7 @@ def testIsCoprime()
 end
 
 def testFactorial()
-    mapping = [
+    sample = [
         [ 0,           1],
         [ 1,           1],
         [ 2,           2],
@@ -166,8 +166,8 @@ def testFactorial()
         [12, 479_001_600],
     ]
 
-    mapping.each_index do |i|
-        if NumberTheory.factorial(mapping[i][0]) != mapping[i][1]
+    sample.each_index do |i|
+        if NumberTheory.factorial(sample[i][0]) != sample[i][1]
             return false
         end
     end
@@ -176,7 +176,7 @@ def testFactorial()
 end
 
 def testFibonacci()
-    mapping = [
+    sample = [
         [-31, 1346269],
         [-30, -832040],
         [-29,  514229],
@@ -242,8 +242,8 @@ def testFibonacci()
         [ 31, 1346269],
     ]
 
-    mapping.each_index do |i|
-        if NumberTheory.fibonacci(mapping[i][0]) != mapping[i][1]
+    sample.each_index do |i|
+        if NumberTheory.fibonacci(sample[i][0]) != sample[i][1]
             return false
         end
     end
@@ -252,7 +252,7 @@ def testFibonacci()
 end
 
 def testGCD()
-    mapping = [
+    sample = [
         [             0,              1,   1],
         [             1,              0,   1],
         [             1,              1,   1],
@@ -383,8 +383,8 @@ def testGCD()
         [   645_159_694, -2_147_483_647,   1],
     ]
 
-    mapping.each_index do |i|
-        if NumberTheory.gcd(mapping[i][0], mapping[i][1]) != mapping[i][2]
+    sample.each_index do |i|
+        if NumberTheory.gcd(sample[i][0], sample[i][1]) != sample[i][2]
             return false
         end
     end
@@ -393,7 +393,7 @@ def testGCD()
 end
 
 def testLCM()
-    mapping = [
+    sample = [
         [     1,      1,             1],
         [    -1,     -1,             1],
         [   -85,     -8,           680],
@@ -524,8 +524,8 @@ def testLCM()
         [-46340, -46341, 2_147_441_940],
     ]
 
-    mapping.each_index do |i|
-        if NumberTheory.lcm(mapping[i][0], mapping[i][1]) != mapping[i][2]
+    sample.each_index do |i|
+        if NumberTheory.lcm(sample[i][0], sample[i][1]) != sample[i][2]
             return false
         end
     end
@@ -534,7 +534,7 @@ def testLCM()
 end
 
 def testIsEven()
-    mapping = [
+    sample = [
         [             0, 0],
         [             1, 1],
         [            -1, 1],
@@ -665,13 +665,13 @@ def testIsEven()
         [-2_147_483_648, 0],
     ]
 
-    mapping.each_index do |i|
-        if mapping[i][1] == 0
-            unless NumberTheory.isEven(mapping[i][0])
+    sample.each_index do |i|
+        if sample[i][1] == 0
+            unless NumberTheory.isEven(sample[i][0])
                 return false
             end
         else
-            if NumberTheory.isEven(mapping[i][0])
+            if NumberTheory.isEven(sample[i][0])
                 return false
             end
         end
@@ -681,7 +681,7 @@ def testIsEven()
 end
 
 def testIsOdd()
-    mapping = [
+    sample = [
         [             0, 0],
         [             1, 1],
         [            -1, 1],
@@ -812,13 +812,13 @@ def testIsOdd()
         [-2_147_483_648, 0],
     ]
 
-    mapping.each_index do |i|
-        if mapping[i][1] == 0
-            if NumberTheory.isOdd(mapping[i][0])
+    sample.each_index do |i|
+        if sample[i][1] == 0
+            if NumberTheory.isOdd(sample[i][0])
                 return false
             end
         else
-            unless NumberTheory.isOdd(mapping[i][0])
+            unless NumberTheory.isOdd(sample[i][0])
                 return false
             end
         end
@@ -828,7 +828,7 @@ def testIsOdd()
 end
 
 def testIsPrime()
-    mapping = [
+    sample = [
         [         0, 1],
         [         1, 1],
         [         2, 2],
@@ -1087,17 +1087,17 @@ def testIsPrime()
         [14_162_880, 4],
     ]
 
-    mapping.each_index do |i|
-        if mapping[i][1] == 1
-            if NumberTheory.isPrime(mapping[i][0])
+    sample.each_index do |i|
+        if sample[i][1] == 1
+            if NumberTheory.isPrime(sample[i][0])
                 return false
             end
-        elsif mapping[i][1] == 2
-            unless NumberTheory.isPrime(mapping[i][0])
+        elsif sample[i][1] == 2
+            unless NumberTheory.isPrime(sample[i][0])
                 return false
             end
         else
-            if NumberTheory.isPrime(mapping[i][0])
+            if NumberTheory.isPrime(sample[i][0])
                 return false
             end
         end
@@ -1107,7 +1107,7 @@ def testIsPrime()
 end
 
 def testIsComposite()
-    mapping = [
+    sample = [
         [         0, 1],
         [         1, 1],
         [         2, 2],
@@ -1366,17 +1366,17 @@ def testIsComposite()
         [14_162_880, 4],
     ]
 
-    mapping.each_index do |i|
-        if mapping[i][1] == 1
-            if Primality.isComposite(mapping[i][0])
+    sample.each_index do |i|
+        if sample[i][1] == 1
+            if Primality.isComposite(sample[i][0])
                 return false
             end
-        elsif mapping[i][1] == 2
-            if Primality.isComposite(mapping[i][0])
+        elsif sample[i][1] == 2
+            if Primality.isComposite(sample[i][0])
                 return false
             end
         else
-            unless Primality.isComposite(mapping[i][0])
+            unless Primality.isComposite(sample[i][0])
                 return false
             end
         end
@@ -1386,7 +1386,7 @@ def testIsComposite()
 end
 
 def testSieveOfPrimes()
-    mapping = [
+    sample = [
         [      0,     0],
         [      1,     0],
         [    180,    41],
@@ -1519,10 +1519,10 @@ def testSieveOfPrimes()
 
     arr = nil
 
-    mapping.each_index do |i|
-        arr = NumberTheory.sieveOfPrimes(mapping[i][0])
+    sample.each_index do |i|
+        arr = NumberTheory.sieveOfPrimes(sample[i][0])
 
-        if arr.length != mapping[i][1]
+        if arr.length != sample[i][1]
             return false
         end
 

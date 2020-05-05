@@ -6,7 +6,7 @@ bool isLittleEndian(void) {
 
     unsigned char *p = (unsigned char *) &val;
 
-    return p[0] == 0xFF;
+    return p[0] == (unsigned char) 0xFF;
 }
 
 int main(void) {

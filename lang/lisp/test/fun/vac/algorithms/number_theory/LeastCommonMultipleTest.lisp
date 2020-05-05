@@ -2,7 +2,7 @@
 (import-module "fun/vac/util/TestRunner")
 
 (defun test-least-common-multiple ()
-  (let ((mapping (make-array '(128 3) :initial-contents
+  (let ((sample (make-array '(128 3) :initial-contents
                              '((     1      1          1)
                                (    -1     -1          1)
                                (   -85     -8        680)
@@ -132,15 +132,13 @@
                                ( 46340  46341 2147441940)
                                (-46340 -46341 2147441940)))))
 
-    (let ((instances (array-dimension mapping 0)))
+    (dotimes (i (array-dimension sample 0))
+      (when (/= (least-common-multiple:reduce-to-binary-gcd (aref sample i 0) (aref sample i 1)) (aref sample i 2))
+        (return-from test-least-common-multiple nil)))
 
-      (dotimes (i instances)
-        (when (/= (least-common-multiple:reduce-to-binary-gcd (aref mapping i 0) (aref mapping i 1)) (aref mapping i 2))
-          (return-from test-least-common-multiple nil)))
-
-      (dotimes (i instances)
-        (when (/= (least-common-multiple:reduce-to-euclidean (aref mapping i 0) (aref mapping i 1)) (aref mapping i 2))
-          (return-from test-least-common-multiple nil)))))
+    (dotimes (i (array-dimension sample 0))
+      (when (/= (least-common-multiple:reduce-to-euclidean (aref sample i 0) (aref sample i 1)) (aref sample i 2))
+        (return-from test-least-common-multiple nil))))
 
   t)
 

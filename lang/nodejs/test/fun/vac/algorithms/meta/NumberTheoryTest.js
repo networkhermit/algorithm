@@ -5,7 +5,7 @@ const Primality    = require("fun/vac/algorithms/number_theory/Primality")
 const TestRunner   = require("fun/vac/util/TestRunner")
 
 const testIsCoprime = () => {
-    let mapping = [
+    let sample = [
         [          0,           1, 1],
         [          1,           0, 1],
         [          1,           1, 1],
@@ -136,15 +136,13 @@ const testIsCoprime = () => {
         [  761395308, -2147483647, 1],
     ]
 
-    let instances = mapping.length
-
-    for (let i = 0; i < instances; i++) {
-        if (mapping[i][2] === 0) {
-            if (NumberTheory.isCoprime(mapping[i][0], mapping[i][1])) {
+    for (let i = 0, size = sample.length; i < size; i++) {
+        if (sample[i][2] === 0) {
+            if (NumberTheory.isCoprime(sample[i][0], sample[i][1])) {
                 return false
             }
         } else {
-            if (!NumberTheory.isCoprime(mapping[i][0], mapping[i][1])) {
+            if (!NumberTheory.isCoprime(sample[i][0], sample[i][1])) {
                 return false
             }
         }
@@ -154,7 +152,7 @@ const testIsCoprime = () => {
 }
 
 const testFactorial = () => {
-    let mapping = [
+    let sample = [
         [ 0,         1],
         [ 1,         1],
         [ 2,         2],
@@ -170,10 +168,8 @@ const testFactorial = () => {
         [12, 479001600],
     ]
 
-    let instances = mapping.length
-
-    for (let i = 0; i < instances; i++) {
-        if (NumberTheory.factorial(mapping[i][0]) !== mapping[i][1]) {
+    for (let i = 0, size = sample.length; i < size; i++) {
+        if (NumberTheory.factorial(sample[i][0]) !== sample[i][1]) {
             return false
         }
     }
@@ -182,7 +178,7 @@ const testFactorial = () => {
 }
 
 const testFibonacci = () => {
-    let mapping = [
+    let sample = [
         [-31, 1346269],
         [-30, -832040],
         [-29,  514229],
@@ -248,10 +244,8 @@ const testFibonacci = () => {
         [ 31, 1346269],
     ]
 
-    let instances = mapping.length
-
-    for (let i = 0; i < instances; i++) {
-        if (NumberTheory.fibonacci(mapping[i][0]) !== mapping[i][1]) {
+    for (let i = 0, size = sample.length; i < size; i++) {
+        if (NumberTheory.fibonacci(sample[i][0]) !== sample[i][1]) {
             return false
         }
     }
@@ -260,7 +254,7 @@ const testFibonacci = () => {
 }
 
 const testGCD = () => {
-    let mapping = [
+    let sample = [
         [          0,           1,   1],
         [          1,           0,   1],
         [          1,           1,   1],
@@ -391,10 +385,8 @@ const testGCD = () => {
         [  645159694, -2147483647,   1],
     ]
 
-    let instances = mapping.length
-
-    for (let i = 0; i < instances; i++) {
-        if (NumberTheory.gcd(mapping[i][0], mapping[i][1]) !== mapping[i][2]) {
+    for (let i = 0, size = sample.length; i < size; i++) {
+        if (NumberTheory.gcd(sample[i][0], sample[i][1]) !== sample[i][2]) {
             return false
         }
     }
@@ -403,7 +395,7 @@ const testGCD = () => {
 }
 
 const testLCM = () => {
-    let mapping = [
+    let sample = [
         [     1,      1,          1],
         [    -1,     -1,          1],
         [   -85,     -8,        680],
@@ -534,10 +526,8 @@ const testLCM = () => {
         [-46340, -46341, 2147441940],
     ]
 
-    let instances = mapping.length
-
-    for (let i = 0; i < instances; i++) {
-        if (NumberTheory.lcm(mapping[i][0], mapping[i][1]) !== mapping[i][2]) {
+    for (let i = 0, size = sample.length; i < size; i++) {
+        if (NumberTheory.lcm(sample[i][0], sample[i][1]) !== sample[i][2]) {
             return false
         }
     }
@@ -546,7 +536,7 @@ const testLCM = () => {
 }
 
 const testIsEven = () => {
-    let mapping = [
+    let sample = [
         [          0, 0],
         [          1, 1],
         [         -1, 1],
@@ -677,15 +667,13 @@ const testIsEven = () => {
         [-2147483648, 0],
     ]
 
-    let instances = mapping.length
-
-    for (let i = 0; i < instances; i++) {
-        if (mapping[i][1] === 0) {
-            if (!NumberTheory.isEven(mapping[i][0])) {
+    for (let i = 0, size = sample.length; i < size; i++) {
+        if (sample[i][1] === 0) {
+            if (!NumberTheory.isEven(sample[i][0])) {
                 return false
             }
         } else {
-            if (NumberTheory.isEven(mapping[i][0])) {
+            if (NumberTheory.isEven(sample[i][0])) {
                 return false
             }
         }
@@ -695,7 +683,7 @@ const testIsEven = () => {
 }
 
 const testIsOdd = () => {
-    let mapping = [
+    let sample = [
         [          0, 0],
         [          1, 1],
         [         -1, 1],
@@ -826,15 +814,13 @@ const testIsOdd = () => {
         [-2147483648, 0],
     ]
 
-    let instances = mapping.length
-
-    for (let i = 0; i < instances; i++) {
-        if (mapping[i][1] === 0) {
-            if (NumberTheory.isOdd(mapping[i][0])) {
+    for (let i = 0, size = sample.length; i < size; i++) {
+        if (sample[i][1] === 0) {
+            if (NumberTheory.isOdd(sample[i][0])) {
                 return false
             }
         } else {
-            if (!NumberTheory.isOdd(mapping[i][0])) {
+            if (!NumberTheory.isOdd(sample[i][0])) {
                 return false
             }
         }
@@ -844,7 +830,7 @@ const testIsOdd = () => {
 }
 
 const testIsPrime= () => {
-    let mapping = [
+    let sample = [
         [       0, 1],
         [       1, 1],
         [       2, 2],
@@ -1103,19 +1089,17 @@ const testIsPrime= () => {
         [14162880, 4],
     ]
 
-    let instances = mapping.length
-
-    for (let i = 0; i < instances; i++) {
-        if (mapping[i][1] === 1) {
-            if (NumberTheory.isPrime(mapping[i][0])) {
+    for (let i = 0, size = sample.length; i < size; i++) {
+        if (sample[i][1] === 1) {
+            if (NumberTheory.isPrime(sample[i][0])) {
                 return false
             }
-        } else if (mapping[i][1] === 2) {
-            if (!NumberTheory.isPrime(mapping[i][0])) {
+        } else if (sample[i][1] === 2) {
+            if (!NumberTheory.isPrime(sample[i][0])) {
                 return false
             }
         } else {
-            if (NumberTheory.isPrime(mapping[i][0])) {
+            if (NumberTheory.isPrime(sample[i][0])) {
                 return false
             }
         }
@@ -1125,7 +1109,7 @@ const testIsPrime= () => {
 }
 
 const testIsComposite= () => {
-    let mapping = [
+    let sample = [
         [       0, 1],
         [       1, 1],
         [       2, 2],
@@ -1384,19 +1368,17 @@ const testIsComposite= () => {
         [14162880, 4],
     ]
 
-    let instances = mapping.length
-
-    for (let i = 0; i < instances; i++) {
-        if (mapping[i][1] === 1) {
-            if (NumberTheory.isComposite(mapping[i][0])) {
+    for (let i = 0, size = sample.length; i < size; i++) {
+        if (sample[i][1] === 1) {
+            if (NumberTheory.isComposite(sample[i][0])) {
                 return false
             }
-        } else if (mapping[i][1] === 2) {
-            if (NumberTheory.isComposite(mapping[i][0])) {
+        } else if (sample[i][1] === 2) {
+            if (NumberTheory.isComposite(sample[i][0])) {
                 return false
             }
         } else {
-            if (!NumberTheory.isComposite(mapping[i][0])) {
+            if (!NumberTheory.isComposite(sample[i][0])) {
                 return false
             }
         }
@@ -1406,7 +1388,7 @@ const testIsComposite= () => {
 }
 
 const testSieveOfPrimes = () => {
-    let mapping = [
+    let sample = [
         [      0,     0],
         [      1,     0],
         [    180,    41],
@@ -1537,14 +1519,12 @@ const testSieveOfPrimes = () => {
         [1294061, 99610],
     ]
 
-    let instances = mapping.length
-
     let arr = null
 
-    for (let i = 0; i < instances; i++) {
-        arr = NumberTheory.sieveOfPrimes(mapping[i][0])
+    for (let i = 0, size = sample.length; i < size; i++) {
+        arr = NumberTheory.sieveOfPrimes(sample[i][0])
 
-        if (arr.length !== mapping[i][1]) {
+        if (arr.length !== sample[i][1]) {
             return false
         }
 

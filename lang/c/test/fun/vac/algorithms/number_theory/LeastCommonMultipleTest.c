@@ -2,7 +2,7 @@
 #include <fun/vac/util/TestRunner.h>
 
 bool testLeastCommonMultiple(void) {
-    long mapping[][3] = {
+    long sample[][3] = {
         {     1,      1,          1},
         {    -1,     -1,          1},
         {   -85,     -8,        680},
@@ -133,16 +133,14 @@ bool testLeastCommonMultiple(void) {
         {-46340, -46341, 2147441940},
     };
 
-    size_t instances = sizeof(mapping) / sizeof(mapping[0]);
-
-    for (size_t i = 0; i < instances; i++) {
-        if (LeastCommonMultiple_reduceToBinaryGCD(mapping[i][0], mapping[i][1]) != mapping[i][2]) {
+    for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {
+        if (LeastCommonMultiple_reduceToBinaryGCD(sample[i][0], sample[i][1]) != sample[i][2]) {
             return false;
         }
     }
 
-    for (size_t i = 0; i < instances; i++) {
-        if (LeastCommonMultiple_reduceToEuclidean(mapping[i][0], mapping[i][1]) != mapping[i][2]) {
+    for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {
+        if (LeastCommonMultiple_reduceToEuclidean(sample[i][0], sample[i][1]) != sample[i][2]) {
             return false;
         }
     }

@@ -2,7 +2,7 @@ require "fun/vac/algorithms/number_theory/GreatestCommonDivisor"
 require "fun/vac/util/TestRunner"
 
 def testGreatestCommonDivisor()
-    mapping = [
+    sample = [
         [             0,              1,   1],
         [             1,              0,   1],
         [             1,              1,   1],
@@ -133,26 +133,26 @@ def testGreatestCommonDivisor()
         [   645_159_694, -2_147_483_647,   1],
     ]
 
-    mapping.each_index do |i|
-        if GreatestCommonDivisor.iterativeBinaryGCD(mapping[i][0], mapping[i][1]) != mapping[i][2]
+    sample.each_index do |i|
+        if GreatestCommonDivisor.iterativeBinaryGCD(sample[i][0], sample[i][1]) != sample[i][2]
             return false
         end
     end
 
-    mapping.each_index do |i|
-        if GreatestCommonDivisor.recursiveBinaryGCD(mapping[i][0], mapping[i][1]) != mapping[i][2]
+    sample.each_index do |i|
+        if GreatestCommonDivisor.recursiveBinaryGCD(sample[i][0], sample[i][1]) != sample[i][2]
             return false
         end
     end
 
-    mapping.each_index do |i|
-        if GreatestCommonDivisor.iterativeEuclidean(mapping[i][0], mapping[i][1]) != mapping[i][2]
+    sample.each_index do |i|
+        if GreatestCommonDivisor.iterativeEuclidean(sample[i][0], sample[i][1]) != sample[i][2]
             return false
         end
     end
 
-    mapping.each_index do |i|
-        if GreatestCommonDivisor.recursiveEuclidean(mapping[i][0], mapping[i][1]) != mapping[i][2]
+    sample.each_index do |i|
+        if GreatestCommonDivisor.recursiveEuclidean(sample[i][0], sample[i][1]) != sample[i][2]
             return false
         end
     end

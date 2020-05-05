@@ -2,7 +2,7 @@
 #include <fun/vac/util/TestRunner.h>
 
 bool testPrimality(void) {
-    long mapping[][2] = {
+    long sample[][2] = {
         {       0, 1},
         {       1, 1},
         {       2, 2},
@@ -261,28 +261,26 @@ bool testPrimality(void) {
         {14162880, 4},
     };
 
-    size_t instances = sizeof(mapping) / sizeof(mapping[0]);
-
-    for (size_t i = 0; i < instances; i++) {
-        if (mapping[i][1] == 1) {
-            if (Primality_isPrime(mapping[i][0])) {
+    for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {
+        if (sample[i][1] == 1) {
+            if (Primality_isPrime(sample[i][0])) {
                 return false;
             }
-            if (Primality_isComposite(mapping[i][0])) {
+            if (Primality_isComposite(sample[i][0])) {
                 return false;
             }
-        } else if (mapping[i][1] == 2) {
-            if (!Primality_isPrime(mapping[i][0])) {
+        } else if (sample[i][1] == 2) {
+            if (!Primality_isPrime(sample[i][0])) {
                 return false;
             }
-            if (Primality_isComposite(mapping[i][0])) {
+            if (Primality_isComposite(sample[i][0])) {
                 return false;
             }
         } else {
-            if (Primality_isPrime(mapping[i][0])) {
+            if (Primality_isPrime(sample[i][0])) {
                 return false;
             }
-            if (!Primality_isComposite(mapping[i][0])) {
+            if (!Primality_isComposite(sample[i][0])) {
                 return false;
             }
         }

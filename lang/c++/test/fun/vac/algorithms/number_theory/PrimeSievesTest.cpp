@@ -5,7 +5,7 @@
 using namespace std;
 
 bool testPrimeSieves() {
-    size_t mapping[][2] = {
+    size_t sample[][2] = {
         {      0,     0},
         {      1,     0},
         {    180,    41},
@@ -136,14 +136,12 @@ bool testPrimeSieves() {
         {1294061, 99610},
     };
 
-    size_t instances = sizeof(mapping) / sizeof(mapping[0]);
-
     vector<size_t> arr;
 
-    for (size_t i = 0; i < instances; i++) {
-        arr = PrimeSieves::sieveOfEratosthenes(mapping[i][0]);
+    for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {
+        arr = PrimeSieves::sieveOfEratosthenes(sample[i][0]);
 
-        if (arr.size() != mapping[i][1]) {
+        if (arr.size() != sample[i][1]) {
             return false;
         }
 

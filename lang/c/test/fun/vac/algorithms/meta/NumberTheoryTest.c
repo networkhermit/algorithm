@@ -3,7 +3,7 @@
 #include <fun/vac/util/TestRunner.h>
 
 bool testIsCoprime(void) {
-    long mapping[][3] = {
+    long sample[][3] = {
         {          0,           1, 1},
         {          1,           0, 1},
         {          1,           1, 1},
@@ -134,15 +134,13 @@ bool testIsCoprime(void) {
         {  761395308, -2147483647, 1},
     };
 
-    size_t instances = sizeof(mapping) / sizeof(mapping[0]);
-
-    for (size_t i = 0; i < instances; i++) {
-        if (mapping[i][2] == 0) {
-            if (NumberTheory_isCoprime(mapping[i][0], mapping[i][1])) {
+    for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {
+        if (sample[i][2] == 0) {
+            if (NumberTheory_isCoprime(sample[i][0], sample[i][1])) {
                 return false;
             }
         } else {
-            if (!NumberTheory_isCoprime(mapping[i][0], mapping[i][1])) {
+            if (!NumberTheory_isCoprime(sample[i][0], sample[i][1])) {
                 return false;
             }
         }
@@ -152,7 +150,7 @@ bool testIsCoprime(void) {
 }
 
 bool testFactorial(void) {
-    long mapping[][2] = {
+    long sample[][2] = {
         { 0,         1},
         { 1,         1},
         { 2,         2},
@@ -168,10 +166,8 @@ bool testFactorial(void) {
         {12, 479001600},
     };
 
-    size_t instances = sizeof(mapping) / sizeof(mapping[0]);
-
-    for (size_t i = 0; i < instances; i++) {
-        if (NumberTheory_factorial(mapping[i][0]) != mapping[i][1]) {
+    for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {
+        if (NumberTheory_factorial(sample[i][0]) != sample[i][1]) {
             return false;
         }
     }
@@ -180,7 +176,7 @@ bool testFactorial(void) {
 }
 
 bool testFibonacci(void) {
-    long mapping[][2] = {
+    long sample[][2] = {
         {-31, 1346269},
         {-30, -832040},
         {-29,  514229},
@@ -246,10 +242,8 @@ bool testFibonacci(void) {
         { 31, 1346269},
     };
 
-    size_t instances = sizeof(mapping) / sizeof(mapping[0]);
-
-    for (size_t i = 0; i < instances; i++) {
-        if (NumberTheory_fibonacci(mapping[i][0]) != mapping[i][1]) {
+    for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {
+        if (NumberTheory_fibonacci(sample[i][0]) != sample[i][1]) {
             return false;
         }
     }
@@ -258,7 +252,7 @@ bool testFibonacci(void) {
 }
 
 bool testGCD(void) {
-    long mapping[][3] = {
+    long sample[][3] = {
         {          0,           1,   1},
         {          1,           0,   1},
         {          1,           1,   1},
@@ -389,10 +383,8 @@ bool testGCD(void) {
         {  645159694, -2147483647,   1},
     };
 
-    size_t instances = sizeof(mapping) / sizeof(mapping[0]);
-
-    for (size_t i = 0; i < instances; i++) {
-        if (NumberTheory_gcd(mapping[i][0], mapping[i][1]) != mapping[i][2]) {
+    for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {
+        if (NumberTheory_gcd(sample[i][0], sample[i][1]) != sample[i][2]) {
             return false;
         }
     }
@@ -401,7 +393,7 @@ bool testGCD(void) {
 }
 
 bool testLCM(void) {
-    long mapping[][3] = {
+    long sample[][3] = {
         {     1,      1,          1},
         {    -1,     -1,          1},
         {   -85,     -8,        680},
@@ -532,10 +524,8 @@ bool testLCM(void) {
         {-46340, -46341, 2147441940},
     };
 
-    size_t instances = sizeof(mapping) / sizeof(mapping[0]);
-
-    for (size_t i = 0; i < instances; i++) {
-        if (NumberTheory_lcm(mapping[i][0], mapping[i][1]) != mapping[i][2]) {
+    for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {
+        if (NumberTheory_lcm(sample[i][0], sample[i][1]) != sample[i][2]) {
             return false;
         }
     }
@@ -544,7 +534,7 @@ bool testLCM(void) {
 }
 
 bool testIsEven(void) {
-    long mapping[][2] = {
+    long sample[][2] = {
         {          0, 0},
         {          1, 1},
         {         -1, 1},
@@ -675,15 +665,13 @@ bool testIsEven(void) {
         {-2147483648, 0},
     };
 
-    size_t instances = sizeof(mapping) / sizeof(mapping[0]);
-
-    for (size_t i = 0; i < instances; i++) {
-        if (mapping[i][1] == 0) {
-            if (!NumberTheory_isEven(mapping[i][0])) {
+    for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {
+        if (sample[i][1] == 0) {
+            if (!NumberTheory_isEven(sample[i][0])) {
                 return false;
             }
         } else {
-            if (NumberTheory_isEven(mapping[i][0])) {
+            if (NumberTheory_isEven(sample[i][0])) {
                 return false;
             }
         }
@@ -693,7 +681,7 @@ bool testIsEven(void) {
 }
 
 bool testIsOdd(void) {
-    long mapping[][2] = {
+    long sample[][2] = {
         {          0, 0},
         {          1, 1},
         {         -1, 1},
@@ -824,15 +812,13 @@ bool testIsOdd(void) {
         {-2147483648, 0},
     };
 
-    size_t instances = sizeof(mapping) / sizeof(mapping[0]);
-
-    for (size_t i = 0; i < instances; i++) {
-        if (mapping[i][1] == 0) {
-            if (NumberTheory_isOdd(mapping[i][0])) {
+    for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {
+        if (sample[i][1] == 0) {
+            if (NumberTheory_isOdd(sample[i][0])) {
                 return false;
             }
         } else {
-            if (!NumberTheory_isOdd(mapping[i][0])) {
+            if (!NumberTheory_isOdd(sample[i][0])) {
                 return false;
             }
         }
@@ -842,7 +828,7 @@ bool testIsOdd(void) {
 }
 
 bool testIsPrime(void) {
-    long mapping[][2] = {
+    long sample[][2] = {
         {       0, 1},
         {       1, 1},
         {       2, 2},
@@ -1101,19 +1087,17 @@ bool testIsPrime(void) {
         {14162880, 4},
     };
 
-    size_t instances = sizeof(mapping) / sizeof(mapping[0]);
-
-    for (size_t i = 0; i < instances; i++) {
-        if (mapping[i][1] == 1) {
-            if (NumberTheory_isPrime(mapping[i][0])) {
+    for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {
+        if (sample[i][1] == 1) {
+            if (NumberTheory_isPrime(sample[i][0])) {
                 return false;
             }
-        } else if (mapping[i][1] == 2) {
-            if (!NumberTheory_isPrime(mapping[i][0])) {
+        } else if (sample[i][1] == 2) {
+            if (!NumberTheory_isPrime(sample[i][0])) {
                 return false;
             }
         } else {
-            if (NumberTheory_isPrime(mapping[i][0])) {
+            if (NumberTheory_isPrime(sample[i][0])) {
                 return false;
             }
         }
@@ -1123,7 +1107,7 @@ bool testIsPrime(void) {
 }
 
 bool testIsComposite(void) {
-    long mapping[][2] = {
+    long sample[][2] = {
         {       0, 1},
         {       1, 1},
         {       2, 2},
@@ -1382,19 +1366,17 @@ bool testIsComposite(void) {
         {14162880, 4},
     };
 
-    size_t instances = sizeof(mapping) / sizeof(mapping[0]);
-
-    for (size_t i = 0; i < instances; i++) {
-        if (mapping[i][1] == 1) {
-            if (NumberTheory_isComposite(mapping[i][0])) {
+    for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {
+        if (sample[i][1] == 1) {
+            if (NumberTheory_isComposite(sample[i][0])) {
                 return false;
             }
-        } else if (mapping[i][1] == 2) {
-            if (NumberTheory_isComposite(mapping[i][0])) {
+        } else if (sample[i][1] == 2) {
+            if (NumberTheory_isComposite(sample[i][0])) {
                 return false;
             }
         } else {
-            if (!NumberTheory_isComposite(mapping[i][0])) {
+            if (!NumberTheory_isComposite(sample[i][0])) {
                 return false;
             }
         }
@@ -1404,7 +1386,7 @@ bool testIsComposite(void) {
 }
 
 bool testSieveOfPrimes(void) {
-    size_t mapping[][2] = {
+    size_t sample[][2] = {
         {      0,     0},
         {      1,     0},
         {    180,    41},
@@ -1535,15 +1517,13 @@ bool testSieveOfPrimes(void) {
         {1294061, 99610},
     };
 
-    size_t instances = sizeof(mapping) / sizeof(mapping[0]);
-
     size_t *arr;
     size_t length;
 
-    for (size_t i = 0; i < instances; i++) {
-        arr = NumberTheory_sieveOfPrimes(mapping[i][0], &length);
+    for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {
+        arr = NumberTheory_sieveOfPrimes(sample[i][0], &length);
 
-        if (length != mapping[i][1]) {
+        if (length != sample[i][1]) {
             return false;
         }
 

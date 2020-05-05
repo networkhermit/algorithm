@@ -2,7 +2,7 @@ from fun.vac.algorithms.number_theory import Primality
 from fun.vac.util import TestRunner
 
 def testPrimality() -> bool:
-    mapping = [
+    sample = [
         [         0, 1],
         [         1, 1],
         [         2, 2],
@@ -261,23 +261,21 @@ def testPrimality() -> bool:
         [14_162_880, 4],
     ]
 
-    instances = len(mapping)
-
-    for i in range(instances):
-        if mapping[i][1] == 1:
-            if Primality.isPrime(mapping[i][0]):
+    for i in range(len(sample)):
+        if sample[i][1] == 1:
+            if Primality.isPrime(sample[i][0]):
                 return False
-            if Primality.isComposite(mapping[i][0]):
+            if Primality.isComposite(sample[i][0]):
                 return False
-        elif mapping[i][1] == 2:
-            if not Primality.isPrime(mapping[i][0]):
+        elif sample[i][1] == 2:
+            if not Primality.isPrime(sample[i][0]):
                 return False
-            if Primality.isComposite(mapping[i][0]):
+            if Primality.isComposite(sample[i][0]):
                 return False
         else:
-            if Primality.isPrime(mapping[i][0]):
+            if Primality.isPrime(sample[i][0]):
                 return False
-            if not Primality.isComposite(mapping[i][0]):
+            if not Primality.isComposite(sample[i][0]):
                 return False
 
     return True

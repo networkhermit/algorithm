@@ -2,7 +2,7 @@ from fun.vac.algorithms.number_theory import Parity
 from fun.vac.util import TestRunner
 
 def testParity() -> bool:
-    mapping = [
+    sample = [
         [             0, 0],
         [             1, 1],
         [            -1, 1],
@@ -133,38 +133,36 @@ def testParity() -> bool:
         [-2_147_483_648, 0],
     ]
 
-    instances = len(mapping)
-
-    for i in range(instances):
-        if mapping[i][1] == 0:
-            if not Parity.moduloIsEven(mapping[i][0]):
+    for i in range(len(sample)):
+        if sample[i][1] == 0:
+            if not Parity.moduloIsEven(sample[i][0]):
                 return False
         else:
-            if Parity.moduloIsEven(mapping[i][0]):
+            if Parity.moduloIsEven(sample[i][0]):
                 return False
 
-    for i in range(instances):
-        if mapping[i][1] == 0:
-            if not Parity.bitwiseIsEven(mapping[i][0]):
+    for i in range(len(sample)):
+        if sample[i][1] == 0:
+            if not Parity.bitwiseIsEven(sample[i][0]):
                 return False
         else:
-            if Parity.bitwiseIsEven(mapping[i][0]):
+            if Parity.bitwiseIsEven(sample[i][0]):
                 return False
 
-    for i in range(instances):
-        if mapping[i][1] == 0:
-            if Parity.moduloIsOdd(mapping[i][0]):
+    for i in range(len(sample)):
+        if sample[i][1] == 0:
+            if Parity.moduloIsOdd(sample[i][0]):
                 return False
         else:
-            if not Parity.moduloIsOdd(mapping[i][0]):
+            if not Parity.moduloIsOdd(sample[i][0]):
                 return False
 
-    for i in range(instances):
-        if mapping[i][1] == 0:
-            if Parity.bitwiseIsOdd(mapping[i][0]):
+    for i in range(len(sample)):
+        if sample[i][1] == 0:
+            if Parity.bitwiseIsOdd(sample[i][0]):
                 return False
         else:
-            if not Parity.bitwiseIsOdd(mapping[i][0]):
+            if not Parity.bitwiseIsOdd(sample[i][0]):
                 return False
 
     return True

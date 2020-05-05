@@ -5,7 +5,7 @@ const PrimeSieves = require("fun/vac/algorithms/number_theory/PrimeSieves")
 const TestRunner  = require("fun/vac/util/TestRunner")
 
 const testPrimeSieves = () => {
-    let mapping = [
+    let sample = [
         [      0,     0],
         [      1,     0],
         [    180,    41],
@@ -136,14 +136,12 @@ const testPrimeSieves = () => {
         [1294061, 99610],
     ]
 
-    let instances = mapping.length
-
     let arr = null
 
-    for (let i = 0; i < instances; i++) {
-        arr = PrimeSieves.sieveOfEratosthenes(mapping[i][0])
+    for (let i = 0, size = sample.length; i < size; i++) {
+        arr = PrimeSieves.sieveOfEratosthenes(sample[i][0])
 
-        if (arr.length !== mapping[i][1]) {
+        if (arr.length !== sample[i][1]) {
             return false
         }
 

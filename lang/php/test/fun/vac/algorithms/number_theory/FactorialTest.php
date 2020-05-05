@@ -6,7 +6,7 @@
     use fun\vac\util\TestRunner;
 
     function testFactorial(): bool {
-        $mapping = [
+        $sample = [
             [ 0,         1],
             [ 1,         1],
             [ 2,         2],
@@ -22,16 +22,14 @@
             [12, 479001600],
         ];
 
-        $instances = count($mapping);
-
-        for ($i = 0; $i < $instances; $i++) {
-            if (Factorial\iterativeProcedure($mapping[$i][0]) != $mapping[$i][1]) {
+        for ($i = 0, $size = count($sample); $i < $size; $i++) {
+            if (Factorial\iterativeProcedure($sample[$i][0]) != $sample[$i][1]) {
                 return false;
             }
         }
 
-        for ($i = 0; $i < $instances; $i++) {
-            if (Factorial\recursiveProcedure($mapping[$i][0]) != $mapping[$i][1]) {
+        for ($i = 0, $size = count($sample); $i < $size; $i++) {
+            if (Factorial\recursiveProcedure($sample[$i][0]) != $sample[$i][1]) {
                 return false;
             }
         }

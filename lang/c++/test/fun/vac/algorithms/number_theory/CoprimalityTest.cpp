@@ -4,7 +4,7 @@
 using namespace std;
 
 bool testCoprimality() {
-    long mapping[][3] = {
+    long sample[][3] = {
         {             0,              1, 1},
         {             1,              0, 1},
         {             1,              1, 1},
@@ -135,27 +135,25 @@ bool testCoprimality() {
         {   761'395'308, -2'147'483'647, 1},
     };
 
-    size_t instances = sizeof(mapping) / sizeof(mapping[0]);
-
-    for (size_t i = 0; i < instances; i++) {
-        if (mapping[i][2] == 0) {
-            if (Coprimality::reduceToBinaryGCD(mapping[i][0], mapping[i][1])) {
+    for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {
+        if (sample[i][2] == 0) {
+            if (Coprimality::reduceToBinaryGCD(sample[i][0], sample[i][1])) {
                 return false;
             }
         } else {
-            if (!Coprimality::reduceToBinaryGCD(mapping[i][0], mapping[i][1])) {
+            if (!Coprimality::reduceToBinaryGCD(sample[i][0], sample[i][1])) {
                 return false;
             }
         }
     }
 
-    for (size_t i = 0; i < instances; i++) {
-        if (mapping[i][2] == 0) {
-            if (Coprimality::reduceToEuclidean(mapping[i][0], mapping[i][1])) {
+    for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {
+        if (sample[i][2] == 0) {
+            if (Coprimality::reduceToEuclidean(sample[i][0], sample[i][1])) {
                 return false;
             }
         } else {
-            if (!Coprimality::reduceToEuclidean(mapping[i][0], mapping[i][1])) {
+            if (!Coprimality::reduceToEuclidean(sample[i][0], sample[i][1])) {
                 return false;
             }
         }

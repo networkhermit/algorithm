@@ -6,7 +6,7 @@
     use fun\vac\util\TestRunner;
 
     function testGreatestCommonDivisor(): bool {
-        $mapping = [
+        $sample = [
             [          0,           1,   1],
             [          1,           0,   1],
             [          1,           1,   1],
@@ -137,28 +137,26 @@
             [  645159694, -2147483647,   1],
         ];
 
-        $instances = count($mapping);
-
-        for ($i = 0; $i < $instances; $i++) {
-            if (GreatestCommonDivisor\iterativeBinaryGCD($mapping[$i][0], $mapping[$i][1]) != $mapping[$i][2]) {
+        for ($i = 0, $size = count($sample); $i < $size; $i++) {
+            if (GreatestCommonDivisor\iterativeBinaryGCD($sample[$i][0], $sample[$i][1]) != $sample[$i][2]) {
                 return false;
             }
         }
 
-        for ($i = 0; $i < $instances; $i++) {
-            if (GreatestCommonDivisor\recursiveBinaryGCD($mapping[$i][0], $mapping[$i][1]) != $mapping[$i][2]) {
+        for ($i = 0, $size = count($sample); $i < $size; $i++) {
+            if (GreatestCommonDivisor\recursiveBinaryGCD($sample[$i][0], $sample[$i][1]) != $sample[$i][2]) {
                 return false;
             }
         }
 
-        for ($i = 0; $i < $instances; $i++) {
-            if (GreatestCommonDivisor\iterativeEuclidean($mapping[$i][0], $mapping[$i][1]) != $mapping[$i][2]) {
+        for ($i = 0, $size = count($sample); $i < $size; $i++) {
+            if (GreatestCommonDivisor\iterativeEuclidean($sample[$i][0], $sample[$i][1]) != $sample[$i][2]) {
                 return false;
             }
         }
 
-        for ($i = 0; $i < $instances; $i++) {
-            if (GreatestCommonDivisor\recursiveEuclidean($mapping[$i][0], $mapping[$i][1]) != $mapping[$i][2]) {
+        for ($i = 0, $size = count($sample); $i < $size; $i++) {
+            if (GreatestCommonDivisor\recursiveEuclidean($sample[$i][0], $sample[$i][1]) != $sample[$i][2]) {
                 return false;
             }
         }

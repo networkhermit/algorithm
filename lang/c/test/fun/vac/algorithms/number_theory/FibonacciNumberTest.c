@@ -2,7 +2,7 @@
 #include <fun/vac/util/TestRunner.h>
 
 bool testFibonacciNumber(void) {
-    long mapping[][2] = {
+    long sample[][2] = {
         {-31, 1346269},
         {-30, -832040},
         {-29,  514229},
@@ -68,16 +68,14 @@ bool testFibonacciNumber(void) {
         { 31, 1346269},
     };
 
-    size_t instances = sizeof(mapping) / sizeof(mapping[0]);
-
-    for (size_t i = 0; i < instances; i++) {
-        if (FibonacciNumber_iterativeProcedure(mapping[i][0]) != mapping[i][1]) {
+    for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {
+        if (FibonacciNumber_iterativeProcedure(sample[i][0]) != sample[i][1]) {
             return false;
         }
     }
 
-    for (size_t i = 0; i < instances; i++) {
-        if (FibonacciNumber_recursiveProcedure(mapping[i][0]) != mapping[i][1]) {
+    for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {
+        if (FibonacciNumber_recursiveProcedure(sample[i][0]) != sample[i][1]) {
             return false;
         }
     }

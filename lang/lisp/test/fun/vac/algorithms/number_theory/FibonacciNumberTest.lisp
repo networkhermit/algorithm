@@ -2,7 +2,7 @@
 (import-module "fun/vac/util/TestRunner")
 
 (defun test-fibonacci-number ()
-  (let ((mapping (make-array '(63 2) :initial-contents
+  (let ((sample (make-array '(63 2) :initial-contents
                              '((-31 1346269)
                                (-30 -832040)
                                (-29  514229)
@@ -67,15 +67,14 @@
                                ( 30  832040)
                                ( 31 1346269)))))
 
-    (let ((instances (array-dimension mapping 0)))
+    (dotimes (i (array-dimension sample 0))
+      (when (/= (fibonacci-number:iterative-procedure (aref sample i 0)) (aref sample i 1))
+        (return-from test-fibonacci-number nil)))
 
-      (dotimes (i instances)
-        (when (/= (fibonacci-number:iterative-procedure (aref mapping i 0)) (aref mapping i 1))
-          (return-from test-fibonacci-number nil)))
+    (dotimes (i (array-dimension sample 0))
+      (when (/= (fibonacci-number:recursive-procedure (aref sample i 0)) (aref sample i 1))
+        (return-from test-fibonacci-number nil))))
 
-      (dotimes (i instances)
-        (when (/= (fibonacci-number:recursive-procedure (aref mapping i 0)) (aref mapping i 1))
-          (return-from test-fibonacci-number nil)))))
   t)
 
 (defun main ()

@@ -2,7 +2,7 @@ from fun.vac.algorithms.number_theory import GreatestCommonDivisor
 from fun.vac.util import TestRunner
 
 def testGreatestCommonDivisor() -> bool:
-    mapping = [
+    sample = [
         [             0,              1,   1],
         [             1,              0,   1],
         [             1,              1,   1],
@@ -133,22 +133,20 @@ def testGreatestCommonDivisor() -> bool:
         [   645_159_694, -2_147_483_647,   1],
     ]
 
-    instances = len(mapping)
-
-    for i in range(instances):
-        if GreatestCommonDivisor.iterativeBinaryGCD(mapping[i][0], mapping[i][1]) != mapping[i][2]:
+    for i in range(len(sample)):
+        if GreatestCommonDivisor.iterativeBinaryGCD(sample[i][0], sample[i][1]) != sample[i][2]:
             return False
 
-    for i in range(instances):
-        if GreatestCommonDivisor.recursiveBinaryGCD(mapping[i][0], mapping[i][1]) != mapping[i][2]:
+    for i in range(len(sample)):
+        if GreatestCommonDivisor.recursiveBinaryGCD(sample[i][0], sample[i][1]) != sample[i][2]:
             return False
 
-    for i in range(instances):
-        if GreatestCommonDivisor.iterativeEuclidean(mapping[i][0], mapping[i][1]) != mapping[i][2]:
+    for i in range(len(sample)):
+        if GreatestCommonDivisor.iterativeEuclidean(sample[i][0], sample[i][1]) != sample[i][2]:
             return False
 
-    for i in range(instances):
-        if GreatestCommonDivisor.recursiveEuclidean(mapping[i][0], mapping[i][1]) != mapping[i][2]:
+    for i in range(len(sample)):
+        if GreatestCommonDivisor.recursiveEuclidean(sample[i][0], sample[i][1]) != sample[i][2]:
             return False
 
     return True

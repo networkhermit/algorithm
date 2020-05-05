@@ -2,7 +2,7 @@
 #include <fun/vac/util/TestRunner.h>
 
 bool testFactorial(void) {
-    long mapping[][2] = {
+    long sample[][2] = {
         { 0,         1},
         { 1,         1},
         { 2,         2},
@@ -18,16 +18,14 @@ bool testFactorial(void) {
         {12, 479001600},
     };
 
-    size_t instances = sizeof(mapping) / sizeof(mapping[0]);
-
-    for (size_t i = 0; i < instances; i++) {
-        if (Factorial_iterativeProcedure(mapping[i][0]) != mapping[i][1]) {
+    for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {
+        if (Factorial_iterativeProcedure(sample[i][0]) != sample[i][1]) {
             return false;
         }
     }
 
-    for (size_t i = 0; i < instances; i++) {
-        if (Factorial_recursiveProcedure(mapping[i][0]) != mapping[i][1]) {
+    for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {
+        if (Factorial_recursiveProcedure(sample[i][0]) != sample[i][1]) {
             return false;
         }
     }

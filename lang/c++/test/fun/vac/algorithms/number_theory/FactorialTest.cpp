@@ -4,7 +4,7 @@
 using namespace std;
 
 bool testFactorial() {
-    long mapping[][2] = {
+    long sample[][2] = {
         { 0,           1},
         { 1,           1},
         { 2,           2},
@@ -20,16 +20,14 @@ bool testFactorial() {
         {12, 479'001'600},
     };
 
-    size_t instances = sizeof(mapping) / sizeof(mapping[0]);
-
-    for (size_t i = 0; i < instances; i++) {
-        if (Factorial::iterativeProcedure(mapping[i][0]) != mapping[i][1]) {
+    for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {
+        if (Factorial::iterativeProcedure(sample[i][0]) != sample[i][1]) {
             return false;
         }
     }
 
-    for (size_t i = 0; i < instances; i++) {
-        if (Factorial::recursiveProcedure(mapping[i][0]) != mapping[i][1]) {
+    for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {
+        if (Factorial::recursiveProcedure(sample[i][0]) != sample[i][1]) {
             return false;
         }
     }

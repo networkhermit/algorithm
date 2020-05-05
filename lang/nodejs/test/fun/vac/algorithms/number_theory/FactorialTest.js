@@ -4,7 +4,7 @@ const Factorial  = require("fun/vac/algorithms/number_theory/Factorial")
 const TestRunner = require("fun/vac/util/TestRunner")
 
 const testFactorial = () => {
-    let mapping = [
+    let sample = [
         [ 0,         1],
         [ 1,         1],
         [ 2,         2],
@@ -20,16 +20,14 @@ const testFactorial = () => {
         [12, 479001600],
     ]
 
-    let instances = mapping.length
-
-    for (let i = 0; i < instances; i++) {
-        if (Factorial.iterativeProcedure(mapping[i][0]) !== mapping[i][1]) {
+    for (let i = 0, size = sample.length; i < size; i++) {
+        if (Factorial.iterativeProcedure(sample[i][0]) !== sample[i][1]) {
             return false
         }
     }
 
-    for (let i = 0; i < instances; i++) {
-        if (Factorial.recursiveProcedure(mapping[i][0]) !== mapping[i][1]) {
+    for (let i = 0, size = sample.length; i < size; i++) {
+        if (Factorial.recursiveProcedure(sample[i][0]) !== sample[i][1]) {
             return false
         }
     }

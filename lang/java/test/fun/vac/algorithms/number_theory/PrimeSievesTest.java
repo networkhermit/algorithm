@@ -5,7 +5,7 @@ import fun.vac.util.TestRunner;
 public class PrimeSievesTest {
 
     public static boolean testPrimeSieves() {
-        int[][] mapping = {
+        int[][] sample = {
             {      0,     0},
             {      1,     0},
             {    180,    41},
@@ -136,14 +136,12 @@ public class PrimeSievesTest {
             {1294061, 99610},
         };
 
-        int instances = mapping.length;
-
         int[] arr;
 
-        for (int i = 0; i < instances; i++) {
-            arr = PrimeSieves.sieveOfEratosthenes(mapping[i][0]);
+        for (int i = 0, size = sample.length; i < size; i++) {
+            arr = PrimeSieves.sieveOfEratosthenes(sample[i][0]);
 
-            if (arr.length != mapping[i][1]) {
+            if (arr.length != sample[i][1]) {
                 return false;
             }
 

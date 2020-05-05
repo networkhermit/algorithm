@@ -4,7 +4,7 @@ import fun.vac.util.TestRunner;
 public class PrimalityTest {
 
     public static boolean testPrimality() {
-        long[][] mapping = {
+        long[][] sample = {
             {         0, 1},
             {         1, 1},
             {         2, 2},
@@ -263,28 +263,26 @@ public class PrimalityTest {
             {14_162_880, 4},
         };
 
-        int instances = mapping.length;
-
-        for (int i = 0; i < instances; i++) {
-            if (mapping[i][1] == 1) {
-                if (Primality.isPrime(mapping[i][0])) {
+        for (int i = 0, size = sample.length; i < size; i++) {
+            if (sample[i][1] == 1) {
+                if (Primality.isPrime(sample[i][0])) {
                     return false;
                 }
-                if (Primality.isComposite(mapping[i][0])) {
+                if (Primality.isComposite(sample[i][0])) {
                     return false;
                 }
-            } else if (mapping[i][1] == 2) {
-                if (!Primality.isPrime(mapping[i][0])) {
+            } else if (sample[i][1] == 2) {
+                if (!Primality.isPrime(sample[i][0])) {
                     return false;
                 }
-                if (Primality.isComposite(mapping[i][0])) {
+                if (Primality.isComposite(sample[i][0])) {
                     return false;
                 }
             } else {
-                if (Primality.isPrime(mapping[i][0])) {
+                if (Primality.isPrime(sample[i][0])) {
                     return false;
                 }
-                if (!Primality.isComposite(mapping[i][0])) {
+                if (!Primality.isComposite(sample[i][0])) {
                     return false;
                 }
             }

@@ -6,7 +6,7 @@ import (
 )
 
 func testParity() bool {
-    mapping := [][2]int64{
+    sample := [][2]int64{
         {          0, 0},
         {          1, 1},
         {         -1, 1},
@@ -137,49 +137,49 @@ func testParity() bool {
         {-2147483648, 0},
     }
 
-    for i := range mapping {
-        if mapping[i][1] == 0 {
-            if !Parity.ModuloIsEven(mapping[i][0]) {
+    for i := range sample {
+        if sample[i][1] == 0 {
+            if !Parity.ModuloIsEven(sample[i][0]) {
                 return false
             }
         } else {
-            if Parity.ModuloIsEven(mapping[i][0]) {
+            if Parity.ModuloIsEven(sample[i][0]) {
                 return false
             }
         }
     }
 
-    for i := range mapping {
-        if mapping[i][1] == 0 {
-            if !Parity.BitwiseIsEven(mapping[i][0]) {
+    for i := range sample {
+        if sample[i][1] == 0 {
+            if !Parity.BitwiseIsEven(sample[i][0]) {
                 return false
             }
         } else {
-            if Parity.BitwiseIsEven(mapping[i][0]) {
+            if Parity.BitwiseIsEven(sample[i][0]) {
                 return false
             }
         }
     }
 
-    for i := range mapping {
-        if mapping[i][1] == 0 {
-            if Parity.ModuloIsOdd(mapping[i][0]) {
+    for i := range sample {
+        if sample[i][1] == 0 {
+            if Parity.ModuloIsOdd(sample[i][0]) {
                 return false
             }
         } else {
-            if !Parity.ModuloIsOdd(mapping[i][0]) {
+            if !Parity.ModuloIsOdd(sample[i][0]) {
                 return false
             }
         }
     }
 
-    for i := range mapping {
-        if mapping[i][1] == 0 {
-            if Parity.BitwiseIsOdd(mapping[i][0]) {
+    for i := range sample {
+        if sample[i][1] == 0 {
+            if Parity.BitwiseIsOdd(sample[i][0]) {
                 return false
             }
         } else {
-            if !Parity.BitwiseIsOdd(mapping[i][0]) {
+            if !Parity.BitwiseIsOdd(sample[i][0]) {
                 return false
             }
         }

@@ -4,7 +4,7 @@ import fun.vac.util.TestRunner;
 public class FactorialTest {
 
     public static boolean testFactorial() {
-        long[][] mapping = {
+        long[][] sample = {
             { 0,           1},
             { 1,           1},
             { 2,           2},
@@ -20,16 +20,14 @@ public class FactorialTest {
             {12, 479_001_600},
         };
 
-        int instances = mapping.length;
-
-        for (int i = 0; i < instances; i++) {
-            if (Factorial.iterativeProcedure(mapping[i][0]) != mapping[i][1]) {
+        for (int i = 0, size = sample.length; i < size; i++) {
+            if (Factorial.iterativeProcedure(sample[i][0]) != sample[i][1]) {
                 return false;
             }
         }
 
-        for (int i = 0; i < instances; i++) {
-            if (Factorial.recursiveProcedure(mapping[i][0]) != mapping[i][1]) {
+        for (int i = 0, size = sample.length; i < size; i++) {
+            if (Factorial.recursiveProcedure(sample[i][0]) != sample[i][1]) {
                 return false;
             }
         }

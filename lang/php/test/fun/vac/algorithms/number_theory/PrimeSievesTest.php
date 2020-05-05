@@ -8,7 +8,7 @@
     use fun\vac\util\TestRunner;
 
     function testPrimeSieves(): bool {
-        $mapping = [
+        $sample = [
             [      0,     0],
             [      1,     0],
             [    180,    41],
@@ -139,14 +139,12 @@
             [1294061, 99610],
         ];
 
-        $instances = count($mapping);
-
         $arr = NULL;
 
-        for ($i = 0; $i < $instances; $i++) {
-            $arr = PrimeSieves\sieveOfEratosthenes($mapping[$i][0]);
+        for ($i = 0, $size = count($sample); $i < $size; $i++) {
+            $arr = PrimeSieves\sieveOfEratosthenes($sample[$i][0]);
 
-            if (count($arr) != $mapping[$i][1]) {
+            if (count($arr) != $sample[$i][1]) {
                 return false;
             }
 

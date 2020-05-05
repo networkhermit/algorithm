@@ -6,7 +6,7 @@ import (
 )
 
 func testFactorial() bool {
-    mapping := [][2]int64{
+    sample := [][2]int64{
         { 0,         1},
         { 1,         1},
         { 2,         2},
@@ -22,14 +22,14 @@ func testFactorial() bool {
         {12, 479001600},
     }
 
-    for i := range mapping {
-        if Factorial.IterativeProcedure(mapping[i][0]) != mapping[i][1] {
+    for i := range sample {
+        if Factorial.IterativeProcedure(sample[i][0]) != sample[i][1] {
             return false
         }
     }
 
-    for i := range mapping {
-        if Factorial.RecursiveProcedure(mapping[i][0]) != mapping[i][1] {
+    for i := range sample {
+        if Factorial.RecursiveProcedure(sample[i][0]) != sample[i][1] {
             return false
         }
     }

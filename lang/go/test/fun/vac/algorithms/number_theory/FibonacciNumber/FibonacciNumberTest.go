@@ -6,7 +6,7 @@ import (
 )
 
 func testFibonacciNumber() bool {
-    mapping := [][2]int64{
+    sample := [][2]int64{
         {-31, 1346269},
         {-30, -832040},
         {-29,  514229},
@@ -72,14 +72,14 @@ func testFibonacciNumber() bool {
         { 31, 1346269},
     }
 
-    for i := range mapping {
-        if FibonacciNumber.IterativeProcedure(mapping[i][0]) != mapping[i][1] {
+    for i := range sample {
+        if FibonacciNumber.IterativeProcedure(sample[i][0]) != sample[i][1] {
             return false
         }
     }
 
-    for i := range mapping {
-        if FibonacciNumber.RecursiveProcedure(mapping[i][0]) != mapping[i][1] {
+    for i := range sample {
+        if FibonacciNumber.RecursiveProcedure(sample[i][0]) != sample[i][1] {
             return false
         }
     }

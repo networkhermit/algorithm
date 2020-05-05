@@ -2,7 +2,7 @@ from fun.vac.algorithms.number_theory import Coprimality
 from fun.vac.util import TestRunner
 
 def testCoprimality() -> bool:
-    mapping = [
+    sample = [
         [             0,              1, 1],
         [             1,              0, 1],
         [             1,              1, 1],
@@ -133,22 +133,20 @@ def testCoprimality() -> bool:
         [   761_395_308, -2_147_483_647, 1],
     ]
 
-    instances = len(mapping)
-
-    for i in range(instances):
-        if mapping[i][2] == 0:
-            if Coprimality.reduceToBinaryGCD(mapping[i][0], mapping[i][1]):
+    for i in range(len(sample)):
+        if sample[i][2] == 0:
+            if Coprimality.reduceToBinaryGCD(sample[i][0], sample[i][1]):
                 return False
         else:
-            if not Coprimality.reduceToBinaryGCD(mapping[i][0], mapping[i][1]):
+            if not Coprimality.reduceToBinaryGCD(sample[i][0], sample[i][1]):
                 return False
 
-    for i in range(instances):
-        if mapping[i][2] == 0:
-            if Coprimality.reduceToEuclidean(mapping[i][0], mapping[i][1]):
+    for i in range(len(sample)):
+        if sample[i][2] == 0:
+            if Coprimality.reduceToEuclidean(sample[i][0], sample[i][1]):
                 return False
         else:
-            if not Coprimality.reduceToEuclidean(mapping[i][0], mapping[i][1]):
+            if not Coprimality.reduceToEuclidean(sample[i][0], sample[i][1]):
                 return False
 
     return True

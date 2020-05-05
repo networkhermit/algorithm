@@ -2,7 +2,7 @@
 (import-module "fun/vac/util/TestRunner")
 
 (defun test-primality ()
-  (let ((mapping (make-array '(256 2) :initial-contents
+  (let ((sample (make-array '(256 2) :initial-contents
                              '((       0 1)
                                (       1 1)
                                (       2 2)
@@ -260,24 +260,22 @@
                                ( 1308913 4)
                                (14162880 4)))))
 
-    (let ((instances (array-dimension mapping 0)))
-
-      (dotimes (i instances)
-        (cond ((= (aref mapping i 1) 1)
-               (when (primality:is-prime (aref mapping i 0))
-                 (return-from test-primality nil))
-               (when (primality:is-composite (aref mapping i 0))
-                 (return-from test-primality nil)))
-              ((= (aref mapping i 1) 2)
-               (unless (primality:is-prime (aref mapping i 0))
-                 (return-from test-primality nil))
-               (when (primality:is-composite (aref mapping i 0))
-                 (return-from test-primality nil)))
-              (t
-                (when (primality:is-prime (aref mapping i 0))
-                  (return-from test-primality nil))
-                (unless (primality:is-composite (aref mapping i 0))
-                  (return-from test-primality nil)))))))
+    (dotimes (i (array-dimension sample 0))
+      (cond ((= (aref sample i 1) 1)
+             (when (primality:is-prime (aref sample i 0))
+               (return-from test-primality nil))
+             (when (primality:is-composite (aref sample i 0))
+               (return-from test-primality nil)))
+            ((= (aref sample i 1) 2)
+             (unless (primality:is-prime (aref sample i 0))
+               (return-from test-primality nil))
+             (when (primality:is-composite (aref sample i 0))
+               (return-from test-primality nil)))
+            (t
+              (when (primality:is-prime (aref sample i 0))
+                (return-from test-primality nil))
+              (unless (primality:is-composite (aref sample i 0))
+                (return-from test-primality nil))))))
 
   t)
 

@@ -3,7 +3,7 @@ require "fun/vac/algorithms/number_theory/PrimeSieves"
 require "fun/vac/util/TestRunner"
 
 def testPrimeSieves()
-    mapping = [
+    sample = [
         [      0,     0],
         [      1,     0],
         [    180,    41],
@@ -136,10 +136,10 @@ def testPrimeSieves()
 
     arr = nil
 
-    mapping.each_index do |i|
-        arr = PrimeSieves.sieveOfEratosthenes(mapping[i][0])
+    sample.each_index do |i|
+        arr = PrimeSieves.sieveOfEratosthenes(sample[i][0])
 
-        if arr.length != mapping[i][1]
+        if arr.length != sample[i][1]
             return false
         end
 

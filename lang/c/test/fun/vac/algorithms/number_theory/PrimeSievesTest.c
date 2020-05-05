@@ -3,7 +3,7 @@
 #include <fun/vac/util/TestRunner.h>
 
 bool testPrimeSieves(void) {
-    size_t mapping[][2] = {
+    size_t sample[][2] = {
         {      0,     0},
         {      1,     0},
         {    180,    41},
@@ -134,15 +134,13 @@ bool testPrimeSieves(void) {
         {1294061, 99610},
     };
 
-    size_t instances = sizeof(mapping) / sizeof(mapping[0]);
-
     size_t *arr;
     size_t length;
 
-    for (size_t i = 0; i < instances; i++) {
-        arr = PrimeSieves_sieveOfEratosthenes(mapping[i][0], &length);
+    for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {
+        arr = PrimeSieves_sieveOfEratosthenes(sample[i][0], &length);
 
-        if (length != mapping[i][1]) {
+        if (length != sample[i][1]) {
             return false;
         }
 

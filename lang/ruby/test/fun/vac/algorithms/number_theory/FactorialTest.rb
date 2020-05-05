@@ -2,7 +2,7 @@ require "fun/vac/algorithms/number_theory/Factorial"
 require "fun/vac/util/TestRunner"
 
 def testFactorial()
-    mapping = [
+    sample = [
         [ 0,           1],
         [ 1,           1],
         [ 2,           2],
@@ -18,14 +18,14 @@ def testFactorial()
         [12, 479_001_600],
     ]
 
-    mapping.each_index do |i|
-        if Factorial.iterativeProcedure(mapping[i][0]) != mapping[i][1]
+    sample.each_index do |i|
+        if Factorial.iterativeProcedure(sample[i][0]) != sample[i][1]
             return false
         end
     end
 
-    mapping.each_index do |i|
-        if Factorial.recursiveProcedure(mapping[i][0]) != mapping[i][1]
+    sample.each_index do |i|
+        if Factorial.recursiveProcedure(sample[i][0]) != sample[i][1]
             return false
         end
     end

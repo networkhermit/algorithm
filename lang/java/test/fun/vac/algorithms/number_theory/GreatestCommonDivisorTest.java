@@ -4,7 +4,7 @@ import fun.vac.util.TestRunner;
 public class GreatestCommonDivisorTest {
 
     public static boolean testGreatestCommonDivisor() {
-        long[][] mapping = {
+        long[][] sample = {
             {             0,              1,   1},
             {             1,              0,   1},
             {             1,              1,   1},
@@ -135,28 +135,26 @@ public class GreatestCommonDivisorTest {
             {   645_159_694, -2_147_483_647,   1},
         };
 
-        int instances = mapping.length;
-
-        for (int i = 0; i < instances; i++) {
-            if (GreatestCommonDivisor.iterativeBinaryGCD(mapping[i][0], mapping[i][1]) != mapping[i][2]) {
+        for (int i = 0, size = sample.length; i < size; i++) {
+            if (GreatestCommonDivisor.iterativeBinaryGCD(sample[i][0], sample[i][1]) != sample[i][2]) {
                 return false;
             }
         }
 
-        for (int i = 0; i < instances; i++) {
-            if (GreatestCommonDivisor.recursiveBinaryGCD(mapping[i][0], mapping[i][1]) != mapping[i][2]) {
+        for (int i = 0, size = sample.length; i < size; i++) {
+            if (GreatestCommonDivisor.recursiveBinaryGCD(sample[i][0], sample[i][1]) != sample[i][2]) {
                 return false;
             }
         }
 
-        for (int i = 0; i < instances; i++) {
-            if (GreatestCommonDivisor.iterativeEuclidean(mapping[i][0], mapping[i][1]) != mapping[i][2]) {
+        for (int i = 0, size = sample.length; i < size; i++) {
+            if (GreatestCommonDivisor.iterativeEuclidean(sample[i][0], sample[i][1]) != sample[i][2]) {
                 return false;
             }
         }
 
-        for (int i = 0; i < instances; i++) {
-            if (GreatestCommonDivisor.recursiveEuclidean(mapping[i][0], mapping[i][1]) != mapping[i][2]) {
+        for (int i = 0, size = sample.length; i < size; i++) {
+            if (GreatestCommonDivisor.recursiveEuclidean(sample[i][0], sample[i][1]) != sample[i][2]) {
                 return false;
             }
         }

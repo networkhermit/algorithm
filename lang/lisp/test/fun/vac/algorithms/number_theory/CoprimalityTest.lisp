@@ -2,7 +2,7 @@
 (import-module "fun/vac/util/TestRunner")
 
 (defun test-coprimality ()
-  (let ((mapping (make-array '(128 3) :initial-contents
+  (let ((sample (make-array '(128 3) :initial-contents
                              '((          0           1 1)
                                (          1           0 1)
                                (          1           1 1)
@@ -132,21 +132,19 @@
                                ( 2147483647  -561158902 1)
                                (  761395308 -2147483647 1)))))
 
-    (let ((instances (array-dimension mapping 0)))
+    (dotimes (i (array-dimension sample 0))
+      (if (zerop (aref sample i 2))
+        (when (coprimality:reduce-to-binary-gcd (aref sample i 0) (aref sample i 1))
+          (return-from test-coprimality nil))
+        (unless (coprimality:reduce-to-binary-gcd (aref sample i 0) (aref sample i 1))
+          (return-from test-coprimality nil))))
 
-      (dotimes (i instances)
-        (if (zerop (aref mapping i 2))
-          (when (coprimality:reduce-to-binary-gcd (aref mapping i 0) (aref mapping i 1))
-            (return-from test-coprimality nil))
-          (unless (coprimality:reduce-to-binary-gcd (aref mapping i 0) (aref mapping i 1))
-            (return-from test-coprimality nil))))
-
-      (dotimes (i instances)
-        (if (zerop (aref mapping i 2))
-          (when (coprimality:reduce-to-euclidean (aref mapping i 0) (aref mapping i 1))
-            (return-from test-coprimality nil))
-          (unless (coprimality:reduce-to-euclidean (aref mapping i 0) (aref mapping i 1))
-            (return-from test-coprimality nil))))))
+    (dotimes (i (array-dimension sample 0))
+      (if (zerop (aref sample i 2))
+        (when (coprimality:reduce-to-euclidean (aref sample i 0) (aref sample i 1))
+          (return-from test-coprimality nil))
+        (unless (coprimality:reduce-to-euclidean (aref sample i 0) (aref sample i 1))
+          (return-from test-coprimality nil)))))
 
   t)
 

@@ -8,7 +8,7 @@
     use fun\vac\util\TestRunner;
 
     function testIsCoprime(): bool {
-        $mapping = [
+        $sample = [
             [          0,           1, 1],
             [          1,           0, 1],
             [          1,           1, 1],
@@ -139,15 +139,13 @@
             [  761395308, -2147483647, 1],
         ];
 
-        $instances = count($mapping);
-
-        for ($i = 0; $i < $instances; $i++) {
-            if ($mapping[$i][2] == 0) {
-                if (NumberTheory\isCoprime($mapping[$i][0], $mapping[$i][1])) {
+        for ($i = 0, $size = count($sample); $i < $size; $i++) {
+            if ($sample[$i][2] == 0) {
+                if (NumberTheory\isCoprime($sample[$i][0], $sample[$i][1])) {
                     return false;
                 }
             } else {
-                if (!NumberTheory\isCoprime($mapping[$i][0], $mapping[$i][1])) {
+                if (!NumberTheory\isCoprime($sample[$i][0], $sample[$i][1])) {
                     return false;
                 }
             }
@@ -157,7 +155,7 @@
     }
 
     function testFactorial(): bool {
-        $mapping = [
+        $sample = [
             [ 0,         1],
             [ 1,         1],
             [ 2,         2],
@@ -173,10 +171,8 @@
             [12, 479001600],
         ];
 
-        $instances = count($mapping);
-
-        for ($i = 0; $i < $instances; $i++) {
-            if (NumberTheory\factorial($mapping[$i][0]) != $mapping[$i][1]) {
+        for ($i = 0, $size = count($sample); $i < $size; $i++) {
+            if (NumberTheory\factorial($sample[$i][0]) != $sample[$i][1]) {
                 return false;
             }
         }
@@ -185,7 +181,7 @@
     }
 
     function testFibonacci(): bool {
-        $mapping = [
+        $sample = [
             [-31, 1346269],
             [-30, -832040],
             [-29,  514229],
@@ -251,10 +247,8 @@
             [ 31, 1346269],
         ];
 
-        $instances = count($mapping);
-
-        for ($i = 0; $i < $instances; $i++) {
-            if (NumberTheory\fibonacci($mapping[$i][0]) != $mapping[$i][1]) {
+        for ($i = 0, $size = count($sample); $i < $size; $i++) {
+            if (NumberTheory\fibonacci($sample[$i][0]) != $sample[$i][1]) {
                 return false;
             }
         }
@@ -263,7 +257,7 @@
     }
 
     function testGCD(): bool {
-        $mapping = [
+        $sample = [
             [          0,           1,   1],
             [          1,           0,   1],
             [          1,           1,   1],
@@ -394,10 +388,8 @@
             [  645159694, -2147483647,   1],
         ];
 
-        $instances = count($mapping);
-
-        for ($i = 0; $i < $instances; $i++) {
-            if (NumberTheory\gcd($mapping[$i][0], $mapping[$i][1]) != $mapping[$i][2]) {
+        for ($i = 0, $size = count($sample); $i < $size; $i++) {
+            if (NumberTheory\gcd($sample[$i][0], $sample[$i][1]) != $sample[$i][2]) {
                 return false;
             }
         }
@@ -406,7 +398,7 @@
     }
 
     function testLCM(): bool {
-        $mapping = [
+        $sample = [
             [     1,      1,          1],
             [    -1,     -1,          1],
             [   -85,     -8,        680],
@@ -537,10 +529,8 @@
             [-46340, -46341, 2147441940],
         ];
 
-        $instances = count($mapping);
-
-        for ($i = 0; $i < $instances; $i++) {
-            if (NumberTheory\lcm($mapping[$i][0], $mapping[$i][1]) != $mapping[$i][2]) {
+        for ($i = 0, $size = count($sample); $i < $size; $i++) {
+            if (NumberTheory\lcm($sample[$i][0], $sample[$i][1]) != $sample[$i][2]) {
                 return false;
             }
         }
@@ -549,7 +539,7 @@
     }
 
     function testIsEven(): bool {
-        $mapping = [
+        $sample = [
             [          0, 0],
             [          1, 1],
             [         -1, 1],
@@ -680,15 +670,13 @@
             [-2147483648, 0],
         ];
 
-        $instances = count($mapping);
-
-        for ($i = 0; $i < $instances; $i++) {
-            if ($mapping[$i][1] == 0) {
-                if (!NumberTheory\isEven($mapping[$i][0])) {
+        for ($i = 0, $size = count($sample); $i < $size; $i++) {
+            if ($sample[$i][1] == 0) {
+                if (!NumberTheory\isEven($sample[$i][0])) {
                     return false;
                 }
             } else {
-                if (NumberTheory\isEven($mapping[$i][0])) {
+                if (NumberTheory\isEven($sample[$i][0])) {
                     return false;
                 }
             }
@@ -698,7 +686,7 @@
     }
 
     function testIsOdd(): bool {
-        $mapping = [
+        $sample = [
             [          0, 0],
             [          1, 1],
             [         -1, 1],
@@ -829,15 +817,13 @@
             [-2147483648, 0],
         ];
 
-        $instances = count($mapping);
-
-        for ($i = 0; $i < $instances; $i++) {
-            if ($mapping[$i][1] == 0) {
-                if (NumberTheory\isOdd($mapping[$i][0])) {
+        for ($i = 0, $size = count($sample); $i < $size; $i++) {
+            if ($sample[$i][1] == 0) {
+                if (NumberTheory\isOdd($sample[$i][0])) {
                     return false;
                 }
             } else {
-                if (!NumberTheory\isOdd($mapping[$i][0])) {
+                if (!NumberTheory\isOdd($sample[$i][0])) {
                     return false;
                 }
             }
@@ -847,7 +833,7 @@
     }
 
     function testIsPrime(): bool {
-        $mapping = [
+        $sample = [
             [       0, 1],
             [       1, 1],
             [       2, 2],
@@ -1106,19 +1092,17 @@
             [14162880, 4],
         ];
 
-        $instances = count($mapping);
-
-        for ($i = 0; $i < $instances; $i++) {
-            if ($mapping[$i][1] == 1) {
-                if (NumberTheory\isPrime($mapping[$i][0])) {
+        for ($i = 0, $size = count($sample); $i < $size; $i++) {
+            if ($sample[$i][1] == 1) {
+                if (NumberTheory\isPrime($sample[$i][0])) {
                     return false;
                 }
-            } else if ($mapping[$i][1] == 2) {
-                if (!NumberTheory\isPrime($mapping[$i][0])) {
+            } else if ($sample[$i][1] == 2) {
+                if (!NumberTheory\isPrime($sample[$i][0])) {
                     return false;
                 }
             } else {
-                if (NumberTheory\isPrime($mapping[$i][0])) {
+                if (NumberTheory\isPrime($sample[$i][0])) {
                     return false;
                 }
             }
@@ -1128,7 +1112,7 @@
     }
 
     function testIsComposite(): bool {
-        $mapping = [
+        $sample = [
             [       0, 1],
             [       1, 1],
             [       2, 2],
@@ -1387,19 +1371,17 @@
             [14162880, 4],
         ];
 
-        $instances = count($mapping);
-
-        for ($i = 0; $i < $instances; $i++) {
-            if ($mapping[$i][1] == 1) {
-                if (NumberTheory\isComposite($mapping[$i][0])) {
+        for ($i = 0, $size = count($sample); $i < $size; $i++) {
+            if ($sample[$i][1] == 1) {
+                if (NumberTheory\isComposite($sample[$i][0])) {
                     return false;
                 }
-            } else if ($mapping[$i][1] == 2) {
-                if (NumberTheory\isComposite($mapping[$i][0])) {
+            } else if ($sample[$i][1] == 2) {
+                if (NumberTheory\isComposite($sample[$i][0])) {
                     return false;
                 }
             } else {
-                if (!NumberTheory\isComposite($mapping[$i][0])) {
+                if (!NumberTheory\isComposite($sample[$i][0])) {
                     return false;
                 }
             }
@@ -1409,7 +1391,7 @@
     }
 
     function testSieveOfPrimes(): bool {
-        $mapping = [
+        $sample = [
             [      0,     0],
             [      1,     0],
             [    180,    41],
@@ -1540,14 +1522,12 @@
             [1294061, 99610],
         ];
 
-        $instances = count($mapping);
-
         $arr = NULL;
 
-        for ($i = 0; $i < $instances; $i++) {
-            $arr = NumberTheory\sieveOfPrimes($mapping[$i][0]);
+        for ($i = 0, $size = count($sample); $i < $size; $i++) {
+            $arr = NumberTheory\sieveOfPrimes($sample[$i][0]);
 
-            if (count($arr) != $mapping[$i][1]) {
+            if (count($arr) != $sample[$i][1]) {
                 return false;
             }
 

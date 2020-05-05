@@ -3,7 +3,7 @@ from fun.vac.algorithms.number_theory import Primality
 from fun.vac.util import TestRunner
 
 def testIsCoprime() -> bool:
-    mapping = [
+    sample = [
         [             0,              1, 1],
         [             1,              0, 1],
         [             1,              1, 1],
@@ -134,20 +134,18 @@ def testIsCoprime() -> bool:
         [   761_395_308, -2_147_483_647, 1],
     ]
 
-    instances = len(mapping)
-
-    for i in range(instances):
-        if mapping[i][2] == 0:
-            if NumberTheory.isCoprime(mapping[i][0], mapping[i][1]):
+    for i in range(len(sample)):
+        if sample[i][2] == 0:
+            if NumberTheory.isCoprime(sample[i][0], sample[i][1]):
                 return False
         else:
-            if not NumberTheory.isCoprime(mapping[i][0], mapping[i][1]):
+            if not NumberTheory.isCoprime(sample[i][0], sample[i][1]):
                 return False
 
     return True
 
 def testFactorial() -> bool:
-    mapping = [
+    sample = [
         [ 0,           1],
         [ 1,           1],
         [ 2,           2],
@@ -163,16 +161,14 @@ def testFactorial() -> bool:
         [12, 479_001_600],
     ]
 
-    instances = len(mapping)
-
-    for i in range(instances):
-        if NumberTheory.factorial(mapping[i][0]) != mapping[i][1]:
+    for i in range(len(sample)):
+        if NumberTheory.factorial(sample[i][0]) != sample[i][1]:
             return False
 
     return True
 
 def testFibonacci() -> bool:
-    mapping = [
+    sample = [
         [-31, 1346269],
         [-30, -832040],
         [-29,  514229],
@@ -238,16 +234,14 @@ def testFibonacci() -> bool:
         [ 31, 1346269],
     ]
 
-    instances = len(mapping)
-
-    for i in range(instances):
-        if NumberTheory.fibonacci(mapping[i][0]) != mapping[i][1]:
+    for i in range(len(sample)):
+        if NumberTheory.fibonacci(sample[i][0]) != sample[i][1]:
             return False
 
     return True
 
 def testGCD() -> bool:
-    mapping = [
+    sample = [
         [             0,              1,   1],
         [             1,              0,   1],
         [             1,              1,   1],
@@ -378,16 +372,14 @@ def testGCD() -> bool:
         [   645_159_694, -2_147_483_647,   1],
     ]
 
-    instances = len(mapping)
-
-    for i in range(instances):
-        if NumberTheory.gcd(mapping[i][0], mapping[i][1]) != mapping[i][2]:
+    for i in range(len(sample)):
+        if NumberTheory.gcd(sample[i][0], sample[i][1]) != sample[i][2]:
             return False
 
     return True
 
 def testLCM() -> bool:
-    mapping = [
+    sample = [
         [     1,      1,             1],
         [    -1,     -1,             1],
         [   -85,     -8,           680],
@@ -518,16 +510,14 @@ def testLCM() -> bool:
         [-46340, -46341, 2_147_441_940],
     ]
 
-    instances = len(mapping)
-
-    for i in range(instances):
-        if NumberTheory.lcm(mapping[i][0], mapping[i][1]) != mapping[i][2]:
+    for i in range(len(sample)):
+        if NumberTheory.lcm(sample[i][0], sample[i][1]) != sample[i][2]:
             return False
 
     return True
 
 def testIsEven() -> bool:
-    mapping = [
+    sample = [
         [             0, 0],
         [             1, 1],
         [            -1, 1],
@@ -658,20 +648,18 @@ def testIsEven() -> bool:
         [-2_147_483_648, 0],
     ]
 
-    instances = len(mapping)
-
-    for i in range(instances):
-        if mapping[i][1] == 0:
-            if not NumberTheory.isEven(mapping[i][0]):
+    for i in range(len(sample)):
+        if sample[i][1] == 0:
+            if not NumberTheory.isEven(sample[i][0]):
                 return False
         else:
-            if NumberTheory.isEven(mapping[i][0]):
+            if NumberTheory.isEven(sample[i][0]):
                 return False
 
     return True
 
 def testIsOdd() -> bool:
-    mapping = [
+    sample = [
         [             0, 0],
         [             1, 1],
         [            -1, 1],
@@ -802,20 +790,18 @@ def testIsOdd() -> bool:
         [-2_147_483_648, 0],
     ]
 
-    instances = len(mapping)
-
-    for i in range(instances):
-        if mapping[i][1] == 0:
-            if NumberTheory.isOdd(mapping[i][0]):
+    for i in range(len(sample)):
+        if sample[i][1] == 0:
+            if NumberTheory.isOdd(sample[i][0]):
                 return False
         else:
-            if not NumberTheory.isOdd(mapping[i][0]):
+            if not NumberTheory.isOdd(sample[i][0]):
                 return False
 
     return True
 
 def testIsPrime() -> bool:
-    mapping = [
+    sample = [
         [         0, 1],
         [         1, 1],
         [         2, 2],
@@ -1074,23 +1060,21 @@ def testIsPrime() -> bool:
         [14_162_880, 4],
     ]
 
-    instances = len(mapping)
-
-    for i in range(instances):
-        if mapping[i][1] == 1:
-            if NumberTheory.isPrime(mapping[i][0]):
+    for i in range(len(sample)):
+        if sample[i][1] == 1:
+            if NumberTheory.isPrime(sample[i][0]):
                 return False
-        elif mapping[i][1] == 2:
-            if not NumberTheory.isPrime(mapping[i][0]):
+        elif sample[i][1] == 2:
+            if not NumberTheory.isPrime(sample[i][0]):
                 return False
         else:
-            if NumberTheory.isPrime(mapping[i][0]):
+            if NumberTheory.isPrime(sample[i][0]):
                 return False
 
     return True
 
 def testIsComposite() -> bool:
-    mapping = [
+    sample = [
         [         0, 1],
         [         1, 1],
         [         2, 2],
@@ -1349,23 +1333,21 @@ def testIsComposite() -> bool:
         [14_162_880, 4],
     ]
 
-    instances = len(mapping)
-
-    for i in range(instances):
-        if mapping[i][1] == 1:
-            if Primality.isComposite(mapping[i][0]):
+    for i in range(len(sample)):
+        if sample[i][1] == 1:
+            if Primality.isComposite(sample[i][0]):
                 return False
-        elif mapping[i][1] == 2:
-            if Primality.isComposite(mapping[i][0]):
+        elif sample[i][1] == 2:
+            if Primality.isComposite(sample[i][0]):
                 return False
         else:
-            if not Primality.isComposite(mapping[i][0]):
+            if not Primality.isComposite(sample[i][0]):
                 return False
 
     return True
 
 def testSieveOfPrimes() -> bool:
-    mapping = [
+    sample = [
         [      0,     0],
         [      1,     0],
         [    180,    41],
@@ -1496,14 +1478,12 @@ def testSieveOfPrimes() -> bool:
         [1294061, 99610],
     ]
 
-    instances = len(mapping)
-
     arr = None
 
-    for i in range(instances):
-        arr = NumberTheory.sieveOfPrimes(mapping[i][0])
+    for i in range(len(sample)):
+        arr = NumberTheory.sieveOfPrimes(sample[i][0])
 
-        if len(arr) != mapping[i][1]:
+        if len(arr) != sample[i][1]:
             return False
 
         for v in arr:

@@ -2,7 +2,7 @@ from fun.vac.algorithms.number_theory import LeastCommonMultiple
 from fun.vac.util import TestRunner
 
 def testLeastCommonMultiple() -> bool:
-    mapping = [
+    sample = [
         [     1,      1,             1],
         [    -1,     -1,             1],
         [   -85,     -8,           680],
@@ -133,14 +133,12 @@ def testLeastCommonMultiple() -> bool:
         [-46340, -46341, 2_147_441_940],
     ]
 
-    instances = len(mapping)
-
-    for i in range(instances):
-        if LeastCommonMultiple.reduceToBinaryGCD(mapping[i][0], mapping[i][1]) != mapping[i][2]:
+    for i in range(len(sample)):
+        if LeastCommonMultiple.reduceToBinaryGCD(sample[i][0], sample[i][1]) != sample[i][2]:
             return False
 
-    for i in range(instances):
-        if LeastCommonMultiple.reduceToEuclidean(mapping[i][0], mapping[i][1]) != mapping[i][2]:
+    for i in range(len(sample)):
+        if LeastCommonMultiple.reduceToEuclidean(sample[i][0], sample[i][1]) != sample[i][2]:
             return False
 
     return True

@@ -6,7 +6,7 @@
     use fun\vac\util\TestRunner;
 
     function testPrimality(): bool {
-        $mapping = [
+        $sample = [
             [       0, 1],
             [       1, 1],
             [       2, 2],
@@ -265,28 +265,26 @@
             [14162880, 4],
         ];
 
-        $instances = count($mapping);
-
-        for ($i = 0; $i < $instances; $i++) {
-            if ($mapping[$i][1] == 1) {
-                if (Primality\isPrime($mapping[$i][0])) {
+        for ($i = 0, $size = count($sample); $i < $size; $i++) {
+            if ($sample[$i][1] == 1) {
+                if (Primality\isPrime($sample[$i][0])) {
                     return false;
                 }
-                if (Primality\isComposite($mapping[$i][0])) {
+                if (Primality\isComposite($sample[$i][0])) {
                     return false;
                 }
-            } else if ($mapping[$i][1] == 2) {
-                if (!Primality\isPrime($mapping[$i][0])) {
+            } else if ($sample[$i][1] == 2) {
+                if (!Primality\isPrime($sample[$i][0])) {
                     return false;
                 }
-                if (Primality\isComposite($mapping[$i][0])) {
+                if (Primality\isComposite($sample[$i][0])) {
                     return false;
                 }
             } else {
-                if (Primality\isPrime($mapping[$i][0])) {
+                if (Primality\isPrime($sample[$i][0])) {
                     return false;
                 }
-                if (!Primality\isComposite($mapping[$i][0])) {
+                if (!Primality\isComposite($sample[$i][0])) {
                     return false;
                 }
             }

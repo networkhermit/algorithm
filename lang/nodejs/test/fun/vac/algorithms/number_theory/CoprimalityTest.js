@@ -4,7 +4,7 @@ const Coprimality = require("fun/vac/algorithms/number_theory/Coprimality")
 const TestRunner  = require("fun/vac/util/TestRunner")
 
 const testCoprimality = () => {
-    let mapping = [
+    let sample = [
         [          0,           1, 1],
         [          1,           0, 1],
         [          1,           1, 1],
@@ -135,27 +135,25 @@ const testCoprimality = () => {
         [  761395308, -2147483647, 1],
     ]
 
-    let instances = mapping.length
-
-    for (let i = 0; i < instances; i++) {
-        if (mapping[i][2] === 0) {
-            if (Coprimality.reduceToBinaryGCD(mapping[i][0], mapping[i][1])) {
+    for (let i = 0, size = sample.length; i < size; i++) {
+        if (sample[i][2] === 0) {
+            if (Coprimality.reduceToBinaryGCD(sample[i][0], sample[i][1])) {
                 return false
             }
         } else {
-            if (!Coprimality.reduceToBinaryGCD(mapping[i][0], mapping[i][1])) {
+            if (!Coprimality.reduceToBinaryGCD(sample[i][0], sample[i][1])) {
                 return false
             }
         }
     }
 
-    for (let i = 0; i < instances; i++) {
-        if (mapping[i][2] === 0) {
-            if (Coprimality.reduceToEuclidean(mapping[i][0], mapping[i][1])) {
+    for (let i = 0, size = sample.length; i < size; i++) {
+        if (sample[i][2] === 0) {
+            if (Coprimality.reduceToEuclidean(sample[i][0], sample[i][1])) {
                 return false
             }
         } else {
-            if (!Coprimality.reduceToEuclidean(mapping[i][0], mapping[i][1])) {
+            if (!Coprimality.reduceToEuclidean(sample[i][0], sample[i][1])) {
                 return false
             }
         }

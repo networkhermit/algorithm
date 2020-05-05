@@ -6,7 +6,7 @@ import (
 )
 
 func testCoprimality() bool {
-    mapping := [][3]int64{
+    sample := [][3]int64{
         {          0,           1, 1},
         {          1,           0, 1},
         {          1,           1, 1},
@@ -137,25 +137,25 @@ func testCoprimality() bool {
         {  761395308, -2147483647, 1},
     }
 
-    for i := range mapping {
-        if mapping[i][2] == 0 {
-            if Coprimality.ReduceToBinaryGCD(mapping[i][0], mapping[i][1]) {
+    for i := range sample {
+        if sample[i][2] == 0 {
+            if Coprimality.ReduceToBinaryGCD(sample[i][0], sample[i][1]) {
                 return false
             }
         } else {
-            if !Coprimality.ReduceToBinaryGCD(mapping[i][0], mapping[i][1]) {
+            if !Coprimality.ReduceToBinaryGCD(sample[i][0], sample[i][1]) {
                 return false
             }
         }
     }
 
-    for i := range mapping {
-        if mapping[i][2] == 0 {
-            if Coprimality.ReduceToEuclidean(mapping[i][0], mapping[i][1]) {
+    for i := range sample {
+        if sample[i][2] == 0 {
+            if Coprimality.ReduceToEuclidean(sample[i][0], sample[i][1]) {
                 return false
             }
         } else {
-            if !Coprimality.ReduceToEuclidean(mapping[i][0], mapping[i][1]) {
+            if !Coprimality.ReduceToEuclidean(sample[i][0], sample[i][1]) {
                 return false
             }
         }

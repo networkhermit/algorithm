@@ -6,7 +6,7 @@ import (
 )
 
 func testLeastCommonMultiple() bool {
-    mapping := [][3]int64{
+    sample := [][3]int64{
         {     1,      1,          1},
         {    -1,     -1,          1},
         {   -85,     -8,        680},
@@ -137,14 +137,14 @@ func testLeastCommonMultiple() bool {
         {-46340, -46341, 2147441940},
     }
 
-    for i := range mapping {
-        if LeastCommonMultiple.ReduceToBinaryGCD(mapping[i][0], mapping[i][1]) != mapping[i][2] {
+    for i := range sample {
+        if LeastCommonMultiple.ReduceToBinaryGCD(sample[i][0], sample[i][1]) != sample[i][2] {
             return false
         }
     }
 
-    for i := range mapping {
-        if LeastCommonMultiple.ReduceToEuclidean(mapping[i][0], mapping[i][1]) != mapping[i][2] {
+    for i := range sample {
+        if LeastCommonMultiple.ReduceToEuclidean(sample[i][0], sample[i][1]) != sample[i][2] {
             return false
         }
     }

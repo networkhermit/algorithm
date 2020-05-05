@@ -2,7 +2,7 @@
 (import-module "fun/vac/util/TestRunner")
 
 (defun test-is-coprime ()
-  (let ((mapping (make-array '(128 3) :initial-contents
+  (let ((sample (make-array '(128 3) :initial-contents
                              '((          0           1 1)
                                (          1           0 1)
                                (          1           1 1)
@@ -132,19 +132,17 @@
                                ( 2147483647  -561158902 1)
                                (  761395308 -2147483647 1)))))
 
-    (let ((instances (array-dimension mapping 0)))
-
-      (dotimes (i instances)
-        (if (zerop (aref mapping i 2))
-          (when (number-theory:is-coprime (aref mapping i 0) (aref mapping i 1))
-            (return-from test-is-coprime nil))
-          (unless (number-theory:is-coprime (aref mapping i 0) (aref mapping i 1))
-            (return-from test-is-coprime nil))))))
+    (dotimes (i (array-dimension sample 0))
+      (if (zerop (aref sample i 2))
+        (when (number-theory:is-coprime (aref sample i 0) (aref sample i 1))
+          (return-from test-is-coprime nil))
+        (unless (number-theory:is-coprime (aref sample i 0) (aref sample i 1))
+          (return-from test-is-coprime nil)))))
 
   t)
 
 (defun test-factorial ()
-  (let ((mapping (make-array '(13 2) :initial-contents
+  (let ((sample (make-array '(13 2) :initial-contents
                              '(( 0         1)
                                ( 1         1)
                                ( 2         2)
@@ -159,16 +157,14 @@
                                (11  39916800)
                                (12 479001600)))))
 
-    (let ((instances (array-dimension mapping 0)))
-
-      (dotimes (i instances)
-        (when (/= (number-theory:factorial (aref mapping i 0)) (aref mapping i 1))
-          (return-from test-factorial nil)))))
+    (dotimes (i (array-dimension sample 0))
+      (when (/= (number-theory:factorial (aref sample i 0)) (aref sample i 1))
+        (return-from test-factorial nil))))
 
   t)
 
 (defun test-fibonacci ()
-  (let ((mapping (make-array '(63 2) :initial-contents
+  (let ((sample (make-array '(63 2) :initial-contents
                              '((-31 1346269)
                                (-30 -832040)
                                (-29  514229)
@@ -233,16 +229,14 @@
                                ( 30  832040)
                                ( 31 1346269)))))
 
-    (let ((instances (array-dimension mapping 0)))
-
-      (dotimes (i instances)
-        (when (/= (number-theory:fibonacci (aref mapping i 0)) (aref mapping i 1))
-          (return-from test-fibonacci nil)))))
+    (dotimes (i (array-dimension sample 0))
+      (when (/= (number-theory:fibonacci (aref sample i 0)) (aref sample i 1))
+        (return-from test-fibonacci nil))))
 
   t)
 
 (defun test-gcd ()
-  (let ((mapping (make-array '(128 3) :initial-contents
+  (let ((sample (make-array '(128 3) :initial-contents
                              '((          0           1   1)
                                (          1           0   1)
                                (          1           1   1)
@@ -372,16 +366,14 @@
                                ( 2147483647 -1884119046   1)
                                (  645159694 -2147483647   1)))))
 
-    (let ((instances (array-dimension mapping 0)))
-
-      (dotimes (i instances)
-        (when (/= (number-theory:gcd (aref mapping i 0) (aref mapping i 1)) (aref mapping i 2))
-          (return-from test-gcd nil)))))
+    (dotimes (i (array-dimension sample 0))
+      (when (/= (number-theory:gcd (aref sample i 0) (aref sample i 1)) (aref sample i 2))
+        (return-from test-gcd nil))))
 
   t)
 
 (defun test-lcm ()
-  (let ((mapping (make-array '(128 3) :initial-contents
+  (let ((sample (make-array '(128 3) :initial-contents
                              '((     1      1          1)
                                (    -1     -1          1)
                                (   -85     -8        680)
@@ -511,16 +503,14 @@
                                ( 46340  46341 2147441940)
                                (-46340 -46341 2147441940)))))
 
-    (let ((instances (array-dimension mapping 0)))
-
-      (dotimes (i instances)
-        (when (/= (number-theory:lcm (aref mapping i 0) (aref mapping i 1)) (aref mapping i 2))
-          (return-from test-lcm nil)))))
+    (dotimes (i (array-dimension sample 0))
+      (when (/= (number-theory:lcm (aref sample i 0) (aref sample i 1)) (aref sample i 2))
+        (return-from test-lcm nil))))
 
   t)
 
 (defun test-is-even ()
-  (let ((mapping (make-array '(128 2) :initial-contents
+  (let ((sample (make-array '(128 2) :initial-contents
                              '((          0 0)
                                (          1 1)
                                (         -1 1)
@@ -650,19 +640,17 @@
                                ( 2147483647 1)
                                (-2147483648 0)))))
 
-    (let ((instances (array-dimension mapping 0)))
-
-      (dotimes (i instances)
-        (if (zerop (aref mapping i 1))
-          (unless (number-theory:is-even (aref mapping i 0))
-            (return-from test-is-even nil))
-          (when (number-theory:is-even (aref mapping i 0))
-            (return-from test-is-even nil))))))
+    (dotimes (i (array-dimension sample 0))
+      (if (zerop (aref sample i 1))
+        (unless (number-theory:is-even (aref sample i 0))
+          (return-from test-is-even nil))
+        (when (number-theory:is-even (aref sample i 0))
+          (return-from test-is-even nil)))))
 
   t)
 
 (defun test-is-odd ()
-  (let ((mapping (make-array '(128 2) :initial-contents
+  (let ((sample (make-array '(128 2) :initial-contents
                              '((          0 0)
                                (          1 1)
                                (         -1 1)
@@ -792,19 +780,17 @@
                                ( 2147483647 1)
                                (-2147483648 0)))))
 
-    (let ((instances (array-dimension mapping 0)))
-
-      (dotimes (i instances)
-        (if (zerop (aref mapping i 1))
-          (when (number-theory:is-odd (aref mapping i 0))
-            (return-from test-is-odd nil))
-          (unless (number-theory:is-odd (aref mapping i 0))
-            (return-from test-is-odd nil))))))
+    (dotimes (i (array-dimension sample 0))
+      (if (zerop (aref sample i 1))
+        (when (number-theory:is-odd (aref sample i 0))
+          (return-from test-is-odd nil))
+        (unless (number-theory:is-odd (aref sample i 0))
+          (return-from test-is-odd nil)))))
 
   t)
 
 (defun test-is-prime ()
-  (let ((mapping (make-array '(256 2) :initial-contents
+  (let ((sample (make-array '(256 2) :initial-contents
                              '((       0 1)
                                (       1 1)
                                (       2 2)
@@ -1062,23 +1048,21 @@
                                ( 1308913 4)
                                (14162880 4)))))
 
-    (let ((instances (array-dimension mapping 0)))
-
-      (dotimes (i instances)
-        (cond ((= (aref mapping i 1) 1)
-               (when (number-theory:is-prime (aref mapping i 0))
-                 (return-from test-is-prime nil)))
-              ((= (aref mapping i 1) 2)
-               (unless (number-theory:is-prime (aref mapping i 0))
-                 (return-from test-is-prime nil)))
-              (t
-                (when (number-theory:is-prime (aref mapping i 0))
-                  (return-from test-is-prime nil)))))))
+    (dotimes (i (array-dimension sample 0))
+      (cond ((= (aref sample i 1) 1)
+             (when (number-theory:is-prime (aref sample i 0))
+               (return-from test-is-prime nil)))
+            ((= (aref sample i 1) 2)
+             (unless (number-theory:is-prime (aref sample i 0))
+               (return-from test-is-prime nil)))
+            (t
+              (when (number-theory:is-prime (aref sample i 0))
+                (return-from test-is-prime nil))))))
 
   t)
 
 (defun test-is-composite ()
-  (let ((mapping (make-array '(256 2) :initial-contents
+  (let ((sample (make-array '(256 2) :initial-contents
                              '((       0 1)
                                (       1 1)
                                (       2 2)
@@ -1336,18 +1320,16 @@
                                ( 1308913 4)
                                (14162880 4)))))
 
-    (let ((instances (array-dimension mapping 0)))
-
-      (dotimes (i instances)
-        (cond ((= (aref mapping i 1) 1)
-               (when (number-theory:is-composite (aref mapping i 0))
-                 (return-from test-is-composite nil)))
-              ((= (aref mapping i 1) 2)
-               (when (number-theory:is-composite (aref mapping i 0))
-                 (return-from test-is-composite nil)))
-              (t
-                (unless (number-theory:is-composite (aref mapping i 0))
-                  (return-from test-is-composite nil)))))))
+    (dotimes (i (array-dimension sample 0))
+      (cond ((= (aref sample i 1) 1)
+             (when (number-theory:is-composite (aref sample i 0))
+               (return-from test-is-composite nil)))
+            ((= (aref sample i 1) 2)
+             (when (number-theory:is-composite (aref sample i 0))
+               (return-from test-is-composite nil)))
+            (t
+              (unless (number-theory:is-composite (aref sample i 0))
+                (return-from test-is-composite nil))))))
 
   t)
 

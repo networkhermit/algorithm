@@ -4,7 +4,7 @@ const Parity     = require("fun/vac/algorithms/number_theory/Parity")
 const TestRunner = require("fun/vac/util/TestRunner")
 
 const testParity = () => {
-    let mapping = [
+    let sample = [
         [          0, 0],
         [          1, 1],
         [         -1, 1],
@@ -135,51 +135,49 @@ const testParity = () => {
         [-2147483648, 0],
     ]
 
-    let instances = mapping.length
-
-    for (let i = 0; i < instances; i++) {
-        if (mapping[i][1] === 0) {
-            if (!Parity.moduloIsEven(mapping[i][0])) {
+    for (let i = 0, size = sample.length; i < size; i++) {
+        if (sample[i][1] === 0) {
+            if (!Parity.moduloIsEven(sample[i][0])) {
                 return false
             }
         } else {
-            if (Parity.moduloIsEven(mapping[i][0])) {
+            if (Parity.moduloIsEven(sample[i][0])) {
                 return false
             }
         }
     }
 
-    for (let i = 0; i < instances; i++) {
-        if (mapping[i][1] === 0) {
-            if (!Parity.bitwiseIsEven(mapping[i][0])) {
+    for (let i = 0, size = sample.length; i < size; i++) {
+        if (sample[i][1] === 0) {
+            if (!Parity.bitwiseIsEven(sample[i][0])) {
                 return false
             }
         } else {
-            if (Parity.bitwiseIsEven(mapping[i][0])) {
+            if (Parity.bitwiseIsEven(sample[i][0])) {
                 return false
             }
         }
     }
 
-    for (let i = 0; i < instances; i++) {
-        if (mapping[i][1] === 0) {
-            if (Parity.moduloIsOdd(mapping[i][0])) {
+    for (let i = 0, size = sample.length; i < size; i++) {
+        if (sample[i][1] === 0) {
+            if (Parity.moduloIsOdd(sample[i][0])) {
                 return false
             }
         } else {
-            if (!Parity.moduloIsOdd(mapping[i][0])) {
+            if (!Parity.moduloIsOdd(sample[i][0])) {
                 return false
             }
         }
     }
 
-    for (let i = 0; i < instances; i++) {
-        if (mapping[i][1] === 0) {
-            if (Parity.bitwiseIsOdd(mapping[i][0])) {
+    for (let i = 0, size = sample.length; i < size; i++) {
+        if (sample[i][1] === 0) {
+            if (Parity.bitwiseIsOdd(sample[i][0])) {
                 return false
             }
         } else {
-            if (!Parity.bitwiseIsOdd(mapping[i][0])) {
+            if (!Parity.bitwiseIsOdd(sample[i][0])) {
                 return false
             }
         }

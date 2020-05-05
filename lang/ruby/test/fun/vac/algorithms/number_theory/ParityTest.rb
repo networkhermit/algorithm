@@ -2,7 +2,7 @@ require "fun/vac/algorithms/number_theory/Parity"
 require "fun/vac/util/TestRunner"
 
 def testParity()
-    mapping = [
+    sample = [
         [             0, 0],
         [             1, 1],
         [            -1, 1],
@@ -133,49 +133,49 @@ def testParity()
         [-2_147_483_648, 0],
     ]
 
-    mapping.each_index do |i|
-        if mapping[i][1] == 0
-            unless Parity.moduloIsEven(mapping[i][0])
+    sample.each_index do |i|
+        if sample[i][1] == 0
+            unless Parity.moduloIsEven(sample[i][0])
                 return false
             end
         else
-            if Parity.moduloIsEven(mapping[i][0])
+            if Parity.moduloIsEven(sample[i][0])
                 return false
             end
         end
     end
 
-    mapping.each_index do |i|
-        if mapping[i][1] == 0
-            unless Parity.bitwiseIsEven(mapping[i][0])
+    sample.each_index do |i|
+        if sample[i][1] == 0
+            unless Parity.bitwiseIsEven(sample[i][0])
                 return false
             end
         else
-            if Parity.bitwiseIsEven(mapping[i][0])
+            if Parity.bitwiseIsEven(sample[i][0])
                 return false
             end
         end
     end
 
-    mapping.each_index do |i|
-        if mapping[i][1] == 0
-            if Parity.moduloIsOdd(mapping[i][0])
+    sample.each_index do |i|
+        if sample[i][1] == 0
+            if Parity.moduloIsOdd(sample[i][0])
                 return false
             end
         else
-            unless Parity.moduloIsOdd(mapping[i][0])
+            unless Parity.moduloIsOdd(sample[i][0])
                 return false
             end
         end
     end
 
-    mapping.each_index do |i|
-        if mapping[i][1] == 0
-            if Parity.bitwiseIsOdd(mapping[i][0])
+    sample.each_index do |i|
+        if sample[i][1] == 0
+            if Parity.bitwiseIsOdd(sample[i][0])
                 return false
             end
         else
-            unless Parity.bitwiseIsOdd(mapping[i][0])
+            unless Parity.bitwiseIsOdd(sample[i][0])
                 return false
             end
         end

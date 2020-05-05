@@ -2,7 +2,7 @@
 (import-module "fun/vac/util/TestRunner")
 
 (defun test-greatest-common-divisor ()
-  (let ((mapping (make-array '(128 3) :initial-contents
+  (let ((sample (make-array '(128 3) :initial-contents
                              '((          0           1   1)
                                (          1           0   1)
                                (          1           1   1)
@@ -132,23 +132,21 @@
                                ( 2147483647 -1884119046   1)
                                (  645159694 -2147483647   1)))))
 
-    (let ((instances (array-dimension mapping 0)))
+    (dotimes (i (array-dimension sample 0))
+      (when (/= (greatest-common-divisor:iterative-binary-gcd (aref sample i 0) (aref sample i 1)) (aref sample i 2))
+        (return-from test-greatest-common-divisor nil)))
 
-      (dotimes (i instances)
-        (when (/= (greatest-common-divisor:iterative-binary-gcd (aref mapping i 0) (aref mapping i 1)) (aref mapping i 2))
-          (return-from test-greatest-common-divisor nil)))
+    (dotimes (i (array-dimension sample 0))
+      (when (/= (greatest-common-divisor:recursive-binary-gcd (aref sample i 0) (aref sample i 1)) (aref sample i 2))
+        (return-from test-greatest-common-divisor nil)))
 
-      (dotimes (i instances)
-        (when (/= (greatest-common-divisor:recursive-binary-gcd (aref mapping i 0) (aref mapping i 1)) (aref mapping i 2))
-          (return-from test-greatest-common-divisor nil)))
+    (dotimes (i (array-dimension sample 0))
+      (when (/= (greatest-common-divisor:iterative-euclidean (aref sample i 0) (aref sample i 1)) (aref sample i 2))
+        (return-from test-greatest-common-divisor nil)))
 
-      (dotimes (i instances)
-        (when (/= (greatest-common-divisor:iterative-euclidean (aref mapping i 0) (aref mapping i 1)) (aref mapping i 2))
-          (return-from test-greatest-common-divisor nil)))
-
-      (dotimes (i instances)
-        (when (/= (greatest-common-divisor:recursive-euclidean (aref mapping i 0) (aref mapping i 1)) (aref mapping i 2))
-          (return-from test-greatest-common-divisor nil)))))
+    (dotimes (i (array-dimension sample 0))
+      (when (/= (greatest-common-divisor:recursive-euclidean (aref sample i 0) (aref sample i 1)) (aref sample i 2))
+        (return-from test-greatest-common-divisor nil))))
 
   t)
 

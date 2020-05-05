@@ -2,7 +2,7 @@ require "fun/vac/algorithms/number_theory/LeastCommonMultiple"
 require "fun/vac/util/TestRunner"
 
 def testLeastCommonMultiple()
-    mapping = [
+    sample = [
         [     1,      1,             1],
         [    -1,     -1,             1],
         [   -85,     -8,           680],
@@ -133,14 +133,14 @@ def testLeastCommonMultiple()
         [-46340, -46341, 2_147_441_940],
     ]
 
-    mapping.each_index do |i|
-        if LeastCommonMultiple.reduceToBinaryGCD(mapping[i][0], mapping[i][1]) != mapping[i][2]
+    sample.each_index do |i|
+        if LeastCommonMultiple.reduceToBinaryGCD(sample[i][0], sample[i][1]) != sample[i][2]
             return false
         end
     end
 
-    mapping.each_index do |i|
-        if LeastCommonMultiple.reduceToEuclidean(mapping[i][0], mapping[i][1]) != mapping[i][2]
+    sample.each_index do |i|
+        if LeastCommonMultiple.reduceToEuclidean(sample[i][0], sample[i][1]) != sample[i][2]
             return false
         end
     end

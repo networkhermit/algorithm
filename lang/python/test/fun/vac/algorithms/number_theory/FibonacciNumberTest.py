@@ -2,7 +2,7 @@ from fun.vac.algorithms.number_theory import FibonacciNumber
 from fun.vac.util import TestRunner
 
 def testFibonacciNumber() -> bool:
-    mapping = [
+    sample = [
         [-31, 1346269],
         [-30, -832040],
         [-29,  514229],
@@ -68,14 +68,12 @@ def testFibonacciNumber() -> bool:
         [ 31, 1346269],
     ]
 
-    instances = len(mapping)
-
-    for i in range(instances):
-        if FibonacciNumber.iterativeProcedure(mapping[i][0]) != mapping[i][1]:
+    for i in range(len(sample)):
+        if FibonacciNumber.iterativeProcedure(sample[i][0]) != sample[i][1]:
             return False
 
-    for input, output in enumerate(mapping):
-        if FibonacciNumber.recursiveProcedure(mapping[i][0]) != mapping[i][1]:
+    for input, output in enumerate(sample):
+        if FibonacciNumber.recursiveProcedure(sample[i][0]) != sample[i][1]:
             return False
 
     return True

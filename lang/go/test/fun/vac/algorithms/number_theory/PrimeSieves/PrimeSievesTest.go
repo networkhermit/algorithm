@@ -7,7 +7,7 @@ import (
 )
 
 func testPrimeSieves() bool {
-    mapping := [][2]int{
+    sample := [][2]int{
         {      0,     0},
         {      1,     0},
         {    180,    41},
@@ -141,10 +141,10 @@ func testPrimeSieves() bool {
 
     var arr []int
 
-    for i := range mapping {
-        arr = PrimeSieves.SieveOfEratosthenes(mapping[i][0])
+    for i := range sample {
+        arr = PrimeSieves.SieveOfEratosthenes(sample[i][0])
 
-        if len(arr) != mapping[i][1] {
+        if len(arr) != sample[i][1] {
             return false
         }
 

@@ -4,7 +4,7 @@
 using namespace std;
 
 bool testParity() {
-    long mapping[][2] = {
+    long sample[][2] = {
         {             0, 0},
         {             1, 1},
         {            -1, 1},
@@ -135,51 +135,49 @@ bool testParity() {
         {-2'147'483'648, 0},
     };
 
-    size_t instances = sizeof(mapping) / sizeof(mapping[0]);
-
-    for (size_t i = 0; i < instances; i++) {
-        if (mapping[i][1] == 0) {
-            if (!Parity::moduloIsEven(mapping[i][0])) {
+    for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {
+        if (sample[i][1] == 0) {
+            if (!Parity::moduloIsEven(sample[i][0])) {
                 return false;
             }
         } else {
-            if (Parity::moduloIsEven(mapping[i][0])) {
+            if (Parity::moduloIsEven(sample[i][0])) {
                 return false;
             }
         }
     }
 
-    for (size_t i = 0; i < instances; i++) {
-        if (mapping[i][1] == 0) {
-            if (!Parity::bitwiseIsEven(mapping[i][0])) {
+    for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {
+        if (sample[i][1] == 0) {
+            if (!Parity::bitwiseIsEven(sample[i][0])) {
                 return false;
             }
         } else {
-            if (Parity::bitwiseIsEven(mapping[i][0])) {
+            if (Parity::bitwiseIsEven(sample[i][0])) {
                 return false;
             }
         }
     }
 
-    for (size_t i = 0; i < instances; i++) {
-        if (mapping[i][1] == 0) {
-            if (Parity::moduloIsOdd(mapping[i][0])) {
+    for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {
+        if (sample[i][1] == 0) {
+            if (Parity::moduloIsOdd(sample[i][0])) {
                 return false;
             }
         } else {
-            if (!Parity::moduloIsOdd(mapping[i][0])) {
+            if (!Parity::moduloIsOdd(sample[i][0])) {
                 return false;
             }
         }
     }
 
-    for (size_t i = 0; i < instances; i++) {
-        if (mapping[i][1] == 0) {
-            if (Parity::bitwiseIsOdd(mapping[i][0])) {
+    for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {
+        if (sample[i][1] == 0) {
+            if (Parity::bitwiseIsOdd(sample[i][0])) {
                 return false;
             }
         } else {
-            if (!Parity::bitwiseIsOdd(mapping[i][0])) {
+            if (!Parity::bitwiseIsOdd(sample[i][0])) {
                 return false;
             }
         }

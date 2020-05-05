@@ -4,7 +4,7 @@
 using namespace std;
 
 bool testGreatestCommonDivisor() {
-    long mapping[][3] = {
+    long sample[][3] = {
         {             0,              1,   1},
         {             1,              0,   1},
         {             1,              1,   1},
@@ -135,28 +135,26 @@ bool testGreatestCommonDivisor() {
         {   645'159'694, -2'147'483'647,   1},
     };
 
-    size_t instances = sizeof(mapping) / sizeof(mapping[0]);
-
-    for (size_t i = 0; i < instances; i++) {
-        if (GreatestCommonDivisor::iterativeBinaryGCD(mapping[i][0], mapping[i][1]) != mapping[i][2]) {
+    for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {
+        if (GreatestCommonDivisor::iterativeBinaryGCD(sample[i][0], sample[i][1]) != sample[i][2]) {
             return false;
         }
     }
 
-    for (size_t i = 0; i < instances; i++) {
-        if (GreatestCommonDivisor::recursiveBinaryGCD(mapping[i][0], mapping[i][1]) != mapping[i][2]) {
+    for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {
+        if (GreatestCommonDivisor::recursiveBinaryGCD(sample[i][0], sample[i][1]) != sample[i][2]) {
             return false;
         }
     }
 
-    for (size_t i = 0; i < instances; i++) {
-        if (GreatestCommonDivisor::iterativeEuclidean(mapping[i][0], mapping[i][1]) != mapping[i][2]) {
+    for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {
+        if (GreatestCommonDivisor::iterativeEuclidean(sample[i][0], sample[i][1]) != sample[i][2]) {
             return false;
         }
     }
 
-    for (size_t i = 0; i < instances; i++) {
-        if (GreatestCommonDivisor::recursiveEuclidean(mapping[i][0], mapping[i][1]) != mapping[i][2]) {
+    for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {
+        if (GreatestCommonDivisor::recursiveEuclidean(sample[i][0], sample[i][1]) != sample[i][2]) {
             return false;
         }
     }

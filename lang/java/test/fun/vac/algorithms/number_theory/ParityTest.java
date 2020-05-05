@@ -4,7 +4,7 @@ import fun.vac.util.TestRunner;
 public class ParityTest {
 
     public static boolean testParity() {
-        long[][] mapping = {
+        long[][] sample = {
             {             0, 0},
             {             1, 1},
             {            -1, 1},
@@ -135,51 +135,49 @@ public class ParityTest {
             {-2_147_483_648, 0},
         };
 
-        int instances = mapping.length;
-
-        for (int i = 0; i < instances; i++) {
-            if (mapping[i][1] == 0) {
-                if (!Parity.moduloIsEven(mapping[i][0])) {
+        for (int i = 0, size = sample.length; i < size; i++) {
+            if (sample[i][1] == 0) {
+                if (!Parity.moduloIsEven(sample[i][0])) {
                     return false;
                 }
             } else {
-                if (Parity.moduloIsEven(mapping[i][0])) {
+                if (Parity.moduloIsEven(sample[i][0])) {
                     return false;
                 }
             }
         }
 
-        for (int i = 0; i < instances; i++) {
-            if (mapping[i][1] == 0) {
-                if (!Parity.bitwiseIsEven(mapping[i][0])) {
+        for (int i = 0, size = sample.length; i < size; i++) {
+            if (sample[i][1] == 0) {
+                if (!Parity.bitwiseIsEven(sample[i][0])) {
                     return false;
                 }
             } else {
-                if (Parity.bitwiseIsEven(mapping[i][0])) {
+                if (Parity.bitwiseIsEven(sample[i][0])) {
                     return false;
                 }
             }
         }
 
-        for (int i = 0; i < instances; i++) {
-            if (mapping[i][1] == 0) {
-                if (Parity.moduloIsOdd(mapping[i][0])) {
+        for (int i = 0, size = sample.length; i < size; i++) {
+            if (sample[i][1] == 0) {
+                if (Parity.moduloIsOdd(sample[i][0])) {
                     return false;
                 }
             } else {
-                if (!Parity.moduloIsOdd(mapping[i][0])) {
+                if (!Parity.moduloIsOdd(sample[i][0])) {
                     return false;
                 }
             }
         }
 
-        for (int i = 0; i < instances; i++) {
-            if (mapping[i][1] == 0) {
-                if (Parity.bitwiseIsOdd(mapping[i][0])) {
+        for (int i = 0, size = sample.length; i < size; i++) {
+            if (sample[i][1] == 0) {
+                if (Parity.bitwiseIsOdd(sample[i][0])) {
                     return false;
                 }
             } else {
-                if (!Parity.bitwiseIsOdd(mapping[i][0])) {
+                if (!Parity.bitwiseIsOdd(sample[i][0])) {
                     return false;
                 }
             }

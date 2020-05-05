@@ -4,7 +4,7 @@ const LeastCommonMultiple = require("fun/vac/algorithms/number_theory/LeastCommo
 const TestRunner          = require("fun/vac/util/TestRunner")
 
 const testLeastCommonMultiple = () => {
-    let mapping = [
+    let sample = [
         [     1,      1,          1],
         [    -1,     -1,          1],
         [   -85,     -8,        680],
@@ -135,16 +135,14 @@ const testLeastCommonMultiple = () => {
         [-46340, -46341, 2147441940],
     ]
 
-    let instances = mapping.length
-
-    for (let i = 0; i < instances; i++) {
-        if (LeastCommonMultiple.reduceToBinaryGCD(mapping[i][0], mapping[i][1]) !== mapping[i][2]) {
+    for (let i = 0, size = sample.length; i < size; i++) {
+        if (LeastCommonMultiple.reduceToBinaryGCD(sample[i][0], sample[i][1]) !== sample[i][2]) {
             return false
         }
     }
 
-    for (let i = 0; i < instances; i++) {
-        if (LeastCommonMultiple.reduceToEuclidean(mapping[i][0], mapping[i][1]) !== mapping[i][2]) {
+    for (let i = 0, size = sample.length; i < size; i++) {
+        if (LeastCommonMultiple.reduceToEuclidean(sample[i][0], sample[i][1]) !== sample[i][2]) {
             return false
         }
     }

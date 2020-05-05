@@ -6,7 +6,7 @@ import (
 )
 
 func testGreatestCommonDivisor() bool {
-    mapping := [][3]int64{
+    sample := [][3]int64{
         {          0,           1,   1},
         {          1,           0,   1},
         {          1,           1,   1},
@@ -137,26 +137,26 @@ func testGreatestCommonDivisor() bool {
         {  645159694, -2147483647,   1},
     }
 
-    for i := range mapping {
-        if GreatestCommonDivisor.IterativeBinaryGCD(mapping[i][0], mapping[i][1]) != mapping[i][2] {
+    for i := range sample {
+        if GreatestCommonDivisor.IterativeBinaryGCD(sample[i][0], sample[i][1]) != sample[i][2] {
             return false
         }
     }
 
-    for i := range mapping {
-        if GreatestCommonDivisor.RecursiveBinaryGCD(mapping[i][0], mapping[i][1]) != mapping[i][2] {
+    for i := range sample {
+        if GreatestCommonDivisor.RecursiveBinaryGCD(sample[i][0], sample[i][1]) != sample[i][2] {
             return false
         }
     }
 
-    for i := range mapping {
-        if GreatestCommonDivisor.IterativeEuclidean(mapping[i][0], mapping[i][1]) != mapping[i][2] {
+    for i := range sample {
+        if GreatestCommonDivisor.IterativeEuclidean(sample[i][0], sample[i][1]) != sample[i][2] {
             return false
         }
     }
 
-    for i := range mapping {
-        if GreatestCommonDivisor.RecursiveEuclidean(mapping[i][0], mapping[i][1]) != mapping[i][2] {
+    for i := range sample {
+        if GreatestCommonDivisor.RecursiveEuclidean(sample[i][0], sample[i][1]) != sample[i][2] {
             return false
         }
     }

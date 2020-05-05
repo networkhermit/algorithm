@@ -2,7 +2,7 @@
 #include <fun/vac/util/TestRunner.h>
 
 bool testGreatestCommonDivisor(void) {
-    long mapping[][3] = {
+    long sample[][3] = {
         {          0,           1,   1},
         {          1,           0,   1},
         {          1,           1,   1},
@@ -133,28 +133,26 @@ bool testGreatestCommonDivisor(void) {
         {  645159694, -2147483647,   1},
     };
 
-    size_t instances = sizeof(mapping) / sizeof(mapping[0]);
-
-    for (size_t i = 0; i < instances; i++) {
-        if (GreatestCommonDivisor_iterativeBinaryGCD(mapping[i][0], mapping[i][1]) != mapping[i][2]) {
+    for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {
+        if (GreatestCommonDivisor_iterativeBinaryGCD(sample[i][0], sample[i][1]) != sample[i][2]) {
             return false;
         }
     }
 
-    for (size_t i = 0; i < instances; i++) {
-        if (GreatestCommonDivisor_recursiveBinaryGCD(mapping[i][0], mapping[i][1]) != mapping[i][2]) {
+    for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {
+        if (GreatestCommonDivisor_recursiveBinaryGCD(sample[i][0], sample[i][1]) != sample[i][2]) {
             return false;
         }
     }
 
-    for (size_t i = 0; i < instances; i++) {
-        if (GreatestCommonDivisor_iterativeEuclidean(mapping[i][0], mapping[i][1]) != mapping[i][2]) {
+    for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {
+        if (GreatestCommonDivisor_iterativeEuclidean(sample[i][0], sample[i][1]) != sample[i][2]) {
             return false;
         }
     }
 
-    for (size_t i = 0; i < instances; i++) {
-        if (GreatestCommonDivisor_recursiveEuclidean(mapping[i][0], mapping[i][1]) != mapping[i][2]) {
+    for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {
+        if (GreatestCommonDivisor_recursiveEuclidean(sample[i][0], sample[i][1]) != sample[i][2]) {
             return false;
         }
     }

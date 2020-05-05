@@ -2,7 +2,7 @@ require "fun/vac/algorithms/number_theory/FibonacciNumber"
 require "fun/vac/util/TestRunner"
 
 def testFibonacciNumber()
-    mapping = [
+    sample = [
         [-31, 1346269],
         [-30, -832040],
         [-29,  514229],
@@ -68,14 +68,14 @@ def testFibonacciNumber()
         [ 31, 1346269],
     ]
 
-    mapping.each_index do |i|
-        if FibonacciNumber.iterativeProcedure(mapping[i][0]) != mapping[i][1]
+    sample.each_index do |i|
+        if FibonacciNumber.iterativeProcedure(sample[i][0]) != sample[i][1]
             return false
         end
     end
 
-    mapping.each_index do |i|
-        if FibonacciNumber.recursiveProcedure(mapping[i][0]) != mapping[i][1]
+    sample.each_index do |i|
+        if FibonacciNumber.recursiveProcedure(sample[i][0]) != sample[i][1]
             return false
         end
     end

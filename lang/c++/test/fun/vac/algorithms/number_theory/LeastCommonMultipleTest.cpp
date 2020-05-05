@@ -4,7 +4,7 @@
 using namespace std;
 
 bool testLeastCommonMultiple() {
-    long mapping[][3] = {
+    long sample[][3] = {
         {     1,      1,             1},
         {    -1,     -1,             1},
         {   -85,     -8,           680},
@@ -135,16 +135,14 @@ bool testLeastCommonMultiple() {
         {-46340, -46341, 2'147'441'940},
     };
 
-    size_t instances = sizeof(mapping) / sizeof(mapping[0]);
-
-    for (size_t i = 0; i < instances; i++) {
-        if (LeastCommonMultiple::reduceToBinaryGCD(mapping[i][0], mapping[i][1]) != mapping[i][2]) {
+    for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {
+        if (LeastCommonMultiple::reduceToBinaryGCD(sample[i][0], sample[i][1]) != sample[i][2]) {
             return false;
         }
     }
 
-    for (size_t i = 0; i < instances; i++) {
-        if (LeastCommonMultiple::reduceToEuclidean(mapping[i][0], mapping[i][1]) != mapping[i][2]) {
+    for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {
+        if (LeastCommonMultiple::reduceToEuclidean(sample[i][0], sample[i][1]) != sample[i][2]) {
             return false;
         }
     }

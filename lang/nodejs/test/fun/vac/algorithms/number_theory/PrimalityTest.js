@@ -4,7 +4,7 @@ const Primality  = require("fun/vac/algorithms/number_theory/Primality")
 const TestRunner = require("fun/vac/util/TestRunner")
 
 const testPrimality = () => {
-    let mapping = [
+    let sample = [
         [       0, 1],
         [       1, 1],
         [       2, 2],
@@ -263,28 +263,26 @@ const testPrimality = () => {
         [14162880, 4],
     ]
 
-    let instances = mapping.length
-
-    for (let i = 0; i < instances; i++) {
-        if (mapping[i][1] === 1) {
-            if (Primality.isPrime(mapping[i][0])) {
+    for (let i = 0, size = sample.length; i < size; i++) {
+        if (sample[i][1] === 1) {
+            if (Primality.isPrime(sample[i][0])) {
                 return false
             }
-            if (Primality.isComposite(mapping[i][0])) {
+            if (Primality.isComposite(sample[i][0])) {
                 return false
             }
-        } else if (mapping[i][1] === 2) {
-            if (!Primality.isPrime(mapping[i][0])) {
+        } else if (sample[i][1] === 2) {
+            if (!Primality.isPrime(sample[i][0])) {
                 return false
             }
-            if (Primality.isComposite(mapping[i][0])) {
+            if (Primality.isComposite(sample[i][0])) {
                 return false
             }
         } else {
-            if (Primality.isPrime(mapping[i][0])) {
+            if (Primality.isPrime(sample[i][0])) {
                 return false
             }
-            if (!Primality.isComposite(mapping[i][0])) {
+            if (!Primality.isComposite(sample[i][0])) {
                 return false
             }
         }

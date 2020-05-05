@@ -2,7 +2,7 @@ require "fun/vac/algorithms/number_theory/Primality"
 require "fun/vac/util/TestRunner"
 
 def testPrimality()
-    mapping = [
+    sample = [
         [         0, 1],
         [         1, 1],
         [         2, 2],
@@ -261,26 +261,26 @@ def testPrimality()
         [14_162_880, 4],
     ]
 
-    mapping.each_index do |i|
-        if mapping[i][1] == 1
-            if Primality.isPrime(mapping[i][0])
+    sample.each_index do |i|
+        if sample[i][1] == 1
+            if Primality.isPrime(sample[i][0])
                 return false
             end
-            if Primality.isComposite(mapping[i][0])
+            if Primality.isComposite(sample[i][0])
                 return false
             end
-        elsif mapping[i][1] == 2
-            unless Primality.isPrime(mapping[i][0])
+        elsif sample[i][1] == 2
+            unless Primality.isPrime(sample[i][0])
                 return false
             end
-            if Primality.isComposite(mapping[i][0])
+            if Primality.isComposite(sample[i][0])
                 return false
             end
         else
-            if Primality.isPrime(mapping[i][0])
+            if Primality.isPrime(sample[i][0])
                 return false
             end
-            unless Primality.isComposite(mapping[i][0])
+            unless Primality.isComposite(sample[i][0])
                 return false
             end
         end
