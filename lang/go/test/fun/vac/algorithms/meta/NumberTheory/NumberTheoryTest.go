@@ -7,7 +7,7 @@ import (
 )
 
 func testIsCoprime() bool {
-    mapping := [][3]int64 {
+    mapping := [][3]int64{
         {          0,           1, 1},
         {          1,           0, 1},
         {          1,           1, 1},
@@ -154,7 +154,7 @@ func testIsCoprime() bool {
 }
 
 func testFactorial() bool {
-    mapping := [][2]int64 {
+    mapping := [][2]int64{
         { 0,         1},
         { 1,         1},
         { 2,         2},
@@ -180,7 +180,7 @@ func testFactorial() bool {
 }
 
 func testFibonacci() bool {
-    mapping := [][2]int64 {
+    mapping := [][2]int64{
         {-31, 1346269},
         {-30, -832040},
         {-29,  514229},
@@ -256,7 +256,7 @@ func testFibonacci() bool {
 }
 
 func testGCD() bool {
-    mapping := [][3]int64 {
+    mapping := [][3]int64{
         {          0,           1,   1},
         {          1,           0,   1},
         {          1,           1,   1},
@@ -397,7 +397,7 @@ func testGCD() bool {
 }
 
 func testLCM() bool {
-    mapping := [][3]int64 {
+    mapping := [][3]int64{
         {     1,      1,          1},
         {    -1,     -1,          1},
         {   -85,     -8,        680},
@@ -538,7 +538,7 @@ func testLCM() bool {
 }
 
 func testIsEven() bool {
-    mapping := [][2]int64 {
+    mapping := [][2]int64{
         {          0, 0},
         {          1, 1},
         {         -1, 1},
@@ -685,7 +685,7 @@ func testIsEven() bool {
 }
 
 func testIsOdd() bool {
-    mapping := [][2]int64 {
+    mapping := [][2]int64{
         {          0, 0},
         {          1, 1},
         {         -1, 1},
@@ -832,7 +832,7 @@ func testIsOdd() bool {
 }
 
 func testIsPrime() bool {
-    mapping := [][2]int64 {
+    mapping := [][2]int64{
         {       0, 1},
         {       1, 1},
         {       2, 2},
@@ -1111,7 +1111,7 @@ func testIsPrime() bool {
 }
 
 func testIsComposite() bool {
-    mapping := [][2]int64 {
+    mapping := [][2]int64{
         {       0, 1},
         {       1, 1},
         {       2, 2},
@@ -1390,7 +1390,7 @@ func testIsComposite() bool {
 }
 
 func testSieveOfPrimes() bool {
-    mapping := [][2]int {
+    mapping := [][2]int{
         {      0,     0},
         {      1,     0},
         {    180,    41},

@@ -6,7 +6,7 @@ import (
 )
 
 func testPrimality() bool {
-    mapping := [][2]int64 {
+    mapping := [][2]int64{
         {       0, 1},
         {       1, 1},
         {       2, 2},

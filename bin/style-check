@@ -184,19 +184,11 @@ run_style_check () {
             for instance in $(find -L "${ROOT}" -type f -name "*.go" | sort); do
                 fname=$(basename "${instance}" .go)
 
-                register_lint "${instance}" "${fname}" incdec
-                register_lint "${instance}" "${fname}" semicolon
-                register_lint "${instance}" "${fname}" whitespace
-
-                if grep -q '\<if\s*(.*)\s*{$' "${instance}"; then
-                    echo '>>>> REDUNDANT PARENTHESIS <<<<'
-                    printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
-                fi
-
-                if grep -q '\<for\s*(.*)\s*{$' "${instance}"; then
-                    echo '>>>> REDUNDANT PARENTHESIS <<<<'
-                    printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
-                fi
+                diff "${instance}" <(gofmt -s "${instance}" | expand --tabs 4) || true
+                golint "${instance}"
+                go tool fix -diff "${instance}"
+                go vet "${instance}"
+                printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
             done
             ;;
         java)

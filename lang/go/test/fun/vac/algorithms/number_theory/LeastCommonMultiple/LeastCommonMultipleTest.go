@@ -6,7 +6,7 @@ import (
 )
 
 func testLeastCommonMultiple() bool {
-    mapping := [][3]int64 {
+    mapping := [][3]int64{
         {     1,      1,          1},
         {    -1,     -1,          1},
         {   -85,     -8,        680},

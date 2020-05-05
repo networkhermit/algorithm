@@ -7,7 +7,7 @@ import (
 )
 
 func testPrimeSieves() bool {
-    mapping := [][2]int {
+    mapping := [][2]int{
         {      0,     0},
         {      1,     0},
         {    180,    41},

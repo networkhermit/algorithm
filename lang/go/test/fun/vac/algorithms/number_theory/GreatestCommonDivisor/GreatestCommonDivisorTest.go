@@ -6,7 +6,7 @@ import (
 )
 
 func testGreatestCommonDivisor() bool {
-    mapping := [][3]int64 {
+    mapping := [][3]int64{
         {          0,           1,   1},
         {          1,           0,   1},
         {          1,           1,   1},

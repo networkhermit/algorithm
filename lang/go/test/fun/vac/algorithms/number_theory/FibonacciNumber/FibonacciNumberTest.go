@@ -6,7 +6,7 @@ import (
 )
 
 func testFibonacciNumber() bool {
-    mapping := [][2]int64 {
+    mapping := [][2]int64{
         {-31, 1346269},
         {-30, -832040},
         {-29,  514229},
