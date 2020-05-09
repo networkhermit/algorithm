@@ -5,6 +5,7 @@ using namespace std;
 
 bool testCoprimality() {
     long sample[][3] = {
+        // clang-format off
         {             0,              1, 1},
         {             1,              0, 1},
         {             1,              1, 1},
@@ -133,6 +134,7 @@ bool testCoprimality() {
         { 1'241'208'470,   -647'438'045, 0},
         { 2'147'483'647,   -561'158'902, 1},
         {   761'395'308, -2'147'483'647, 1},
+        // clang-format on
     };
 
     for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {

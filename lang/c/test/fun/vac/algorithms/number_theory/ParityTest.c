@@ -3,6 +3,7 @@
 
 bool testParity(void) {
     long sample[][2] = {
+        // clang-format off
         {          0, 0},
         {          1, 1},
         {         -1, 1},
@@ -131,6 +132,7 @@ bool testParity(void) {
         {  411817058, 0},
         { 2147483647, 1},
         {-2147483648, 0},
+        // clang-format on
     };
 
     for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {

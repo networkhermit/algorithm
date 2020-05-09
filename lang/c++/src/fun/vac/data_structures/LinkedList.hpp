@@ -5,7 +5,8 @@
 
 namespace LinkedList {
 
-    template <typename E> class LinkedList {
+    template <typename E>
+    class LinkedList {
 
     private:
         class Node {

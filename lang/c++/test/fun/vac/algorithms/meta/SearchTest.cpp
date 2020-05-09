@@ -7,7 +7,7 @@ using namespace std;
 bool testBinarySearch() {
     size_t size = 32768;
 
-    vector<int> arr (size);
+    vector<int> arr(size);
     SequenceBuilder::packIncreasing(arr);
 
     if (Search::binarySearch(arr, -1) != size) {
@@ -30,7 +30,7 @@ bool testBinarySearch() {
 bool testLinearSearch() {
     size_t size = 32768;
 
-    vector<int> arr (size);
+    vector<int> arr(size);
     SequenceBuilder::packIncreasing(arr);
 
     if (Search::linearSearch(arr, -1) != size) {

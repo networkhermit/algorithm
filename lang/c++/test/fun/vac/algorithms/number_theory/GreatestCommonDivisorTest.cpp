@@ -5,6 +5,7 @@ using namespace std;
 
 bool testGreatestCommonDivisor() {
     long sample[][3] = {
+        // clang-format off
         {             0,              1,   1},
         {             1,              0,   1},
         {             1,              1,   1},
@@ -133,6 +134,7 @@ bool testGreatestCommonDivisor() {
         {-1'069'835'847,  1'308'503'268,   3},
         { 2'147'483'647, -1'884'119'046,   1},
         {   645'159'694, -2'147'483'647,   1},
+        // clang-format on
     };
 
     for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {

@@ -6,7 +6,8 @@
 
 namespace BubbleSort {
 
-    template <typename T> void sort(std::vector<T> &arr) {
+    template <typename T>
+    void sort(std::vector<T> &arr) {
         T temp;
 
         std::size_t margin;

@@ -6,7 +6,8 @@
 
 namespace QuickSort {
 
-    template <typename T> void partition(std::vector<T> &arr, std::size_t lo, std::size_t hi) {
+    template <typename T>
+    void partition(std::vector<T> &arr, std::size_t lo, std::size_t hi) {
         if (lo == hi) {
             return;
         }
@@ -38,7 +39,8 @@ namespace QuickSort {
         partition(arr, left + 1, hi);
     }
 
-    template <typename T> void sort(std::vector<T> &arr) {
+    template <typename T>
+    void sort(std::vector<T> &arr) {
         partition(arr, 0, arr.size());
     }
 }

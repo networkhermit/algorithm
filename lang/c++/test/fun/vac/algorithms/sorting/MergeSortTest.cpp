@@ -8,7 +8,7 @@ using namespace std;
 bool testMergeSort() {
     size_t size = 32768;
 
-    vector<int> arr (size);
+    vector<int> arr(size);
     SequenceBuilder::packRandom(arr);
 
     int checksum = Sequences::parityChecksum(arr);

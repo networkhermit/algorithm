@@ -5,6 +5,7 @@ using namespace std;
 
 bool testPrimality() {
     long sample[][2] = {
+        // clang-format off
         {         0, 1},
         {         1, 1},
         {         2, 2},
@@ -261,6 +262,7 @@ bool testPrimality() {
         { 3'893'849, 2},
         { 1'308'913, 4},
         {14'162'880, 4},
+        // clang-format on
     };
 
     for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {

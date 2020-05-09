@@ -5,7 +5,8 @@
 
 namespace LinkedStack {
 
-    template <typename E> class LinkedStack {
+    template <typename E>
+    class LinkedStack {
 
     private:
         class Node {

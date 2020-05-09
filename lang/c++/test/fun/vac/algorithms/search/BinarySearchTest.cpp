@@ -7,7 +7,7 @@ using namespace std;
 bool testBinarySearch() {
     size_t size = 32768;
 
-    vector<int> arr (size);
+    vector<int> arr(size);
     SequenceBuilder::packIncreasing(arr);
 
     if (BinarySearch::find(arr, -1) != size) {

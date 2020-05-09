@@ -5,6 +5,7 @@ using namespace std;
 
 bool testParity() {
     long sample[][2] = {
+        // clang-format off
         {             0, 0},
         {             1, 1},
         {            -1, 1},
@@ -133,6 +134,7 @@ bool testParity() {
         {   411'817'058, 0},
         { 2'147'483'647, 1},
         {-2'147'483'648, 0},
+        // clang-format on
     };
 
     for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {

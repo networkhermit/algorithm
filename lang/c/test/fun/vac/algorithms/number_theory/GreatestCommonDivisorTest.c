@@ -3,6 +3,7 @@
 
 bool testGreatestCommonDivisor(void) {
     long sample[][3] = {
+        // clang-format off
         {          0,           1,   1},
         {          1,           0,   1},
         {          1,           1,   1},
@@ -131,6 +132,7 @@ bool testGreatestCommonDivisor(void) {
         {-1069835847,  1308503268,   3},
         { 2147483647, -1884119046,   1},
         {  645159694, -2147483647,   1},
+        // clang-format on
     };
 
     for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {

@@ -5,7 +5,8 @@
 
 namespace SinglyLinkedList {
 
-    template <typename E> class SinglyLinkedList {
+    template <typename E>
+    class SinglyLinkedList {
 
     private:
         class Node {

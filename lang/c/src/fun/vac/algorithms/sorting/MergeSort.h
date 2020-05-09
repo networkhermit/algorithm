@@ -20,7 +20,7 @@ void MergeSort_merge(merge_sort_type *arr, size_t lo, size_t mid, size_t hi) {
     size_t m = lo;
     size_t n = mid;
 
-    merge_sort_type *sorted = (merge_sort_type *) malloc((hi - lo) * sizeof(merge_sort_type));
+    merge_sort_type *sorted = (merge_sort_type *) calloc(hi - lo, sizeof(merge_sort_type));
 
     for (size_t i = 0, length = hi - lo; i < length; i++) {
         if (m != mid && (n == hi || arr[m] < arr[n])) {

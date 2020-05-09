@@ -5,6 +5,7 @@ using namespace std;
 
 bool testLeastCommonMultiple() {
     long sample[][3] = {
+        // clang-format off
         {     1,      1,             1},
         {    -1,     -1,             1},
         {   -85,     -8,           680},
@@ -133,6 +134,7 @@ bool testLeastCommonMultiple() {
         { 45203, -23693, 1'070'994'679},
         { 46340,  46341, 2'147'441'940},
         {-46340, -46341, 2'147'441'940},
+        // clang-format on
     };
 
     for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {

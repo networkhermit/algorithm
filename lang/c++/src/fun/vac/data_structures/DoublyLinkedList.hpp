@@ -5,7 +5,8 @@
 
 namespace DoublyLinkedList {
 
-    template <typename E> class DoublyLinkedList {
+    template <typename E>
+    class DoublyLinkedList {
 
     private:
         class Node {

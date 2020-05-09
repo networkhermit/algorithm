@@ -3,6 +3,7 @@
 
 bool testFactorial(void) {
     long sample[][2] = {
+        // clang-format off
         { 0,         1},
         { 1,         1},
         { 2,         2},
@@ -16,6 +17,7 @@ bool testFactorial(void) {
         {10,   3628800},
         {11,  39916800},
         {12, 479001600},
+        // clang-format on
     };
 
     for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {

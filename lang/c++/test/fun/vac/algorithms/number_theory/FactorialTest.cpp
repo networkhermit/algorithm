@@ -5,6 +5,7 @@ using namespace std;
 
 bool testFactorial() {
     long sample[][2] = {
+        // clang-format off
         { 0,           1},
         { 1,           1},
         { 2,           2},
@@ -18,6 +19,7 @@ bool testFactorial() {
         {10,   3'628'800},
         {11,  39'916'800},
         {12, 479'001'600},
+        // clang-format on
     };
 
     for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {

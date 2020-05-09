@@ -5,7 +5,8 @@
 
 namespace CircularlyLinkedList {
 
-    template <typename E> class CircularlyLinkedList {
+    template <typename E>
+    class CircularlyLinkedList {
 
     private:
         class Node {

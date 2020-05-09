@@ -8,7 +8,7 @@ using namespace std;
 bool testBubbleSort() {
     size_t size = 32768;
 
-    vector<int> arr (size);
+    vector<int> arr(size);
     SequenceBuilder::packRandom(arr);
 
     int checksum = Sequences::parityChecksum(arr);
@@ -29,7 +29,7 @@ bool testBubbleSort() {
 bool testInsertionSort() {
     size_t size = 32768;
 
-    vector<int> arr (size);
+    vector<int> arr(size);
     SequenceBuilder::packRandom(arr);
 
     int checksum = Sequences::parityChecksum(arr);
@@ -50,7 +50,7 @@ bool testInsertionSort() {
 bool testMergeSort() {
     size_t size = 32768;
 
-    vector<int> arr (size);
+    vector<int> arr(size);
     SequenceBuilder::packRandom(arr);
 
     int checksum = Sequences::parityChecksum(arr);
@@ -71,7 +71,7 @@ bool testMergeSort() {
 bool testQuickSort() {
     size_t size = 32768;
 
-    vector<int> arr (size);
+    vector<int> arr(size);
     SequenceBuilder::packRandom(arr);
 
     int checksum = Sequences::parityChecksum(arr);
@@ -92,7 +92,7 @@ bool testQuickSort() {
 bool testSelectionSort() {
     size_t size = 32768;
 
-    vector<int> arr (size);
+    vector<int> arr(size);
     SequenceBuilder::packRandom(arr);
 
     int checksum = Sequences::parityChecksum(arr);

@@ -3,6 +3,7 @@
 
 bool testCoprimality(void) {
     long sample[][3] = {
+        // clang-format off
         {          0,           1, 1},
         {          1,           0, 1},
         {          1,           1, 1},
@@ -131,6 +132,7 @@ bool testCoprimality(void) {
         { 1241208470,  -647438045, 0},
         { 2147483647,  -561158902, 1},
         {  761395308, -2147483647, 1},
+        // clang-format on
     };
 
     for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {

@@ -5,7 +5,8 @@
 
 namespace LinkedQueue {
 
-    template <typename E> class LinkedQueue {
+    template <typename E>
+    class LinkedQueue {
 
     private:
         class Node {

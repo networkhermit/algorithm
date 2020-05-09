@@ -5,8 +5,8 @@
 typedef int search_type;
 #else
 typedef SEARCH_TYPE search_type;
-#   define BINARY_SEARCH_TYPE SEARCH_TYPE
-#   define LINEAR_SEARCH_TYPE SEARCH_TYPE
+#define BINARY_SEARCH_TYPE SEARCH_TYPE
+#define LINEAR_SEARCH_TYPE SEARCH_TYPE
 #endif
 
 #include <fun/vac/algorithms/search/BinarySearch.h>

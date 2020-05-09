@@ -4,6 +4,7 @@
 
 bool testIsCoprime(void) {
     long sample[][3] = {
+        // clang-format off
         {          0,           1, 1},
         {          1,           0, 1},
         {          1,           1, 1},
@@ -132,6 +133,7 @@ bool testIsCoprime(void) {
         { 1241208470,  -647438045, 0},
         { 2147483647,  -561158902, 1},
         {  761395308, -2147483647, 1},
+        // clang-format on
     };
 
     for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {
@@ -151,6 +153,7 @@ bool testIsCoprime(void) {
 
 bool testFactorial(void) {
     long sample[][2] = {
+        // clang-format off
         { 0,         1},
         { 1,         1},
         { 2,         2},
@@ -164,6 +167,7 @@ bool testFactorial(void) {
         {10,   3628800},
         {11,  39916800},
         {12, 479001600},
+        // clang-format on
     };
 
     for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {
@@ -177,6 +181,7 @@ bool testFactorial(void) {
 
 bool testFibonacci(void) {
     long sample[][2] = {
+        // clang-format off
         {-31, 1346269},
         {-30, -832040},
         {-29,  514229},
@@ -240,6 +245,7 @@ bool testFibonacci(void) {
         { 29,  514229},
         { 30,  832040},
         { 31, 1346269},
+        // clang-format on
     };
 
     for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {
@@ -253,6 +259,7 @@ bool testFibonacci(void) {
 
 bool testGCD(void) {
     long sample[][3] = {
+        // clang-format off
         {          0,           1,   1},
         {          1,           0,   1},
         {          1,           1,   1},
@@ -381,6 +388,7 @@ bool testGCD(void) {
         {-1069835847,  1308503268,   3},
         { 2147483647, -1884119046,   1},
         {  645159694, -2147483647,   1},
+        // clang-format on
     };
 
     for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {
@@ -394,6 +402,7 @@ bool testGCD(void) {
 
 bool testLCM(void) {
     long sample[][3] = {
+        // clang-format off
         {     1,      1,          1},
         {    -1,     -1,          1},
         {   -85,     -8,        680},
@@ -522,6 +531,7 @@ bool testLCM(void) {
         { 45203, -23693, 1070994679},
         { 46340,  46341, 2147441940},
         {-46340, -46341, 2147441940},
+        // clang-format on
     };
 
     for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {
@@ -535,6 +545,7 @@ bool testLCM(void) {
 
 bool testIsEven(void) {
     long sample[][2] = {
+        // clang-format off
         {          0, 0},
         {          1, 1},
         {         -1, 1},
@@ -663,6 +674,7 @@ bool testIsEven(void) {
         {  411817058, 0},
         { 2147483647, 1},
         {-2147483648, 0},
+        // clang-format on
     };
 
     for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {
@@ -682,6 +694,7 @@ bool testIsEven(void) {
 
 bool testIsOdd(void) {
     long sample[][2] = {
+        // clang-format off
         {          0, 0},
         {          1, 1},
         {         -1, 1},
@@ -810,6 +823,7 @@ bool testIsOdd(void) {
         {  411817058, 0},
         { 2147483647, 1},
         {-2147483648, 0},
+        // clang-format on
     };
 
     for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {
@@ -829,6 +843,7 @@ bool testIsOdd(void) {
 
 bool testIsPrime(void) {
     long sample[][2] = {
+        // clang-format off
         {       0, 1},
         {       1, 1},
         {       2, 2},
@@ -1085,6 +1100,7 @@ bool testIsPrime(void) {
         { 3893849, 2},
         { 1308913, 4},
         {14162880, 4},
+        // clang-format on
     };
 
     for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {
@@ -1108,6 +1124,7 @@ bool testIsPrime(void) {
 
 bool testIsComposite(void) {
     long sample[][2] = {
+        // clang-format off
         {       0, 1},
         {       1, 1},
         {       2, 2},
@@ -1364,6 +1381,7 @@ bool testIsComposite(void) {
         { 3893849, 2},
         { 1308913, 4},
         {14162880, 4},
+        // clang-format on
     };
 
     for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {
@@ -1387,6 +1405,7 @@ bool testIsComposite(void) {
 
 bool testSieveOfPrimes(void) {
     size_t sample[][2] = {
+        // clang-format off
         {      0,     0},
         {      1,     0},
         {    180,    41},
@@ -1515,6 +1534,7 @@ bool testSieveOfPrimes(void) {
         {1228187, 94920},
         { 709431, 57257},
         {1294061, 99610},
+        // clang-format on
     };
 
     size_t *arr;

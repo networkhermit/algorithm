@@ -3,6 +3,7 @@
 
 bool testLeastCommonMultiple(void) {
     long sample[][3] = {
+        // clang-format off
         {     1,      1,          1},
         {    -1,     -1,          1},
         {   -85,     -8,        680},
@@ -131,6 +132,7 @@ bool testLeastCommonMultiple(void) {
         { 45203, -23693, 1070994679},
         { 46340,  46341, 2147441940},
         {-46340, -46341, 2147441940},
+        // clang-format on
     };
 
     for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {

@@ -6,6 +6,7 @@ using namespace std;
 
 bool testIsCoprime() {
     long sample[][3] = {
+        // clang-format off
         {             0,              1, 1},
         {             1,              0, 1},
         {             1,              1, 1},
@@ -134,6 +135,7 @@ bool testIsCoprime() {
         { 1'241'208'470,   -647'438'045, 0},
         { 2'147'483'647,   -561'158'902, 1},
         {   761'395'308, -2'147'483'647, 1},
+        // clang-format on
     };
 
     for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {
@@ -153,6 +155,7 @@ bool testIsCoprime() {
 
 bool testFactorial() {
     long sample[][2] = {
+        // clang-format off
         { 0,           1},
         { 1,           1},
         { 2,           2},
@@ -166,6 +169,7 @@ bool testFactorial() {
         {10,   3'628'800},
         {11,  39'916'800},
         {12, 479'001'600},
+        // clang-format on
     };
 
     for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {
@@ -179,6 +183,7 @@ bool testFactorial() {
 
 bool testFibonacci() {
     long sample[][2] = {
+        // clang-format off
         {-31, 1346269},
         {-30, -832040},
         {-29,  514229},
@@ -242,6 +247,7 @@ bool testFibonacci() {
         { 29,  514229},
         { 30,  832040},
         { 31, 1346269},
+        // clang-format on
     };
 
     for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {
@@ -255,6 +261,7 @@ bool testFibonacci() {
 
 bool testGCD() {
     long sample[][3] = {
+        // clang-format off
         {             0,              1,   1},
         {             1,              0,   1},
         {             1,              1,   1},
@@ -383,6 +390,7 @@ bool testGCD() {
         {-1'069'835'847,  1'308'503'268,   3},
         { 2'147'483'647, -1'884'119'046,   1},
         {   645'159'694, -2'147'483'647,   1},
+        // clang-format on
     };
 
     for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {
@@ -396,6 +404,7 @@ bool testGCD() {
 
 bool testLCM() {
     long sample[][3] = {
+        // clang-format off
         {     1,      1,             1},
         {    -1,     -1,             1},
         {   -85,     -8,           680},
@@ -524,6 +533,7 @@ bool testLCM() {
         { 45203, -23693, 1'070'994'679},
         { 46340,  46341, 2'147'441'940},
         {-46340, -46341, 2'147'441'940},
+        // clang-format on
     };
 
     for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {
@@ -537,6 +547,7 @@ bool testLCM() {
 
 bool testIsEven() {
     long sample[][2] = {
+        // clang-format off
         {             0, 0},
         {             1, 1},
         {            -1, 1},
@@ -665,6 +676,7 @@ bool testIsEven() {
         {   411'817'058, 0},
         { 2'147'483'647, 1},
         {-2'147'483'648, 0},
+        // clang-format on
     };
 
     for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {
@@ -684,6 +696,7 @@ bool testIsEven() {
 
 bool testIsOdd() {
     long sample[][2] = {
+        // clang-format off
         {             0, 0},
         {             1, 1},
         {            -1, 1},
@@ -812,6 +825,7 @@ bool testIsOdd() {
         {   411'817'058, 0},
         { 2'147'483'647, 1},
         {-2'147'483'648, 0},
+        // clang-format on
     };
 
     for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {
@@ -831,6 +845,7 @@ bool testIsOdd() {
 
 bool testIsPrime() {
     long sample[][2] = {
+        // clang-format off
         {         0, 1},
         {         1, 1},
         {         2, 2},
@@ -1087,6 +1102,7 @@ bool testIsPrime() {
         { 3'893'849, 2},
         { 1'308'913, 4},
         {14'162'880, 4},
+        // clang-format on
     };
 
     for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {
@@ -1110,6 +1126,7 @@ bool testIsPrime() {
 
 bool testIsComposite() {
     long sample[][2] = {
+        // clang-format off
         {         0, 1},
         {         1, 1},
         {         2, 2},
@@ -1366,6 +1383,7 @@ bool testIsComposite() {
         { 3'893'849, 2},
         { 1'308'913, 4},
         {14'162'880, 4},
+        // clang-format on
     };
 
     for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {
@@ -1389,6 +1407,7 @@ bool testIsComposite() {
 
 bool testSieveOfPrimes() {
     size_t sample[][2] = {
+        // clang-format off
         {      0,     0},
         {      1,     0},
         {    180,    41},
@@ -1517,6 +1536,7 @@ bool testSieveOfPrimes() {
         {1228187, 94920},
         { 709431, 57257},
         {1294061, 99610},
+        // clang-format on
     };
 
     vector<size_t> arr;

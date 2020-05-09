@@ -3,6 +3,7 @@
 
 bool testPrimality(void) {
     long sample[][2] = {
+        // clang-format off
         {       0, 1},
         {       1, 1},
         {       2, 2},
@@ -259,6 +260,7 @@ bool testPrimality(void) {
         { 3893849, 2},
         { 1308913, 4},
         {14162880, 4},
+        // clang-format on
     };
 
     for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {

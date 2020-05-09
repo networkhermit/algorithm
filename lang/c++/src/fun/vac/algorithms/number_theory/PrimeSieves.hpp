@@ -10,7 +10,7 @@ namespace PrimeSieves {
 
     std::vector<std::size_t> sieveOfEratosthenes(std::size_t n) {
         if (n < 2) {
-            return std::vector<std::size_t> (0);
+            return std::vector<std::size_t>(0);
         }
 
         std::size_t size = (n + 1) >> 1;
@@ -31,7 +31,7 @@ namespace PrimeSieves {
             }
         }
 
-        std::vector<std::size_t> primes (numPrimes);
+        std::vector<std::size_t> primes(numPrimes);
 
         primes[0] = 2;
 

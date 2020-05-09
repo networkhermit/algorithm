@@ -6,6 +6,7 @@ using namespace std;
 
 bool testPrimeSieves() {
     size_t sample[][2] = {
+        // clang-format off
         {      0,     0},
         {      1,     0},
         {    180,    41},
@@ -134,6 +135,7 @@ bool testPrimeSieves() {
         {1228187, 94920},
         { 709431, 57257},
         {1294061, 99610},
+        // clang-format on
     };
 
     vector<size_t> arr;

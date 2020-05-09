@@ -5,6 +5,7 @@ using namespace std;
 
 bool testFibonacciNumber() {
     long sample[][2] = {
+        // clang-format off
         {-31, 1346269},
         {-30, -832040},
         {-29,  514229},
@@ -68,6 +69,7 @@ bool testFibonacciNumber() {
         { 29,  514229},
         { 30,  832040},
         { 31, 1346269},
+        // clang-format on
     };
 
     for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {

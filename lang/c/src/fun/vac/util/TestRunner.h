@@ -8,9 +8,9 @@ void TestRunner_parseTest(bool ok) {
     static size_t TestRunnerItemIndex = 0;
 
     if (ok) {
-        printf("✓ Item [%d] PASSED\n", TestRunnerItemIndex);
+        printf("✓ Item [%zu] PASSED\n", TestRunnerItemIndex);
     } else {
-        fprintf(stderr, "✗ Item [%d] FAILED\n", TestRunnerItemIndex);
+        fprintf(stderr, "✗ Item [%zu] FAILED\n", TestRunnerItemIndex);
     }
 
     TestRunnerItemIndex++;

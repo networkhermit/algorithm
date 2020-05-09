@@ -6,7 +6,8 @@
 
 namespace MergeSort {
 
-    template <typename T> void merge(std::vector<T> &arr, std::size_t lo, std::size_t mid, std::size_t hi) {
+    template <typename T>
+    void merge(std::vector<T> &arr, std::size_t lo, std::size_t mid, std::size_t hi) {
         if (lo == mid) {
             return;
         }
@@ -38,7 +39,8 @@ namespace MergeSort {
         delete[] sorted;
     }
 
-    template <typename T> void sort(std::vector<T> &arr) {
+    template <typename T>
+    void sort(std::vector<T> &arr) {
         merge(arr, 0, arr.size() >> 1, arr.size());
     }
 }

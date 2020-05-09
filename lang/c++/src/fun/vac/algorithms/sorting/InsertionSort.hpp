@@ -6,7 +6,8 @@
 
 namespace InsertionSort {
 
-    template <typename T> void sort(std::vector<T> &arr) {
+    template <typename T>
+    void sort(std::vector<T> &arr) {
         T target;
 
         std::size_t cursor;

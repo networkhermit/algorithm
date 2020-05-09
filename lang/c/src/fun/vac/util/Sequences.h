@@ -10,7 +10,7 @@
 void Sequences_inspect(const int *arr, size_t length) {
     puts("[");
     for (size_t i = 0; i < length; i++) {
-        printf("\t#%04X  -->  %d\n", i, arr[i]);
+        printf("\t#%04zX  -->  %d\n", i, arr[i]);
     }
     puts("]");
 }

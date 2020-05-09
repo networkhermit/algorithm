@@ -130,25 +130,29 @@ run_style_check () {
             for instance in $(find -L "${ROOT}" -type f -name "*.c" | sort); do
                 fname=$(basename "${instance}" .c)
 
-                register_lint "${instance}" "${fname}" incdec
-                register_lint "${instance}" "${fname}" whitespace
+                diff "${instance}" <(clang-format --style '{ColumnLimit: 0, IndentCaseLabels: true, IndentWidth: 4, SortIncludes: true, SpaceAfterCStyleCast: true}' "${instance}") || true
+                clang-tidy "${instance}" -- -std=c18 -x c
 
-                if grep -q '(\s*)\s*{$' "${instance}"; then
-                    echo '>>>> MISSING PARAMETER LIST <<<<'
-                    printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
-                fi
+                infer run -- gcc -c -std=c18 -x c "${instance}"
+                rm --force --recursive infer-out "${fname}.o"
+                infer run -- clang -c -std=c18 -x c "${instance}"
+                rm --force --recursive infer-out "${fname}.o"
+
+                printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
             done
 
             for instance in $(find -L "${ROOT}" -type f -name "*.h" | sort); do
                 fname=$(basename "${instance}" .h)
 
-                register_lint "${instance}" "${fname}" incdec
-                register_lint "${instance}" "${fname}" whitespace
+                diff "${instance}" <(clang-format --style '{ColumnLimit: 0, IndentCaseLabels: true, IndentWidth: 4, SortIncludes: true, SpaceAfterCStyleCast: true}' "${instance}") || true
+                clang-tidy "${instance}" -- -std=c18 -x c
 
-                if grep -q '(\s*)\s*{$' "${instance}"; then
-                    echo '>>>> MISSING PARAMETER LIST <<<<'
-                    printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
-                fi
+                infer run -- gcc -c -std=c18 -x c "${instance}"
+                rm --force --recursive infer-out "${fname}.o"
+                infer run -- clang -c -std=c18 -x c "${instance}"
+                rm --force --recursive infer-out "${fname}.o"
+
+                printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
             done
             ;;
         c++)
@@ -157,25 +161,29 @@ run_style_check () {
             for instance in $(find -L "${ROOT}" -type f -name "*.cpp" | sort); do
                 fname=$(basename "${instance}" .cpp)
 
-                register_lint "${instance}" "${fname}" incdec
-                register_lint "${instance}" "${fname}" whitespace
+                diff "${instance}" <(clang-format --style '{AccessModifierOffset: -4, ColumnLimit: 0, FixNamespaceComments: false, IndentCaseLabels: true, IndentWidth: 4, NamespaceIndentation: All, SortIncludes: true}' "${instance}") || true
+                clang-tidy "${instance}" -- -std=c++17 -x c++
 
-                if ! grep -q '\<using\s*namespace\s*std\>' "${instance}"; then
-                    echo '>>>> NOT USING DEFAULT NAMESPACE <<<<'
-                    printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
-                fi
+                infer run -- g++ -c -std=c++17 -x c++ "${instance}"
+                rm --force --recursive infer-out "${fname}.o"
+                infer run -- clang++ -c -std=c++17 -x c++ "${instance}"
+                rm --force --recursive infer-out "${fname}.o"
+
+                printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
             done
 
             for instance in $(find -L "${ROOT}" -type f -name "*.hpp" | sort); do
                 fname=$(basename "${instance}" .hpp)
 
-                register_lint "${instance}" "${fname}" incdec
-                register_lint "${instance}" "${fname}" whitespace
+                diff "${instance}" <(clang-format --style '{AccessModifierOffset: -4, ColumnLimit: 0, FixNamespaceComments: false, IndentCaseLabels: true, IndentWidth: 4, NamespaceIndentation: All, SortIncludes: true}' "${instance}") || true
+                clang-tidy "${instance}" -- -std=c++17 -x c++
 
-                if grep -q '\<using\s*namespace\>' "${instance}"; then
-                    echo '>>>> USING NAMESPACE IN HEADER <<<<'
-                    printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
-                fi
+                infer run -- g++ -c -std=c++17 -x c++ "${instance}"
+                rm --force --recursive infer-out "${fname}.o"
+                infer run -- clang++ -c -std=c++17 -x c++ "${instance}"
+                rm --force --recursive infer-out "${fname}.o"
+
+                printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
             done
             ;;
         go)

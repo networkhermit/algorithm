@@ -4,12 +4,14 @@
 #ifndef SORTING_TYPE
 typedef int sorting_type;
 #else
-typedef SORTING_TYPE selection_sort_type;
-#   define BUBBLE_SORT_TYPE    SORTING_TYPE
-#   define INSERTION_SORT_TYPE SORTING_TYPE
-#   define MERGE_SORT_TYPE     SORTING_TYPE
-#   define QUICK_SORT_TYPE     SORTING_TYPE
-#   define SELECTION_SORT_TYPE SORTING_TYPE
+typedef SORTING_TYPE sorting_type;
+// clang-format off
+#define BUBBLE_SORT_TYPE    SORTING_TYPE
+#define INSERTION_SORT_TYPE SORTING_TYPE
+#define MERGE_SORT_TYPE     SORTING_TYPE
+#define QUICK_SORT_TYPE     SORTING_TYPE
+#define SELECTION_SORT_TYPE SORTING_TYPE
+// clang-format on
 #endif
 
 #include <fun/vac/algorithms/sorting/BubbleSort.h>

@@ -7,7 +7,7 @@ using namespace std;
 bool testLinearSearch() {
     size_t size = 32768;
 
-    vector<int> arr (size);
+    vector<int> arr(size);
     SequenceBuilder::packIncreasing(arr);
 
     if (LinearSearch::find(arr, -1) != size) {

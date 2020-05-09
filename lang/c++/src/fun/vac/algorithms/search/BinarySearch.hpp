@@ -6,7 +6,8 @@
 
 namespace BinarySearch {
 
-    template <typename T> std::size_t find(const std::vector<T> &arr, T key) {
+    template <typename T>
+    std::size_t find(const std::vector<T> &arr, T key) {
         std::size_t lo = 0;
         std::size_t hi = arr.size();
 

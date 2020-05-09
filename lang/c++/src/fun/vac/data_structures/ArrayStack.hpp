@@ -5,7 +5,8 @@
 
 namespace ArrayStack {
 
-    template <typename E> class ArrayStack {
+    template <typename E>
+    class ArrayStack {
 
     private:
         static const std::size_t DEFAULT_CAPACITY = 64;
