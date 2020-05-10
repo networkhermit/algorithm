@@ -22,12 +22,12 @@ readonly -A lang=( \
 
 while (( $# > 0 )); do
     case "${1}" in
-        --root)
-            ROOT=${2?✗ argument parsing failed: missing parameter for argument ‘${1}’}
-            shift 2
-            ;;
-        -h | --help)
-            cat << EOF
+    --root)
+        ROOT=${2?✗ argument parsing failed: missing parameter for argument ‘${1}’}
+        shift 2
+        ;;
+    -h | --help)
+        cat << EOF
 Usage:
     ${0##*/} [OPTION]... SPEC
 
@@ -43,33 +43,33 @@ Positional arguments:
     SPEC (all | perf | c | c++ | go | java | lisp | nodejs | php | python | ruby)
         runtime spec
 EOF
-            shift
-            exit
-            ;;
-        -v | --version)
-            echo v0.1.0
-            shift
-            exit
-            ;;
-        --)
-            shift
-            break
-            ;;
-        *)
-            break
-            ;;
+        shift
+        exit
+        ;;
+    -v | --version)
+        echo v0.1.0
+        shift
+        exit
+        ;;
+    --)
+        shift
+        break
+        ;;
+    *)
+        break
+        ;;
     esac
 done
 
 : "${1?✗ argument parsing failed: missing positional argument ‘SPEC’}"
 case "${1}" in
-    all | perf | c | c++ | go | java | lisp | nodejs | php | python | ruby)
-        SPEC=${1}
-        ;;
-    *)
-        echo "✗ argument parsing failed: acceptable values for ‘SPEC’ are all | perf | c | c++ | go | java | lisp | nodejs | php | python | ruby" 1>&2
-        exit 1
-        ;;
+all | perf | c | c++ | go | java | lisp | nodejs | php | python | ruby)
+    SPEC=${1}
+    ;;
+*)
+    echo "✗ argument parsing failed: acceptable values for ‘SPEC’ are all | perf | c | c++ | go | java | lisp | nodejs | php | python | ruby" 1>&2
+    exit 1
+    ;;
 esac
 shift
 
@@ -96,27 +96,27 @@ register_lint () {
     shift 3
 
     case "${item}" in
-        incdec)
-            if grep -q '\s*[+-]=\s*1\>' "${instance}"; then
-                echo '>>>> NOT USING INCDEC OPERATOR <<<<'
-                printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
-            fi
-            ;;
-        semicolon)
-            if grep -q ';$' "${instance}"; then
-                echo '>>>> REDUNDANT SEMICOLON <<<<'
-                printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
-            fi
-            ;;
-        whitespace)
-            if grep -q '\s$' "${instance}"; then
-                echo '>>>> TRAILING WHITESPACE <<<<'
-                printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
-            fi
-            ;;
-        *)
-            return 1
-            ;;
+    incdec)
+        if grep -q '\s*[+-]=\s*1\>' "${instance}"; then
+            echo '>>>> NOT USING INCDEC OPERATOR <<<<'
+            printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
+        fi
+        ;;
+    semicolon)
+        if grep -q ';$' "${instance}"; then
+            echo '>>>> REDUNDANT SEMICOLON <<<<'
+            printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
+        fi
+        ;;
+    whitespace)
+        if grep -q '\s$' "${instance}"; then
+            echo '>>>> TRAILING WHITESPACE <<<<'
+            printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
+        fi
+        ;;
+    *)
+        return 1
+        ;;
     esac
 }
 
@@ -124,199 +124,201 @@ run_style_check () {
     local instance
     local fname
     case "${1}" in
-        c)
-            echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
+    c)
+        echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
 
-            for instance in $(find -L "${ROOT}" -type f -name "*.c" | sort); do
-                fname=$(basename "${instance}" .c)
+        for instance in $(find -L "${ROOT}" -type f -name "*.c" | sort); do
+            fname=$(basename "${instance}" .c)
 
-                diff "${instance}" <(clang-format --style '{ColumnLimit: 0, IndentCaseLabels: true, IndentWidth: 4, SortIncludes: true, SpaceAfterCStyleCast: true}' "${instance}") || true
-                clang-tidy "${instance}" -- -std=c18 -x c
+            diff "${instance}" <(clang-format --style '{ColumnLimit: 0, IndentWidth: 4, SortIncludes: true, SpaceAfterCStyleCast: true}' "${instance}") || true
+            clang-tidy "${instance}" -- -std=c18 -x c
 
-                infer run -- gcc -c -std=c18 -x c "${instance}"
-                rm --force --recursive infer-out "${fname}.o"
-                infer run -- clang -c -std=c18 -x c "${instance}"
-                rm --force --recursive infer-out "${fname}.o"
+            infer run -- gcc -c -std=c18 -x c "${instance}"
+            rm --force --recursive infer-out "${fname}.o"
+            infer run -- clang -c -std=c18 -x c "${instance}"
+            rm --force --recursive infer-out "${fname}.o"
 
+            printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
+        done
+
+        for instance in $(find -L "${ROOT}" -type f -name "*.h" | sort); do
+            fname=$(basename "${instance}" .h)
+
+            diff "${instance}" <(clang-format --style '{ColumnLimit: 0, IndentWidth: 4, SortIncludes: true, SpaceAfterCStyleCast: true}' "${instance}") || true
+            clang-tidy "${instance}" -- -std=c18 -x c
+
+            infer run -- gcc -c -std=c18 -x c "${instance}"
+            rm --force --recursive infer-out "${fname}.o"
+            infer run -- clang -c -std=c18 -x c "${instance}"
+            rm --force --recursive infer-out "${fname}.o"
+
+            printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
+        done
+        ;;
+    c++)
+        echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
+
+        for instance in $(find -L "${ROOT}" -type f -name "*.cpp" | sort); do
+            fname=$(basename "${instance}" .cpp)
+
+            diff "${instance}" <(clang-format --style '{AccessModifierOffset: -4, ColumnLimit: 0, FixNamespaceComments: false, IndentWidth: 4, NamespaceIndentation: All, SortIncludes: true}' "${instance}") || true
+            clang-tidy "${instance}" -- -std=c++17 -x c++
+
+            infer run -- g++ -c -std=c++17 -x c++ "${instance}"
+            rm --force --recursive infer-out "${fname}.o"
+            infer run -- clang++ -c -std=c++17 -x c++ "${instance}"
+            rm --force --recursive infer-out "${fname}.o"
+
+            printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
+        done
+
+        for instance in $(find -L "${ROOT}" -type f -name "*.hpp" | sort); do
+            fname=$(basename "${instance}" .hpp)
+
+            diff "${instance}" <(clang-format --style '{AccessModifierOffset: -4, ColumnLimit: 0, FixNamespaceComments: false, IndentWidth: 4, NamespaceIndentation: All, SortIncludes: true}' "${instance}") || true
+            clang-tidy "${instance}" -- -std=c++17 -x c++
+
+            infer run -- g++ -c -std=c++17 -x c++ "${instance}"
+            rm --force --recursive infer-out "${fname}.o"
+            infer run -- clang++ -c -std=c++17 -x c++ "${instance}"
+            rm --force --recursive infer-out "${fname}.o"
+
+            printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
+        done
+        ;;
+    go)
+        echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
+
+        for instance in $(find -L "${ROOT}" -type f -name "*.go" | sort); do
+            fname=$(basename "${instance}" .go)
+
+            diff "${instance}" <(gofmt -s "${instance}" | expand --tabs 4) || true
+            go tool fix -diff "${instance}"
+            go vet "${instance}"
+
+            golint "${instance}"
+
+            printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
+        done
+        ;;
+    java)
+        echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
+
+        for instance in $(find -L "${ROOT}" -type f -name "*.java" | sort); do
+            fname=$(basename "${instance}" .java)
+
+            register_lint "${instance}" "${fname}" incdec
+            register_lint "${instance}" "${fname}" whitespace
+
+            if grep -q '[^[:upper:]>]>>[^>]' "${instance}"; then
+                echo '>>>> NOT USING LOGICAL RIGHT SHIFT <<<<'
                 printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
-            done
+            fi
+        done
+        ;;
+    lisp)
+        echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
 
-            for instance in $(find -L "${ROOT}" -type f -name "*.h" | sort); do
-                fname=$(basename "${instance}" .h)
+        for instance in $(find -L "${ROOT}" -type f -name "*.lisp" | sort); do
+            fname=$(basename "${instance}" .lisp)
 
-                diff "${instance}" <(clang-format --style '{ColumnLimit: 0, IndentCaseLabels: true, IndentWidth: 4, SortIncludes: true, SpaceAfterCStyleCast: true}' "${instance}") || true
-                clang-tidy "${instance}" -- -std=c18 -x c
+            register_lint "${instance}" "${fname}" incdec
+            register_lint "${instance}" "${fname}" whitespace
+        done
+        ;;
+    nodejs)
+        echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
 
-                infer run -- gcc -c -std=c18 -x c "${instance}"
-                rm --force --recursive infer-out "${fname}.o"
-                infer run -- clang -c -std=c18 -x c "${instance}"
-                rm --force --recursive infer-out "${fname}.o"
+        for instance in $(find -L "${ROOT}" -type f -name "*.js" | sort); do
+            fname=$(basename "${instance}" .js)
 
+            register_lint "${instance}" "${fname}" incdec
+            register_lint "${instance}" "${fname}" semicolon
+            register_lint "${instance}" "${fname}" whitespace
+
+            if grep -q '[^>]>>[^>]' "${instance}"; then
+                echo '>>>> NOT USING LOGICAL RIGHT SHIFT <<<<'
                 printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
-            done
-            ;;
-        c++)
-            echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
+            fi
 
-            for instance in $(find -L "${ROOT}" -type f -name "*.cpp" | sort); do
-                fname=$(basename "${instance}" .cpp)
-
-                diff "${instance}" <(clang-format --style '{AccessModifierOffset: -4, ColumnLimit: 0, FixNamespaceComments: false, IndentCaseLabels: true, IndentWidth: 4, NamespaceIndentation: All, SortIncludes: true}' "${instance}") || true
-                clang-tidy "${instance}" -- -std=c++17 -x c++
-
-                infer run -- g++ -c -std=c++17 -x c++ "${instance}"
-                rm --force --recursive infer-out "${fname}.o"
-                infer run -- clang++ -c -std=c++17 -x c++ "${instance}"
-                rm --force --recursive infer-out "${fname}.o"
-
+            if grep -q '[^!=][!=]=[^=]' "${instance}"; then
+                echo '>>>> NOT USING STRICT (IN)EQUALITY <<<<'
                 printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
-            done
+            fi
+        done
+        ;;
+    php)
+        echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
 
-            for instance in $(find -L "${ROOT}" -type f -name "*.hpp" | sort); do
-                fname=$(basename "${instance}" .hpp)
+        for instance in $(find -L "${ROOT}" -type f -name "*.php" | sort); do
+            fname=$(basename "${instance}" .php)
 
-                diff "${instance}" <(clang-format --style '{AccessModifierOffset: -4, ColumnLimit: 0, FixNamespaceComments: false, IndentCaseLabels: true, IndentWidth: 4, NamespaceIndentation: All, SortIncludes: true}' "${instance}") || true
-                clang-tidy "${instance}" -- -std=c++17 -x c++
+            register_lint "${instance}" "${fname}" incdec
+            register_lint "${instance}" "${fname}" whitespace
+        done
+        ;;
+    python)
+        echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
 
-                infer run -- g++ -c -std=c++17 -x c++ "${instance}"
-                rm --force --recursive infer-out "${fname}.o"
-                infer run -- clang++ -c -std=c++17 -x c++ "${instance}"
-                rm --force --recursive infer-out "${fname}.o"
+        for instance in $(find -L "${ROOT}" -type f -name "*.py" | sort); do
+            fname=$(basename "${instance}" .py)
 
+            register_lint "${instance}" "${fname}" semicolon
+            register_lint "${instance}" "${fname}" whitespace
+
+            if grep -q '\<\(el\)\?if\s*(.*)\s*:$' "${instance}"; then
+                echo '>>>> REDUNDANT PARENTHESIS <<<<'
                 printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
-            done
-            ;;
-        go)
-            echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
+            fi
 
-            for instance in $(find -L "${ROOT}" -type f -name "*.go" | sort); do
-                fname=$(basename "${instance}" .go)
-
-                diff "${instance}" <(gofmt -s "${instance}" | expand --tabs 4) || true
-                golint "${instance}"
-                go tool fix -diff "${instance}"
-                go vet "${instance}"
+            if grep -q '\<while\s*(.*)\s*:$' "${instance}"; then
+                echo '>>>> REDUNDANT PARENTHESIS <<<<'
                 printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
-            done
-            ;;
-        java)
-            echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
+            fi
+        done
+        ;;
+    ruby)
+        echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
 
-            for instance in $(find -L "${ROOT}" -type f -name "*.java" | sort); do
-                fname=$(basename "${instance}" .java)
+        for instance in $(find -L "${ROOT}" -type f -name "*.rb" | sort); do
+            fname=$(basename "${instance}" .rb)
 
-                register_lint "${instance}" "${fname}" incdec
-                register_lint "${instance}" "${fname}" whitespace
+            register_lint "${instance}" "${fname}" semicolon
+            register_lint "${instance}" "${fname}" whitespace
 
-                if grep -q '[^[:upper:]>]>>[^>]' "${instance}"; then
-                    echo '>>>> NOT USING LOGICAL RIGHT SHIFT <<<<'
-                    printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
-                fi
-            done
-            ;;
-        lisp)
-            echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
+            if grep -q '\<\(els\)\?if\s*(.*)$' "${instance}"; then
+                echo '>>>> REDUNDANT PARENTHESIS <<<<'
+                printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
+            fi
 
-            for instance in $(find -L "${ROOT}" -type f -name "*.lisp" | sort); do
-                fname=$(basename "${instance}" .lisp)
-
-                register_lint "${instance}" "${fname}" incdec
-                register_lint "${instance}" "${fname}" whitespace
-            done
-            ;;
-        nodejs)
-            echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
-
-            for instance in $(find -L "${ROOT}" -type f -name "*.js" | sort); do
-                fname=$(basename "${instance}" .js)
-
-                register_lint "${instance}" "${fname}" incdec
-                register_lint "${instance}" "${fname}" semicolon
-                register_lint "${instance}" "${fname}" whitespace
-
-                if grep -q '[^>]>>[^>]' "${instance}"; then
-                    echo '>>>> NOT USING LOGICAL RIGHT SHIFT <<<<'
-                    printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
-                fi
-
-                if grep -q '[^!=][!=]=[^=]' "${instance}"; then
-                    echo '>>>> NOT USING STRICT (IN)EQUALITY <<<<'
-                    printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
-                fi
-            done
-            ;;
-        php)
-            echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
-
-            for instance in $(find -L "${ROOT}" -type f -name "*.php" | sort); do
-                fname=$(basename "${instance}" .php)
-
-                register_lint "${instance}" "${fname}" incdec
-                register_lint "${instance}" "${fname}" whitespace
-            done
-            ;;
-        python)
-            echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
-
-            for instance in $(find -L "${ROOT}" -type f -name "*.py" | sort); do
-                fname=$(basename "${instance}" .py)
-
-                register_lint "${instance}" "${fname}" semicolon
-                register_lint "${instance}" "${fname}" whitespace
-
-                if grep -q '\<\(el\)\?if\s*(.*)\s*:$' "${instance}"; then
-                    echo '>>>> REDUNDANT PARENTHESIS <<<<'
-                    printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
-                fi
-
-                if grep -q '\<while\s*(.*)\s*:$' "${instance}"; then
-                    echo '>>>> REDUNDANT PARENTHESIS <<<<'
-                    printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
-                fi
-            done
-            ;;
-        ruby)
-            echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
-
-            for instance in $(find -L "${ROOT}" -type f -name "*.rb" | sort); do
-                fname=$(basename "${instance}" .rb)
-
-                register_lint "${instance}" "${fname}" semicolon
-                register_lint "${instance}" "${fname}" whitespace
-
-                if grep -q '\<\(els\)\?if\s*(.*)$' "${instance}"; then
-                    echo '>>>> REDUNDANT PARENTHESIS <<<<'
-                    printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
-                fi
-
-                if grep -q '\<while\s*(.*)$' "${instance}"; then
-                    echo '>>>> REDUNDANT PARENTHESIS <<<<'
-                    printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
-                fi
-            done
-            ;;
-        *)
-            return 1
-            ;;
+            if grep -q '\<while\s*(.*)$' "${instance}"; then
+                echo '>>>> REDUNDANT PARENTHESIS <<<<'
+                printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
+            fi
+        done
+        ;;
+    *)
+        return 1
+        ;;
     esac
 }
 
 echo '====================== style check starts ======================'
 
 case "${SPEC}" in
-    all)
-        for k in "${!lang[@]}"; do
-            run_style_check "${k}"
-        done
-        ;;
-    perf)
-        for k in "${!lang[@]}"; do
-            time run_style_check "${k}"
-        done
-        ;;
-    *)
-        run_style_check "${SPEC}"
-        ;;
+all)
+    for k in "${!lang[@]}"; do
+        run_style_check "${k}"
+    done
+    ;;
+perf)
+    for k in "${!lang[@]}"; do
+        time run_style_check "${k}"
+    done
+    ;;
+*)
+    run_style_check "${SPEC}"
+    ;;
 esac
 
 echo '===================== style check finished ====================='
