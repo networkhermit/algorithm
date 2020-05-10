@@ -153,7 +153,7 @@ run_test () {
             unset _JAVA_OPTIONS
             if javac -d local_build -g -deprecation -Werror -Xlint:all,-path "${instance}"; then
                 java -cp local_build -ea "${fname}"
-                rm -rf local_build
+                rm --force --recursive local_build
             fi
 
             printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"

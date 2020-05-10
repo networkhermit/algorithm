@@ -130,7 +130,7 @@ run_style_check () {
         for instance in $(find -L "${ROOT}" -type f -name "*.c" | sort); do
             fname=$(basename "${instance}" .c)
 
-            diff "${instance}" <(clang-format --style '{ColumnLimit: 0, IndentWidth: 4, SortIncludes: true, SpaceAfterCStyleCast: true}' "${instance}") || true
+            diff --unified "${instance}" <(clang-format --style '{ColumnLimit: 0, IndentWidth: 4, SortIncludes: true, SpaceAfterCStyleCast: true}' "${instance}") || true
             clang-tidy "${instance}" -- -std=c18 -x c
 
             infer run -- gcc -c -std=c18 -x c "${instance}"
@@ -144,7 +144,7 @@ run_style_check () {
         for instance in $(find -L "${ROOT}" -type f -name "*.h" | sort); do
             fname=$(basename "${instance}" .h)
 
-            diff "${instance}" <(clang-format --style '{ColumnLimit: 0, IndentWidth: 4, SortIncludes: true, SpaceAfterCStyleCast: true}' "${instance}") || true
+            diff --unified "${instance}" <(clang-format --style '{ColumnLimit: 0, IndentWidth: 4, SortIncludes: true, SpaceAfterCStyleCast: true}' "${instance}") || true
             clang-tidy "${instance}" -- -std=c18 -x c
 
             infer run -- gcc -c -std=c18 -x c "${instance}"
@@ -161,7 +161,7 @@ run_style_check () {
         for instance in $(find -L "${ROOT}" -type f -name "*.cpp" | sort); do
             fname=$(basename "${instance}" .cpp)
 
-            diff "${instance}" <(clang-format --style '{AccessModifierOffset: -4, ColumnLimit: 0, FixNamespaceComments: false, IndentWidth: 4, NamespaceIndentation: All, SortIncludes: true}' "${instance}") || true
+            diff --unified "${instance}" <(clang-format --style '{AccessModifierOffset: -4, ColumnLimit: 0, FixNamespaceComments: false, IndentWidth: 4, NamespaceIndentation: All, SortIncludes: true}' "${instance}") || true
             clang-tidy "${instance}" -- -std=c++17 -x c++
 
             infer run -- g++ -c -std=c++17 -x c++ "${instance}"
@@ -175,7 +175,7 @@ run_style_check () {
         for instance in $(find -L "${ROOT}" -type f -name "*.hpp" | sort); do
             fname=$(basename "${instance}" .hpp)
 
-            diff "${instance}" <(clang-format --style '{AccessModifierOffset: -4, ColumnLimit: 0, FixNamespaceComments: false, IndentWidth: 4, NamespaceIndentation: All, SortIncludes: true}' "${instance}") || true
+            diff --unified "${instance}" <(clang-format --style '{AccessModifierOffset: -4, ColumnLimit: 0, FixNamespaceComments: false, IndentWidth: 4, NamespaceIndentation: All, SortIncludes: true}' "${instance}") || true
             clang-tidy "${instance}" -- -std=c++17 -x c++
 
             infer run -- g++ -c -std=c++17 -x c++ "${instance}"
@@ -192,11 +192,13 @@ run_style_check () {
         for instance in $(find -L "${ROOT}" -type f -name "*.go" | sort); do
             fname=$(basename "${instance}" .go)
 
-            diff "${instance}" <(gofmt -s "${instance}" | expand --tabs 4) || true
+            diff --unified "${instance}" <(gofmt -s "${instance}" | expand --tabs 4) || true
             go tool fix -diff "${instance}"
             go vet "${instance}"
 
             golint "${instance}"
+            gocritic check -exitCode 0 "${instance}"
+            golangci-lint run "${instance}" || true
 
             printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
         done
@@ -207,13 +209,18 @@ run_style_check () {
         for instance in $(find -L "${ROOT}" -type f -name "*.java" | sort); do
             fname=$(basename "${instance}" .java)
 
-            register_lint "${instance}" "${fname}" incdec
-            register_lint "${instance}" "${fname}" whitespace
+            unset _JAVA_OPTIONS
 
-            if grep -q '[^[:upper:]>]>>[^>]' "${instance}"; then
-                echo '>>>> NOT USING LOGICAL RIGHT SHIFT <<<<'
-                printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
-            fi
+            java -jar /usr/local/share/java/checkstyle.jar -c /sun_checks.xml "${instance}" || true
+            java -jar /usr/local/share/java/checkstyle.jar -c /google_checks.xml "${instance}" || true
+
+            pmd-run pmd -dir "${instance}" -failOnViolation false -language java -no-cache -rulesets rulesets/java/quickstart.xml
+
+            infer run -- javac -d local_build "${instance}"
+            java -jar /usr/local/share/java/spotbugs.jar -textui local_build
+            rm --force --recursive infer-out local_build
+
+            printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
         done
         ;;
     lisp)
