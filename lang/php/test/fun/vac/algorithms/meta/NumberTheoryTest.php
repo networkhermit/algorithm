@@ -1093,15 +1093,18 @@
         ];
 
         for ($i = 0, $size = count($sample); $i < $size; $i++) {
-            if ($sample[$i][1] == 1) {
+            switch ($sample[$i][1]) {
+            case 1:
                 if (NumberTheory\isPrime($sample[$i][0])) {
                     return false;
                 }
-            } else if ($sample[$i][1] == 2) {
+                break;
+            case 2:
                 if (!NumberTheory\isPrime($sample[$i][0])) {
                     return false;
                 }
-            } else {
+                break;
+            default:
                 if (NumberTheory\isPrime($sample[$i][0])) {
                     return false;
                 }
@@ -1372,15 +1375,18 @@
         ];
 
         for ($i = 0, $size = count($sample); $i < $size; $i++) {
-            if ($sample[$i][1] == 1) {
+            switch ($sample[$i][1]) {
+            case 1:
                 if (NumberTheory\isComposite($sample[$i][0])) {
                     return false;
                 }
-            } else if ($sample[$i][1] == 2) {
+                break;
+            case 2:
                 if (NumberTheory\isComposite($sample[$i][0])) {
                     return false;
                 }
-            } else {
+                break;
+            default:
                 if (!NumberTheory\isComposite($sample[$i][0])) {
                     return false;
                 }

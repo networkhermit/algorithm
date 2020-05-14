@@ -69,7 +69,8 @@
 
             $node = new Node($element);
 
-            if ($index == 0) {
+            switch ($index) {
+            case 0:
                 if ($this->length == 0) {
                     $node->next = $node;
                     $this->tail = $node;
@@ -77,11 +78,13 @@
                     $node->next = $this->tail->next;
                     $this->tail->next = $node;
                 }
-            } else if ($index == $this->length) {
+                break;
+            case $this->length:
                 $node->next = $this->tail->next;
                 $this->tail->next = $node;
                 $this->tail = $node;
-            } else {
+                break;
+            default:
                 $cursor = $this->tail;
                 for ($i = 0, $bound = $index - 1; $i <= $bound; $i++) {
                     $cursor = $cursor->next;

@@ -68,7 +68,8 @@ module CircularlyLinkedList
 
             node = Node.new(element)
 
-            if index == 0
+            case index
+            when 0
                 if @length == 0
                     node.next = node
                     @tail = node
@@ -76,7 +77,7 @@ module CircularlyLinkedList
                     node.next = @tail.next
                     @tail.next = node
                 end
-            elsif index == @length
+            when @length
                 node.next = @tail.next
                 @tail.next = node
                 @tail = node

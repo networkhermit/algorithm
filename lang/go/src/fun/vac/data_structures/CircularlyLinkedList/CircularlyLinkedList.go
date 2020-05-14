@@ -63,7 +63,8 @@ func (list *CircularlyLinkedList) Insert(index int, element int) {
 
     node := &Node{data: element, next: nil}
 
-    if index == 0 {
+    switch index {
+    case 0:
         if list.length == 0 {
             node.next = node
             list.tail = node
@@ -71,11 +72,11 @@ func (list *CircularlyLinkedList) Insert(index int, element int) {
             node.next = list.tail.next
             list.tail.next = node
         }
-    } else if index == list.length {
+    case list.length:
         node.next = list.tail.next
         list.tail.next = node
         list.tail = node
-    } else {
+    default:
         cursor := list.tail
         for i, bound := 0, index - 1; i <= bound; i++ {
             cursor = cursor.next

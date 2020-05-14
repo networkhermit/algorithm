@@ -69,17 +69,20 @@ exports.LinkedList = class {
 
         let node = new Node(element)
 
-        if (index === 0) {
+        switch (index) {
+        case 0:
             if (this.length !== 0) {
                 node.next = this.head
             } else {
                 this.tail = node
             }
             this.head = node
-        } else if (index === this.length) {
+            break
+        case this.length:
             this.tail.next = node
             this.tail = node
-        } else {
+            break
+        default:
             let cursor = this.head
             for (let i = 0, bound = index - 1; i < bound; i++) {
                 cursor = cursor.next

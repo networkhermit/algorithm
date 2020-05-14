@@ -75,14 +75,15 @@ module LinkedList
 
             node = Node.new(element)
 
-            if index == 0
+            case index
+            when 0
                 if @length != 0
                     node.next = @head
                 else
                     @tail = node
                 end
                 @head = node
-            elsif index == @length
+            when @length
                 @tail.next = node
                 @tail = node
             else

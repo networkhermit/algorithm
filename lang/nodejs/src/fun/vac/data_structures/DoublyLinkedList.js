@@ -76,7 +76,8 @@ exports.DoublyLinkedList = class {
 
         let node = new Node(element)
 
-        if (index === 0) {
+        switch (index) {
+        case 0:
             if (this.length !== 0) {
                 node.next = this.head
                 this.head.prev = node
@@ -84,11 +85,13 @@ exports.DoublyLinkedList = class {
                 this.tail = node
             }
             this.head = node
-        } else if (index === this.length) {
+            break
+        case this.length:
             node.prev = this.tail
             this.tail.next = node
             this.tail = node
-        } else {
+            break
+        default:
             let cursor = null
             if (index < this.length >>> 1) {
                 cursor = this.head
@@ -117,7 +120,8 @@ exports.DoublyLinkedList = class {
 
         let target = null
 
-        if (index === 0) {
+        switch (index) {
+        case 0:
             target = this.head
             if (this.length === 1) {
                 this.head = null
@@ -126,11 +130,13 @@ exports.DoublyLinkedList = class {
                 target.next.prev = null
                 this.head = target.next
             }
-        } else if (index === this.length - 1) {
+            break
+        case this.length - 1:
             target = this.tail
             target.prev.next = null
             this.tail = target.prev
-        } else {
+            break
+        default:
             if (index < this.length >>> 1) {
                 target = this.head
                 for (let i = 0; i < index; i++) {

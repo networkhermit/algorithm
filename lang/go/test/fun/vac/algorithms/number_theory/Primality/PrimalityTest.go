@@ -266,21 +266,22 @@ func testPrimality() bool {
     }
 
     for i := range sample {
-        if sample[i][1] == 1 {
+        switch sample[i][1] {
+        case 1:
             if Primality.IsPrime(sample[i][0]) {
                 return false
             }
             if Primality.IsComposite(sample[i][0]) {
                 return false
             }
-        } else if sample[i][1] == 2 {
+        case 2:
             if !Primality.IsPrime(sample[i][0]) {
                 return false
             }
             if Primality.IsComposite(sample[i][0]) {
                 return false
             }
-        } else {
+        default:
             if Primality.IsPrime(sample[i][0]) {
                 return false
             }

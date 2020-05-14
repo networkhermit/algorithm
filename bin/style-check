@@ -197,7 +197,6 @@ run_style_check () {
             go vet "${instance}"
 
             golint "${instance}"
-            gocritic check -exitCode 0 "${instance}"
             golangci-lint run "${instance}" || true
 
             printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"

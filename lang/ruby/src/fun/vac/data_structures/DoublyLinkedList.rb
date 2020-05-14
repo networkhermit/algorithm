@@ -87,7 +87,8 @@ module DoublyLinkedList
 
             node = Node.new(element)
 
-            if index == 0
+            case index
+            when 0
                 if @length != 0
                     node.next = @head
                     @head.prev = node
@@ -95,7 +96,7 @@ module DoublyLinkedList
                     @tail = node
                 end
                 @head = node
-            elsif index == @length
+            when @length
                 node.prev = @tail
                 @tail.next = node
                 @tail = node
@@ -130,7 +131,8 @@ module DoublyLinkedList
 
             target = nil
 
-            if index == 0
+            case index
+            when 0
                 target = @head
                 if @length == 1
                     @head = nil
@@ -139,7 +141,7 @@ module DoublyLinkedList
                     target.next.prev = nil
                     @head = target.next
                 end
-            elsif index == @length - 1
+            when @length - 1
                 target = @tail
                 target.prev.next = nil
                 @tail = target.prev

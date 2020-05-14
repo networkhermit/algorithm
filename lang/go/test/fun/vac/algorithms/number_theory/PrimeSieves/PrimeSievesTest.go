@@ -138,7 +138,6 @@ func testPrimeSieves() bool {
         {1294061, 99610},
     }
 
-
     var arr []int
 
     for i := range sample {

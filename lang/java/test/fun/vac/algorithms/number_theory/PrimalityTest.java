@@ -264,21 +264,24 @@ public class PrimalityTest {
         };
 
         for (int i = 0, size = sample.length; i < size; i++) {
-            if (sample[i][1] == 1) {
+            switch ((int) sample[i][1]) {
+            case 1:
                 if (Primality.isPrime(sample[i][0])) {
                     return false;
                 }
                 if (Primality.isComposite(sample[i][0])) {
                     return false;
                 }
-            } else if (sample[i][1] == 2) {
+                break;
+            case 2:
                 if (!Primality.isPrime(sample[i][0])) {
                     return false;
                 }
                 if (Primality.isComposite(sample[i][0])) {
                     return false;
                 }
-            } else {
+                break;
+            default:
                 if (Primality.isPrime(sample[i][0])) {
                     return false;
                 }

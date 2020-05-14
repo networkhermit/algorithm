@@ -1104,15 +1104,18 @@ bool testIsPrime(void) {
     };
 
     for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {
-        if (sample[i][1] == 1) {
+        switch (sample[i][1]) {
+        case 1:
             if (NumberTheory_isPrime(sample[i][0])) {
                 return false;
             }
-        } else if (sample[i][1] == 2) {
+            break;
+        case 2:
             if (!NumberTheory_isPrime(sample[i][0])) {
                 return false;
             }
-        } else {
+            break;
+        default:
             if (NumberTheory_isPrime(sample[i][0])) {
                 return false;
             }
@@ -1385,15 +1388,18 @@ bool testIsComposite(void) {
     };
 
     for (size_t i = 0, size = *(&sample + 1) - sample; i < size; i++) {
-        if (sample[i][1] == 1) {
+        switch (sample[i][1]) {
+        case 1:
             if (NumberTheory_isComposite(sample[i][0])) {
                 return false;
             }
-        } else if (sample[i][1] == 2) {
+            break;
+        case 2:
             if (NumberTheory_isComposite(sample[i][0])) {
                 return false;
             }
-        } else {
+            break;
+        default:
             if (!NumberTheory_isComposite(sample[i][0])) {
                 return false;
             }

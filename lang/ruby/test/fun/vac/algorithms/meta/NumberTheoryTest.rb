@@ -1088,11 +1088,12 @@ def testIsPrime()
     ]
 
     sample.each_index do |i|
-        if sample[i][1] == 1
+        case sample[i][1]
+        when 1
             if NumberTheory.isPrime(sample[i][0])
                 return false
             end
-        elsif sample[i][1] == 2
+        when 2
             unless NumberTheory.isPrime(sample[i][0])
                 return false
             end
@@ -1367,11 +1368,12 @@ def testIsComposite()
     ]
 
     sample.each_index do |i|
-        if sample[i][1] == 1
+        case sample[i][1]
+        when 1
             if Primality.isComposite(sample[i][0])
                 return false
             end
-        elsif sample[i][1] == 2
+        when 2
             if Primality.isComposite(sample[i][0])
                 return false
             end

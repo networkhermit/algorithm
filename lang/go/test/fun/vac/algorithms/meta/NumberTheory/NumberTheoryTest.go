@@ -1092,15 +1092,16 @@ func testIsPrime() bool {
     }
 
     for i := range sample {
-        if sample[i][1] == 1 {
+        switch sample[i][1] {
+        case 1:
             if NumberTheory.IsPrime(sample[i][0]) {
                 return false
             }
-        } else if sample[i][1] == 2 {
+        case 2:
             if !NumberTheory.IsPrime(sample[i][0]) {
                 return false
             }
-        } else {
+        default:
             if NumberTheory.IsPrime(sample[i][0]) {
                 return false
             }
@@ -1371,15 +1372,16 @@ func testIsComposite() bool {
     }
 
     for i := range sample {
-        if sample[i][1] == 1 {
+        switch sample[i][1] {
+        case 1:
             if NumberTheory.IsComposite(sample[i][0]) {
                 return false
             }
-        } else if sample[i][1] == 2 {
+        case 2:
             if NumberTheory.IsComposite(sample[i][0]) {
                 return false
             }
-        } else {
+        default:
             if !NumberTheory.IsComposite(sample[i][0]) {
                 return false
             }
@@ -1520,7 +1522,6 @@ func testSieveOfPrimes() bool {
         { 709431, 57257},
         {1294061, 99610},
     }
-
 
     var arr []int
 

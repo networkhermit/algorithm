@@ -70,17 +70,18 @@ func (list *LinkedList) Insert(index int, element int) {
 
     node := &Node{data: element, next: nil}
 
-    if index == 0 {
+    switch index {
+    case 0:
         if list.length != 0 {
             node.next = list.head
         } else {
             list.tail = node
         }
         list.head = node
-    } else if index == list.length {
+    case list.length:
         list.tail.next = node
         list.tail = node
-    } else {
+    default:
         cursor := list.head
         for i, bound := 0, index - 1; i < bound; i++ {
             cursor = cursor.next

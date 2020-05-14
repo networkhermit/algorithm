@@ -83,7 +83,8 @@
 
             $node = new Node($element);
 
-            if ($index == 0) {
+            switch ($index) {
+            case 0:
                 if ($this->length != 0) {
                     $node->next = $this->head;
                     $this->head->prev = $node;
@@ -91,11 +92,13 @@
                     $this->tail = $node;
                 }
                 $this->head = $node;
-            } else if ($index == $this->length) {
+                break;
+            case $this->length:
                 $node->prev = $this->tail;
                 $this->tail->next = $node;
                 $this->tail = $node;
-            } else {
+                break;
+            default:
                 $cursor = NULL;
                 if ($index < $this->length >> 1) {
                     $cursor = $this->head;
@@ -124,7 +127,8 @@
 
             $target = NULL;
 
-            if ($index == 0) {
+            switch ($index) {
+            case 0:
                 $target = $this->head;
                 if ($this->length == 1) {
                     $this->head = NULL;
@@ -133,11 +137,13 @@
                     $target->next->prev = NULL;
                     $this->head = $target->next;
                 }
-            } else if ($index == $this->length - 1) {
+                break;
+            case $this->length - 1:
                 $target = $this->tail;
                 $target->prev->next = NULL;
                 $this->tail = $target->prev;
-            } else {
+                break;
+            default:
                 if ($index < $this->length >> 1) {
                     $target = $this->head;
                     for ($i = 0; $i < $index; $i++) {

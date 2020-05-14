@@ -67,7 +67,6 @@ func (list *DoublyLinkedList) Set(index int, element int) {
         }
     }
 
-
     cursor.data = element
 }
 
@@ -78,7 +77,8 @@ func (list *DoublyLinkedList) Insert(index int, element int) {
 
     node := &Node{data: element, next: nil, prev: nil}
 
-    if index == 0 {
+    switch index {
+    case 0:
         if list.length != 0 {
             node.next = list.head
             list.head.prev = node
@@ -86,11 +86,11 @@ func (list *DoublyLinkedList) Insert(index int, element int) {
             list.tail = node
         }
         list.head = node
-    } else if index == list.length {
+    case list.length:
         node.prev = list.tail
         list.tail.next = node
         list.tail = node
-    } else {
+    default:
         var cursor *Node
         if index < list.length >> 1 {
             cursor = list.head
@@ -119,7 +119,8 @@ func (list *DoublyLinkedList) Remove(index int) {
 
     var target *Node
 
-    if index == 0 {
+    switch index {
+    case 0:
         target = list.head
         if list.length == 1 {
             list.head = nil
@@ -128,11 +129,11 @@ func (list *DoublyLinkedList) Remove(index int) {
             target.next.prev = nil
             list.head = target.next
         }
-    } else if index == list.length - 1 {
+    case list.length - 1:
         target = list.tail
         target.prev.next = nil
         list.tail = target.prev
-    } else {
+    default:
         if index < list.length >> 1 {
             target = list.head
             for i := 0; i < index; i++ {

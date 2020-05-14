@@ -262,14 +262,15 @@ def testPrimality()
     ]
 
     sample.each_index do |i|
-        if sample[i][1] == 1
+        case sample[i][1]
+        when 1
             if Primality.isPrime(sample[i][0])
                 return false
             end
             if Primality.isComposite(sample[i][0])
                 return false
             end
-        elsif sample[i][1] == 2
+        when 2
             unless Primality.isPrime(sample[i][0])
                 return false
             end
