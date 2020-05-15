@@ -8,11 +8,12 @@ func Find(arr []int, key int) int {
 
     for lo < hi {
         mid = lo + ((hi - lo) >> 1)
-        if key < arr[mid] {
+        switch {
+        case key < arr[mid]:
             hi = mid
-        } else if key > arr[mid] {
+        case key > arr[mid]:
             lo = mid + 1
-        } else {
+        default:
             return mid
         }
     }

@@ -8,9 +8,10 @@ module BinarySearch
 
         while lo < hi
             mid = lo + ((hi - lo) >> 1)
-            if key < arr[mid]
+            case
+            when key < arr[mid]
                 hi = mid
-            elsif key > arr[mid]
+            when key > arr[mid]
                 lo = mid + 1
             else
                 return mid

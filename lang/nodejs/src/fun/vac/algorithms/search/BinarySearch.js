@@ -8,11 +8,14 @@ exports.find = (arr, key) => {
 
     while (lo < hi) {
         mid = lo + ((hi - lo) >>> 1)
-        if (key < arr[mid]) {
+        switch (true) {
+        case key < arr[mid]:
             hi = mid
-        } else if (key > arr[mid]) {
+            break
+        case key > arr[mid]:
             lo = mid + 1
-        } else {
+            break
+        default:
             return mid
         }
     }
