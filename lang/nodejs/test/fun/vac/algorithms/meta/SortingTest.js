@@ -19,11 +19,7 @@ const testBubbleSort = () => {
         return false
     }
 
-    if (!Sequences.isSorted(arr)) {
-        return false
-    }
-
-    return true
+    return Sequences.isSorted(arr)
 }
 
 const testInsertionSort = () => {
@@ -40,11 +36,7 @@ const testInsertionSort = () => {
         return false
     }
 
-    if (!Sequences.isSorted(arr)) {
-        return false
-    }
-
-    return true
+    return Sequences.isSorted(arr)
 }
 
 const testMergeSort = () => {
@@ -61,11 +53,7 @@ const testMergeSort = () => {
         return false
     }
 
-    if (!Sequences.isSorted(arr)) {
-        return false
-    }
-
-    return true
+    return Sequences.isSorted(arr)
 }
 
 const testQuickSort = () => {
@@ -82,11 +70,7 @@ const testQuickSort = () => {
         return false
     }
 
-    if (!Sequences.isSorted(arr)) {
-        return false
-    }
-
-    return true
+    return Sequences.isSorted(arr)
 }
 
 const testSelectionSort = () => {
@@ -103,11 +87,7 @@ const testSelectionSort = () => {
         return false
     }
 
-    if (!Sequences.isSorted(arr)) {
-        return false
-    }
-
-    return true
+    return Sequences.isSorted(arr)
 }
 
 if (module === require.main) {

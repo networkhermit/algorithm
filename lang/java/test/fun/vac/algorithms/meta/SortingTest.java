@@ -19,11 +19,7 @@ public class SortingTest {
             return false;
         }
 
-        if (!Sequences.isSorted(arr)) {
-            return false;
-        }
-
-        return true;
+        return Sequences.isSorted(arr);
     }
 
     public static boolean testInsertionSort() {
@@ -40,11 +36,7 @@ public class SortingTest {
             return false;
         }
 
-        if (!Sequences.isSorted(arr)) {
-            return false;
-        }
-
-        return true;
+        return Sequences.isSorted(arr);
     }
 
     public static boolean testMergeSort() {
@@ -61,11 +53,7 @@ public class SortingTest {
             return false;
         }
 
-        if (!Sequences.isSorted(arr)) {
-            return false;
-        }
-
-        return true;
+        return Sequences.isSorted(arr);
     }
 
     public static boolean testQuickSort() {
@@ -82,11 +70,7 @@ public class SortingTest {
             return false;
         }
 
-        if (!Sequences.isSorted(arr)) {
-            return false;
-        }
-
-        return true;
+        return Sequences.isSorted(arr);
     }
 
     public static boolean testSelectionSort() {
@@ -103,11 +87,7 @@ public class SortingTest {
             return false;
         }
 
-        if (!Sequences.isSorted(arr)) {
-            return false;
-        }
-
-        return true;
+        return Sequences.isSorted(arr);
     }
 
     public static void main(String[] args) {

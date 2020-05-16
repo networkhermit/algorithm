@@ -21,11 +21,7 @@ func testInsertionSort() bool {
         return false
     }
 
-    if !Sequences.IsSorted(arr) {
-        return false
-    }
-
-    return true
+    return Sequences.IsSorted(arr)
 }
 
 func main() {

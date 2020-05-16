@@ -21,11 +21,7 @@ bool testLinkedQueue(void) {
         LinkedQueue_dequeue(queue);
     }
 
-    if (!LinkedQueue_isEmpty(queue)) {
-        return false;
-    }
-
-    return true;
+    return LinkedQueue_isEmpty(queue);
 }
 
 int main(void) {

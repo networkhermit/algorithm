@@ -13,13 +13,13 @@
         (return-from test-integer-n nil))
 
       (setf value (random-factory:integer-n 0 1))
-      (when (or (< value 0) (< 1 value))
+      (when (or (< value 0) (> value 1))
         (return-from test-integer-n nil))
 
       (setf value (random-factory:integer-n 100 10000))
       (when (/= (random-factory:integer-n value value) value)
         (return-from test-integer-n nil))
-      (when (or (< value 100) (< 10000 value))
+      (when (or (< value 100) (> value 10000))
         (return-from test-integer-n nil))
       ))
 

@@ -36,7 +36,8 @@ def testArrayList()
         end
     end
 
-    x, y = 0, 0
+    x = 0
+    y = 0
 
     i, j = 0, size - 1
     while i < j
@@ -71,11 +72,7 @@ def testArrayList()
         return false
     end
 
-    if list.capacity() != 0
-        return false
-    end
-
-    return true
+    return list.capacity() == 0
 end
 
 if __FILE__ == $0

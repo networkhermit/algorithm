@@ -35,11 +35,7 @@ public class ArrayStackTest {
             return false;
         }
 
-        if (stack.capacity() != 0) {
-            return false;
-        }
-
-        return true;
+        return stack.capacity() == 0;
     }
 
     public static void main(String[] args) {

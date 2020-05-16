@@ -33,11 +33,7 @@ bool testArrayStack(void) {
         return false;
     }
 
-    if (ArrayStack_capacity(stack) != 0) {
-        return false;
-    }
-
-    return true;
+    return ArrayStack_capacity(stack) == 0;
 }
 
 int main(void) {

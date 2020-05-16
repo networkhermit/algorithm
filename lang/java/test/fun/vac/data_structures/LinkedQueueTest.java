@@ -23,11 +23,7 @@ public class LinkedQueueTest {
             queue.dequeue();
         }
 
-        if (!queue.isEmpty()) {
-            return false;
-        }
-
-        return true;
+        return queue.isEmpty();
     }
 
     public static void main(String[] args) {

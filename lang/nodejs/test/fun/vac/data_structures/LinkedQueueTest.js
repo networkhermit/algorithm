@@ -23,11 +23,7 @@ const testLinkedQueue = () => {
         queue.dequeue()
     }
 
-    if (!queue.isEmpty()) {
-        return false
-    }
-
-    return true
+    return queue.isEmpty()
 }
 
 if (module === require.main) {

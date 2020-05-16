@@ -17,11 +17,7 @@ def testInsertionSort()
         return false
     end
 
-    unless Sequences.isSorted(arr)
-        return false
-    end
-
-    return true
+    return Sequences.isSorted(arr)
 end
 
 if __FILE__ == $0

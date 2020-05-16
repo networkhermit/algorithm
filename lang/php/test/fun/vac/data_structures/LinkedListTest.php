@@ -60,11 +60,7 @@
             $list->eject();
         }
 
-        if (!$list->isEmpty()) {
-            return false;
-        }
-
-        return true;
+        return $list->isEmpty();
     }
 
     if (count(debug_backtrace()) == 0) {

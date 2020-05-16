@@ -33,11 +33,7 @@ def testArrayQueue()
         return false
     end
 
-    if queue.capacity() != 0
-        return false
-    end
-
-    return true
+    return queue.capacity() == 0
 end
 
 if __FILE__ == $0

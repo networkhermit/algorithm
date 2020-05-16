@@ -30,7 +30,8 @@ bool testCircularlyLinkedList(void) {
         }
     }
 
-    int x, y;
+    int x;
+    int y;
 
     for (size_t i = 0, j = size - 1; i < j; i++, j--) {
         x = CircularlyLinkedList_get(list, i);
@@ -55,11 +56,7 @@ bool testCircularlyLinkedList(void) {
         CircularlyLinkedList_eject(list);
     }
 
-    if (!CircularlyLinkedList_isEmpty(list)) {
-        return false;
-    }
-
-    return true;
+    return CircularlyLinkedList_isEmpty(list);
 }
 
 int main(void) {

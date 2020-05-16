@@ -23,11 +23,7 @@ bool testLinkedStack() {
         stack->pop();
     }
 
-    if (!stack->isEmpty()) {
-        return false;
-    }
-
-    return true;
+    return stack->isEmpty();
 }
 
 int main() {

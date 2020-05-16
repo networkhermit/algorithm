@@ -25,11 +25,7 @@ func testLinkedStack() bool {
         stack.Pop()
     }
 
-    if !stack.IsEmpty() {
-        return false
-    }
-
-    return true
+    return stack.IsEmpty()
 }
 
 func main() {

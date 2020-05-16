@@ -37,11 +37,7 @@ func testArrayStack() bool {
         return false
     }
 
-    if stack.Capacity() != 0 {
-        return false
-    }
-
-    return true
+    return stack.Capacity() == 0
 }
 
 func main() {

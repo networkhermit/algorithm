@@ -38,7 +38,8 @@ bool testArrayList() {
         }
     }
 
-    int x, y;
+    int x;
+    int y;
 
     for (size_t i = 0, j = size - 1; i < j; i++, j--) {
         x = list->get(i);
@@ -69,11 +70,7 @@ bool testArrayList() {
         return false;
     }
 
-    if (list->capacity() != 0) {
-        return false;
-    }
-
-    return true;
+    return list->capacity() == 0;
 }
 
 int main() {

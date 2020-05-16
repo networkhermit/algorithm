@@ -23,11 +23,7 @@
             return false;
         }
 
-        if (!Sequences\isSorted($arr)) {
-            return false;
-        }
-
-        return true;
+        return Sequences\isSorted($arr);
     }
 
     if (count(debug_backtrace()) == 0) {

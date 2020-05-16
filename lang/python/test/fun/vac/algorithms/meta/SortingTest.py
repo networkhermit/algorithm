@@ -16,10 +16,7 @@ def testBubbleSort() -> bool:
     if Sequences.parityChecksum(arr) != checksum:
         return False
 
-    if not Sequences.isSorted(arr):
-        return False
-
-    return True
+    return Sequences.isSorted(arr)
 
 def testInsertionSort() -> bool:
     size = 32768
@@ -34,10 +31,7 @@ def testInsertionSort() -> bool:
     if Sequences.parityChecksum(arr) != checksum:
         return False
 
-    if not Sequences.isSorted(arr):
-        return False
-
-    return True
+    return Sequences.isSorted(arr)
 
 def testMergeSort() -> bool:
     size = 32768
@@ -52,10 +46,7 @@ def testMergeSort() -> bool:
     if Sequences.parityChecksum(arr) != checksum:
         return False
 
-    if not Sequences.isSorted(arr):
-        return False
-
-    return True
+    return Sequences.isSorted(arr)
 
 def testQuickSort() -> bool:
     size = 32768
@@ -70,10 +61,7 @@ def testQuickSort() -> bool:
     if Sequences.parityChecksum(arr) != checksum:
         return False
 
-    if not Sequences.isSorted(arr):
-        return False
-
-    return True
+    return Sequences.isSorted(arr)
 
 def testSelectionSort() -> bool:
     size = 32768
@@ -88,10 +76,7 @@ def testSelectionSort() -> bool:
     if Sequences.parityChecksum(arr) != checksum:
         return False
 
-    if not Sequences.isSorted(arr):
-        return False
-
-    return True
+    return Sequences.isSorted(arr)
 
 if __name__ == "__main__":
 

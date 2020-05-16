@@ -28,7 +28,8 @@ def testArrayList()-> bool:
         if list.get(i) != size - i:
             return False
 
-    x, y = 0, 0
+    x = 0
+    y = 0
 
     i, j = 0, size - 1
     while i < j:
@@ -55,10 +56,7 @@ def testArrayList()-> bool:
     if not list.isEmpty():
         return False
 
-    if list.capacity() != 0:
-        return False
-
-    return True
+    return list.capacity() == 0
 
 if __name__ == "__main__":
     TestRunner.parseTest(testArrayList())

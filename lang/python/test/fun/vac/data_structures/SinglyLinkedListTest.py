@@ -23,7 +23,8 @@ def testSinglyLinkedList()-> bool:
         if list.get(i) != size - i:
             return False
 
-    x, y = 0, 0
+    x = 0
+    y = 0
 
     i, j = 0, size - 1
     while i < j:
@@ -45,10 +46,7 @@ def testSinglyLinkedList()-> bool:
             return False
         list.eject()
 
-    if not list.isEmpty():
-        return False
-
-    return True
+    return list.isEmpty()
 
 if __name__ == "__main__":
     TestRunner.parseTest(testSinglyLinkedList())

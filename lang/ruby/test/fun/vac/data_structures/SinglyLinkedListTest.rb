@@ -30,7 +30,8 @@ def testSinglyLinkedList()
         end
     end
 
-    x, y = 0, 0
+    x = 0
+    y = 0
 
     i, j = 0, size - 1
     while i < j
@@ -59,11 +60,7 @@ def testSinglyLinkedList()
         i -= 1
     end
 
-    unless list.isEmpty()
-        return false
-    end
-
-    return true
+    return list.isEmpty()
 end
 
 if __FILE__ == $0

@@ -37,11 +37,7 @@ func testArrayQueue() bool {
         return false
     }
 
-    if queue.Capacity() != 0 {
-        return false
-    }
-
-    return true
+    return queue.Capacity() == 0
 }
 
 func main() {

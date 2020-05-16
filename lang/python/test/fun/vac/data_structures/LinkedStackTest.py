@@ -17,10 +17,7 @@ def testLinkedStack()-> bool:
             return False
         stack.pop()
 
-    if not stack.isEmpty():
-        return False
-
-    return True
+    return stack.isEmpty()
 
 if __name__ == "__main__":
     TestRunner.parseTest(testLinkedStack())

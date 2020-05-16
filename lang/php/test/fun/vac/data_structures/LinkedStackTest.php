@@ -25,11 +25,7 @@
             $stack->pop();
         }
 
-        if (!$stack->isEmpty()) {
-            return false;
-        }
-
-        return true;
+        return $stack->isEmpty();
     }
 
     if (count(debug_backtrace()) == 0) {

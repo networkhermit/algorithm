@@ -19,7 +19,7 @@
             }
 
             $value = RandomFactory\integerN(0, 1);
-            if ($value < 0 || 1 < $value) {
+            if ($value < 0 || $value > 1) {
                 return false;
             }
 
@@ -27,7 +27,7 @@
             if (RandomFactory\integerN($value, $value) != $value) {
                 return false;
             }
-            if ($value < 100 || 10000 < $value) {
+            if ($value < 100 || $value > 10000) {
                 return false;
             }
         }

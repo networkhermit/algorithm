@@ -35,11 +35,7 @@ def testArrayStack()
         return false
     end
 
-    if stack.capacity() != 0
-        return false
-    end
-
-    return true
+    return stack.capacity() == 0
 end
 
 if __FILE__ == $0

@@ -23,11 +23,7 @@
             return false;
         }
 
-        if (!Sequences\isSorted($arr)) {
-            return false;
-        }
-
-        return true;
+        return Sequences\isSorted($arr);
     }
 
     function testInsertionSort(): bool {
@@ -44,11 +40,7 @@
             return false;
         }
 
-        if (!Sequences\isSorted($arr)) {
-            return false;
-        }
-
-        return true;
+        return Sequences\isSorted($arr);
     }
 
     function testMergeSort(): bool {
@@ -65,11 +57,7 @@
             return false;
         }
 
-        if (!Sequences\isSorted($arr)) {
-            return false;
-        }
-
-        return true;
+        return Sequences\isSorted($arr);
     }
 
     function testQuickSort(): bool {
@@ -86,11 +74,7 @@
             return false;
         }
 
-        if (!Sequences\isSorted($arr)) {
-            return false;
-        }
-
-        return true;
+        return Sequences\isSorted($arr);
     }
 
     function testSelectionSort(): bool {
@@ -107,11 +91,7 @@
             return false;
         }
 
-        if (!Sequences\isSorted($arr)) {
-            return false;
-        }
-
-        return true;
+        return Sequences\isSorted($arr);
     }
 
     if (count(debug_backtrace()) == 0) {

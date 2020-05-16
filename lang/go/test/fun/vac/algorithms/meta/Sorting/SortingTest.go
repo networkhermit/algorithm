@@ -21,11 +21,7 @@ func testBubbleSort() bool {
         return false
     }
 
-    if !Sequences.IsSorted(arr) {
-        return false
-    }
-
-    return true
+    return Sequences.IsSorted(arr)
 }
 
 func testInsertionSort() bool {
@@ -42,11 +38,7 @@ func testInsertionSort() bool {
         return false
     }
 
-    if !Sequences.IsSorted(arr) {
-        return false
-    }
-
-    return true
+    return Sequences.IsSorted(arr)
 }
 
 func testMergeSort() bool {
@@ -63,11 +55,7 @@ func testMergeSort() bool {
         return false
     }
 
-    if !Sequences.IsSorted(arr) {
-        return false
-    }
-
-    return true
+    return Sequences.IsSorted(arr)
 }
 
 func testQuickSort() bool {
@@ -84,11 +72,7 @@ func testQuickSort() bool {
         return false
     }
 
-    if !Sequences.IsSorted(arr) {
-        return false
-    }
-
-    return true
+    return Sequences.IsSorted(arr)
 }
 
 func testSelectionSort() bool {
@@ -105,11 +89,7 @@ func testSelectionSort() bool {
         return false
     }
 
-    if !Sequences.IsSorted(arr) {
-        return false
-    }
-
-    return true
+    return Sequences.IsSorted(arr)
 }
 
 func main() {

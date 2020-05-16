@@ -34,7 +34,8 @@ func testLinkedList() bool {
         }
     }
 
-    var x, y int
+    var x int
+    var y int
 
     for i, j := 0, size - 1; i < j; i, j = i + 1, j - 1 {
         x = list.Get(i)
@@ -59,11 +60,7 @@ func testLinkedList() bool {
         list.Eject()
     }
 
-    if !list.IsEmpty() {
-        return false
-    }
-
-    return true
+    return list.IsEmpty()
 }
 
 func main() {

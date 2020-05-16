@@ -35,11 +35,7 @@ public class ArrayQueueTest {
             return false;
         }
 
-        if (queue.capacity() != 0) {
-            return false;
-        }
-
-        return true;
+        return queue.capacity() == 0;
     }
 
     public static void main(String[] args) {

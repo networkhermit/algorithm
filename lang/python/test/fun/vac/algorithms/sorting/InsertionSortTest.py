@@ -16,10 +16,7 @@ def testInsertionSort() -> bool:
     if Sequences.parityChecksum(arr) != checksum:
         return False
 
-    if not Sequences.isSorted(arr):
-        return False
-
-    return True
+    return Sequences.isSorted(arr)
 
 if __name__ == "__main__":
     TestRunner.parseTest(testInsertionSort())

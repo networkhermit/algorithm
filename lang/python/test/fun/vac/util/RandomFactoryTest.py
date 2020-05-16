@@ -13,13 +13,13 @@ def testIntegerN() -> bool:
             return False
 
         value = RandomFactory.integerN(0, 1)
-        if value < 0 or 1 < value:
+        if value < 0 or value > 1:
             return False
 
         value = RandomFactory.integerN(100, 10000)
         if RandomFactory.integerN(value, value) != value:
             return False
-        if value < 100 or 10000 < value:
+        if value < 100 or value > 10000:
             return False
 
     return True

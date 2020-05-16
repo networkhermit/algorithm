@@ -19,11 +19,7 @@ bool testSelectionSort() {
         return false;
     }
 
-    if (!Sequences::isSorted(arr)) {
-        return false;
-    }
-
-    return true;
+    return Sequences::isSorted(arr);
 }
 
 int main() {

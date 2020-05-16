@@ -38,7 +38,8 @@ public class ArrayListTest {
             }
         }
 
-        int x, y;
+        int x;
+        int y;
 
         for (int i = 0, j = size - 1; i < j; i++, j--) {
             x = list.get(i);
@@ -69,11 +70,7 @@ public class ArrayListTest {
             return false;
         }
 
-        if (list.capacity() != 0) {
-            return false;
-        }
-
-        return true;
+        return list.capacity() == 0;
     }
 
     public static void main(String[] args) {

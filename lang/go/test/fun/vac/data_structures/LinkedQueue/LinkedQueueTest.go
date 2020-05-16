@@ -25,11 +25,7 @@ func testLinkedQueue() bool {
         queue.Dequeue()
     }
 
-    if !queue.IsEmpty() {
-        return false
-    }
-
-    return true
+    return queue.IsEmpty()
 }
 
 func main() {

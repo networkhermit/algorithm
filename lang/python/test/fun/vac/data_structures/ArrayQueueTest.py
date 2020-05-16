@@ -27,10 +27,7 @@ def testArrayQueue()-> bool:
     if not queue.isEmpty():
         return False
 
-    if queue.capacity() != 0:
-        return False
-
-    return True
+    return queue.capacity() == 0
 
 if __name__ == "__main__":
     TestRunner.parseTest(testArrayQueue())

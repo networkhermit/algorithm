@@ -23,11 +23,7 @@ const testLinkedStack = () => {
         stack.pop()
     }
 
-    if (!stack.isEmpty()) {
-        return false
-    }
-
-    return true
+    return stack.isEmpty()
 }
 
 if (module === require.main) {

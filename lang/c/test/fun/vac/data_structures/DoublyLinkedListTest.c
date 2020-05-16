@@ -30,7 +30,8 @@ bool testLinkedList(void) {
         }
     }
 
-    int x, y;
+    int x;
+    int y;
 
     for (size_t i = 0, j = size - 1; i < j; i++, j--) {
         x = DoublyLinkedList_get(list, i);
@@ -55,11 +56,7 @@ bool testLinkedList(void) {
         DoublyLinkedList_eject(list);
     }
 
-    if (!DoublyLinkedList_isEmpty(list)) {
-        return false;
-    }
-
-    return true;
+    return DoublyLinkedList_isEmpty(list);
 }
 
 int main(void) {

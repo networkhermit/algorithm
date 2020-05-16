@@ -17,11 +17,7 @@ bool testQuickSort(void) {
         return false;
     }
 
-    if (!Sequences_isSorted(arr, size)) {
-        return false;
-    }
-
-    return true;
+    return Sequences_isSorted(arr, size);
 }
 
 int main(void) {

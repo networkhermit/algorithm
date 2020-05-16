@@ -40,7 +40,8 @@ func testArrayList() bool {
         }
     }
 
-    var x, y int
+    var x int
+    var y int
 
     for i, j := 0, size - 1; i < j; i, j = i + 1, j - 1 {
         x = list.Get(i)
@@ -71,11 +72,7 @@ func testArrayList() bool {
         return false
     }
 
-    if list.Capacity() != 0 {
-        return false
-    }
-
-    return true
+    return list.Capacity() == 0
 }
 
 func main() {

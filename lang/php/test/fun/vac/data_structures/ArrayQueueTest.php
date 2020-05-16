@@ -37,11 +37,7 @@
             return false;
         }
 
-        if ($queue->capacity() != 0) {
-            return false;
-        }
-
-        return true;
+        return $queue->capacity() == 0;
     }
 
     if (count(debug_backtrace()) == 0) {

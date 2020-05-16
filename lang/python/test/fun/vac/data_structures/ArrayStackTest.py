@@ -27,10 +27,7 @@ def testArrayStack()-> bool:
     if not stack.isEmpty():
         return False
 
-    if stack.capacity() != 0:
-        return False
-
-    return True
+    return stack.capacity() == 0
 
 if __name__ == "__main__":
     TestRunner.parseTest(testArrayStack())

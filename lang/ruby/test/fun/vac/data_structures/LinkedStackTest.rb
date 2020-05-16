@@ -23,11 +23,7 @@ def testLinkedStack()
         i -= 1
     end
 
-    unless stack.isEmpty()
-        return false
-    end
-
-    return true
+    return stack.isEmpty()
 end
 
 if __FILE__ == $0

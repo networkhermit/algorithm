@@ -38,7 +38,8 @@ const testArrayList = () => {
         }
     }
 
-    let x = 0, y = 0
+    let x = 0
+    let y = 0
 
     for (let i = 0, j = size - 1; i < j; i++, j--) {
         x = list.get(i)
@@ -69,11 +70,7 @@ const testArrayList = () => {
         return false
     }
 
-    if (list.capacity() !== 0) {
-        return false
-    }
-
-    return true
+    return list.capacity() === 0
 }
 
 if (module === require.main) {

@@ -21,11 +21,7 @@ def testLinkedQueue()
         queue.dequeue()
     end
 
-    unless queue.isEmpty()
-        return false
-    end
-
-    return true
+    return queue.isEmpty()
 end
 
 if __FILE__ == $0

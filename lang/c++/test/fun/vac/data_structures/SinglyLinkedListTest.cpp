@@ -32,7 +32,8 @@ bool testSinglyLinkedList() {
         }
     }
 
-    int x, y;
+    int x;
+    int y;
 
     for (size_t i = 0, j = size - 1; i < j; i++, j--) {
         x = list->get(i);
@@ -57,11 +58,7 @@ bool testSinglyLinkedList() {
         list->eject();
     }
 
-    if (!list->isEmpty()) {
-        return false;
-    }
-
-    return true;
+    return list->isEmpty();
 }
 
 int main() {

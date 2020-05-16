@@ -19,11 +19,7 @@ bool testBubbleSort() {
         return false;
     }
 
-    if (!Sequences::isSorted(arr)) {
-        return false;
-    }
-
-    return true;
+    return Sequences::isSorted(arr);
 }
 
 bool testInsertionSort() {
@@ -40,11 +36,7 @@ bool testInsertionSort() {
         return false;
     }
 
-    if (!Sequences::isSorted(arr)) {
-        return false;
-    }
-
-    return true;
+    return Sequences::isSorted(arr);
 }
 
 bool testMergeSort() {
@@ -61,11 +53,7 @@ bool testMergeSort() {
         return false;
     }
 
-    if (!Sequences::isSorted(arr)) {
-        return false;
-    }
-
-    return true;
+    return Sequences::isSorted(arr);
 }
 
 bool testQuickSort() {
@@ -82,11 +70,7 @@ bool testQuickSort() {
         return false;
     }
 
-    if (!Sequences::isSorted(arr)) {
-        return false;
-    }
-
-    return true;
+    return Sequences::isSorted(arr);
 }
 
 bool testSelectionSort() {
@@ -103,11 +87,7 @@ bool testSelectionSort() {
         return false;
     }
 
-    if (!Sequences::isSorted(arr)) {
-        return false;
-    }
-
-    return true;
+    return Sequences::isSorted(arr);
 }
 
 int main() {

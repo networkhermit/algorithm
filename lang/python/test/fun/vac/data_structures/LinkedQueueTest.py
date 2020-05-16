@@ -17,10 +17,7 @@ def testLinkedQueue()-> bool:
             return False
         queue.dequeue()
 
-    if not queue.isEmpty():
-        return False
-
-    return True
+    return queue.isEmpty()
 
 if __name__ == "__main__":
     TestRunner.parseTest(testLinkedQueue())

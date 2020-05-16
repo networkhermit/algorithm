@@ -72,11 +72,7 @@
             return false;
         }
 
-        if ($list->capacity() != 0) {
-            return false;
-        }
-
-        return true;
+        return $list->capacity() == 0;
     }
 
     if (count(debug_backtrace()) == 0) {

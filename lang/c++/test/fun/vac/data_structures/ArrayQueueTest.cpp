@@ -35,11 +35,7 @@ bool testArrayQueue() {
         return false;
     }
 
-    if (queue->capacity() != 0) {
-        return false;
-    }
-
-    return true;
+    return queue->capacity() == 0;
 }
 
 int main() {

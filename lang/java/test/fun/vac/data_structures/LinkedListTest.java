@@ -32,7 +32,8 @@ public class LinkedListTest {
             }
         }
 
-        int x, y;
+        int x;
+        int y;
 
         for (int i = 0, j = size - 1; i < j; i++, j--) {
             x = list.get(i);
@@ -57,11 +58,7 @@ public class LinkedListTest {
             list.eject();
         }
 
-        if (!list.isEmpty()) {
-            return false;
-        }
-
-        return true;
+        return list.isEmpty();
     }
 
     public static void main(String[] args) {

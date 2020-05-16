@@ -33,11 +33,7 @@ bool testArrayQueue(void) {
         return false;
     }
 
-    if (ArrayQueue_capacity(queue) != 0) {
-        return false;
-    }
-
-    return true;
+    return ArrayQueue_capacity(queue) == 0;
 }
 
 int main(void) {

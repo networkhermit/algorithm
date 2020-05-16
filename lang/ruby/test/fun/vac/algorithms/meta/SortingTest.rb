@@ -17,11 +17,7 @@ def testBubbleSort()
         return false
     end
 
-    unless Sequences.isSorted(arr)
-        return false
-    end
-
-    return true
+    return Sequences.isSorted(arr)
 end
 
 def testInsertionSort()
@@ -38,11 +34,7 @@ def testInsertionSort()
         return false
     end
 
-    unless Sequences.isSorted(arr)
-        return false
-    end
-
-    return true
+    return Sequences.isSorted(arr)
 end
 
 def testMergeSort()
@@ -59,11 +51,7 @@ def testMergeSort()
         return false
     end
 
-    unless Sequences.isSorted(arr)
-        return false
-    end
-
-    return true
+    return Sequences.isSorted(arr)
 end
 
 def testQuickSort()
@@ -80,11 +68,7 @@ def testQuickSort()
         return false
     end
 
-    unless Sequences.isSorted(arr)
-        return false
-    end
-
-    return true
+    return Sequences.isSorted(arr)
 end
 
 def testSelectionSort()
@@ -101,11 +85,7 @@ def testSelectionSort()
         return false
     end
 
-    unless Sequences.isSorted(arr)
-        return false
-    end
-
-    return true
+    return Sequences.isSorted(arr)
 end
 
 if __FILE__ == $0

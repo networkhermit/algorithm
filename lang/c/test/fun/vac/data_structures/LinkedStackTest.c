@@ -21,11 +21,7 @@ bool testLinkedStack(void) {
         LinkedStack_pop(stack);
     }
 
-    if (!LinkedStack_isEmpty(stack)) {
-        return false;
-    }
-
-    return true;
+    return LinkedStack_isEmpty(stack);
 }
 
 int main(void) {

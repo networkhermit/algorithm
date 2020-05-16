@@ -17,11 +17,7 @@ bool testBubbleSort(void) {
         return false;
     }
 
-    if (!Sequences_isSorted(arr, size)) {
-        return false;
-    }
-
-    return true;
+    return Sequences_isSorted(arr, size);
 }
 
 bool testInsertionSort(void) {
@@ -38,11 +34,7 @@ bool testInsertionSort(void) {
         return false;
     }
 
-    if (!Sequences_isSorted(arr, size)) {
-        return false;
-    }
-
-    return true;
+    return Sequences_isSorted(arr, size);
 }
 
 bool testMergeSort(void) {
@@ -59,11 +51,7 @@ bool testMergeSort(void) {
         return false;
     }
 
-    if (!Sequences_isSorted(arr, size)) {
-        return false;
-    }
-
-    return true;
+    return Sequences_isSorted(arr, size);
 }
 
 bool testQuickSort(void) {
@@ -80,11 +68,7 @@ bool testQuickSort(void) {
         return false;
     }
 
-    if (!Sequences_isSorted(arr, size)) {
-        return false;
-    }
-
-    return true;
+    return Sequences_isSorted(arr, size);
 }
 
 bool testSelectionSort(void) {
@@ -101,11 +85,7 @@ bool testSelectionSort(void) {
         return false;
     }
 
-    if (!Sequences_isSorted(arr, size)) {
-        return false;
-    }
-
-    return true;
+    return Sequences_isSorted(arr, size);
 }
 
 int main(void) {

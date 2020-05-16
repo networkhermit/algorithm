@@ -23,11 +23,7 @@ bool testLinkedQueue() {
         queue->dequeue();
     }
 
-    if (!queue->isEmpty()) {
-        return false;
-    }
-
-    return true;
+    return queue->isEmpty();
 }
 
 int main() {

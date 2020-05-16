@@ -32,7 +32,8 @@ const testCircularlyLinkedList = () => {
         }
     }
 
-    let x = 0, y = 0
+    let x = 0
+    let y = 0
 
     for (let i = 0, j = size - 1; i < j; i++, j--) {
         x = list.get(i)
@@ -57,11 +58,7 @@ const testCircularlyLinkedList = () => {
         list.eject()
     }
 
-    if (!list.isEmpty()) {
-        return false
-    }
-
-    return true
+    return list.isEmpty()
 }
 
 if (module === require.main) {

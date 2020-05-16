@@ -19,11 +19,7 @@ public class InsertionSortTest {
             return false;
         }
 
-        if (!Sequences.isSorted(arr)) {
-            return false;
-        }
-
-        return true;
+        return Sequences.isSorted(arr);
     }
 
     public static void main(String[] args) {
