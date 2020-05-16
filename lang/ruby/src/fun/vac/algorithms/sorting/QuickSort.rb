@@ -7,7 +7,8 @@ module QuickSort
 
         pivot = arr[lo]
 
-        left, right = lo, hi - 1
+        left = lo
+        right = hi - 1
 
         until left == right
             i = right

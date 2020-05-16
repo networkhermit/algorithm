@@ -18,8 +18,6 @@ public class LinkedStack<E> implements IStack<E> {
     private Node<E> tail = null;
     private int length = 0;
 
-    public LinkedStack() {}
-
     @Override
     public int size() {
         return length;

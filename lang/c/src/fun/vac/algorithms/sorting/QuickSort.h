@@ -16,7 +16,8 @@ void QuickSort_partition(quick_sort_type *arr, size_t lo, size_t hi) {
 
     quick_sort_type pivot = arr[lo];
 
-    size_t left = lo, right = hi - 1;
+    size_t left = lo;
+    size_t right = hi - 1;
 
     while (left != right) {
         for (size_t i = right; i > left; i--) {

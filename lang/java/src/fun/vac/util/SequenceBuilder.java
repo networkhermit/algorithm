@@ -1,9 +1,6 @@
 package fun.vac.util;
 
-import fun.vac.util.RandomFactory;
-import fun.vac.util.Sequences;
-
-public class SequenceBuilder {
+public final class SequenceBuilder {
 
     private SequenceBuilder() {}
 

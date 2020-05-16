@@ -1,8 +1,6 @@
 package fun.vac.algorithms.number_theory;
 
-import fun.vac.algorithms.number_theory.GreatestCommonDivisor;
-
-public class Coprimality {
+public final class Coprimality {
 
     private Coprimality() {}
 

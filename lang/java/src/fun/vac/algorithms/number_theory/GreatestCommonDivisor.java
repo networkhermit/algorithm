@@ -1,6 +1,6 @@
 package fun.vac.algorithms.number_theory;
 
-public class GreatestCommonDivisor {
+public final class GreatestCommonDivisor {
 
     private GreatestCommonDivisor() {}
 

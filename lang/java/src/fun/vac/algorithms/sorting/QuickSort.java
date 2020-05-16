@@ -1,6 +1,6 @@
 package fun.vac.algorithms.sorting;
 
-public class QuickSort {
+public final class QuickSort {
 
     private QuickSort() {}
 
@@ -11,7 +11,8 @@ public class QuickSort {
 
         T pivot = arr[lo];
 
-        int left = lo, right = hi - 1;
+        int left = lo;
+        int right = hi - 1;
 
         while (left != right) {
             for (int i = right; i > left; i--) {

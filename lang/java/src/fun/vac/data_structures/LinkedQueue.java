@@ -18,8 +18,6 @@ public class LinkedQueue<E> implements IQueue<E> {
     private Node<E> tail = null;
     private int length = 0;
 
-    public LinkedQueue() {}
-
     @Override
     public int size() {
         return length;

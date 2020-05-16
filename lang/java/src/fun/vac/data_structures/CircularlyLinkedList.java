@@ -17,8 +17,6 @@ public class CircularlyLinkedList<E> implements IList<E> {
     private Node<E> tail = null;
     private int length = 0;
 
-    public CircularlyLinkedList() {}
-
     @Override
     public int size() {
         return length;

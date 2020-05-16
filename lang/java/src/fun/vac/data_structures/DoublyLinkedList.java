@@ -19,8 +19,6 @@ public class DoublyLinkedList<E> implements IList<E> {
     private Node<E> tail = null;
     private int length = 0;
 
-    public DoublyLinkedList() {}
-
     @Override
     public int size() {
         return length;

@@ -7,7 +7,8 @@ func Partition(arr []int, lo int, hi int) {
 
     pivot := arr[lo]
 
-    left, right := lo, hi - 1
+    left := lo
+    right := hi - 1
 
     for left != right {
         for i := right; i > left; i-- {

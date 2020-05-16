@@ -9,7 +9,7 @@ import fun.vac.algorithms.number_theory.Parity;
 import fun.vac.algorithms.number_theory.Primality;
 import fun.vac.algorithms.number_theory.PrimeSieves;
 
-public class NumberTheory {
+public final class NumberTheory {
 
     private NumberTheory() {}
 

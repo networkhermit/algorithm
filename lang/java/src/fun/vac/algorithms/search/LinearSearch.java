@@ -1,6 +1,6 @@
 package fun.vac.algorithms.search;
 
-public class LinearSearch {
+public final class LinearSearch {
 
     private LinearSearch() {}
 

@@ -1,6 +1,6 @@
 package fun.vac.algorithms.sorting;
 
-public class BubbleSort {
+public final class BubbleSort {
 
     private BubbleSort() {}
 

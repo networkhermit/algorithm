@@ -1,16 +1,15 @@
 package fun.vac.util;
 
 import fun.vac.algorithms.sorting.InsertionSort;
-import fun.vac.util.RandomFactory;
 
-public class Sequences {
+public final class Sequences {
 
     private Sequences() {}
 
     public static void inspect(Integer[] arr) {
         System.out.println("[");
         for (int i = 0, length = arr.length; i < length; i++) {
-            System.out.printf("\t#%04X  -->  %d\n", i, arr[i]);
+            System.out.printf("\t#%04X  -->  %d%n", i, arr[i]);
         }
         System.out.println("]");
     }

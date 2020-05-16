@@ -1,6 +1,6 @@
 package fun.vac.algorithms.number_theory;
 
-public class Factorial {
+public final class Factorial {
 
     private Factorial() {}
 

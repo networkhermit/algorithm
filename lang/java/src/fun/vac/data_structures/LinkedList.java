@@ -18,8 +18,6 @@ public class LinkedList<E> implements IList<E> {
     private Node<E> tail = null;
     private int length = 0;
 
-    public LinkedList() {}
-
     @Override
     public int size() {
         return length;

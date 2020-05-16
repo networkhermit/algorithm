@@ -1,6 +1,6 @@
 package fun.vac.algorithms.number_theory;
 
-public class Parity {
+public final class Parity {
 
     private Parity() {}
 

@@ -4,7 +4,8 @@ def partition(arr: list, lo: int, hi: int) -> None:
 
     pivot = arr[lo]
 
-    left, right = lo, hi - 1
+    left = lo
+    right = hi - 1
 
     while left != right:
         for i in range(right, left, -1):

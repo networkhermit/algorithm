@@ -3,7 +3,7 @@ package fun.vac.algorithms.meta;
 import fun.vac.algorithms.search.BinarySearch;
 import fun.vac.algorithms.search.LinearSearch;
 
-public class Search {
+public final class Search {
 
     private Search() {}
 

@@ -7,7 +7,8 @@ exports.partition = (arr, lo, hi) => {
 
     let pivot = arr[lo]
 
-    let left = lo, right = hi - 1
+    let left = lo
+    let right = hi - 1
 
     while (left !== right) {
         for (let i = right; i > left; i--) {

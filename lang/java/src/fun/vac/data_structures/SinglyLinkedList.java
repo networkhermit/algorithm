@@ -17,8 +17,6 @@ public class SinglyLinkedList<E> implements IList<E> {
     private Node<E> head = null;
     private int length = 0;
 
-    public SinglyLinkedList() {}
-
     @Override
     public int size() {
         return length;

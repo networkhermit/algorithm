@@ -1,6 +1,6 @@
 package fun.vac.algorithms.sorting;
 
-public class InsertionSort {
+public final class InsertionSort {
 
     private InsertionSort() {}
 

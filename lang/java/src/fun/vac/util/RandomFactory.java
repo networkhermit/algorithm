@@ -1,6 +1,6 @@
 package fun.vac.util;
 
-public class RandomFactory {
+public final class RandomFactory {
 
     private RandomFactory() {}
 

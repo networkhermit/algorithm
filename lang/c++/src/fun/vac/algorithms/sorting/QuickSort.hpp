@@ -14,7 +14,8 @@ namespace QuickSort {
 
         T pivot = arr[lo];
 
-        std::size_t left = lo, right = hi - 1;
+        std::size_t left = lo;
+        std::size_t right = hi - 1;
 
         while (left != right) {
             for (std::size_t i = right; i > left; i--) {

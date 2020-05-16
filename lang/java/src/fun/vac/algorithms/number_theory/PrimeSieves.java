@@ -1,6 +1,6 @@
 package fun.vac.algorithms.number_theory;
 
-public class PrimeSieves {
+public final class PrimeSieves {
 
     private PrimeSieves() {}
 

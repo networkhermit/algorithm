@@ -1,6 +1,6 @@
 package fun.vac.algorithms.number_theory;
 
-public class Primality {
+public final class Primality {
 
     private Primality() {}
 

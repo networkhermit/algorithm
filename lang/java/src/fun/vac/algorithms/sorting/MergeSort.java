@@ -1,6 +1,6 @@
 package fun.vac.algorithms.sorting;
 
-public class MergeSort {
+public final class MergeSort {
 
     private MergeSort() {}
 

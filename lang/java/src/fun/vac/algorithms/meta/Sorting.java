@@ -6,7 +6,7 @@ import fun.vac.algorithms.sorting.MergeSort;
 import fun.vac.algorithms.sorting.QuickSort;
 import fun.vac.algorithms.sorting.SelectionSort;
 
-public class Sorting {
+public final class Sorting {
 
     private Sorting() {}
 

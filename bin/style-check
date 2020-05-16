@@ -228,7 +228,6 @@ run_style_check () {
         for instance in $(find -L "${ROOT}" -type f -name "*.lisp" | sort); do
             fname=$(basename "${instance}" .lisp)
 
-            register_lint "${instance}" "${fname}" incdec
             register_lint "${instance}" "${fname}" whitespace
         done
         ;;
