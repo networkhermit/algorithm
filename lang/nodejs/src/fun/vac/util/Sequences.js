@@ -1,6 +1,6 @@
 "use strict"
 
-const InsertionSort = require("fun/vac/algorithms/sorting/InsertionSort")
+const QuickSort     = require("fun/vac/algorithms/sorting/QuickSort")
 const RandomFactory = require("fun/vac/util/RandomFactory")
 
 exports.inspect = (arr) => {
@@ -57,5 +57,5 @@ exports.shuffle = (arr) => {
 }
 
 exports.sort = (arr) => {
-    InsertionSort.sort(arr)
+    QuickSort.sort(arr)
 }

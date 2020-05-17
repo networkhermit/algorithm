@@ -20,5 +20,8 @@ def testLinearSearch() -> bool:
 
     return True
 
-if __name__ == "__main__":
+def main() -> None:
     TestRunner.parseTest(testLinearSearch())
+
+if __name__ == "__main__":
+    main()

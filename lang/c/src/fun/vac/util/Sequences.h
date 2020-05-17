@@ -4,7 +4,7 @@
 #include <stdbool.h>
 #include <stdio.h>
 
-#include <fun/vac/algorithms/sorting/InsertionSort.h>
+#include <fun/vac/algorithms/sorting/QuickSort.h>
 #include <fun/vac/util/RandomFactory.h>
 
 void Sequences_inspect(const int *arr, size_t length) {
@@ -61,7 +61,7 @@ void Sequences_shuffle(int *arr, size_t length) {
 }
 
 void Sequences_sort(int *arr, size_t length) {
-    InsertionSort_sort(arr, length);
+    QuickSort_sort(arr, length);
 }
 
 #endif

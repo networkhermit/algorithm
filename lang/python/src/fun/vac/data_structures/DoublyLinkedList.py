@@ -26,11 +26,11 @@ class DoublyLinkedList:
 
         if index < self.length >> 1:
             cursor = self.head
-            for i in range(index):
+            for _ in range(index):
                 cursor = cursor.next
         else:
             cursor = self.tail
-            for i in range(self.length - 1, index, -1):
+            for _ in range(self.length - 1, index, -1):
                 cursor = cursor.prev
 
         return cursor.data

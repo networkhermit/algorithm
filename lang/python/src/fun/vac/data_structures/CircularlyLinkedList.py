@@ -23,7 +23,7 @@ class CircularlyLinkedList:
         cursor = self.tail
 
         if index != self.length - 1:
-            for i in range(index + 1):
+            for _ in range(index + 1):
                 cursor = cursor.next
 
         return cursor.data

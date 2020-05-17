@@ -1,7 +1,7 @@
 from fun.vac.data_structures.ArrayList import ArrayList
 from fun.vac.util import TestRunner
 
-def testArrayList()-> bool:
+def testArrayList() -> bool:
     size = 8192
 
     list = ArrayList(0)
@@ -58,5 +58,8 @@ def testArrayList()-> bool:
 
     return list.capacity() == 0
 
-if __name__ == "__main__":
+def main() -> None:
     TestRunner.parseTest(testArrayList())
+
+if __name__ == "__main__":
+    main()

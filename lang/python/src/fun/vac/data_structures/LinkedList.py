@@ -27,7 +27,7 @@ class LinkedList:
             cursor = self.tail
         else:
             cursor = self.head
-            for i in range(index):
+            for _ in range(index):
                 cursor = cursor.next
 
         return cursor.data

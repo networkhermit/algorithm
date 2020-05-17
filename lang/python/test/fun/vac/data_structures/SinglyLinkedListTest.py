@@ -1,7 +1,7 @@
 from fun.vac.data_structures.SinglyLinkedList import SinglyLinkedList
 from fun.vac.util import TestRunner
 
-def testSinglyLinkedList()-> bool:
+def testSinglyLinkedList() -> bool:
     size = 8192
 
     list = SinglyLinkedList()
@@ -48,5 +48,8 @@ def testSinglyLinkedList()-> bool:
 
     return list.isEmpty()
 
-if __name__ == "__main__":
+def main() -> None:
     TestRunner.parseTest(testSinglyLinkedList())
+
+if __name__ == "__main__":
+    main()

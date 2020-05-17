@@ -3,6 +3,7 @@ from fun.vac.util import TestRunner
 
 def testLeastCommonMultiple() -> bool:
     sample = [
+        # fmt: off
         [     1,      1,             1],
         [    -1,     -1,             1],
         [   -85,     -8,           680],
@@ -131,17 +132,21 @@ def testLeastCommonMultiple() -> bool:
         [ 45203, -23693, 1_070_994_679],
         [ 46340,  46341, 2_147_441_940],
         [-46340, -46341, 2_147_441_940],
+        # fmt: on
     ]
 
-    for i in range(len(sample)):
+    for i, _ in enumerate(sample):
         if LeastCommonMultiple.reduceToBinaryGCD(sample[i][0], sample[i][1]) != sample[i][2]:
             return False
 
-    for i in range(len(sample)):
+    for i, _ in enumerate(sample):
         if LeastCommonMultiple.reduceToEuclidean(sample[i][0], sample[i][1]) != sample[i][2]:
             return False
 
     return True
 
-if __name__ == "__main__":
+def main() -> None:
     TestRunner.parseTest(testLeastCommonMultiple())
+
+if __name__ == "__main__":
+    main()

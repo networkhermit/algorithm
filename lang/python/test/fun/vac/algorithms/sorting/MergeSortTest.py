@@ -18,5 +18,8 @@ def testMergeSort() -> bool:
 
     return Sequences.isSorted(arr)
 
-if __name__ == "__main__":
+def main() -> None:
     TestRunner.parseTest(testMergeSort())
+
+if __name__ == "__main__":
+    main()

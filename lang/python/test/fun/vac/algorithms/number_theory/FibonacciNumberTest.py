@@ -3,6 +3,7 @@ from fun.vac.util import TestRunner
 
 def testFibonacciNumber() -> bool:
     sample = [
+        # fmt: off
         [-31, 1346269],
         [-30, -832040],
         [-29,  514229],
@@ -66,17 +67,21 @@ def testFibonacciNumber() -> bool:
         [ 29,  514229],
         [ 30,  832040],
         [ 31, 1346269],
+        # fmt: on
     ]
 
-    for i in range(len(sample)):
+    for i, _ in enumerate(sample):
         if FibonacciNumber.iterativeProcedure(sample[i][0]) != sample[i][1]:
             return False
 
-    for input, output in enumerate(sample):
+    for i, _ in enumerate(sample):
         if FibonacciNumber.recursiveProcedure(sample[i][0]) != sample[i][1]:
             return False
 
     return True
 
-if __name__ == "__main__":
+def main() -> None:
     TestRunner.parseTest(testFibonacciNumber())
+
+if __name__ == "__main__":
+    main()

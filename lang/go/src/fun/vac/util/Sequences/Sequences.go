@@ -3,7 +3,7 @@ package Sequences
 import (
     "fmt"
 
-    "fun/vac/algorithms/sorting/InsertionSort"
+    "fun/vac/algorithms/sorting/QuickSort"
     "fun/vac/util/RandomFactory"
 )
 
@@ -55,5 +55,5 @@ func Shuffle(arr []int) {
 }
 
 func Sort(arr []int) {
-    InsertionSort.Sort(arr)
+    QuickSort.Sort(arr)
 }

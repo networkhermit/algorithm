@@ -1,4 +1,4 @@
-require "fun/vac/algorithms/sorting/InsertionSort"
+require "fun/vac/algorithms/sorting/QuickSort"
 require "fun/vac/util/RandomFactory"
 
 module Sequences
@@ -53,6 +53,6 @@ module Sequences
     end
 
     def self.sort(arr)
-        InsertionSort.sort(arr)
+        QuickSort.sort(arr)
     end
 end

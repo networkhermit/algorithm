@@ -3,6 +3,7 @@ from fun.vac.util import TestRunner
 
 def testPrimality() -> bool:
     sample = [
+        # fmt: off
         [         0, 1],
         [         1, 1],
         [         2, 2],
@@ -259,9 +260,10 @@ def testPrimality() -> bool:
         [ 3_893_849, 2],
         [ 1_308_913, 4],
         [14_162_880, 4],
+        # fmt: on
     ]
 
-    for i in range(len(sample)):
+    for i, _ in enumerate(sample):
         if sample[i][1] == 1:
             if Primality.isPrime(sample[i][0]):
                 return False
@@ -280,5 +282,8 @@ def testPrimality() -> bool:
 
     return True
 
-if __name__ == "__main__":
+def main() -> None:
     TestRunner.parseTest(testPrimality())
+
+if __name__ == "__main__":
+    main()

@@ -237,19 +237,11 @@ run_style_check () {
         for instance in $(find -L "${ROOT}" -type f -name "*.js" | sort); do
             fname=$(basename "${instance}" .js)
 
-            register_lint "${instance}" "${fname}" incdec
-            register_lint "${instance}" "${fname}" semicolon
-            register_lint "${instance}" "${fname}" whitespace
+            standard "${instance}" || true
+            xo "${instance}" || true
+            jshint "${instance}" || true
 
-            if grep -q '[^>]>>[^>]' "${instance}"; then
-                echo '>>>> NOT USING LOGICAL RIGHT SHIFT <<<<'
-                printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
-            fi
-
-            if grep -q '[^!=][!=]=[^=]' "${instance}"; then
-                echo '>>>> NOT USING STRICT (IN)EQUALITY <<<<'
-                printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
-            fi
+            printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
         done
         ;;
     php)
@@ -268,18 +260,16 @@ run_style_check () {
         for instance in $(find -L "${ROOT}" -type f -name "*.py" | sort); do
             fname=$(basename "${instance}" .py)
 
-            register_lint "${instance}" "${fname}" semicolon
-            register_lint "${instance}" "${fname}" whitespace
+            black --diff --line-length 128 "${instance}"
+            pylint --exit-zero --persistent no "${instance}"
+            pyflakes3 "${instance}" || true
+            MYPYPATH=${PYTHONPATH} mypy --cache-dir /dev/null "${instance}" || true
+            pyre --preserve-pythonpath --source-directory "$(dirname "${instance}")" check
+            rm --force --recursive .pyre
+            PYTHONDONTWRITEBYTECODE=1 pytest-3 "${instance}" || true
+            bandit "${instance}" || true
 
-            if grep -q '\<\(el\)\?if\s*(.*)\s*:$' "${instance}"; then
-                echo '>>>> REDUNDANT PARENTHESIS <<<<'
-                printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
-            fi
-
-            if grep -q '\<while\s*(.*)\s*:$' "${instance}"; then
-                echo '>>>> REDUNDANT PARENTHESIS <<<<'
-                printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
-            fi
+            printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
         done
         ;;
     ruby)

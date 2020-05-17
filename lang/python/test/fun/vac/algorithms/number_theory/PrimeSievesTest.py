@@ -4,6 +4,7 @@ from fun.vac.util import TestRunner
 
 def testPrimeSieves() -> bool:
     sample = [
+        # fmt: off
         [      0,     0],
         [      1,     0],
         [    180,    41],
@@ -132,11 +133,12 @@ def testPrimeSieves() -> bool:
         [1228187, 94920],
         [ 709431, 57257],
         [1294061, 99610],
+        # fmt: on
     ]
 
     arr = None
 
-    for i in range(len(sample)):
+    for i, _ in enumerate(sample):
         arr = PrimeSieves.sieveOfEratosthenes(sample[i][0])
 
         if len(arr) != sample[i][1]:
@@ -148,5 +150,8 @@ def testPrimeSieves() -> bool:
 
     return True
 
-if __name__ == "__main__":
+def main() -> None:
     TestRunner.parseTest(testPrimeSieves())
+
+if __name__ == "__main__":
+    main()

@@ -3,6 +3,7 @@ from fun.vac.util import TestRunner
 
 def testParity() -> bool:
     sample = [
+        # fmt: off
         [             0, 0],
         [             1, 1],
         [            -1, 1],
@@ -131,9 +132,10 @@ def testParity() -> bool:
         [   411_817_058, 0],
         [ 2_147_483_647, 1],
         [-2_147_483_648, 0],
+        # fmt: on
     ]
 
-    for i in range(len(sample)):
+    for i, _ in enumerate(sample):
         if sample[i][1] == 0:
             if not Parity.moduloIsEven(sample[i][0]):
                 return False
@@ -141,7 +143,7 @@ def testParity() -> bool:
             if Parity.moduloIsEven(sample[i][0]):
                 return False
 
-    for i in range(len(sample)):
+    for i, _ in enumerate(sample):
         if sample[i][1] == 0:
             if not Parity.bitwiseIsEven(sample[i][0]):
                 return False
@@ -149,7 +151,7 @@ def testParity() -> bool:
             if Parity.bitwiseIsEven(sample[i][0]):
                 return False
 
-    for i in range(len(sample)):
+    for i, _ in enumerate(sample):
         if sample[i][1] == 0:
             if Parity.moduloIsOdd(sample[i][0]):
                 return False
@@ -157,7 +159,7 @@ def testParity() -> bool:
             if not Parity.moduloIsOdd(sample[i][0]):
                 return False
 
-    for i in range(len(sample)):
+    for i, _ in enumerate(sample):
         if sample[i][1] == 0:
             if Parity.bitwiseIsOdd(sample[i][0]):
                 return False
@@ -167,5 +169,8 @@ def testParity() -> bool:
 
     return True
 
-if __name__ == "__main__":
+def main() -> None:
     TestRunner.parseTest(testParity())
+
+if __name__ == "__main__":
+    main()

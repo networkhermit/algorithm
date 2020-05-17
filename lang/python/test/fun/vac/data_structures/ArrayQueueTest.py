@@ -1,7 +1,7 @@
 from fun.vac.data_structures.ArrayQueue import ArrayQueue
 from fun.vac.util import TestRunner
 
-def testArrayQueue()-> bool:
+def testArrayQueue() -> bool:
     size = 8192
 
     queue = ArrayQueue(0)
@@ -29,5 +29,8 @@ def testArrayQueue()-> bool:
 
     return queue.capacity() == 0
 
-if __name__ == "__main__":
+def main() -> None:
     TestRunner.parseTest(testArrayQueue())
+
+if __name__ == "__main__":
+    main()

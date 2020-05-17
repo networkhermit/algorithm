@@ -1,6 +1,6 @@
 package fun.vac.util;
 
-import fun.vac.algorithms.sorting.InsertionSort;
+import fun.vac.algorithms.sorting.QuickSort;
 
 public final class Sequences {
 
@@ -60,6 +60,6 @@ public final class Sequences {
     }
 
     public static void sort(Integer[] arr) {
-        InsertionSort.sort(arr);
+        QuickSort.sort(arr);
     }
 }

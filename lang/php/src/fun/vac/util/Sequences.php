@@ -1,10 +1,10 @@
 <?php
     namespace fun\vac\util\Sequences;
 
-    require_once "fun/vac/algorithms/sorting/InsertionSort.php";
+    require_once "fun/vac/algorithms/sorting/QuickSort.php";
     require_once "fun/vac/util/RandomFactory.php";
 
-    use fun\vac\algorithms\sorting\InsertionSort;
+    use fun\vac\algorithms\sorting\QuickSort;
     use fun\vac\util\RandomFactory;
 
     function inspect(array &$arr): void {
@@ -61,6 +61,6 @@
     }
 
     function sort(array &$arr): void {
-        InsertionSort\sort($arr);
+        QuickSort\sort($arr);
     }
 ?>

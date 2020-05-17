@@ -1,7 +1,7 @@
 from fun.vac.data_structures.CircularlyLinkedList import CircularlyLinkedList
 from fun.vac.util import TestRunner
 
-def testCircularlyLinkedList()-> bool:
+def testCircularlyLinkedList() -> bool:
     size = 8192
 
     list = CircularlyLinkedList()
@@ -48,5 +48,8 @@ def testCircularlyLinkedList()-> bool:
 
     return list.isEmpty()
 
-if __name__ == "__main__":
+def main() -> None:
     TestRunner.parseTest(testCircularlyLinkedList())
+
+if __name__ == "__main__":
+    main()

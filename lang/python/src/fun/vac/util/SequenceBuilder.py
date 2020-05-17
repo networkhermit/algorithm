@@ -9,7 +9,7 @@ def packIncreasing(arr: list) -> None:
 
 def packRandom(arr: list) -> None:
     RandomFactory.seed()
-    for i in range(len(arr)):
+    for i, _ in enumerate(arr):
         arr[i] = RandomFactory.generateInteger()
 
 def packDecreasing(arr: list) -> None:

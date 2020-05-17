@@ -1,7 +1,7 @@
 from fun.vac.data_structures.ArrayStack import ArrayStack
 from fun.vac.util import TestRunner
 
-def testArrayStack()-> bool:
+def testArrayStack() -> bool:
     size = 8192
 
     stack = ArrayStack(0)
@@ -29,5 +29,8 @@ def testArrayStack()-> bool:
 
     return stack.capacity() == 0
 
-if __name__ == "__main__":
+def main() -> None:
     TestRunner.parseTest(testArrayStack())
+
+if __name__ == "__main__":
+    main()

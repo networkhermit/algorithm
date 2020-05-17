@@ -5,7 +5,7 @@ def testIntegerN() -> bool:
     RandomFactory.seed()
 
     value = 0
-    for i in range(8192):
+    for _ in range(8192):
         if RandomFactory.integerN(0, 0) != 0:
             return False
 
@@ -27,7 +27,7 @@ def testIntegerN() -> bool:
 def testGenerateEven() -> bool:
     RandomFactory.seed()
 
-    for i in range(8192):
+    for _ in range(8192):
         if (RandomFactory.generateEven() & 1) != 0:
             return False
 
@@ -36,16 +36,19 @@ def testGenerateEven() -> bool:
 def testGenerateOdd() -> bool:
     RandomFactory.seed()
 
-    for i in range(8192):
+    for _ in range(8192):
         if (RandomFactory.generateOdd() & 1) == 0:
             return False
 
     return True
 
-if __name__ == "__main__":
+def main() -> None:
 
     TestRunner.parseTest(testIntegerN())
 
     TestRunner.parseTest(testGenerateEven())
 
     TestRunner.parseTest(testGenerateOdd())
+
+if __name__ == "__main__":
+    main()

@@ -7,5 +7,8 @@ def testParseTest() -> None:
         else:
             TestRunner.parseTest(True)
 
-if __name__ == "__main__":
+def main() -> None:
     testParseTest()
+
+if __name__ == "__main__":
+    main()

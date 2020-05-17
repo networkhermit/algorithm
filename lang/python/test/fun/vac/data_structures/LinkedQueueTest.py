@@ -1,7 +1,7 @@
 from fun.vac.data_structures.LinkedQueue import LinkedQueue
 from fun.vac.util import TestRunner
 
-def testLinkedQueue()-> bool:
+def testLinkedQueue() -> bool:
     size = 8192
 
     queue = LinkedQueue()
@@ -19,5 +19,8 @@ def testLinkedQueue()-> bool:
 
     return queue.isEmpty()
 
-if __name__ == "__main__":
+def main() -> None:
     TestRunner.parseTest(testLinkedQueue())
+
+if __name__ == "__main__":
+    main()

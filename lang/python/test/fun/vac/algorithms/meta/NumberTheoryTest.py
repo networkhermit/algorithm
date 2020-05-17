@@ -4,6 +4,7 @@ from fun.vac.util import TestRunner
 
 def testIsCoprime() -> bool:
     sample = [
+        # fmt: off
         [             0,              1, 1],
         [             1,              0, 1],
         [             1,              1, 1],
@@ -132,9 +133,10 @@ def testIsCoprime() -> bool:
         [ 1_241_208_470,   -647_438_045, 0],
         [ 2_147_483_647,   -561_158_902, 1],
         [   761_395_308, -2_147_483_647, 1],
+        # fmt: on
     ]
 
-    for i in range(len(sample)):
+    for i, _ in enumerate(sample):
         if sample[i][2] == 0:
             if NumberTheory.isCoprime(sample[i][0], sample[i][1]):
                 return False
@@ -146,6 +148,7 @@ def testIsCoprime() -> bool:
 
 def testFactorial() -> bool:
     sample = [
+        # fmt: off
         [ 0,           1],
         [ 1,           1],
         [ 2,           2],
@@ -159,9 +162,10 @@ def testFactorial() -> bool:
         [10,   3_628_800],
         [11,  39_916_800],
         [12, 479_001_600],
+        # fmt: on
     ]
 
-    for i in range(len(sample)):
+    for i, _ in enumerate(sample):
         if NumberTheory.factorial(sample[i][0]) != sample[i][1]:
             return False
 
@@ -169,6 +173,7 @@ def testFactorial() -> bool:
 
 def testFibonacci() -> bool:
     sample = [
+        # fmt: off
         [-31, 1346269],
         [-30, -832040],
         [-29,  514229],
@@ -232,9 +237,10 @@ def testFibonacci() -> bool:
         [ 29,  514229],
         [ 30,  832040],
         [ 31, 1346269],
+        # fmt: on
     ]
 
-    for i in range(len(sample)):
+    for i, _ in enumerate(sample):
         if NumberTheory.fibonacci(sample[i][0]) != sample[i][1]:
             return False
 
@@ -242,6 +248,7 @@ def testFibonacci() -> bool:
 
 def testGCD() -> bool:
     sample = [
+        # fmt: off
         [             0,              1,   1],
         [             1,              0,   1],
         [             1,              1,   1],
@@ -370,9 +377,10 @@ def testGCD() -> bool:
         [-1_069_835_847,  1_308_503_268,   3],
         [ 2_147_483_647, -1_884_119_046,   1],
         [   645_159_694, -2_147_483_647,   1],
+        # fmt: on
     ]
 
-    for i in range(len(sample)):
+    for i, _ in enumerate(sample):
         if NumberTheory.gcd(sample[i][0], sample[i][1]) != sample[i][2]:
             return False
 
@@ -380,6 +388,7 @@ def testGCD() -> bool:
 
 def testLCM() -> bool:
     sample = [
+        # fmt: off
         [     1,      1,             1],
         [    -1,     -1,             1],
         [   -85,     -8,           680],
@@ -508,9 +517,10 @@ def testLCM() -> bool:
         [ 45203, -23693, 1_070_994_679],
         [ 46340,  46341, 2_147_441_940],
         [-46340, -46341, 2_147_441_940],
+        # fmt: on
     ]
 
-    for i in range(len(sample)):
+    for i, _ in enumerate(sample):
         if NumberTheory.lcm(sample[i][0], sample[i][1]) != sample[i][2]:
             return False
 
@@ -518,6 +528,7 @@ def testLCM() -> bool:
 
 def testIsEven() -> bool:
     sample = [
+        # fmt: off
         [             0, 0],
         [             1, 1],
         [            -1, 1],
@@ -646,9 +657,10 @@ def testIsEven() -> bool:
         [   411_817_058, 0],
         [ 2_147_483_647, 1],
         [-2_147_483_648, 0],
+        # fmt: on
     ]
 
-    for i in range(len(sample)):
+    for i, _ in enumerate(sample):
         if sample[i][1] == 0:
             if not NumberTheory.isEven(sample[i][0]):
                 return False
@@ -660,6 +672,7 @@ def testIsEven() -> bool:
 
 def testIsOdd() -> bool:
     sample = [
+        # fmt: off
         [             0, 0],
         [             1, 1],
         [            -1, 1],
@@ -788,9 +801,10 @@ def testIsOdd() -> bool:
         [   411_817_058, 0],
         [ 2_147_483_647, 1],
         [-2_147_483_648, 0],
+        # fmt: on
     ]
 
-    for i in range(len(sample)):
+    for i, _ in enumerate(sample):
         if sample[i][1] == 0:
             if NumberTheory.isOdd(sample[i][0]):
                 return False
@@ -802,6 +816,7 @@ def testIsOdd() -> bool:
 
 def testIsPrime() -> bool:
     sample = [
+        # fmt: off
         [         0, 1],
         [         1, 1],
         [         2, 2],
@@ -1058,9 +1073,10 @@ def testIsPrime() -> bool:
         [ 3_893_849, 2],
         [ 1_308_913, 4],
         [14_162_880, 4],
+        # fmt: on
     ]
 
-    for i in range(len(sample)):
+    for i, _ in enumerate(sample):
         if sample[i][1] == 1:
             if NumberTheory.isPrime(sample[i][0]):
                 return False
@@ -1075,6 +1091,7 @@ def testIsPrime() -> bool:
 
 def testIsComposite() -> bool:
     sample = [
+        # fmt: off
         [         0, 1],
         [         1, 1],
         [         2, 2],
@@ -1331,9 +1348,10 @@ def testIsComposite() -> bool:
         [ 3_893_849, 2],
         [ 1_308_913, 4],
         [14_162_880, 4],
+        # fmt: on
     ]
 
-    for i in range(len(sample)):
+    for i, _ in enumerate(sample):
         if sample[i][1] == 1:
             if Primality.isComposite(sample[i][0]):
                 return False
@@ -1348,6 +1366,7 @@ def testIsComposite() -> bool:
 
 def testSieveOfPrimes() -> bool:
     sample = [
+        # fmt: off
         [      0,     0],
         [      1,     0],
         [    180,    41],
@@ -1476,11 +1495,12 @@ def testSieveOfPrimes() -> bool:
         [1228187, 94920],
         [ 709431, 57257],
         [1294061, 99610],
+        # fmt: on
     ]
 
     arr = None
 
-    for i in range(len(sample)):
+    for i, _ in enumerate(sample):
         arr = NumberTheory.sieveOfPrimes(sample[i][0])
 
         if len(arr) != sample[i][1]:
@@ -1492,7 +1512,7 @@ def testSieveOfPrimes() -> bool:
 
     return True
 
-if __name__ == "__main__":
+def main() -> None:
 
     TestRunner.parseTest(testIsCoprime())
 
@@ -1513,3 +1533,6 @@ if __name__ == "__main__":
     TestRunner.parseTest(testIsComposite())
 
     TestRunner.parseTest(testSieveOfPrimes())
+
+if __name__ == "__main__":
+    main()

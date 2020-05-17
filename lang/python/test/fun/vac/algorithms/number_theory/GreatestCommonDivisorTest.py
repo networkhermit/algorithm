@@ -3,6 +3,7 @@ from fun.vac.util import TestRunner
 
 def testGreatestCommonDivisor() -> bool:
     sample = [
+        # fmt: off
         [             0,              1,   1],
         [             1,              0,   1],
         [             1,              1,   1],
@@ -131,25 +132,29 @@ def testGreatestCommonDivisor() -> bool:
         [-1_069_835_847,  1_308_503_268,   3],
         [ 2_147_483_647, -1_884_119_046,   1],
         [   645_159_694, -2_147_483_647,   1],
+        # fmt: on
     ]
 
-    for i in range(len(sample)):
+    for i, _ in enumerate(sample):
         if GreatestCommonDivisor.iterativeBinaryGCD(sample[i][0], sample[i][1]) != sample[i][2]:
             return False
 
-    for i in range(len(sample)):
+    for i, _ in enumerate(sample):
         if GreatestCommonDivisor.recursiveBinaryGCD(sample[i][0], sample[i][1]) != sample[i][2]:
             return False
 
-    for i in range(len(sample)):
+    for i, _ in enumerate(sample):
         if GreatestCommonDivisor.iterativeEuclidean(sample[i][0], sample[i][1]) != sample[i][2]:
             return False
 
-    for i in range(len(sample)):
+    for i, _ in enumerate(sample):
         if GreatestCommonDivisor.recursiveEuclidean(sample[i][0], sample[i][1]) != sample[i][2]:
             return False
 
     return True
 
-if __name__ == "__main__":
+def main() -> None:
     TestRunner.parseTest(testGreatestCommonDivisor())
+
+if __name__ == "__main__":
+    main()

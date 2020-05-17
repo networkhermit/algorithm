@@ -1,6 +1,5 @@
 import sys
 
-global TestRunnerItemIndex
 TestRunnerItemIndex = 0
 
 def parseTest(ok: bool) -> None:

@@ -20,5 +20,8 @@ def testBinarySearch() -> bool:
 
     return True
 
-if __name__ == "__main__":
+def main() -> None:
     TestRunner.parseTest(testBinarySearch())
+
+if __name__ == "__main__":
+    main()

@@ -1,7 +1,7 @@
 from fun.vac.data_structures.DoublyLinkedList import DoublyLinkedList
 from fun.vac.util import TestRunner
 
-def testLinkedList()-> bool:
+def testLinkedList() -> bool:
     size = 8192
 
     list = DoublyLinkedList()
@@ -48,5 +48,8 @@ def testLinkedList()-> bool:
 
     return list.isEmpty()
 
-if __name__ == "__main__":
+def main() -> None:
     TestRunner.parseTest(testLinkedList())
+
+if __name__ == "__main__":
+    main()

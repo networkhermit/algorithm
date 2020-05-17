@@ -1,4 +1,4 @@
-from fun.vac.algorithms.sorting import InsertionSort
+from fun.vac.algorithms.sorting import QuickSort
 from fun.vac.util import RandomFactory
 
 def inspect(arr: list) -> None:
@@ -40,4 +40,4 @@ def shuffle(arr: list) -> None:
         arr[i], arr[k] = arr[k], arr[i]
 
 def sort(arr: list) -> None:
-    InsertionSort.sort(arr)
+    QuickSort.sort(arr)

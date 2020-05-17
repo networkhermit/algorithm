@@ -6,7 +6,7 @@
 #include <iostream>
 #include <vector>
 
-#include <fun/vac/algorithms/sorting/InsertionSort.hpp>
+#include <fun/vac/algorithms/sorting/QuickSort.hpp>
 #include <fun/vac/util/RandomFactory.hpp>
 
 namespace Sequences {
@@ -65,7 +65,7 @@ namespace Sequences {
     }
 
     void sort(std::vector<int> &arr) {
-        InsertionSort::sort(arr);
+        QuickSort::sort(arr);
     }
 }
 

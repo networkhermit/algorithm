@@ -3,6 +3,7 @@ from fun.vac.util import TestRunner
 
 def testCoprimality() -> bool:
     sample = [
+        # fmt: off
         [             0,              1, 1],
         [             1,              0, 1],
         [             1,              1, 1],
@@ -131,9 +132,10 @@ def testCoprimality() -> bool:
         [ 1_241_208_470,   -647_438_045, 0],
         [ 2_147_483_647,   -561_158_902, 1],
         [   761_395_308, -2_147_483_647, 1],
+        # fmt: on
     ]
 
-    for i in range(len(sample)):
+    for i, _ in enumerate(sample):
         if sample[i][2] == 0:
             if Coprimality.reduceToBinaryGCD(sample[i][0], sample[i][1]):
                 return False
@@ -141,7 +143,7 @@ def testCoprimality() -> bool:
             if not Coprimality.reduceToBinaryGCD(sample[i][0], sample[i][1]):
                 return False
 
-    for i in range(len(sample)):
+    for i, _ in enumerate(sample):
         if sample[i][2] == 0:
             if Coprimality.reduceToEuclidean(sample[i][0], sample[i][1]):
                 return False
@@ -151,5 +153,8 @@ def testCoprimality() -> bool:
 
     return True
 
-if __name__ == "__main__":
+def main() -> None:
     TestRunner.parseTest(testCoprimality())
+
+if __name__ == "__main__":
+    main()

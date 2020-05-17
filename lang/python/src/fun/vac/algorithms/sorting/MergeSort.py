@@ -10,7 +10,7 @@ def merge(arr: list, lo: int, mid: int, hi: int) -> None:
 
     sorted = [0] * (hi - lo)
 
-    for i in range(len(sorted)):
+    for i, _ in enumerate(sorted):
         if m != mid and (n == hi or arr[m] < arr[n]):
             sorted[i] = arr[m]
             m += 1

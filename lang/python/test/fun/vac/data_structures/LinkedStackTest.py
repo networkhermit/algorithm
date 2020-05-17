@@ -1,7 +1,7 @@
 from fun.vac.data_structures.LinkedStack import LinkedStack
 from fun.vac.util import TestRunner
 
-def testLinkedStack()-> bool:
+def testLinkedStack() -> bool:
     size = 8192
 
     stack = LinkedStack()
@@ -19,5 +19,8 @@ def testLinkedStack()-> bool:
 
     return stack.isEmpty()
 
-if __name__ == "__main__":
+def main() -> None:
     TestRunner.parseTest(testLinkedStack())
+
+if __name__ == "__main__":
+    main()

@@ -78,7 +78,7 @@ def testSelectionSort() -> bool:
 
     return Sequences.isSorted(arr)
 
-if __name__ == "__main__":
+def main() -> None:
 
     TestRunner.parseTest(testBubbleSort())
 
@@ -89,3 +89,6 @@ if __name__ == "__main__":
     TestRunner.parseTest(testQuickSort())
 
     TestRunner.parseTest(testSelectionSort())
+
+if __name__ == "__main__":
+    main()
