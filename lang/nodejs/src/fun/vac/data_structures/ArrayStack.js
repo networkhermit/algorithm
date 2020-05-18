@@ -2,7 +2,7 @@
 
 exports.ArrayStack = class {
 
-    constructor(physicalSize = 0) {
+    constructor (physicalSize = 0) {
         this.data = null
         this.logicalSize = 0
         this.physicalSize = 64
@@ -13,15 +13,15 @@ exports.ArrayStack = class {
         this.data = new Array(this.physicalSize)
     }
 
-    size() {
+    size () {
         return this.logicalSize
     }
 
-    isEmpty() {
+    isEmpty () {
         return this.logicalSize === 0
     }
 
-    peek() {
+    peek () {
         if (this.logicalSize === 0) {
             throw new Error("[PANIC - NoSuchElement]")
         }
@@ -29,7 +29,7 @@ exports.ArrayStack = class {
         return this.data[this.logicalSize - 1]
     }
 
-    push(element) {
+    push (element) {
         if (this.logicalSize === this.physicalSize) {
             let newCapacity = 64
 
@@ -52,7 +52,7 @@ exports.ArrayStack = class {
         this.logicalSize++
     }
 
-    pop() {
+    pop () {
         if (this.logicalSize === 0) {
             throw new Error("[PANIC - NoSuchElement]")
         }
@@ -62,11 +62,11 @@ exports.ArrayStack = class {
         this.data[this.logicalSize] = null
     }
 
-    capacity() {
+    capacity () {
         return this.physicalSize
     }
 
-    shrink() {
+    shrink () {
         const temp = new Array(this.logicalSize)
 
         for (let i = 0, length = this.logicalSize; i < length; i++) {

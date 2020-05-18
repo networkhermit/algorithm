@@ -1,8 +1,8 @@
 "use strict"
 
-let Node = class {
+const Node = class {
 
-    constructor(element) {
+    constructor (element) {
         this.data = element
         this.next = null
     }
@@ -10,21 +10,21 @@ let Node = class {
 
 exports.LinkedStack = class {
 
-    constructor(physicalSize = 0) {
+    constructor (physicalSize = 0) {
         this.head = null
         this.tail = null
         this.length = 0
     }
 
-    size() {
+    size () {
         return this.length
     }
 
-    isEmpty() {
+    isEmpty () {
         return this.length === 0
     }
 
-    peek() {
+    peek () {
         if (this.length === 0) {
             throw new Error("[PANIC - NoSuchElement]")
         }
@@ -32,7 +32,7 @@ exports.LinkedStack = class {
         return this.tail.data
     }
 
-    push(element) {
+    push (element) {
         let node = new Node(element)
 
         if (this.length === 0) {
@@ -46,7 +46,7 @@ exports.LinkedStack = class {
         this.length++
     }
 
-    pop() {
+    pop () {
         if (this.length === 0) {
             throw new Error("[PANIC - NoSuchElement]")
         }

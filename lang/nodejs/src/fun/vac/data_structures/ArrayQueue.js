@@ -2,7 +2,7 @@
 
 exports.ArrayQueue = class {
 
-    constructor(physicalSize = 0) {
+    constructor (physicalSize = 0) {
         this.data = null
         this.front = 0
         this.logicalSize = 0
@@ -14,15 +14,15 @@ exports.ArrayQueue = class {
         this.data = new Array(this.physicalSize)
     }
 
-    size() {
+    size () {
         return this.logicalSize
     }
 
-    isEmpty() {
+    isEmpty () {
         return this.logicalSize === 0
     }
 
-    peek() {
+    peek () {
         if (this.logicalSize === 0) {
             throw new Error("[PANIC - NoSuchElement]")
         }
@@ -30,7 +30,7 @@ exports.ArrayQueue = class {
         return this.data[this.front]
     }
 
-    enqueue(element) {
+    enqueue (element) {
         if (this.logicalSize === this.physicalSize) {
             let newCapacity = 64
 
@@ -60,7 +60,7 @@ exports.ArrayQueue = class {
         this.logicalSize++
     }
 
-    dequeue() {
+    dequeue () {
         if (this.logicalSize === 0) {
             throw new Error("[PANIC - NoSuchElement]")
         }
@@ -72,11 +72,11 @@ exports.ArrayQueue = class {
         this.logicalSize--
     }
 
-    capacity() {
+    capacity () {
         return this.physicalSize
     }
 
-    shrink() {
+    shrink () {
         const temp = new Array(this.logicalSize)
 
         let cursor = this.front

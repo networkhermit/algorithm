@@ -237,9 +237,8 @@ run_style_check () {
         for instance in $(find -L "${ROOT}" -type f -name "*.js" | sort); do
             fname=$(basename "${instance}" .js)
 
-            standard "${instance}" || true
-            xo "${instance}" || true
-            jshint "${instance}" || true
+            standard --verbose "${instance#${PWD}/}" || true
+            xo --no-semicolon --space=4 "${instance}" || true
 
             printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
         done
@@ -264,9 +263,6 @@ run_style_check () {
             pylint --exit-zero --persistent no "${instance}"
             pyflakes3 "${instance}" || true
             MYPYPATH=${PYTHONPATH} mypy --cache-dir /dev/null "${instance}" || true
-            pyre --preserve-pythonpath --source-directory "$(dirname "${instance}")" check
-            rm --force --recursive .pyre
-            PYTHONDONTWRITEBYTECODE=1 pytest-3 "${instance}" || true
             bandit "${instance}" || true
 
             printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"

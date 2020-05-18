@@ -2,7 +2,7 @@
 
 exports.ArrayList = class {
 
-    constructor(physicalSize = 0) {
+    constructor (physicalSize = 0) {
         this.data = null
         this.logicalSize = 0
         this.physicalSize = 64
@@ -13,15 +13,15 @@ exports.ArrayList = class {
         this.data = new Array(this.physicalSize)
     }
 
-    size() {
+    size () {
         return this.logicalSize
     }
 
-    isEmpty() {
+    isEmpty () {
         return this.logicalSize === 0
     }
 
-    get(index) {
+    get (index) {
         if (index < 0 || index >= this.logicalSize) {
             throw new Error("[PANIC - IndexOutOfBounds]")
         }
@@ -29,7 +29,7 @@ exports.ArrayList = class {
         return this.data[index]
     }
 
-    set(index, element) {
+    set (index, element) {
         if (index < 0 || index >= this.logicalSize) {
             throw new Error("[PANIC - IndexOutOfBounds]")
         }
@@ -37,7 +37,7 @@ exports.ArrayList = class {
         this.data[index] = element
     }
 
-    insert(index, element) {
+    insert (index, element) {
         if (index < 0 || index > this.logicalSize) {
             throw new Error("[PANIC - IndexOutOfBounds]")
         }
@@ -68,7 +68,7 @@ exports.ArrayList = class {
         this.logicalSize++
     }
 
-    remove(index) {
+    remove (index) {
         if (index < 0 || index >= this.logicalSize) {
             throw new Error("[PANIC - IndexOutOfBounds]")
         }
@@ -82,35 +82,35 @@ exports.ArrayList = class {
         this.data[this.logicalSize] = null
     }
 
-    front() {
+    front () {
         return this.get(0)
     }
 
-    back() {
+    back () {
         return this.get(this.logicalSize - 1)
     }
 
-    prepend(element) {
+    prepend (element) {
         this.insert(0, element)
     }
 
-    append(element) {
+    append (element) {
         this.insert(this.logicalSize, element)
     }
 
-    poll() {
+    poll () {
         this.remove(0)
     }
 
-    eject() {
+    eject () {
         this.remove(this.logicalSize - 1)
     }
 
-    capacity() {
+    capacity () {
         return this.physicalSize
     }
 
-    shrink() {
+    shrink () {
         const temp = new Array(this.logicalSize)
 
         for (let i = 0, length = this.logicalSize; i < length; i++) {

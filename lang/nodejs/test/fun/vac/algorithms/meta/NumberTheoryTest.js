@@ -829,7 +829,7 @@ const testIsOdd = () => {
     return true
 }
 
-const testIsPrime= () => {
+const testIsPrime = () => {
     let sample = [
         [       0, 1],
         [       1, 1],
@@ -1111,7 +1111,7 @@ const testIsPrime= () => {
     return true
 }
 
-const testIsComposite= () => {
+const testIsComposite = () => {
     let sample = [
         [       0, 1],
         [       1, 1],

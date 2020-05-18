@@ -1,8 +1,8 @@
 "use strict"
 
-let Node = class {
+const Node = class {
 
-    constructor(element) {
+    constructor (element) {
         this.data = element
         this.next = null
     }
@@ -10,21 +10,21 @@ let Node = class {
 
 exports.LinkedList = class {
 
-    constructor(physicalSize = 0) {
+    constructor (physicalSize = 0) {
         this.head = null
         this.tail = null
         this.length = 0
     }
 
-    size() {
+    size () {
         return this.length
     }
 
-    isEmpty() {
+    isEmpty () {
         return this.length === 0
     }
 
-    get(index) {
+    get (index) {
         if (index < 0 || index >= this.length) {
             throw new Error("[PANIC - IndexOutOfBounds]")
         }
@@ -43,7 +43,7 @@ exports.LinkedList = class {
         return cursor.data
     }
 
-    set(index, element) {
+    set (index, element) {
         if (index < 0 || index >= this.length) {
             throw new Error("[PANIC - IndexOutOfBounds]")
         }
@@ -62,7 +62,7 @@ exports.LinkedList = class {
         cursor.data = element
     }
 
-    insert(index, element) {
+    insert (index, element) {
         if (index < 0 || index > this.length) {
             throw new Error("[PANIC - IndexOutOfBounds]")
         }
@@ -94,7 +94,7 @@ exports.LinkedList = class {
         this.length++
     }
 
-    remove(index) {
+    remove (index) {
         if (index < 0 || index >= this.length) {
             throw new Error("[PANIC - IndexOutOfBounds]")
         }
@@ -126,27 +126,27 @@ exports.LinkedList = class {
         this.length--
     }
 
-    front() {
+    front () {
         return this.get(0)
     }
 
-    back() {
+    back () {
         return this.get(this.length - 1)
     }
 
-    prepend(element) {
+    prepend (element) {
         this.insert(0, element)
     }
 
-    append(element) {
+    append (element) {
         this.insert(this.length, element)
     }
 
-    poll() {
+    poll () {
         this.remove(0)
     }
 
-    eject() {
+    eject () {
         this.remove(this.length - 1)
     }
 }
