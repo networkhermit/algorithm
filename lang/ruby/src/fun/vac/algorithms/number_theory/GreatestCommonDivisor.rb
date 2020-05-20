@@ -22,12 +22,10 @@ module GreatestCommonDivisor
             end
 
             if (m & 1) == 0
+                m >>= 1
                 if (n & 1) == 0
-                    m >>= 1
                     n >>= 1
                     shift += 1
-                else
-                    m >>= 1
                 end
             else
                 if (n & 1) == 0

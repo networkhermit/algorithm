@@ -96,18 +96,6 @@ register_lint () {
     shift 3
 
     case "${item}" in
-    incdec)
-        if grep -q '\s*[+-]=\s*1\>' "${instance}"; then
-            echo '>>>> NOT USING INCDEC OPERATOR <<<<'
-            printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
-        fi
-        ;;
-    semicolon)
-        if grep -q ';$' "${instance}"; then
-            echo '>>>> REDUNDANT SEMICOLON <<<<'
-            printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
-        fi
-        ;;
     whitespace)
         if grep -q '\s$' "${instance}"; then
             echo '>>>> TRAILING WHITESPACE <<<<'
@@ -249,8 +237,9 @@ run_style_check () {
         for instance in $(find -L "${ROOT}" -type f -name "*.php" | sort); do
             fname=$(basename "${instance}" .php)
 
-            register_lint "${instance}" "${fname}" incdec
-            register_lint "${instance}" "${fname}" whitespace
+            phpmd --ignore-violations-on-exit "${instance}" ansi cleancode,codesize,controversial,design,naming,unusedcode
+
+            printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
         done
         ;;
     python)
@@ -274,18 +263,9 @@ run_style_check () {
         for instance in $(find -L "${ROOT}" -type f -name "*.rb" | sort); do
             fname=$(basename "${instance}" .rb)
 
-            register_lint "${instance}" "${fname}" semicolon
-            register_lint "${instance}" "${fname}" whitespace
+            rubocop "${instance}" || true
 
-            if grep -q '\<\(els\)\?if\s*(.*)$' "${instance}"; then
-                echo '>>>> REDUNDANT PARENTHESIS <<<<'
-                printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
-            fi
-
-            if grep -q '\<while\s*(.*)$' "${instance}"; then
-                echo '>>>> REDUNDANT PARENTHESIS <<<<'
-                printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
-            fi
+            printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
         done
         ;;
     *)

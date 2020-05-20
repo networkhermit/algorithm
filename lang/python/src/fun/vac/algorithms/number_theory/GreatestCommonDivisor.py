@@ -15,12 +15,10 @@ def iterativeBinaryGCD(m: int, n: int) -> int:
             return m << shift
 
         if (m & 1) == 0:
+            m >>= 1
             if (n & 1) == 0:
-                m >>= 1
                 n >>= 1
                 shift += 1
-            else:
-                m >>= 1
         else:
             if (n & 1) == 0:
                 n >>= 1

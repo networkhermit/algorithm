@@ -4,11 +4,7 @@ using namespace std;
 
 void testParseTest() {
     for (int i = 0; i < 10; i++) {
-        if ((i & 1) == 0) {
-            TestRunner::parseTest(false);
-        } else {
-            TestRunner::parseTest(true);
-        }
+        TestRunner::parseTest((i & 1) != 0);
     }
 }
 

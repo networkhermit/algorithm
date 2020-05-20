@@ -22,12 +22,10 @@ func IterativeBinaryGCD(m int64, n int64) int64 {
         }
 
         if (m & 1) == 0 {
+            m >>= 1
             if (n & 1) == 0 {
-                m >>= 1
                 n >>= 1
                 shift++
-            } else {
-                m >>= 1
             }
         } else {
             if (n & 1) == 0 {
