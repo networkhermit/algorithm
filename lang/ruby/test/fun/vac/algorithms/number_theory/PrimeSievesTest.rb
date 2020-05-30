@@ -143,16 +143,16 @@ def testPrimeSieves()
             return false
         end
 
-        for v in arr
+        arr.each do |v|
             unless Primality.isPrime(v)
                 return false
             end
         end
     end
 
-    return true
+    true
 end
 
-if __FILE__ == $0
+if __FILE__ == $PROGRAM_NAME
     TestRunner.parseTest(testPrimeSieves())
 end

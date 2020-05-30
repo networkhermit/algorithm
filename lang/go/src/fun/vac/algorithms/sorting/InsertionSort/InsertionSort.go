@@ -7,13 +7,12 @@ func Sort(arr []int) {
 
     for i, length := 1, len(arr); i < length; i++ {
         target = arr[i]
-        for cursor = i - 1; cursor >= 0; cursor-- {
-            if arr[cursor] > target {
-                arr[cursor + 1] = arr[cursor]
-            } else {
+        for cursor = i; cursor > 0; cursor-- {
+            if arr[cursor - 1] <= target {
                 break
             }
+            arr[cursor] = arr[cursor - 1]
         }
-        arr[cursor + 1] = target
+        arr[cursor] = target
     }
 }

@@ -5,15 +5,14 @@ module InsertionSort
 
         cursor = 0
 
-        for i in 1 ... arr.length
+        (1 ... arr.length).each do |i|
             target = arr[i]
             cursor = i
-            while cursor > 0
-                if arr[cursor - 1] > target
-                    arr[cursor] = arr[cursor - 1]
-                else
+            while cursor.positive?
+                if arr[cursor - 1] <= target
                     break
                 end
+                arr[cursor] = arr[cursor - 1]
                 cursor -= 1
             end
             arr[cursor] = target

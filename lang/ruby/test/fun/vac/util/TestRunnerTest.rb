@@ -1,11 +1,11 @@
 require "fun/vac/util/TestRunner"
 
 def testParseTest()
-    for i in 0 ... 10
+    10.times do |i|
         TestRunner.parseTest((i & 1) != 0)
     end
 end
 
-if __FILE__ == $0
+if __FILE__ == $PROGRAM_NAME
     testParseTest()
 end

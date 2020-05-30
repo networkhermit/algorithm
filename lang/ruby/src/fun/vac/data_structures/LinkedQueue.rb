@@ -23,25 +23,25 @@ module LinkedQueue
 
         public
         def size()
-            return @length
+            @length
         end
 
         def isEmpty()
-            return @length == 0
+            @length.zero?
         end
 
         def peek()
-            if @length == 0
+            if @length.zero?
                 raise "[PANIC - NoSuchElement]"
             end
 
-            return @head.data
+            @head.data
         end
 
         def enqueue(element)
             node = Node.new(element)
 
-            if @length == 0
+            if @length.zero?
                 @head = node
             else
                 @tail.next = node
@@ -53,7 +53,7 @@ module LinkedQueue
         end
 
         def dequeue()
-            if @length == 0
+            if @length.zero?
                 raise "[PANIC - NoSuchElement]"
             end
 

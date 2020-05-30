@@ -23,25 +23,25 @@ module LinkedStack
 
         public
         def size()
-            return @length
+            @length
         end
 
         def isEmpty()
-            return @length == 0
+            @length.zero?
         end
 
         def peek()
-            if @length == 0
+            if @length.zero?
                 raise "[PANIC - NoSuchElement]"
             end
 
-            return @tail.data
+            @tail.data
         end
 
         def push(element)
             node = Node.new(element)
 
-            if @length == 0
+            if @length.zero?
                 @head = node
             else
                 @tail.next = node
@@ -53,7 +53,7 @@ module LinkedStack
         end
 
         def pop()
-            if @length == 0
+            if @length.zero?
                 raise "[PANIC - NoSuchElement]"
             end
 
@@ -64,7 +64,7 @@ module LinkedStack
                 @tail = nil
             else
                 cursor = @head
-                (0 ... @length - 2).each do |i|
+                (0 ... @length - 2).each do
                     cursor = cursor.next
                 end
                 cursor.next = nil

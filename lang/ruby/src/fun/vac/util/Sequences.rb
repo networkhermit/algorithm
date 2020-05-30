@@ -6,36 +6,36 @@ module Sequences
     def self.inspect(arr)
         puts("[")
         arr.each_index do |i|
-            print("\t#%04X  -->  %d\n" % [i, arr[i]])
+            print(format("\t#%04X  -->  %d\n", i, arr[i]))
         end
         puts("]")
     end
 
     def self.isSorted(arr)
-        for i in 1 ... arr.length
+        (1 ... arr.length).each do |i|
             if arr[i] < arr[i - 1]
                 return false
             end
         end
 
-        return true
+        true
     end
 
     def self.parityChecksum(arr)
         checksum = 0
 
-        for v in arr
+        arr.each do |v|
             checksum ^= v
         end
 
-        return checksum
+        checksum
     end
 
     def self.reverse(arr)
         k = 0
 
         length = arr.length
-        for i in 0 ... arr.length >> 1
+        (0 ... arr.length >> 1).each do |i|
             k = length - i - 1
             arr[i], arr[k] = arr[k], arr[i]
         end
@@ -46,7 +46,7 @@ module Sequences
         length = arr.length
 
         RandomFactory.seed()
-        for i in 0 ... arr.length
+        (0 ... arr.length).each do |i|
             k = RandomFactory.integerN(i, length)
             arr[i], arr[k] = arr[k], arr[i]
         end

@@ -1,16 +1,16 @@
 module SelectionSort
 
     def self.sort(arr)
-        if arr.length == 0
+        if arr.empty?
             return
         end
 
         iMin = 0
 
         bound = arr.length - 1
-        for i in 0 ... bound
+        (0 ... bound).each do |i|
             iMin = i
-            for j in i + 1 .. bound
+            (i + 1 .. bound).each do |j|
                 if arr[j] < arr[iMin]
                     iMin = j
                 end

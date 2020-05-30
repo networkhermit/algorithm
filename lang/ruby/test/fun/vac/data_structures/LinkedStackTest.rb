@@ -6,7 +6,7 @@ def testLinkedStack()
 
     stack = LinkedStack::LinkedStack.new()
 
-    for i in 1 .. size
+    (1 .. size).each do |i|
         stack.push(i)
     end
 
@@ -15,7 +15,7 @@ def testLinkedStack()
     end
 
     i = size
-    while i > 0
+    while i.positive?
         if stack.peek() != i
             return false
         end
@@ -23,9 +23,9 @@ def testLinkedStack()
         i -= 1
     end
 
-    return stack.isEmpty()
+    stack.isEmpty()
 end
 
-if __FILE__ == $0
+if __FILE__ == $PROGRAM_NAME
     TestRunner.parseTest(testLinkedStack())
 end

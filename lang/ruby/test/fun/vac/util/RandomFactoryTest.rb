@@ -5,7 +5,7 @@ def testIntegerN()
     RandomFactory.seed()
 
     value = 0
-    (0 ... 8192).each do |i|
+    8192.times do
         if RandomFactory.integerN(0, 0) != 0
             return false
         end
@@ -15,7 +15,7 @@ def testIntegerN()
         end
 
         value = RandomFactory.integerN(0, 1)
-        if value < 0 || value > 1
+        if value.negative? || value > 1
             return false
         end
 
@@ -28,34 +28,34 @@ def testIntegerN()
         end
     end
 
-    return true
+    true
 end
 
 def testGenerateEven()
     RandomFactory.seed()
 
-    (0 ... 8192).each do |i|
+    8192.times do
         if (RandomFactory.generateEven() & 1) != 0
             return false
         end
     end
 
-    return true
+    true
 end
 
 def testGenerateOdd()
     RandomFactory.seed()
 
-    (0 ... 8192).each do |i|
-        if (RandomFactory.generateOdd() & 1) == 0
+    8192.times do
+        if (RandomFactory.generateOdd() & 1).zero?
             return false
         end
     end
 
-    return true
+    true
 end
 
-if __FILE__ == $0
+if __FILE__ == $PROGRAM_NAME
 
     TestRunner.parseTest(testIntegerN())
 

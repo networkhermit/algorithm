@@ -5,11 +5,10 @@ def sort(arr: list) -> None:
 
     for i in range(1, len(arr)):
         target = arr[i]
-        cursor = i
-        while cursor > 0:
-            if arr[cursor - 1] > target:
-                arr[cursor] = arr[cursor - 1]
-            else:
+        for cursor in range(i, 0, -1):
+            if arr[cursor - 1] <= target:
                 break
-            cursor -= 1
+            arr[cursor] = arr[cursor - 1]
+        else:
+            cursor = 0
         arr[cursor] = target

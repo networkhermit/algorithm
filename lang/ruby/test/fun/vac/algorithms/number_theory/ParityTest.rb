@@ -134,7 +134,7 @@ def testParity()
     ]
 
     sample.each_index do |i|
-        if sample[i][1] == 0
+        if sample[i][1].zero?
             unless Parity.moduloIsEven(sample[i][0])
                 return false
             end
@@ -146,7 +146,7 @@ def testParity()
     end
 
     sample.each_index do |i|
-        if sample[i][1] == 0
+        if sample[i][1].zero?
             unless Parity.bitwiseIsEven(sample[i][0])
                 return false
             end
@@ -158,7 +158,7 @@ def testParity()
     end
 
     sample.each_index do |i|
-        if sample[i][1] == 0
+        if sample[i][1].zero?
             if Parity.moduloIsOdd(sample[i][0])
                 return false
             end
@@ -170,7 +170,7 @@ def testParity()
     end
 
     sample.each_index do |i|
-        if sample[i][1] == 0
+        if sample[i][1].zero?
             if Parity.bitwiseIsOdd(sample[i][0])
                 return false
             end
@@ -181,9 +181,9 @@ def testParity()
         end
     end
 
-    return true
+    true
 end
 
-if __FILE__ == $0
+if __FILE__ == $PROGRAM_NAME
     TestRunner.parseTest(testParity())
 end

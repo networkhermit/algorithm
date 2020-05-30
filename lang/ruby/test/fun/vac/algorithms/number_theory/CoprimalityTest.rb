@@ -134,7 +134,7 @@ def testCoprimality()
     ]
 
     sample.each_index do |i|
-        if sample[i][2] == 0
+        if sample[i][2].zero?
             if Coprimality.reduceToBinaryGCD(sample[i][0], sample[i][1])
                 return false
             end
@@ -146,7 +146,7 @@ def testCoprimality()
     end
 
     sample.each_index do |i|
-        if sample[i][2] == 0
+        if sample[i][2].zero?
             if Coprimality.reduceToEuclidean(sample[i][0], sample[i][1])
                 return false
             end
@@ -157,9 +157,9 @@ def testCoprimality()
         end
     end
 
-    return true
+    true
 end
 
-if __FILE__ == $0
+if __FILE__ == $PROGRAM_NAME
     TestRunner.parseTest(testCoprimality())
 end

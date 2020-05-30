@@ -13,7 +13,7 @@ module MergeSort
 
         sorted = Array.new(hi - lo)
 
-        for i in 0 ... sorted.length
+        (0 ... sorted.length).each do |i|
             if m != mid && (n == hi || arr[m] < arr[n])
                 sorted[i] = arr[m]
                 m += 1
@@ -24,7 +24,7 @@ module MergeSort
         end
 
         cursor = 0
-        for i in lo ... hi
+        (lo ... hi).each do |i|
             arr[i] = sorted[cursor]
             cursor += 1
         end

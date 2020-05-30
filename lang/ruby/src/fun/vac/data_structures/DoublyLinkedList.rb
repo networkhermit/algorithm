@@ -25,15 +25,15 @@ module DoublyLinkedList
 
         public
         def size()
-            return @length
+            @length
         end
 
         def isEmpty()
-            return @length == 0
+            @length.zero?
         end
 
         def get(index)
-            if index < 0 || index >= @length
+            if index.negative? || index >= @length
                 raise "[PANIC - IndexOutOfBounds]"
             end
 
@@ -41,7 +41,7 @@ module DoublyLinkedList
 
             if index < @length >> 1
                 cursor = @head
-                (0 ... index).each do |i|
+                (0 ... index).each do
                     cursor = cursor.next
                 end
             else
@@ -53,11 +53,11 @@ module DoublyLinkedList
                 end
             end
 
-            return cursor.data
+            cursor.data
         end
 
         def set(index, element)
-            if index < 0 || index >= @length
+            if index.negative? || index >= @length
                 raise "[PANIC - IndexOutOfBounds]"
             end
 
@@ -65,7 +65,7 @@ module DoublyLinkedList
 
             if index < @length >> 1
                 cursor = @head
-                (0 ... index).each do |i|
+                (0 ... index).each do
                     cursor = cursor.next
                 end
             else
@@ -81,7 +81,7 @@ module DoublyLinkedList
         end
 
         def insert(index, element)
-            if index < 0 || index > @length
+            if index.negative? || index > @length
                 raise "[PANIC - IndexOutOfBounds]"
             end
 
@@ -104,7 +104,7 @@ module DoublyLinkedList
                 cursor = nil
                 if index < @length >> 1
                     cursor = @head
-                    (0 ... index).each do |i|
+                    (0 ... index).each do
                         cursor = cursor.next
                     end
                 else
@@ -125,7 +125,7 @@ module DoublyLinkedList
         end
 
         def remove(index)
-            if index < 0 || index >= @length
+            if index.negative? || index >= @length
                 raise "[PANIC - IndexOutOfBounds]"
             end
 
@@ -148,7 +148,7 @@ module DoublyLinkedList
             else
                 if index < @length >> 1
                     target = @head
-                    (0 ... index).each do |i|
+                    (0 ... index).each do
                         target = target.next
                     end
                 else
@@ -169,11 +169,11 @@ module DoublyLinkedList
         end
 
         def front()
-            return get(0)
+            get(0)
         end
 
         def back()
-            return get(@length - 1)
+            get(@length - 1)
         end
 
         def prepend(element)

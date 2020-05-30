@@ -6,7 +6,7 @@ def testArrayQueue()
 
     queue = ArrayQueue::ArrayQueue.new(0)
 
-    for i in 1 .. size
+    (1 .. size).each do |i|
         queue.enqueue(i)
     end
 
@@ -20,7 +20,7 @@ def testArrayQueue()
         return false
     end
 
-    for i in 1 .. size
+    (1 .. size).each do |i|
         if queue.peek() != i
             return false
         end
@@ -33,9 +33,9 @@ def testArrayQueue()
         return false
     end
 
-    return queue.capacity() == 0
+    queue.capacity().zero?
 end
 
-if __FILE__ == $0
+if __FILE__ == $PROGRAM_NAME
     TestRunner.parseTest(testArrayQueue())
 end

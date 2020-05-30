@@ -19,19 +19,19 @@ module ArrayQueue
 
         public
         def size()
-            return @logicalSize
+            @logicalSize
         end
 
         def isEmpty()
-            return @logicalSize == 0
+            @logicalSize.zero?
         end
 
         def peek()
-            if @logicalSize == 0
+            if @logicalSize.zero?
                 raise "[PANIC - NoSuchElement]"
             end
 
-            return @data[@front]
+            @data[@front]
         end
 
         def enqueue(element)
@@ -46,7 +46,7 @@ module ArrayQueue
 
                 cursor = @front
 
-                for i in 0 ... @logicalSize
+                (0 ... @logicalSize).each do |i|
                     if cursor == @physicalSize
                         cursor = 0
                     end
@@ -65,7 +65,7 @@ module ArrayQueue
         end
 
         def dequeue()
-            if @logicalSize == 0
+            if @logicalSize.zero?
                 raise "[PANIC - NoSuchElement]"
             end
 
@@ -77,7 +77,7 @@ module ArrayQueue
         end
 
         def capacity()
-            return @physicalSize
+            @physicalSize
         end
 
         def shrink()
@@ -85,7 +85,7 @@ module ArrayQueue
 
             cursor = @front
 
-            for i in 0 ... @logicalSize
+            (0 ... @logicalSize).each do |i|
                 if cursor == @physicalSize
                     cursor = 0
                 end

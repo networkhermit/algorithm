@@ -22,35 +22,35 @@ module SinglyLinkedList
 
         public
         def size()
-            return @length
+            @length
         end
 
         def isEmpty()
-            return @length == 0
+            @length.zero?
         end
 
         def get(index)
-            if index < 0 || index >= @length
+            if index.negative? || index >= @length
                 raise "[PANIC - IndexOutOfBounds]"
             end
 
             cursor = @head
 
-            (0 ... index).each do |i|
+            (0 ... index).each do
                 cursor = cursor.next
             end
 
-            return cursor.data
+            cursor.data
         end
 
         def set(index, element)
-            if index < 0 || index >= @length
+            if index.negative? || index >= @length
                 raise "[PANIC - IndexOutOfBounds]"
             end
 
             cursor = @head
 
-            (0 ... index).each do |i|
+            (0 ... index).each do
                 cursor = cursor.next
             end
 
@@ -58,20 +58,20 @@ module SinglyLinkedList
         end
 
         def insert(index, element)
-            if index < 0 || index > @length
+            if index.negative? || index > @length
                 raise "[PANIC - IndexOutOfBounds]"
             end
 
             node = Node.new(element)
 
-            if index == 0
+            if index.zero?
                 if @length != 0
                     node.next = @head
                 end
                 @head = node
             else
                 cursor = @head
-                (0 ... index - 1).each do |i|
+                (0 ... index - 1).each do
                     cursor = cursor.next
                 end
                 node.next = cursor.next
@@ -82,13 +82,13 @@ module SinglyLinkedList
         end
 
         def remove(index)
-            if index < 0 || index >= @length
+            if index.negative? || index >= @length
                 raise "[PANIC - IndexOutOfBounds]"
             end
 
             target = nil
 
-            if index == 0
+            if index.zero?
                 target = @head
                 if @length == 1
                     @head = nil
@@ -97,7 +97,7 @@ module SinglyLinkedList
                 end
             else
                 cursor = @head
-                (0 ... index - 1).each do |i|
+                (0 ... index - 1).each do
                     cursor = cursor.next
                 end
                 target = cursor.next
@@ -110,11 +110,11 @@ module SinglyLinkedList
         end
 
         def front()
-            return get(0)
+            get(0)
         end
 
         def back()
-            return get(@length - 1)
+            get(@length - 1)
         end
 
         def prepend(element)

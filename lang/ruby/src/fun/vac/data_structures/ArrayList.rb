@@ -18,23 +18,23 @@ module ArrayList
 
         public
         def size()
-            return @logicalSize
+            @logicalSize
         end
 
         def isEmpty()
-            return @logicalSize == 0
+            @logicalSize.zero?
         end
 
         def get(index)
-            if index < 0 || index >= @logicalSize
+            if index.negative? || index >= @logicalSize
                 raise "[PANIC - IndexOutOfBounds]"
             end
 
-            return @data[index]
+            @data[index]
         end
 
         def set(index, element)
-            if index < 0 || index >= @logicalSize
+            if index.negative? || index >= @logicalSize
                 raise "[PANIC - IndexOutOfBounds]"
             end
 
@@ -42,7 +42,7 @@ module ArrayList
         end
 
         def insert(index, element)
-            if index < 0 || index > @logicalSize
+            if index.negative? || index > @logicalSize
                 raise "[PANIC - IndexOutOfBounds]"
             end
 
@@ -55,7 +55,7 @@ module ArrayList
 
                 temp = Array.new(newCapacity)
 
-                for i in 0 ... @logicalSize
+                (0 ... @logicalSize).each do |i|
                     temp[i] = @data[i]
                 end
 
@@ -75,11 +75,11 @@ module ArrayList
         end
 
         def remove(index)
-            if index < 0 || index >= @logicalSize
+            if index.negative? || index >= @logicalSize
                 raise "[PANIC - IndexOutOfBounds]"
             end
 
-            for i in index + 1 ... @logicalSize
+            (index + 1 ... @logicalSize).each do |i|
                 @data[i - 1] = @data[i]
             end
 
@@ -89,11 +89,11 @@ module ArrayList
         end
 
         def front()
-            return get(0)
+            get(0)
         end
 
         def back()
-            return get(@logicalSize - 1)
+            get(@logicalSize - 1)
         end
 
         def prepend(element)
@@ -113,13 +113,13 @@ module ArrayList
         end
 
         def capacity()
-            return @physicalSize
+            @physicalSize
         end
 
         def shrink()
             temp = Array.new(@logicalSize)
 
-            for i in 0 ... @logicalSize
+            (0 ... @logicalSize).each do |i|
                 temp[i] = @data[i]
             end
 

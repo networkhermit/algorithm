@@ -18,19 +18,19 @@ module ArrayStack
 
         public
         def size()
-            return @logicalSize
+            @logicalSize
         end
 
         def isEmpty()
-            return @logicalSize == 0
+            @logicalSize.zero?
         end
 
         def peek()
-            if @logicalSize == 0
+            if @logicalSize.zero?
                 raise "[PANIC - NoSuchElement]"
             end
 
-            return @data[@logicalSize - 1]
+            @data[@logicalSize - 1]
         end
 
         def push(element)
@@ -43,7 +43,7 @@ module ArrayStack
 
                 temp = Array.new(newCapacity)
 
-                for i in 0 ... @logicalSize
+                (0 ... @logicalSize).each do |i|
                     temp[i] = @data[i]
                 end
 
@@ -57,7 +57,7 @@ module ArrayStack
         end
 
         def pop()
-            if @logicalSize == 0
+            if @logicalSize.zero?
                 raise "[PANIC - NoSuchElement]"
             end
 
@@ -67,13 +67,13 @@ module ArrayStack
         end
 
         def capacity()
-            return @physicalSize
+            @physicalSize
         end
 
         def shrink()
             temp = Array.new(@logicalSize)
 
-            for i in 0 ... @logicalSize
+            (0 ... @logicalSize).each do |i|
                 temp[i] = @data[i]
             end
 

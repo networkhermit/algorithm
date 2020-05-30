@@ -3,30 +3,30 @@ require "fun/vac/algorithms/number_theory/GreatestCommonDivisor"
 module LeastCommonMultiple
 
     def self.reduceToBinaryGCD(m, n)
-        if m < 0
+        if m.negative?
             m = -m
         end
-        if n < 0
+        if n.negative?
             n = -n
         end
 
-        if m == 0 || n == 0
+        if m.zero? || n.zero?
             return 0
         end
-        return m / GreatestCommonDivisor.iterativeBinaryGCD(m, n) * n
+        m / GreatestCommonDivisor.iterativeBinaryGCD(m, n) * n
     end
 
     def self.reduceToEuclidean(m, n)
-        if m < 0
+        if m.negative?
             m = -m
         end
-        if n < 0
+        if n.negative?
             n = -n
         end
 
-        if m == 0 || n == 0
+        if m.zero? || n.zero?
             return 0
         end
-        return m / GreatestCommonDivisor.iterativeEuclidean(m, n) * n
+        m / GreatestCommonDivisor.iterativeEuclidean(m, n) * n
     end
 end

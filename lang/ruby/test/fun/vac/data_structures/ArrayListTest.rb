@@ -6,7 +6,7 @@ def testArrayList()
 
     list = ArrayList::ArrayList.new(0)
 
-    for i in 1 .. size
+    (1 .. size).each do |i|
         list.append(i)
     end
 
@@ -20,17 +20,17 @@ def testArrayList()
         return false
     end
 
-    for i in 0 ... size
+    (0 ... size).each do |i|
         if list.get(i) != i + 1
             return false
         end
     end
 
-    for i in 0 ... size
+    (0 ... size).each do |i|
         list.set(i, size - i)
     end
 
-    for i in 0 ... size
+    (0 ... size).each do |i|
         if list.get(i) != size - i
             return false
         end
@@ -51,7 +51,7 @@ def testArrayList()
         i, j = i + 1, j - 1
     end
 
-    for i in 0 ... size
+    (0 ... size).each do |i|
         if list.get(i) != i + 1
             return false
         end
@@ -72,9 +72,9 @@ def testArrayList()
         return false
     end
 
-    return list.capacity() == 0
+    list.capacity().zero?
 end
 
-if __FILE__ == $0
+if __FILE__ == $PROGRAM_NAME
     TestRunner.parseTest(testArrayList())
 end

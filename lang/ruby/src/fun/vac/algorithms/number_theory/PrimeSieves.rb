@@ -41,6 +41,6 @@ module PrimeSieves
             i += 2
         end
 
-        return primes
+        primes
     end
 end

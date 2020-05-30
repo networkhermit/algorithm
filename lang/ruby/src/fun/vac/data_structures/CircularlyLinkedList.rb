@@ -22,38 +22,38 @@ module CircularlyLinkedList
 
         public
         def size()
-            return @length
+            @length
         end
 
         def isEmpty()
-            return @length == 0
+            @length.zero?
         end
 
         def get(index)
-            if index < 0 || index >= @length
+            if index.negative? || index >= @length
                 raise "[PANIC - IndexOutOfBounds]"
             end
 
             cursor = @tail
 
             if index != @length - 1
-                (0 .. index).each do |i|
+                (0 .. index).each do
                     cursor = cursor.next
                 end
             end
 
-            return cursor.data
+            cursor.data
         end
 
         def set(index, element)
-            if index < 0 || index >= @length
+            if index.negative? || index >= @length
                 raise "[PANIC - IndexOutOfBounds]"
             end
 
             cursor = @tail
 
             if index != @length - 1
-                (0 .. index).each do |i|
+                (0 .. index).each do
                     cursor = cursor.next
                 end
             end
@@ -62,7 +62,7 @@ module CircularlyLinkedList
         end
 
         def insert(index, element)
-            if index < 0 || index > @length
+            if index.negative? || index > @length
                 raise "[PANIC - IndexOutOfBounds]"
             end
 
@@ -70,7 +70,7 @@ module CircularlyLinkedList
 
             case index
             when 0
-                if @length == 0
+                if @length.zero?
                     node.next = node
                     @tail = node
                 else
@@ -83,7 +83,7 @@ module CircularlyLinkedList
                 @tail = node
             else
                 cursor = @tail
-                (0 .. index - 1).each do |i|
+                (0 .. index - 1).each do
                     cursor = cursor.next
                 end
                 node.next = cursor.next
@@ -94,13 +94,13 @@ module CircularlyLinkedList
         end
 
         def remove(index)
-            if index < 0 || index >= @length
+            if index.negative? || index >= @length
                 raise "[PANIC - IndexOutOfBounds]"
             end
 
             target = nil
 
-            if index == 0
+            if index.zero?
                 target = @tail.next
                 if @length == 1
                     @tail = nil
@@ -109,7 +109,7 @@ module CircularlyLinkedList
                 end
             else
                 cursor = @tail
-                (0 .. index - 1).each do |i|
+                (0 .. index - 1).each do
                     cursor = cursor.next
                 end
                 target = cursor.next
@@ -125,11 +125,11 @@ module CircularlyLinkedList
         end
 
         def front()
-            return get(0)
+            get(0)
         end
 
         def back()
-            return get(@length - 1)
+            get(@length - 1)
         end
 
         def prepend(element)

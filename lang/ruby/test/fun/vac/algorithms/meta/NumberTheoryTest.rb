@@ -135,7 +135,7 @@ def testIsCoprime()
     ]
 
     sample.each_index do |i|
-        if sample[i][2] == 0
+        if sample[i][2].zero?
             if NumberTheory.isCoprime(sample[i][0], sample[i][1])
                 return false
             end
@@ -146,7 +146,7 @@ def testIsCoprime()
         end
     end
 
-    return true
+    true
 end
 
 def testFactorial()
@@ -172,7 +172,7 @@ def testFactorial()
         end
     end
 
-    return true
+    true
 end
 
 def testFibonacci()
@@ -248,7 +248,7 @@ def testFibonacci()
         end
     end
 
-    return true
+    true
 end
 
 def testGCD()
@@ -389,7 +389,7 @@ def testGCD()
         end
     end
 
-    return true
+    true
 end
 
 def testLCM()
@@ -530,7 +530,7 @@ def testLCM()
         end
     end
 
-    return true
+    true
 end
 
 def testIsEven()
@@ -666,7 +666,7 @@ def testIsEven()
     ]
 
     sample.each_index do |i|
-        if sample[i][1] == 0
+        if sample[i][1].zero?
             unless NumberTheory.isEven(sample[i][0])
                 return false
             end
@@ -677,7 +677,7 @@ def testIsEven()
         end
     end
 
-    return true
+    true
 end
 
 def testIsOdd()
@@ -813,7 +813,7 @@ def testIsOdd()
     ]
 
     sample.each_index do |i|
-        if sample[i][1] == 0
+        if sample[i][1].zero?
             if NumberTheory.isOdd(sample[i][0])
                 return false
             end
@@ -824,7 +824,7 @@ def testIsOdd()
         end
     end
 
-    return true
+    true
 end
 
 def testIsPrime()
@@ -1104,7 +1104,7 @@ def testIsPrime()
         end
     end
 
-    return true
+    true
 end
 
 def testIsComposite()
@@ -1384,7 +1384,7 @@ def testIsComposite()
         end
     end
 
-    return true
+    true
 end
 
 def testSieveOfPrimes()
@@ -1528,17 +1528,17 @@ def testSieveOfPrimes()
             return false
         end
 
-        for v in arr
+        arr.each do |v|
             unless Primality.isPrime(v)
                 return false
             end
         end
     end
 
-    return true
+    true
 end
 
-if __FILE__ == $0
+if __FILE__ == $PROGRAM_NAME
 
     TestRunner.parseTest(testIsCoprime())
 

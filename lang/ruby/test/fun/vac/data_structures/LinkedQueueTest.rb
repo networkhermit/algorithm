@@ -6,7 +6,7 @@ def testLinkedQueue()
 
     queue = LinkedQueue::LinkedQueue.new()
 
-    for i in 1 .. size
+    (1 .. size).each do |i|
         queue.enqueue(i)
     end
 
@@ -14,16 +14,16 @@ def testLinkedQueue()
         return false
     end
 
-    for i in 1 .. size
+    (1 .. size).each do |i|
         if queue.peek() != i
             return false
         end
         queue.dequeue()
     end
 
-    return queue.isEmpty()
+    queue.isEmpty()
 end
 
-if __FILE__ == $0
+if __FILE__ == $PROGRAM_NAME
     TestRunner.parseTest(testLinkedQueue())
 end

@@ -1,26 +1,26 @@
 module Factorial
 
     def self.iterativeProcedure(n)
-        if n < 0
+        if n.negative?
             return 0
         end
 
         result = 1
-        for i in 1 .. n
+        (1 .. n).each do |i|
             result *= i
         end
 
-        return result
+        result
     end
 
     def self.recursiveProcedure(n)
-        if n < 0
+        if n.negative?
             return 0
         end
 
-        if n == 0
+        if n.zero?
             return 1
         end
-        return recursiveProcedure(n - 1) * n
+        recursiveProcedure(n - 1) * n
     end
 end

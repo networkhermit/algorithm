@@ -17,9 +17,9 @@ def testSelectionSort()
         return false
     end
 
-    return Sequences.isSorted(arr)
+    Sequences.isSorted(arr)
 end
 
-if __FILE__ == $0
+if __FILE__ == $PROGRAM_NAME
     TestRunner.parseTest(testSelectionSort())
 end

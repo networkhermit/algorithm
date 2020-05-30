@@ -7,6 +7,6 @@ module LinearSearch
             end
         end
 
-        return arr.length
+        arr.length
     end
 end
