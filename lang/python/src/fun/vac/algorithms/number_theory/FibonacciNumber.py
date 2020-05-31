@@ -12,7 +12,7 @@ def iterativeProcedure(n: int) -> int:
     prev = 0
     curr = 1
 
-    for _ in range(2, n + 1):
+    for _ in range(n - 1):
         prev, curr = curr, prev + curr
 
     return sign * curr

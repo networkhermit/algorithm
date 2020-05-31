@@ -43,7 +43,7 @@ module ArrayStack
 
                 temp = Array.new(newCapacity)
 
-                (0 ... @logicalSize).each do |i|
+                0.upto(@logicalSize - 1) do |i|
                     temp[i] = @data[i]
                 end
 
@@ -73,7 +73,7 @@ module ArrayStack
         def shrink()
             temp = Array.new(@logicalSize)
 
-            (0 ... @logicalSize).each do |i|
+            0.upto(@logicalSize - 1) do |i|
                 temp[i] = @data[i]
             end
 

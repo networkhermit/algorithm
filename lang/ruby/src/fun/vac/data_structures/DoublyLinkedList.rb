@@ -41,15 +41,13 @@ module DoublyLinkedList
 
             if index < @length >> 1
                 cursor = @head
-                (0 ... index).each do
+                index.times do
                     cursor = cursor.next
                 end
             else
                 cursor = @tail
-                i = @length - 1
-                while i > index
+                (@length - 1).downto(index + 1) do |i|
                     cursor = cursor.prev
-                    i -= 1
                 end
             end
 
@@ -65,15 +63,13 @@ module DoublyLinkedList
 
             if index < @length >> 1
                 cursor = @head
-                (0 ... index).each do
+                index.times do
                     cursor = cursor.next
                 end
             else
                 cursor = @tail
-                i = @length - 1
-                while i > index
+                (@length - 1).downto(index + 1) do |i|
                     cursor = cursor.prev
-                    i -= 1
                 end
             end
 
@@ -104,15 +100,13 @@ module DoublyLinkedList
                 cursor = nil
                 if index < @length >> 1
                     cursor = @head
-                    (0 ... index).each do
+                    index.times do
                         cursor = cursor.next
                     end
                 else
                     cursor = @tail
-                    i = @length - 1
-                    while i > index
+                    (@length - 1).downto(index + 1) do |i|
                         cursor = cursor.prev
-                        i -= 1
                     end
                 end
                 node.next = cursor
@@ -148,15 +142,13 @@ module DoublyLinkedList
             else
                 if index < @length >> 1
                     target = @head
-                    (0 ... index).each do
+                    index.times do
                         target = target.next
                     end
                 else
                     target = @tail
-                    i = @length - 1
-                    while i > index
+                    (@length - 1).downto(index + 1) do |i|
                         target = target.prev
-                        i -= 1
                     end
                 end
                 target.prev.next = target.next

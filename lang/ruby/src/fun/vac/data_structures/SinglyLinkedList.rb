@@ -36,7 +36,7 @@ module SinglyLinkedList
 
             cursor = @head
 
-            (0 ... index).each do
+            index.times do
                 cursor = cursor.next
             end
 
@@ -50,7 +50,7 @@ module SinglyLinkedList
 
             cursor = @head
 
-            (0 ... index).each do
+            index.times do
                 cursor = cursor.next
             end
 
@@ -71,7 +71,7 @@ module SinglyLinkedList
                 @head = node
             else
                 cursor = @head
-                (0 ... index - 1).each do
+                (index - 1).times do
                     cursor = cursor.next
                 end
                 node.next = cursor.next
@@ -97,7 +97,7 @@ module SinglyLinkedList
                 end
             else
                 cursor = @head
-                (0 ... index - 1).each do
+                (index - 1).times do
                     cursor = cursor.next
                 end
                 target = cursor.next

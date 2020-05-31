@@ -6,7 +6,7 @@ module Factorial
         end
 
         result = 1
-        (1 .. n).each do |i|
+        1.upto(n) do |i|
             result *= i
         end
 

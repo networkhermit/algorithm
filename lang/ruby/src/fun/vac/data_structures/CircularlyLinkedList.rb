@@ -37,7 +37,7 @@ module CircularlyLinkedList
             cursor = @tail
 
             if index != @length - 1
-                (0 .. index).each do
+                (index + 1).times do
                     cursor = cursor.next
                 end
             end
@@ -53,7 +53,7 @@ module CircularlyLinkedList
             cursor = @tail
 
             if index != @length - 1
-                (0 .. index).each do
+                (index + 1).times do
                     cursor = cursor.next
                 end
             end
@@ -83,7 +83,7 @@ module CircularlyLinkedList
                 @tail = node
             else
                 cursor = @tail
-                (0 .. index - 1).each do
+                index.times do
                     cursor = cursor.next
                 end
                 node.next = cursor.next
@@ -109,7 +109,7 @@ module CircularlyLinkedList
                 end
             else
                 cursor = @tail
-                (0 .. index - 1).each do
+                index.times do
                     cursor = cursor.next
                 end
                 target = cursor.next

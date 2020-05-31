@@ -11,25 +11,21 @@ module QuickSort
         right = hi - 1
 
         until left == right
-            i = right
-            while i > left
+            right.downto(left + 1) do |i|
                 if arr[i] < pivot
                     arr[left] = arr[i]
                     arr[i] = pivot
                     break
                 end
                 right -= 1
-                i -= 1
             end
-            i = left
-            while i < right
+            left.upto(right - 1) do |i|
                 if arr[i] > pivot
                     arr[right] = arr[i]
                     arr[i] = pivot
                     break
                 end
                 left += 1
-                i += 1
             end
         end
 

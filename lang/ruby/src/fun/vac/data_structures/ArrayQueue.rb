@@ -46,7 +46,7 @@ module ArrayQueue
 
                 cursor = @front
 
-                (0 ... @logicalSize).each do |i|
+                0.upto(@logicalSize - 1) do |i|
                     if cursor == @physicalSize
                         cursor = 0
                     end
@@ -85,7 +85,7 @@ module ArrayQueue
 
             cursor = @front
 
-            (0 ... @logicalSize).each do |i|
+            0.upto(@logicalSize - 1) do |i|
                 if cursor == @physicalSize
                     cursor = 0
                 end

@@ -18,14 +18,15 @@
     (when (< n 2)
       (return-from iterative-procedure n))
 
-    (do ((prev 0)
-         (curr 1)
+    (let ((prev 0)
+          (curr 1)
 
-         next
-         (i 2 (1+ i)))
-      ((> i n) (* sign curr))
-      (setf next (+ prev curr))
-      (shiftf prev curr next))))
+          next)
+      (dotimes (i (1- n))
+        (setf next (+ prev curr))
+        (shiftf prev curr next))
+
+      (* sign curr))))
 
 (defun recursive-procedure (n)
   (cond ((minusp n)

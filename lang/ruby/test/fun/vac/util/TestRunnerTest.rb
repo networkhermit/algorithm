@@ -1,7 +1,7 @@
 require "fun/vac/util/TestRunner"
 
 def testParseTest()
-    10.times do |i|
+    0.upto(9) do |i|
         TestRunner.parseTest((i & 1) != 0)
     end
 end

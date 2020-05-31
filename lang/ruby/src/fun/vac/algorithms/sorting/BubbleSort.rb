@@ -6,7 +6,7 @@ module BubbleSort
 
         while unsorted > 1
             margin = 0
-            (1 ... unsorted).each do |i|
+            1.upto(unsorted - 1) do |i|
                 if arr[i - 1] > arr[i]
                     arr[i - 1], arr[i] = arr[i], arr[i - 1]
                     margin = i

@@ -64,7 +64,7 @@ module LinkedStack
                 @tail = nil
             else
                 cursor = @head
-                (0 ... @length - 2).each do
+                (@length - 2).times do
                     cursor = cursor.next
                 end
                 cursor.next = nil

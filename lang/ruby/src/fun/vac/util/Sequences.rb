@@ -12,7 +12,7 @@ module Sequences
     end
 
     def self.isSorted(arr)
-        (1 ... arr.length).each do |i|
+        1.upto(arr.length - 1) do |i|
             if arr[i] < arr[i - 1]
                 return false
             end
@@ -35,7 +35,7 @@ module Sequences
         k = 0
 
         length = arr.length
-        (0 ... arr.length >> 1).each do |i|
+        0.upto((arr.length >> 1) - 1) do |i|
             k = length - i - 1
             arr[i], arr[k] = arr[k], arr[i]
         end
@@ -46,7 +46,7 @@ module Sequences
         length = arr.length
 
         RandomFactory.seed()
-        (0 ... arr.length).each do |i|
+        0.upto(arr.length - 1) do |i|
             k = RandomFactory.integerN(i, length)
             arr[i], arr[k] = arr[k], arr[i]
         end

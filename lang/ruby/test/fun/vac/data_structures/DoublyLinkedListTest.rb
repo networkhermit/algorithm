@@ -6,7 +6,7 @@ def testLinkedList()
 
     list = DoublyLinkedList::DoublyLinkedList.new()
 
-    (1 .. size).each do |i|
+    1.upto(size) do |i|
         list.append(i)
     end
 
@@ -14,17 +14,17 @@ def testLinkedList()
         return false
     end
 
-    (0 ... size).each do |i|
+    0.upto(size - 1) do |i|
         if list.get(i) != i + 1
             return false
         end
     end
 
-    (0 ... size).each do |i|
+    0.upto(size - 1) do |i|
         list.set(i, size - i)
     end
 
-    (0 ... size).each do |i|
+    0.upto(size - 1) do |i|
         if list.get(i) != size - i
             return false
         end
@@ -45,19 +45,17 @@ def testLinkedList()
         i, j = i + 1, j - 1
     end
 
-    (0 ... size).each do |i|
+    0.upto(size - 1) do |i|
         if list.get(i) != i + 1
             return false
         end
     end
 
-    i = size
-    while i >= 1
+    size.downto(1) do |i|
         if list.back() != i
             return false
         end
         list.eject()
-        i -= 1
     end
 
     list.isEmpty()

@@ -24,17 +24,17 @@
     (when (zerop n)
       (return-from iterative-binary-gcd (ash m shift)))
 
-    (if (zerop (logand m 1))
-      (progn
-        (setf m (ash m -1))
-        (when (zerop (logand n 1))
-          (setf n (ash n -1))
-          (incf shift)))
-      (if (zerop (logand n 1))
-        (setf n (ash n -1))
-        (if (> m n)
-          (setf m (ash (- m n) -1))
-          (setf n (ash (- n m) -1)))))))
+    (cond ((zerop (logand m 1))
+           (setf m (ash m -1))
+           (when (zerop (logand n 1))
+             (setf n (ash n -1))
+             (incf shift)))
+          ((zerop (logand n 1))
+           (setf n (ash n -1)))
+          ((> m n)
+           (setf m (ash (- m n) -1)))
+          (t
+            (setf n (ash (- n m) -1))))))
 
 (defun recursive-binary-gcd (m n)
   (when (minusp m)

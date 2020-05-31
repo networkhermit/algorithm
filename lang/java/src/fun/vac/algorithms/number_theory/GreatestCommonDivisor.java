@@ -31,16 +31,12 @@ public final class GreatestCommonDivisor {
                     n >>>= 1;
                     shift++;
                 }
+            } else if ((n & 1) == 0) {
+                n >>>= 1;
+            } else if (m > n) {
+                m = (m - n) >>> 1;
             } else {
-                if ((n & 1) == 0) {
-                    n >>>= 1;
-                } else {
-                    if (m > n) {
-                        m = (m - n) >>> 1;
-                    } else {
-                        n = (n - m) >>> 1;
-                    }
-                }
+                n = (n - m) >>> 1;
             }
         }
     }

@@ -8,9 +8,9 @@ module SelectionSort
         iMin = 0
 
         bound = arr.length - 1
-        (0 ... bound).each do |i|
+        0.upto(bound - 1) do |i|
             iMin = i
-            (i + 1 .. bound).each do |j|
+            (i + 1).upto(bound) do |j|
                 if arr[j] < arr[iMin]
                     iMin = j
                 end

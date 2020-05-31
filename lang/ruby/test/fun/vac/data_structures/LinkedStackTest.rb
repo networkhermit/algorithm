@@ -6,7 +6,7 @@ def testLinkedStack()
 
     stack = LinkedStack::LinkedStack.new()
 
-    (1 .. size).each do |i|
+    1.upto(size) do |i|
         stack.push(i)
     end
 
@@ -14,13 +14,11 @@ def testLinkedStack()
         return false
     end
 
-    i = size
-    while i.positive?
+    size.downto(1) do |i|
         if stack.peek() != i
             return false
         end
         stack.pop()
-        i -= 1
     end
 
     stack.isEmpty()

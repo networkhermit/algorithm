@@ -8,12 +8,10 @@ module Primality
             return false
         end
 
-        i, bound = 3, Math.sqrt(n).to_i() + 1
-        while i < bound
+        3.step(Math.sqrt(n).to_i(), 2) do |i|
             if (n % i).zero?
                 return false
             end
-            i += 2
         end
 
         true

@@ -6,7 +6,7 @@ def testArrayQueue()
 
     queue = ArrayQueue::ArrayQueue.new(0)
 
-    (1 .. size).each do |i|
+    1.upto(size) do |i|
         queue.enqueue(i)
     end
 
@@ -20,7 +20,7 @@ def testArrayQueue()
         return false
     end
 
-    (1 .. size).each do |i|
+    1.upto(size) do |i|
         if queue.peek() != i
             return false
         end

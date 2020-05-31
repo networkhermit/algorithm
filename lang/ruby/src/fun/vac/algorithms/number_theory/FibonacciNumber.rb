@@ -17,7 +17,7 @@ module FibonacciNumber
         prev = 0
         curr = 1
 
-        (2 .. n).each do
+        (n - 1).times do
             prev, curr = curr, prev + curr
         end
 

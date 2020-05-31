@@ -27,16 +27,12 @@ module GreatestCommonDivisor
                     n >>= 1
                     shift += 1
                 end
+            elsif (n & 1).zero?
+                n >>= 1
+            elsif m > n
+                m = (m - n) >> 1
             else
-                if (n & 1).zero?
-                    n >>= 1
-                else
-                    if m > n
-                        m = (m - n) >> 1
-                    else
-                        n = (n - m) >> 1
-                    end
-                end
+                n = (n - m) >> 1
             end
         end
     end

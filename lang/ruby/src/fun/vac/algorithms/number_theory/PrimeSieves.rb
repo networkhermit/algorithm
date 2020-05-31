@@ -10,21 +10,16 @@ module PrimeSieves
         arr = Array.new(size, false)
 
         numPrimes = size
-        i, bound = 3, Math.sqrt(n).to_i() + 1
-        while i < bound
+        3.step(Math.sqrt(n).to_i(), 2) do |i|
             if arr[i >> 1]
-                i += 2
                 next
             end
-            j = i * i
-            while j <= n
+            (i * i).step(n, i << 1) do |j|
                 unless arr[j >> 1]
                     arr[j >> 1] = true
                     numPrimes -= 1
                 end
-                j += i << 1
             end
-            i += 2
         end
 
         primes = Array.new(numPrimes)
@@ -32,13 +27,11 @@ module PrimeSieves
         primes[0] = 2
 
         curr = 1
-        i, bound = 3, n + 1
-        while i < bound
+        3.step(n, 2) do |i|
             unless arr[i >> 1]
                 primes[curr] = i
                 curr += 1
             end
-            i += 2
         end
 
         primes

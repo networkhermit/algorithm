@@ -55,7 +55,7 @@ module ArrayList
 
                 temp = Array.new(newCapacity)
 
-                (0 ... @logicalSize).each do |i|
+                0.upto(@logicalSize - 1) do |i|
                     temp[i] = @data[i]
                 end
 
@@ -63,10 +63,8 @@ module ArrayList
                 @physicalSize = newCapacity
             end
 
-            i = @logicalSize
-            while i > index
+            @logicalSize.downto(index + 1) do |i|
                 @data[i] = @data[i - 1]
-                i -= 1
             end
 
             @data[index] = element
@@ -79,7 +77,7 @@ module ArrayList
                 raise "[PANIC - IndexOutOfBounds]"
             end
 
-            (index + 1 ... @logicalSize).each do |i|
+            (index + 1).upto(@logicalSize - 1) do |i|
                 @data[i - 1] = @data[i]
             end
 
@@ -119,7 +117,7 @@ module ArrayList
         def shrink()
             temp = Array.new(@logicalSize)
 
-            (0 ... @logicalSize).each do |i|
+            0.upto(@logicalSize - 1) do |i|
                 temp[i] = @data[i]
             end
 

@@ -19,14 +19,12 @@ def iterativeBinaryGCD(m: int, n: int) -> int:
             if (n & 1) == 0:
                 n >>= 1
                 shift += 1
+        elif (n & 1) == 0:
+            n >>= 1
+        elif m > n:
+            m = (m - n) >> 1
         else:
-            if (n & 1) == 0:
-                n >>= 1
-            else:
-                if m > n:
-                    m = (m - n) >> 1
-                else:
-                    n = (n - m) >> 1
+            n = (n - m) >> 1
 
 def recursiveBinaryGCD(m: int, n: int) -> int:
     if m < 0:

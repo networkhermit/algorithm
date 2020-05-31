@@ -6,7 +6,7 @@ module SequenceBuilder
     def self.packIncreasing(arr)
         RandomFactory.seed()
         arr[0] = RandomFactory.integerN(1, 3)
-        (1 ... arr.length).each do |i|
+        1.upto(arr.length - 1) do |i|
             arr[i] = arr[i - 1] + RandomFactory.integerN(1, 3)
         end
     end

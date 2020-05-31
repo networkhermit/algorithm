@@ -5,7 +5,7 @@ module InsertionSort
 
         cursor = 0
 
-        (1 ... arr.length).each do |i|
+        1.upto(arr.length - 1) do |i|
             target = arr[i]
             cursor = i
             while cursor.positive?

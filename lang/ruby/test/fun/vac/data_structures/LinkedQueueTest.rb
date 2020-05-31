@@ -6,7 +6,7 @@ def testLinkedQueue()
 
     queue = LinkedQueue::LinkedQueue.new()
 
-    (1 .. size).each do |i|
+    1.upto(size) do |i|
         queue.enqueue(i)
     end
 
@@ -14,7 +14,7 @@ def testLinkedQueue()
         return false
     end
 
-    (1 .. size).each do |i|
+    1.upto(size) do |i|
         if queue.peek() != i
             return false
         end
