@@ -95,7 +95,6 @@
     }
 
     if (count(debug_backtrace()) == 0) {
-
         TestRunner\parseTest(testBubbleSort());
 
         TestRunner\parseTest(testInsertionSort());

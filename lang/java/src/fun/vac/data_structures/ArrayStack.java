@@ -3,7 +3,6 @@ package fun.vac.data_structures;
 import fun.vac.data_structures.interfaces.IStack;
 
 public class ArrayStack<E> implements IStack<E> {
-
     private static final int DEFAULT_CAPACITY = 64;
 
     private E[] data = null;

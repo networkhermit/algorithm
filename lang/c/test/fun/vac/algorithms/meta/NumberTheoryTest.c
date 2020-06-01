@@ -1564,7 +1564,6 @@ bool testSieveOfPrimes(void) {
 }
 
 int main(void) {
-
     TestRunner_parseTest(testIsCoprime());
 
     TestRunner_parseTest(testFactorial());

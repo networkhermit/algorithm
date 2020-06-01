@@ -6,7 +6,6 @@
     use fun\vac\data_structures\interfaces\IList;
 
     class Node {
-
         public $data;
         public $next = NULL;
 
@@ -16,7 +15,6 @@
     }
 
     class SinglyLinkedList implements IList\IList {
-
         private $head = NULL;
         private $length = 0;
 

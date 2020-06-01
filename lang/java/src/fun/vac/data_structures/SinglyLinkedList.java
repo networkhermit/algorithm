@@ -3,9 +3,7 @@ package fun.vac.data_structures;
 import fun.vac.data_structures.interfaces.IList;
 
 public class SinglyLinkedList<E> implements IList<E> {
-
     private static class Node<E> {
-
         public E data;
         public Node<E> next = null;
 

@@ -56,7 +56,6 @@ def testGenerateOdd()
 end
 
 if __FILE__ == $PROGRAM_NAME
-
     TestRunner.parseTest(testIntegerN())
 
     TestRunner.parseTest(testGenerateEven())

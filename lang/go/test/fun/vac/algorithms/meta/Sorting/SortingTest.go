@@ -93,7 +93,6 @@ func testSelectionSort() bool {
 }
 
 func main() {
-
     TestRunner.ParseTest(testBubbleSort())
 
     TestRunner.ParseTest(testInsertionSort())

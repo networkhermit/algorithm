@@ -58,7 +58,6 @@ const testGenerateOdd = () => {
 }
 
 if (module === require.main) {
-
     TestRunner.parseTest(testIntegerN())
 
     TestRunner.parseTest(testGenerateEven())

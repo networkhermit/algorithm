@@ -89,7 +89,6 @@ def testSelectionSort()
 end
 
 if __FILE__ == $PROGRAM_NAME
-
     TestRunner.parseTest(testBubbleSort())
 
     TestRunner.parseTest(testInsertionSort())

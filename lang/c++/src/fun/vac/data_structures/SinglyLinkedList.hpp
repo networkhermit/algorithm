@@ -4,13 +4,10 @@
 #include <stdexcept>
 
 namespace SinglyLinkedList {
-
     template <typename E>
     class SinglyLinkedList {
-
     private:
         class Node {
-
         public:
             E data;
             Node *next = nullptr;

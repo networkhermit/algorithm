@@ -4,13 +4,10 @@
 #include <stdexcept>
 
 namespace LinkedList {
-
     template <typename E>
     class LinkedList {
-
     private:
         class Node {
-
         public:
             E data;
             Node *next = nullptr;

@@ -3,7 +3,6 @@ package fun.vac.data_structures;
 import fun.vac.data_structures.interfaces.IQueue;
 
 public class ArrayQueue<E> implements IQueue<E> {
-
     private static final int DEFAULT_CAPACITY = 64;
 
     private E[] data = null;

@@ -1,12 +1,10 @@
 class Node:
-
     def __init__(self, element: object):
         self.data = element
         self.next = None
         self.prev = None
 
 class DoublyLinkedList:
-
     def __init__(self):
         self.head = None
         self.tail = None

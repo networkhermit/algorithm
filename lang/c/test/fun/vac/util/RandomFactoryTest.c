@@ -56,7 +56,6 @@ bool testGenerateOdd(void) {
 }
 
 int main(void) {
-
     TestRunner_parseTest(testIntegerN());
 
     TestRunner_parseTest(testGenerateEven());

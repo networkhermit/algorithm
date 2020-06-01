@@ -4,13 +4,10 @@
 #include <stdexcept>
 
 namespace CircularlyLinkedList {
-
     template <typename E>
     class CircularlyLinkedList {
-
     private:
         class Node {
-
         public:
             E data;
             Node *next = nullptr;

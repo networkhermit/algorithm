@@ -1,7 +1,5 @@
 module SinglyLinkedList
-
     class Node
-
         attr_accessor :data
         attr_accessor :next
 
@@ -13,7 +11,6 @@ module SinglyLinkedList
     end
 
     class SinglyLinkedList
-
         public
         def initialize()
             @head = nil

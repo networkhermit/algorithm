@@ -51,7 +51,6 @@ const testLinearSearch = () => {
 }
 
 if (module === require.main) {
-
     TestRunner.parseTest(testBinarySearch())
 
     TestRunner.parseTest(testLinearSearch())

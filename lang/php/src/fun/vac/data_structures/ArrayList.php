@@ -6,7 +6,6 @@
     use fun\vac\data_structures\interfaces\IList;
 
     class ArrayList implements IList\IList {
-
         private const DEFAULT_CAPACITY = 64;
 
         private $data = NULL;

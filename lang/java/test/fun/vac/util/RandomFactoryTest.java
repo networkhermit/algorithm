@@ -58,7 +58,6 @@ public class RandomFactoryTest {
     }
 
     public static void main(String[] args) {
-
         TestRunner.parseTest(testIntegerN());
 
         TestRunner.parseTest(testGenerateEven());

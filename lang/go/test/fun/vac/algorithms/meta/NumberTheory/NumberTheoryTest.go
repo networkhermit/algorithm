@@ -1543,7 +1543,6 @@ func testSieveOfPrimes() bool {
 }
 
 func main() {
-
     TestRunner.ParseTest(testIsCoprime())
 
     TestRunner.ParseTest(testFactorial())

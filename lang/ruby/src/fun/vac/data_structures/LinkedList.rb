@@ -1,7 +1,5 @@
 module LinkedList
-
     class Node
-
         attr_accessor :data
         attr_accessor :next
 
@@ -13,7 +11,6 @@ module LinkedList
     end
 
     class LinkedList
-
         public
         def initialize()
             @head = nil

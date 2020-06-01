@@ -1513,7 +1513,6 @@ def testSieveOfPrimes() -> bool:
     return True
 
 def main() -> None:
-
     TestRunner.parseTest(testIsCoprime())
 
     TestRunner.parseTest(testFactorial())

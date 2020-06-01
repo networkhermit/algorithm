@@ -4,10 +4,8 @@
 #include <stdexcept>
 
 namespace ArrayQueue {
-
     template <typename E>
     class ArrayQueue {
-
     private:
         static const std::size_t DEFAULT_CAPACITY = 64;
 

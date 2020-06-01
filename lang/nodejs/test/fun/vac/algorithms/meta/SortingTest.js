@@ -91,7 +91,6 @@ const testSelectionSort = () => {
 }
 
 if (module === require.main) {
-
     TestRunner.parseTest(testBubbleSort())
 
     TestRunner.parseTest(testInsertionSort())

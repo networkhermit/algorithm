@@ -49,7 +49,6 @@ bool testLinearSearch(void) {
 }
 
 int main(void) {
-
     TestRunner_parseTest(testBinarySearch());
 
     TestRunner_parseTest(testLinearSearch());

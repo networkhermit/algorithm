@@ -1,7 +1,5 @@
 module ArrayStack
-
     class ArrayStack
-
         @@DEFAULT_CAPACITY = 64
 
         public

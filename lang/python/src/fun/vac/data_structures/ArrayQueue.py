@@ -1,5 +1,4 @@
 class ArrayQueue:
-
     DEFAULT_CAPACITY = 64
 
     def __init__(self, physicalSize: int = 0):

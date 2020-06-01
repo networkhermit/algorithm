@@ -1,7 +1,5 @@
 module ArrayQueue
-
     class ArrayQueue
-
         @@DEFAULT_CAPACITY = 64
 
         public

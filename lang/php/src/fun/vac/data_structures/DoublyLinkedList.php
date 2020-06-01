@@ -6,7 +6,6 @@
     use fun\vac\data_structures\interfaces\IList;
 
     class Node {
-
         public $data;
         public $next = NULL;
         public $prev = NULL;
@@ -17,7 +16,6 @@
     }
 
     class DoublyLinkedList implements IList\IList {
-
         private $head = NULL;
         private $tail = NULL;
         private $length = 0;

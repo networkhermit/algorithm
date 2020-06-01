@@ -1539,7 +1539,6 @@ def testSieveOfPrimes()
 end
 
 if __FILE__ == $PROGRAM_NAME
-
     TestRunner.parseTest(testIsCoprime())
 
     TestRunner.parseTest(testFactorial())

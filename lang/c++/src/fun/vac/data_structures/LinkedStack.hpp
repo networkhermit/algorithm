@@ -4,13 +4,10 @@
 #include <stdexcept>
 
 namespace LinkedStack {
-
     template <typename E>
     class LinkedStack {
-
     private:
         class Node {
-
         public:
             E data;
             Node *next = nullptr;

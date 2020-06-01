@@ -1,7 +1,5 @@
 module CircularlyLinkedList
-
     class Node
-
         attr_accessor :data
         attr_accessor :next
 
@@ -13,7 +11,6 @@ module CircularlyLinkedList
     end
 
     class CircularlyLinkedList
-
         public
         def initialize()
             @tail = nil

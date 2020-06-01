@@ -1,7 +1,6 @@
 "use strict"
 
 exports.ArrayList = class {
-
     constructor (physicalSize = 0) {
         this.data = null
         this.logicalSize = 0

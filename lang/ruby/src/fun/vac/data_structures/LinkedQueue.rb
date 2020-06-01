@@ -1,7 +1,5 @@
 module LinkedQueue
-
     class Node
-
         attr_accessor :data
         attr_accessor :next
 
@@ -13,7 +11,6 @@ module LinkedQueue
     end
 
     class LinkedQueue
-
         public
         def initialize()
             @head = nil

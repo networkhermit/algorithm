@@ -1548,7 +1548,6 @@
     }
 
     if (count(debug_backtrace()) == 0) {
-
         TestRunner\parseTest(testIsCoprime());
 
         TestRunner\parseTest(testFactorial());

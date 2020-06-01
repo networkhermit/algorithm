@@ -1,11 +1,9 @@
 class Node:
-
     def __init__(self, element: object):
         self.data = element
         self.next = None
 
 class CircularlyLinkedList:
-
     def __init__(self):
         self.tail = None
         self.length = 0

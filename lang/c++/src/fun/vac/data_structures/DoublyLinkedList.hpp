@@ -4,13 +4,10 @@
 #include <stdexcept>
 
 namespace DoublyLinkedList {
-
     template <typename E>
     class DoublyLinkedList {
-
     private:
         class Node {
-
         public:
             E data;
             Node *next = nullptr;

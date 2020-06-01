@@ -1,7 +1,5 @@
 module LinkedStack
-
     class Node
-
         attr_accessor :data
         attr_accessor :next
 
@@ -13,7 +11,6 @@ module LinkedStack
     end
 
     class LinkedStack
-
         public
         def initialize()
             @head = nil

@@ -6,7 +6,6 @@
     use fun\vac\data_structures\interfaces\IStack;
 
     class ArrayStack implements IStack\IStack {
-
         private const DEFAULT_CAPACITY = 64;
 
         private $data = NULL;

@@ -44,7 +44,6 @@
   t)
 
 (defun main ()
-
   (test-runner:parse-test (test-integer-n))
 
   (test-runner:parse-test (test-generate-even))

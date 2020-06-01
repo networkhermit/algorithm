@@ -60,7 +60,6 @@ func testGenerateOdd() bool {
 }
 
 func main() {
-
     TestRunner.ParseTest(testIntegerN())
 
     TestRunner.ParseTest(testGenerateEven())

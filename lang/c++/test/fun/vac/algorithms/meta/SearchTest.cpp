@@ -51,7 +51,6 @@ bool testLinearSearch() {
 }
 
 int main() {
-
     TestRunner::parseTest(testBinarySearch());
 
     TestRunner::parseTest(testLinearSearch());

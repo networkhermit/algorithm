@@ -1,7 +1,5 @@
 module DoublyLinkedList
-
     class Node
-
         attr_accessor :data
         attr_accessor :next
         attr_accessor :prev
@@ -15,7 +13,6 @@ module DoublyLinkedList
     end
 
     class DoublyLinkedList
-
         public
         def initialize()
             @head = nil

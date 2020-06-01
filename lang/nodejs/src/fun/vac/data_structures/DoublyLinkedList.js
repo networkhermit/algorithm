@@ -1,7 +1,6 @@
 "use strict"
 
 const Node = class {
-
     constructor (element) {
         this.data = element
         this.next = null
@@ -10,7 +9,6 @@ const Node = class {
 }
 
 exports.DoublyLinkedList = class {
-
     constructor (physicalSize = 0) {
         this.head = null
         this.tail = null

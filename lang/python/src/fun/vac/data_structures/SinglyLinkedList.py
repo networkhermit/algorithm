@@ -1,11 +1,9 @@
 class Node:
-
     def __init__(self, element: object):
         self.data = element
         self.next = None
 
 class SinglyLinkedList:
-
     def __init__(self):
         self.head = None
         self.length = 0

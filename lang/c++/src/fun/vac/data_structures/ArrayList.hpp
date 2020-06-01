@@ -4,10 +4,8 @@
 #include <stdexcept>
 
 namespace ArrayList {
-
     template <typename E>
     class ArrayList {
-
     private:
         static const std::size_t DEFAULT_CAPACITY = 64;
 

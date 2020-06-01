@@ -3,7 +3,6 @@ package fun.vac.data_structures;
 import fun.vac.data_structures.interfaces.IList;
 
 public class ArrayList<E> implements IList<E> {
-
     private static final int DEFAULT_CAPACITY = 64;
 
     private E[] data = null;

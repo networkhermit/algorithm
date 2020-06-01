@@ -43,7 +43,6 @@ def testGenerateOdd() -> bool:
     return True
 
 def main() -> None:
-
     TestRunner.parseTest(testIntegerN())
 
     TestRunner.parseTest(testGenerateEven())

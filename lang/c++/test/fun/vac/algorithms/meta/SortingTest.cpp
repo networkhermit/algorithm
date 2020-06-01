@@ -91,7 +91,6 @@ bool testSelectionSort() {
 }
 
 int main() {
-
     TestRunner::parseTest(testBubbleSort());
 
     TestRunner::parseTest(testInsertionSort());

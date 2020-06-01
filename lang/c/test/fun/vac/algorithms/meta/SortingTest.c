@@ -89,7 +89,6 @@ bool testSelectionSort(void) {
 }
 
 int main(void) {
-
     TestRunner_parseTest(testBubbleSort());
 
     TestRunner_parseTest(testInsertionSort());

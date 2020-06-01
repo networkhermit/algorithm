@@ -1334,7 +1334,6 @@
   t)
 
 (defun main ()
-
   (test-runner:parse-test (test-is-coprime))
 
   (test-runner:parse-test (test-factorial))

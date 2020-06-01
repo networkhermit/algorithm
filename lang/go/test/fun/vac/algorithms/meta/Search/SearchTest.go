@@ -53,7 +53,6 @@ func testLinearSearch() bool {
 }
 
 func main() {
-
     TestRunner.ParseTest(testBinarySearch())
 
     TestRunner.ParseTest(testLinearSearch())

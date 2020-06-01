@@ -6,7 +6,6 @@
     use fun\vac\data_structures\interfaces\IQueue;
 
     class ArrayQueue implements IQueue\IQueue {
-
         private const DEFAULT_CAPACITY = 64;
 
         private $data = NULL;

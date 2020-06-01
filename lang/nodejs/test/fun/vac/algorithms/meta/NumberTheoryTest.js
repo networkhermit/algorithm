@@ -1545,7 +1545,6 @@ const testSieveOfPrimes = () => {
 }
 
 if (module === require.main) {
-
     TestRunner.parseTest(testIsCoprime())
 
     TestRunner.parseTest(testFactorial())

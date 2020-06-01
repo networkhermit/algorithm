@@ -6,7 +6,6 @@
     use fun\vac\data_structures\interfaces\IQueue;
 
     class Node {
-
         public $data;
         public $next = NULL;
 
@@ -16,7 +15,6 @@
     }
 
     class LinkedQueue implements IQueue\IQueue {
-
         private $head = NULL;
         private $tail = NULL;
         private $length = 0;

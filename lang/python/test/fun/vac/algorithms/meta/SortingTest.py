@@ -79,7 +79,6 @@ def testSelectionSort() -> bool:
     return Sequences.isSorted(arr)
 
 def main() -> None:
-
     TestRunner.parseTest(testBubbleSort())
 
     TestRunner.parseTest(testInsertionSort())

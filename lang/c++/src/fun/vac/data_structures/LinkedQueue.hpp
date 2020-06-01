@@ -4,13 +4,10 @@
 #include <stdexcept>
 
 namespace LinkedQueue {
-
     template <typename E>
     class LinkedQueue {
-
     private:
         class Node {
-
         public:
             E data;
             Node *next = nullptr;

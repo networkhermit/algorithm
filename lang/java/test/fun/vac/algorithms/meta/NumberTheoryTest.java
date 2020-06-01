@@ -1545,7 +1545,6 @@ public class NumberTheoryTest {
     }
 
     public static void main(String[] args) {
-
         TestRunner.parseTest(testIsCoprime());
 
         TestRunner.parseTest(testFactorial());

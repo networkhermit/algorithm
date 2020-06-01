@@ -1,7 +1,5 @@
 module ArrayList
-
     class ArrayList
-
         @@DEFAULT_CAPACITY = 64
 
         public

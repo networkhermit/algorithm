@@ -39,7 +39,6 @@ def testLinearSearch() -> bool:
     return True
 
 def main() -> None:
-
     TestRunner.parseTest(testBinarySearch())
 
     TestRunner.parseTest(testLinearSearch())

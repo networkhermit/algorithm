@@ -54,7 +54,6 @@
     }
 
     if (count(debug_backtrace()) == 0) {
-
         TestRunner\parseTest(testBinarySearch());
 
         TestRunner\parseTest(testLinearSearch());
