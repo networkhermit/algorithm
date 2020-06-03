@@ -2,7 +2,6 @@
     namespace fun\vac\data_structures\interfaces\IQueue;
 
     interface IQueue {
-
         public function size(): int;
 
         public function isEmpty(): bool;

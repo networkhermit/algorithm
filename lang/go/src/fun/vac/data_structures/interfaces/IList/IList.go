@@ -1,7 +1,6 @@
 package IList
 
 type IList interface {
-
     Size() int
 
     IsEmpty() bool

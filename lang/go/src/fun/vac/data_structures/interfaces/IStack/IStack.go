@@ -1,7 +1,6 @@
 package IStack
 
 type IStack interface {
-
     Size() int
 
     IsEmpty() bool

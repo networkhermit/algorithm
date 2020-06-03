@@ -2,7 +2,6 @@
     namespace fun\vac\data_structures\interfaces\IList;
 
     interface IList {
-
         public function size(): int;
 
         public function isEmpty(): bool;

@@ -1,7 +1,6 @@
 package fun.vac.data_structures.interfaces;
 
 public interface IQueue<E> {
-
     int size();
 
     boolean isEmpty();

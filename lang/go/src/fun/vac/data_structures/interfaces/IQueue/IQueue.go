@@ -1,7 +1,6 @@
 package IQueue
 
 type IQueue interface {
-
     Size() int
 
     IsEmpty() bool
