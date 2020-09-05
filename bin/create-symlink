@@ -7,7 +7,7 @@ set -o pipefail
 trap 'echo ✗ fatal error: errexit trapped with status $? 1>&2' ERR
 
 while (( $# > 0 )); do
-    case "${1}" in
+    case ${1} in
     --library-path)
         PLT_LIB_PATH=${2?✗ argument parsing failed: missing parameter for argument ‘${1}’}
         shift 2
@@ -58,7 +58,7 @@ elif [ ! -r "${PLT_LIB_PATH}" ]; then
     exit 1
 fi
 
-ROOT="$(dirname "$(dirname "$(realpath "${0}")")")"
+ROOT=$(git rev-parse --show-toplevel)
 
 for i in "${ROOT}"/symlink/Algorithms/*/* "${ROOT}"/symlink/DataStructures/*; do
     pushd "${i}"

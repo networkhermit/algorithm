@@ -1,10 +1,10 @@
 package Sorting
 
 import (
-    bubble_sort    "fun/vac/algorithms/sorting/BubbleSort"
+    bubble_sort "fun/vac/algorithms/sorting/BubbleSort"
     insertion_sort "fun/vac/algorithms/sorting/InsertionSort"
-    merge_sort     "fun/vac/algorithms/sorting/MergeSort"
-    quick_sort     "fun/vac/algorithms/sorting/QuickSort"
+    merge_sort "fun/vac/algorithms/sorting/MergeSort"
+    quick_sort "fun/vac/algorithms/sorting/QuickSort"
     selection_sort "fun/vac/algorithms/sorting/SelectionSort"
 )
 

@@ -21,7 +21,7 @@ readonly -A lang=( \
 )
 
 while (( $# > 0 )); do
-    case "${1}" in
+    case ${1} in
     --root)
         ROOT=${2?✗ argument parsing failed: missing parameter for argument ‘${1}’}
         shift 2
@@ -62,7 +62,7 @@ EOF
 done
 
 : "${1?✗ argument parsing failed: missing positional argument ‘SPEC’}"
-case "${1}" in
+case ${1} in
 all | perf | c | c++ | go | java | lisp | nodejs | php | python | ruby)
     SPEC=${1}
     ;;
@@ -95,7 +95,7 @@ register_lint () {
     local item=${3}
     shift 3
 
-    case "${item}" in
+    case ${item} in
     whitespace)
         if grep -q '\s$' "${instance}"; then
             echo '>>>> TRAILING WHITESPACE <<<<'
@@ -111,7 +111,7 @@ register_lint () {
 run_style_check () {
     local instance
     local fname
-    case "${1}" in
+    case ${1} in
     c)
         echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
 
@@ -276,7 +276,7 @@ run_style_check () {
 
 echo '====================== style check starts ======================'
 
-case "${SPEC}" in
+case ${SPEC} in
 all)
     for k in "${!lang[@]}"; do
         run_style_check "${k}"
