@@ -58,7 +58,7 @@ elif [ ! -r "${PLT_LIB_PATH}" ]; then
     exit 1
 fi
 
-ROOT=$(git rev-parse --show-toplevel)
+ROOT=$(git -C "$(dirname "$(realpath "${0}")")" rev-parse --show-toplevel)
 
 for i in "${ROOT}"/symlink/Algorithms/*/* "${ROOT}"/symlink/DataStructures/*; do
     pushd "${i}"
