@@ -115,7 +115,7 @@ run_style_check () {
     c)
         echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
 
-        for instance in $(find -L "${ROOT}" -type f -name "*.c" | sort); do
+        for instance in $(find -L "${ROOT}" -type f -name '*.c' | sort); do
             fname=$(basename "${instance}" .c)
 
             diff --unified "${instance}" <(clang-format --style '{ColumnLimit: 0, IndentWidth: 4, SortIncludes: true, SpaceAfterCStyleCast: true}' "${instance}") || true
@@ -129,7 +129,7 @@ run_style_check () {
             printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
         done
 
-        for instance in $(find -L "${ROOT}" -type f -name "*.h" | sort); do
+        for instance in $(find -L "${ROOT}" -type f -name '*.h' | sort); do
             fname=$(basename "${instance}" .h)
 
             diff --unified "${instance}" <(clang-format --style '{ColumnLimit: 0, IndentWidth: 4, SortIncludes: true, SpaceAfterCStyleCast: true}' "${instance}") || true
@@ -146,7 +146,7 @@ run_style_check () {
     c++)
         echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
 
-        for instance in $(find -L "${ROOT}" -type f -name "*.cpp" | sort); do
+        for instance in $(find -L "${ROOT}" -type f -name '*.cpp' | sort); do
             fname=$(basename "${instance}" .cpp)
 
             diff --unified "${instance}" <(clang-format --style '{AccessModifierOffset: -4, ColumnLimit: 0, FixNamespaceComments: false, IndentWidth: 4, NamespaceIndentation: All, SortIncludes: true}' "${instance}") || true
@@ -160,7 +160,7 @@ run_style_check () {
             printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
         done
 
-        for instance in $(find -L "${ROOT}" -type f -name "*.hpp" | sort); do
+        for instance in $(find -L "${ROOT}" -type f -name '*.hpp' | sort); do
             fname=$(basename "${instance}" .hpp)
 
             diff --unified "${instance}" <(clang-format --style '{AccessModifierOffset: -4, ColumnLimit: 0, FixNamespaceComments: false, IndentWidth: 4, NamespaceIndentation: All, SortIncludes: true}' "${instance}") || true
@@ -177,7 +177,7 @@ run_style_check () {
     go)
         echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
 
-        for instance in $(find -L "${ROOT}" -type f -name "*.go" | sort); do
+        for instance in $(find -L "${ROOT}" -type f -name '*.go' | sort); do
             fname=$(basename "${instance}" .go)
 
             diff --unified "${instance}" <(gofmt -s "${instance}" | expand --tabs 4) || true
@@ -193,7 +193,7 @@ run_style_check () {
     java)
         echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
 
-        for instance in $(find -L "${ROOT}" -type f -name "*.java" | sort); do
+        for instance in $(find -L "${ROOT}" -type f -name '*.java' | sort); do
             fname=$(basename "${instance}" .java)
 
             unset _JAVA_OPTIONS
@@ -213,7 +213,7 @@ run_style_check () {
     lisp)
         echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
 
-        for instance in $(find -L "${ROOT}" -type f -name "*.lisp" | sort); do
+        for instance in $(find -L "${ROOT}" -type f -name '*.lisp' | sort); do
             fname=$(basename "${instance}" .lisp)
 
             register_lint "${instance}" "${fname}" whitespace
@@ -222,7 +222,7 @@ run_style_check () {
     nodejs)
         echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
 
-        for instance in $(find -L "${ROOT}" -type f -name "*.js" | sort); do
+        for instance in $(find -L "${ROOT}" -type f -name '*.js' | sort); do
             fname=$(basename "${instance}" .js)
 
             standard --verbose "${instance#${PWD}/}" || true
@@ -234,7 +234,7 @@ run_style_check () {
     php)
         echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
 
-        for instance in $(find -L "${ROOT}" -type f -name "*.php" | sort); do
+        for instance in $(find -L "${ROOT}" -type f -name '*.php' | sort); do
             fname=$(basename "${instance}" .php)
 
             phpmd --ignore-violations-on-exit "${instance}" ansi cleancode,codesize,controversial,design,naming,unusedcode
@@ -245,7 +245,7 @@ run_style_check () {
     python)
         echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
 
-        for instance in $(find -L "${ROOT}" -type f -name "*.py" | sort); do
+        for instance in $(find -L "${ROOT}" -type f -name '*.py' | sort); do
             fname=$(basename "${instance}" .py)
 
             black --diff --line-length 128 "${instance}"
@@ -260,7 +260,7 @@ run_style_check () {
     ruby)
         echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
 
-        for instance in $(find -L "${ROOT}" -type f -name "*.rb" | sort); do
+        for instance in $(find -L "${ROOT}" -type f -name '*.rb' | sort); do
             fname=$(basename "${instance}" .rb)
 
             rubocop "${instance}" || true
