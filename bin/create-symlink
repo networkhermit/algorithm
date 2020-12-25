@@ -84,7 +84,7 @@ fi
 
 ROOT=$(git -C "$(dirname "$(realpath "${0}")")" rev-parse --show-toplevel)
 
-for i in "${ROOT}"/symlink/Algorithms/*/* "${ROOT}"/symlink/DataStructures/*; do
+for i in "${ROOT}/symlink/Algorithms/"*/* "${ROOT}/symlink/DataStructures/"*; do
     pushd "${i}"
     rm --force --recursive Implementation Test
     mkdir --parents Implementation Test
