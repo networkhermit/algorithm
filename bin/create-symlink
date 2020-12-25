@@ -1,23 +1,34 @@
 #!/bin/bash
 
 set -o errexit
+set -o errtrace
 set -o nounset
 set -o pipefail
 
-trap 'echo ✗ fatal error: errexit trapped with status $? 1>&2' ERR
+warn () {
+    if (( $# > 0 )); then
+        echo "${@}" 1>&2
+    fi
+}
 
-while (( $# > 0 )); do
-    case ${1} in
-    --library-path)
-        PLT_LIB_PATH=${2?✗ argument parsing failed: missing parameter for argument ‘${1}’}
-        shift 2
-        ;;
-    -h | --help)
-        cat << EOF
-Usage:
+die () {
+    warn "${@}"
+    exit 1
+}
+
+notify () {
+    local code=$?
+    warn "✗ [FATAL] $(caller): ${BASH_COMMAND} (${code})"
+}
+
+trap notify ERR
+
+display_help () {
+    cat << EOF
+Synopsis:
     ${0##*/} [OPTION]...
 
-Optional arguments:
+Options:
     --library-path DIRECTORY
         use the specified library path (default: env#PLT_LIB_PATH)
     -h, --help
@@ -25,6 +36,16 @@ Optional arguments:
     -v, --version
         output version information and exit
 EOF
+}
+
+while (( $# > 0 )); do
+    case ${1} in
+    --library-path)
+        PLT_LIB_PATH=${2?✗ option parsing failed: missing value for argument ‘${1}’}
+        shift 2
+        ;;
+    -h | --help)
+        display_help
         shift
         exit
         ;;
@@ -44,18 +65,21 @@ EOF
 done
 
 if (( $# > 0 )); then
-    echo "✗ argument parsing failed: unrecognizable argument ‘${1}’" 1>&2
-    exit 1
+    die "✗ argument parsing failed: unrecognizable argument ‘${1}’"
 fi
+
+clean_up () {
+    true
+}
+
+trap clean_up EXIT
 
 : "${PLT_LIB_PATH?✗ unexpected error: please specify the library path using environment variable ‘PLT_LIB_PATH’ or the ‘--library-path’ option}"
 
 if [ ! -d "${PLT_LIB_PATH}" ]; then
-    echo "✗ not a directory: ‘${PLT_LIB_PATH}’" 1>&2
-    exit 1
+    die "✗ not a directory: ‘${PLT_LIB_PATH}’"
 elif [ ! -r "${PLT_LIB_PATH}" ]; then
-    echo "✗ read permission not granted: ‘${PLT_LIB_PATH}’" 1>&2
-    exit 1
+    die "✗ read permission not granted: ‘${PLT_LIB_PATH}’"
 fi
 
 ROOT=$(git -C "$(dirname "$(realpath "${0}")")" rev-parse --show-toplevel)

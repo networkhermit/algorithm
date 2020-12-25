@@ -1,10 +1,46 @@
 #!/bin/bash
 
 set -o errexit
+set -o errtrace
 set -o nounset
 set -o pipefail
 
-trap 'echo ✗ fatal error: errexit trapped with status $? 1>&2' ERR
+warn () {
+    if (( $# > 0 )); then
+        echo "${@}" 1>&2
+    fi
+}
+
+die () {
+    warn "${@}"
+    exit 1
+}
+
+notify () {
+    local code=$?
+    warn "✗ [FATAL] $(caller): ${BASH_COMMAND} (${code})"
+}
+
+trap notify ERR
+
+display_help () {
+    cat << EOF
+Synopsis:
+    ${0##*/} [OPTION]... SPEC
+
+Options:
+    --root DIRECTORY
+        starting point (default: env#PWD)
+    -h, --help
+        show this help message and exit
+    -v, --version
+        output version information and exit
+
+Arguments:
+    SPEC (all | perf | c | c++ | go | java | lisp | nodejs | php | python | ruby)
+        runtime spec
+EOF
+}
 
 ROOT=${PWD}
 
@@ -23,26 +59,11 @@ readonly -A lang=( \
 while (( $# > 0 )); do
     case ${1} in
     --root)
-        ROOT=${2?✗ argument parsing failed: missing parameter for argument ‘${1}’}
+        ROOT=${2?✗ option parsing failed: missing value for argument ‘${1}’}
         shift 2
         ;;
     -h | --help)
-        cat << EOF
-Usage:
-    ${0##*/} [OPTION]... SPEC
-
-Optional arguments:
-    --root DIRECTORY
-        starting point (default: env#PWD)
-    -h, --help
-        show this help message and exit
-    -v, --version
-        output version information and exit
-
-Positional arguments:
-    SPEC (all | perf | c | c++ | go | java | lisp | nodejs | php | python | ruby)
-        runtime spec
-EOF
+        display_help
         shift
         exit
         ;;
@@ -61,29 +82,31 @@ EOF
     esac
 done
 
-: "${1?✗ argument parsing failed: missing positional argument ‘SPEC’}"
+: "${1?✗ argument parsing failed: missing argument ‘SPEC’}"
 case ${1} in
 all | perf | c | c++ | go | java | lisp | nodejs | php | python | ruby)
     SPEC=${1}
     ;;
 *)
-    echo "✗ argument parsing failed: acceptable values for ‘SPEC’ are all | perf | c | c++ | go | java | lisp | nodejs | php | python | ruby" 1>&2
-    exit 1
+    die "✗ argument parsing failed: acceptable values for ‘SPEC’ are all | perf | c | c++ | go | java | lisp | nodejs | php | python | ruby"
     ;;
 esac
 shift
 
 if (( $# > 0 )); then
-    echo "✗ argument parsing failed: unrecognizable argument ‘${1}’" 1>&2
-    exit 1
+    die "✗ argument parsing failed: unrecognizable argument ‘${1}’"
 fi
 
+clean_up () {
+    true
+}
+
+trap clean_up EXIT
+
 if [ ! -d "${ROOT}" ]; then
-    echo "✗ not a directory: ‘${ROOT}’" 1>&2
-    exit 1
+    die "✗ not a directory: ‘${ROOT}’"
 elif [ ! -r "${ROOT}" ]; then
-    echo "✗ read permission not granted: ‘${ROOT}’" 1>&2
-    exit 1
+    die "✗ read permission not granted: ‘${ROOT}’"
 fi
 
 readonly prefix=---------------------------
