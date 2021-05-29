@@ -37,7 +37,7 @@ Options:
         output version information and exit
 
 Arguments:
-    SPEC (all | perf | c | c++ | go | java | lisp | nodejs | php | python | ruby)
+    SPEC (all | perf | c | c++ | go | java | lisp | nodejs | php | python | ruby) (default: perf)
         runtime spec
 EOF
 }
@@ -55,6 +55,11 @@ readonly -A lang=( \
     [python]=Python \
     [ruby]=Ruby \
 )
+
+SPEC=perf
+
+# shellcheck disable=SC1090
+source "$(git -C "$(dirname "$(realpath "${0}")")" rev-parse --show-toplevel)/library.env"
 
 while (( $# > 0 )); do
     case ${1} in
@@ -82,16 +87,17 @@ while (( $# > 0 )); do
     esac
 done
 
-: "${1?✗ argument parsing failed: missing argument ‘SPEC’}"
-case ${1} in
-all | perf | c | c++ | go | java | lisp | nodejs | php | python | ruby)
-    SPEC=${1}
-    ;;
-*)
-    die "✗ argument parsing failed: acceptable values for ‘SPEC’ are all | perf | c | c++ | go | java | lisp | nodejs | php | python | ruby"
-    ;;
-esac
-shift
+if (( $# > 0 )); then
+    case ${1} in
+    all | perf | c | c++ | go | java | lisp | nodejs | php | python | ruby)
+        SPEC=${1}
+        ;;
+    *)
+        die "✗ argument parsing failed: acceptable values for ‘SPEC’ are all | perf | c | c++ | go | java | lisp | nodejs | php | python | ruby"
+        ;;
+    esac
+    shift
+fi
 
 if (( $# > 0 )); then
     die "✗ argument parsing failed: unrecognizable argument ‘${1}’"
@@ -141,12 +147,12 @@ run_test () {
         for instance in $(find -L "${ROOT}" -type f -name '*.cpp' | sort); do
             fname=$(basename "${instance}" .cpp)
 
-            if g++     -O0 -g3 -Wall -Werror -std=c++17 -x c++ -o "${fname}" "${instance}"; then
+            if g++     -O0 -g3 -Wall -Werror -std=c++20 -x c++ -o "${fname}" "${instance}"; then
                 ./"${fname}"
                 rm -f "${fname}"
             fi
 
-            if clang++ -O0 -g3 -Wall -Werror -std=c++17 -x c++ -o "${fname}" "${instance}"; then
+            if clang++ -O0 -g3 -Wall -Werror -std=c++20 -x c++ -o "${fname}" "${instance}"; then
                 ./"${fname}"
                 rm -f "${fname}"
             fi
@@ -188,7 +194,7 @@ run_test () {
         for instance in $(find -L "${ROOT}" -type f -name '*.lisp' | sort); do
             fname=$(basename "${instance}" .lisp)
 
-            sbcl --noinform --non-interactive --no-sysinit \
+            sbcl --noinform --non-interactive --no-sysinit --userinit "${LISP_PATH}/../.sbclrc" \
                 --load "${instance}" --eval "(when (fboundp 'main) (main))"
 
             printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
@@ -211,7 +217,7 @@ run_test () {
         for instance in $(find -L "${ROOT}" -type f -name '*.php' | sort); do
             fname=$(basename "${instance}" .php)
 
-            php -e "${instance}"
+            php --define "include_path=.:${PHP_PATH}" -e "${instance}"
 
             printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
         done

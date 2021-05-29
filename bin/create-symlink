@@ -30,7 +30,7 @@ Synopsis:
 
 Options:
     --library-path DIRECTORY
-        use the specified library path (default: env#PLT_LIB_PATH)
+        use the specified library path (default: env#PLT_PATH)
     -h, --help
         show this help message and exit
     -v, --version
@@ -38,10 +38,13 @@ Options:
 EOF
 }
 
+# shellcheck disable=SC1090
+source "$(git -C "$(dirname "$(realpath "${0}")")" rev-parse --show-toplevel)/library.env"
+
 while (( $# > 0 )); do
     case ${1} in
     --library-path)
-        PLT_LIB_PATH=${2?✗ option parsing failed: missing value for argument ‘${1}’}
+        PLT_PATH=${2?✗ option parsing failed: missing value for argument ‘${1}’}
         shift 2
         ;;
     -h | --help)
@@ -74,12 +77,12 @@ clean_up () {
 
 trap clean_up EXIT
 
-: "${PLT_LIB_PATH?✗ unexpected error: please specify the library path using environment variable ‘PLT_LIB_PATH’ or the ‘--library-path’ option}"
+: "${PLT_PATH?✗ unexpected error: please specify the library path using environment variable ‘PLT_PATH’ or the ‘--library-path’ option}"
 
-if [ ! -d "${PLT_LIB_PATH}" ]; then
-    die "✗ not a directory: ‘${PLT_LIB_PATH}’"
-elif [ ! -r "${PLT_LIB_PATH}" ]; then
-    die "✗ read permission not granted: ‘${PLT_LIB_PATH}’"
+if [ ! -d "${PLT_PATH}" ]; then
+    die "✗ not a directory: ‘${PLT_PATH}’"
+elif [ ! -r "${PLT_PATH}" ]; then
+    die "✗ read permission not granted: ‘${PLT_PATH}’"
 fi
 
 ROOT=$(git -C "$(dirname "$(realpath "${0}")")" rev-parse --show-toplevel)
@@ -88,7 +91,7 @@ for i in "${ROOT}/symlink/Algorithms/"*/* "${ROOT}/symlink/DataStructures/"*; do
     pushd "${i}"
     rm --force --recursive Implementation Test
     mkdir --parents Implementation Test
-    find -L "${PLT_LIB_PATH}" -type f -name "$(basename "${PWD}").*" -exec ln --symbolic --verbose {} Implementation/ \;
-    find -L "${PLT_LIB_PATH}" -type f -name "$(basename "${PWD}")Test.*" -exec ln --symbolic --verbose {} Test/ \;
+    find -L "${PLT_PATH}" -type f -name "$(basename "${PWD}").*" -exec ln --symbolic --verbose {} Implementation/ \;
+    find -L "${PLT_PATH}" -type f -name "$(basename "${PWD}")Test.*" -exec ln --symbolic --verbose {} Test/ \;
     popd
 done
