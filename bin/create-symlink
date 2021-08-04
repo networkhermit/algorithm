@@ -88,10 +88,10 @@ fi
 ROOT=$(git -C "$(dirname "$(realpath "${0}")")" rev-parse --show-toplevel)
 
 for i in "${ROOT}/symlink/Algorithms/"*/* "${ROOT}/symlink/DataStructures/"*; do
-    pushd "${i}"
+    pushd "${i}" &> /dev/null
     rm --force --recursive Implementation Test
     mkdir --parents Implementation Test
-    find -L "${PLT_PATH}" -type f -name "$(basename "${PWD}").*" -exec ln --symbolic --verbose {} Implementation/ \;
-    find -L "${PLT_PATH}" -type f -name "$(basename "${PWD}")Test.*" -exec ln --symbolic --verbose {} Test/ \;
-    popd
+    find "${PLT_PATH}" -type f -name "$(basename "${PWD}").*" -exec ln --symbolic --verbose {} Implementation/ \;
+    find "${PLT_PATH}" -type f \( -name "$(basename "${PWD}")Test.*" -o -name "$(basename "${PWD}")_test.*" \) -exec ln --symbolic --verbose {} Test/ \;
+    popd &> /dev/null
 done

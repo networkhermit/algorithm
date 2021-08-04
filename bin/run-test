@@ -163,12 +163,14 @@ run_test () {
     go)
         echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
 
-        for instance in $(find -L "${ROOT}" -type f -name '*.go' | sort); do
-            fname=$(basename "${instance}" .go)
+        for instance in $(find -L "${ROOT}" -type f -name '*_test.go' | sort); do
+            fname=$(basename "${instance}" _test.go)
 
-            if go run "${instance}"; then
+            pushd "$(dirname "$(readlink --canonicalize-existing "${instance}")")" &> /dev/null
+            if go test -v; then
                 go clean -cache
             fi
+            popd &> /dev/null
 
             printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
         done
