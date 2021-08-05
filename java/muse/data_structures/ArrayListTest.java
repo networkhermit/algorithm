@@ -74,6 +74,6 @@ public class ArrayListTest {
     }
 
     public static void main(String[] args) {
-        TestRunner.parseTest(testArrayList());
+        TestRunner.pick(ArrayListTest::testArrayList);
     }
 }

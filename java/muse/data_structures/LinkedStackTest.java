@@ -27,6 +27,6 @@ public class LinkedStackTest {
     }
 
     public static void main(String[] args) {
-        TestRunner.parseTest(testLinkedStack());
+        TestRunner.pick(LinkedStackTest::testLinkedStack);
     }
 }

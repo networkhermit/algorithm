@@ -151,6 +151,6 @@ public class LeastCommonMultipleTest {
     }
 
     public static void main(String[] args) {
-        TestRunner.parseTest(testLeastCommonMultiple());
+        TestRunner.pick(LeastCommonMultipleTest::testLeastCommonMultiple);
     }
 }

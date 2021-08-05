@@ -26,5 +26,5 @@ bool testBinarySearch(void) {
 }
 
 int main(void) {
-    TestRunner_parseTest(testBinarySearch());
+    TestRunner_pick(&testBinarySearch);
 }

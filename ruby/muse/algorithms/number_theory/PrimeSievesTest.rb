@@ -154,5 +154,5 @@ def testPrimeSieves()
 end
 
 if __FILE__ == $PROGRAM_NAME
-    TestRunner.parseTest(testPrimeSieves())
+    TestRunner.pick(testPrimeSieves())
 end

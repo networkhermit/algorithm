@@ -154,7 +154,7 @@ def testGreatestCommonDivisor() -> bool:
     return True
 
 def main() -> None:
-    TestRunner.parseTest(testGreatestCommonDivisor())
+    TestRunner.pick(testGreatestCommonDivisor)
 
 if __name__ == "__main__":
     main()

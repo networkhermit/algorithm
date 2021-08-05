@@ -74,5 +74,5 @@ def testArrayList()
 end
 
 if __FILE__ == $PROGRAM_NAME
-    TestRunner.parseTest(testArrayList())
+    TestRunner.pick(testArrayList())
 end

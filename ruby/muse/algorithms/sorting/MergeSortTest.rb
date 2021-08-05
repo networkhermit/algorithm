@@ -21,5 +21,5 @@ def testMergeSort()
 end
 
 if __FILE__ == $PROGRAM_NAME
-    TestRunner.parseTest(testMergeSort())
+    TestRunner.pick(testMergeSort())
 end

@@ -39,6 +39,6 @@ public class ArrayStackTest {
     }
 
     public static void main(String[] args) {
-        TestRunner.parseTest(testArrayStack());
+        TestRunner.pick(ArrayStackTest::testArrayStack);
     }
 }

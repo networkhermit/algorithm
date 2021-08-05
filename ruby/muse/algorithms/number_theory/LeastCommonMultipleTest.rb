@@ -149,5 +149,5 @@ def testLeastCommonMultiple()
 end
 
 if __FILE__ == $PROGRAM_NAME
-    TestRunner.parseTest(testLeastCommonMultiple())
+    TestRunner.pick(testLeastCommonMultiple())
 end

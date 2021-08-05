@@ -189,5 +189,5 @@ bool testParity() {
 }
 
 int main() {
-    TestRunner::parseTest(testParity());
+    TestRunner::pick(&testParity);
 }

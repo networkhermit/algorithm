@@ -39,5 +39,5 @@ const testArrayQueue = () => {
 }
 
 if (module === require.main) {
-    TestRunner.parseTest(testArrayQueue())
+    TestRunner.pick(testArrayQueue)
 }

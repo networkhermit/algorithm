@@ -25,5 +25,5 @@ def testLinkedQueue()
 end
 
 if __FILE__ == $PROGRAM_NAME
-    TestRunner.parseTest(testLinkedQueue())
+    TestRunner.pick(testLinkedQueue())
 end

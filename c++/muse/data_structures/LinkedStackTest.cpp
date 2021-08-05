@@ -27,5 +27,5 @@ bool testLinkedStack() {
 }
 
 int main() {
-    TestRunner::parseTest(testLinkedStack());
+    TestRunner::pick(&testLinkedStack);
 }

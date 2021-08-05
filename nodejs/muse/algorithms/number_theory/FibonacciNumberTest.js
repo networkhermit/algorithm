@@ -86,5 +86,5 @@ const testFibonacciNumber = () => {
 }
 
 if (module === require.main) {
-    TestRunner.parseTest(testFibonacciNumber())
+    TestRunner.pick(testFibonacciNumber)
 }

@@ -78,4 +78,4 @@
   t)
 
 (defun main ()
-  (test-runner:parse-test (test-fibonacci-number)))
+  (test-runner:pick #'test-fibonacci-number))

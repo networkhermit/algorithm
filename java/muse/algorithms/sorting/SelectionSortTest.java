@@ -23,6 +23,6 @@ public class SelectionSortTest {
     }
 
     public static void main(String[] args) {
-        TestRunner.parseTest(testSelectionSort());
+        TestRunner.pick(SelectionSortTest::testSelectionSort);
     }
 }

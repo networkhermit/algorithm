@@ -21,5 +21,5 @@ def testBubbleSort()
 end
 
 if __FILE__ == $PROGRAM_NAME
-    TestRunner.parseTest(testBubbleSort())
+    TestRunner.pick(testBubbleSort())
 end

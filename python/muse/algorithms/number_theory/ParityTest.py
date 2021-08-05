@@ -170,7 +170,7 @@ def testParity() -> bool:
     return True
 
 def main() -> None:
-    TestRunner.parseTest(testParity())
+    TestRunner.pick(testParity)
 
 if __name__ == "__main__":
     main()

@@ -30,7 +30,7 @@ def testArrayQueue() -> bool:
     return queue.capacity() == 0
 
 def main() -> None:
-    TestRunner.parseTest(testArrayQueue())
+    TestRunner.pick(testArrayQueue)
 
 if __name__ == "__main__":
     main()

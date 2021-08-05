@@ -62,5 +62,5 @@ bool testLinkedList() {
 }
 
 int main() {
-    TestRunner::parseTest(testLinkedList());
+    TestRunner::pick(&testLinkedList);
 }

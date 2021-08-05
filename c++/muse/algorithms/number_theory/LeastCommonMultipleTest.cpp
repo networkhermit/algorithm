@@ -153,5 +153,5 @@ bool testLeastCommonMultiple() {
 }
 
 int main() {
-    TestRunner::parseTest(testLeastCommonMultiple());
+    TestRunner::pick(&testLeastCommonMultiple);
 }

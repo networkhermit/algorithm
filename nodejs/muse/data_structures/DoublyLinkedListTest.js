@@ -62,5 +62,5 @@ const testLinkedList = () => {
 }
 
 if (module === require.main) {
-    TestRunner.parseTest(testLinkedList())
+    TestRunner.pick(testLinkedList)
 }

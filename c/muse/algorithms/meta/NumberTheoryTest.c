@@ -1564,23 +1564,23 @@ bool testSieveOfPrimes(void) {
 }
 
 int main(void) {
-    TestRunner_parseTest(testIsCoprime());
+    TestRunner_pick(&testIsCoprime);
 
-    TestRunner_parseTest(testFactorial());
+    TestRunner_pick(&testFactorial);
 
-    TestRunner_parseTest(testFibonacci());
+    TestRunner_pick(&testFibonacci);
 
-    TestRunner_parseTest(testGCD());
+    TestRunner_pick(&testGCD);
 
-    TestRunner_parseTest(testLCM());
+    TestRunner_pick(&testLCM);
 
-    TestRunner_parseTest(testIsEven());
+    TestRunner_pick(&testIsEven);
 
-    TestRunner_parseTest(testIsOdd());
+    TestRunner_pick(&testIsOdd);
 
-    TestRunner_parseTest(testIsPrime());
+    TestRunner_pick(&testIsPrime);
 
-    TestRunner_parseTest(testIsComposite());
+    TestRunner_pick(&testIsComposite);
 
-    TestRunner_parseTest(testSieveOfPrimes());
+    TestRunner_pick(&testSieveOfPrimes);
 }

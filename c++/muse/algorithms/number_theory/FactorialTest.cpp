@@ -38,5 +38,5 @@ bool testFactorial() {
 }
 
 int main() {
-    TestRunner::parseTest(testFactorial());
+    TestRunner::pick(&testFactorial);
 }

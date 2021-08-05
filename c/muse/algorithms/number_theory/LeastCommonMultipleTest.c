@@ -151,5 +151,5 @@ bool testLeastCommonMultiple(void) {
 }
 
 int main(void) {
-    TestRunner_parseTest(testLeastCommonMultiple());
+    TestRunner_pick(&testLeastCommonMultiple);
 }

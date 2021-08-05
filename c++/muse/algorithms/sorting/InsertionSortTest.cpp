@@ -23,5 +23,5 @@ bool testInsertionSort() {
 }
 
 int main() {
-    TestRunner::parseTest(testInsertionSort());
+    TestRunner::pick(&testInsertionSort);
 }

@@ -23,5 +23,5 @@ const testSelectionSort = () => {
 }
 
 if (module === require.main) {
-    TestRunner.parseTest(testSelectionSort())
+    TestRunner.pick(testSelectionSort)
 }

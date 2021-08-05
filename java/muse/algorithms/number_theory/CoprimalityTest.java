@@ -163,6 +163,6 @@ public class CoprimalityTest {
     }
 
     public static void main(String[] args) {
-        TestRunner.parseTest(testCoprimality());
+        TestRunner.pick(CoprimalityTest::testCoprimality);
     }
 }

@@ -163,6 +163,6 @@ public class GreatestCommonDivisorTest {
     }
 
     public static void main(String[] args) {
-        TestRunner.parseTest(testGreatestCommonDivisor());
+        TestRunner.pick(GreatestCommonDivisorTest::testGreatestCommonDivisor);
     }
 }

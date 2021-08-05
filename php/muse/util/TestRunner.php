@@ -1,10 +1,10 @@
 <?php
     namespace muse\util\TestRunner;
 
-    function parseTest(bool $ok): void {
+    function pick(callable $func): void {
         static $TestRunnerItemIndex = 0;
 
-        if ($ok) {
+        if ($func()) {
             printf("✓ Item [%d] PASSED\n", $TestRunnerItemIndex);
         } else {
             fprintf(STDERR, "✗ Item [%d] FAILED\n", $TestRunnerItemIndex);

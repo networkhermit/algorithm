@@ -295,5 +295,5 @@ bool testPrimality(void) {
 }
 
 int main(void) {
-    TestRunner_parseTest(testPrimality());
+    TestRunner_pick(&testPrimality);
 }

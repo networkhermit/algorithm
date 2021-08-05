@@ -23,5 +23,5 @@ const testMergeSort = () => {
 }
 
 if (module === require.main) {
-    TestRunner.parseTest(testMergeSort())
+    TestRunner.pick(testMergeSort)
 }

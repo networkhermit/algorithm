@@ -21,5 +21,5 @@ def testQuickSort()
 end
 
 if __FILE__ == $PROGRAM_NAME
-    TestRunner.parseTest(testQuickSort())
+    TestRunner.pick(testQuickSort())
 end

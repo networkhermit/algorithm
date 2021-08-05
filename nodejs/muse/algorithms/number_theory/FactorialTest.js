@@ -36,5 +36,5 @@ const testFactorial = () => {
 }
 
 if (module === require.main) {
-    TestRunner.parseTest(testFactorial())
+    TestRunner.pick(testFactorial)
 }

@@ -151,5 +151,5 @@ const testLeastCommonMultiple = () => {
 }
 
 if (module === require.main) {
-    TestRunner.parseTest(testLeastCommonMultiple())
+    TestRunner.pick(testLeastCommonMultiple)
 }

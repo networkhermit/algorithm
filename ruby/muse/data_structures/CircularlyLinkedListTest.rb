@@ -62,5 +62,5 @@ def testCircularlyLinkedList()
 end
 
 if __FILE__ == $PROGRAM_NAME
-    TestRunner.parseTest(testCircularlyLinkedList())
+    TestRunner.pick(testCircularlyLinkedList())
 end

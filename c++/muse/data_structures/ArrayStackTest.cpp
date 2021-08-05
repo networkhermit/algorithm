@@ -39,5 +39,5 @@ bool testArrayStack() {
 }
 
 int main() {
-    TestRunner::parseTest(testArrayStack());
+    TestRunner::pick(&testArrayStack);
 }

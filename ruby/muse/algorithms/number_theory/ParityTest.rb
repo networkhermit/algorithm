@@ -185,5 +185,5 @@ def testParity()
 end
 
 if __FILE__ == $PROGRAM_NAME
-    TestRunner.parseTest(testParity())
+    TestRunner.pick(testParity())
 end

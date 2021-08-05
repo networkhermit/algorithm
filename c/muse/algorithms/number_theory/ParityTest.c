@@ -187,5 +187,5 @@ bool testParity(void) {
 }
 
 int main(void) {
-    TestRunner_parseTest(testParity());
+    TestRunner_pick(&testParity);
 }

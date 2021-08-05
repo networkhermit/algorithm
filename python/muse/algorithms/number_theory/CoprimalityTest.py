@@ -154,7 +154,7 @@ def testCoprimality() -> bool:
     return True
 
 def main() -> None:
-    TestRunner.parseTest(testCoprimality())
+    TestRunner.pick(testCoprimality)
 
 if __name__ == "__main__":
     main()

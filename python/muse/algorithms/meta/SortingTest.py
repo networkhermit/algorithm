@@ -79,15 +79,15 @@ def testSelectionSort() -> bool:
     return Sequences.isSorted(arr)
 
 def main() -> None:
-    TestRunner.parseTest(testBubbleSort())
+    TestRunner.pick(testBubbleSort)
 
-    TestRunner.parseTest(testInsertionSort())
+    TestRunner.pick(testInsertionSort)
 
-    TestRunner.parseTest(testMergeSort())
+    TestRunner.pick(testMergeSort)
 
-    TestRunner.parseTest(testQuickSort())
+    TestRunner.pick(testQuickSort)
 
-    TestRunner.parseTest(testSelectionSort())
+    TestRunner.pick(testSelectionSort)
 
 if __name__ == "__main__":
     main()

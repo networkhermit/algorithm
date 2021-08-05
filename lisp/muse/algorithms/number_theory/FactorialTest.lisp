@@ -28,4 +28,4 @@
   t)
 
 (defun main ()
-  (test-runner:parse-test (test-factorial)))
+  (test-runner:pick #'test-factorial))

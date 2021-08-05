@@ -58,10 +58,10 @@ public class RandomFactoryTest {
     }
 
     public static void main(String[] args) {
-        TestRunner.parseTest(testIntegerN());
+        TestRunner.pick(RandomFactoryTest::testIntegerN);
 
-        TestRunner.parseTest(testGenerateEven());
+        TestRunner.pick(RandomFactoryTest::testGenerateEven);
 
-        TestRunner.parseTest(testGenerateOdd());
+        TestRunner.pick(RandomFactoryTest::testGenerateOdd);
     }
 }

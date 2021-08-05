@@ -62,5 +62,5 @@ def testLinkedList()
 end
 
 if __FILE__ == $PROGRAM_NAME
-    TestRunner.parseTest(testLinkedList())
+    TestRunner.pick(testLinkedList())
 end

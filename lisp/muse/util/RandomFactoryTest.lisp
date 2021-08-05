@@ -5,7 +5,7 @@
   (random-factory:seed)
 
   (let (value)
-    (dotimes (i 8192)
+    (dotimes (i 8191)
       (when (/= (random-factory:integer-n 0 0) 0)
         (return-from test-integer-n nil))
 
@@ -28,7 +28,7 @@
 (defun test-generate-even ()
   (random-factory:seed)
 
-  (dotimes (i 8192)
+  (dotimes (i 8191)
     (unless (zerop (logand (random-factory:generate-even) 1))
       (return-from test-generate-even nil)))
 
@@ -37,15 +37,15 @@
 (defun test-generate-odd ()
   (random-factory:seed)
 
-  (dotimes (i 8192)
+  (dotimes (i 8191)
     (when (zerop (logand (random-factory:generate-odd) 1))
       (return-from test-generate-odd nil)))
 
   t)
 
 (defun main ()
-  (test-runner:parse-test (test-integer-n))
+  (test-runner:pick #'test-integer-n)
 
-  (test-runner:parse-test (test-generate-even))
+  (test-runner:pick #'test-generate-even)
 
-  (test-runner:parse-test (test-generate-odd)))
+  (test-runner:pick #'test-generate-odd))

@@ -21,5 +21,5 @@ bool testInsertionSort(void) {
 }
 
 int main(void) {
-    TestRunner_parseTest(testInsertionSort());
+    TestRunner_pick(&testInsertionSort);
 }

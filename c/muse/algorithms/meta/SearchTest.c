@@ -49,7 +49,7 @@ bool testLinearSearch(void) {
 }
 
 int main(void) {
-    TestRunner_parseTest(testBinarySearch());
+    TestRunner_pick(&testBinarySearch);
 
-    TestRunner_parseTest(testLinearSearch());
+    TestRunner_pick(&testLinearSearch);
 }

@@ -91,13 +91,13 @@ bool testSelectionSort() {
 }
 
 int main() {
-    TestRunner::parseTest(testBubbleSort());
+    TestRunner::pick(&testBubbleSort);
 
-    TestRunner::parseTest(testInsertionSort());
+    TestRunner::pick(&testInsertionSort);
 
-    TestRunner::parseTest(testMergeSort());
+    TestRunner::pick(&testMergeSort);
 
-    TestRunner::parseTest(testQuickSort());
+    TestRunner::pick(&testQuickSort);
 
-    TestRunner::parseTest(testSelectionSort());
+    TestRunner::pick(&testSelectionSort);
 }

@@ -143,4 +143,4 @@
   t)
 
 (defun main ()
-  (test-runner:parse-test (test-least-common-multiple)))
+  (test-runner:pick #'test-least-common-multiple))

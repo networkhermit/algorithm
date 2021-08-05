@@ -36,6 +36,6 @@ public class FactorialTest {
     }
 
     public static void main(String[] args) {
-        TestRunner.parseTest(testFactorial());
+        TestRunner.pick(FactorialTest::testFactorial);
     }
 }

@@ -28,5 +28,5 @@ const testBinarySearch = () => {
 }
 
 if (module === require.main) {
-    TestRunner.parseTest(testBinarySearch())
+    TestRunner.pick(testBinarySearch)
 }

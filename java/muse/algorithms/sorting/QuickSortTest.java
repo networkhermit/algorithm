@@ -23,6 +23,6 @@ public class QuickSortTest {
     }
 
     public static void main(String[] args) {
-        TestRunner.parseTest(testQuickSort());
+        TestRunner.pick(QuickSortTest::testQuickSort);
     }
 }

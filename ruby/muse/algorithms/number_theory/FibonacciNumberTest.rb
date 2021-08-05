@@ -84,5 +84,5 @@ def testFibonacciNumber()
 end
 
 if __FILE__ == $PROGRAM_NAME
-    TestRunner.parseTest(testFibonacciNumber())
+    TestRunner.pick(testFibonacciNumber())
 end

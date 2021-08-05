@@ -151,4 +151,4 @@
   t)
 
 (defun main ()
-  (test-runner:parse-test (test-greatest-common-divisor)))
+  (test-runner:pick #'test-greatest-common-divisor))

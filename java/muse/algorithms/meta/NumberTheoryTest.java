@@ -1545,24 +1545,24 @@ public class NumberTheoryTest {
     }
 
     public static void main(String[] args) {
-        TestRunner.parseTest(testIsCoprime());
+        TestRunner.pick(NumberTheoryTest::testIsCoprime);
 
-        TestRunner.parseTest(testFactorial());
+        TestRunner.pick(NumberTheoryTest::testFactorial);
 
-        TestRunner.parseTest(testFibonacci());
+        TestRunner.pick(NumberTheoryTest::testFibonacci);
 
-        TestRunner.parseTest(testGCD());
+        TestRunner.pick(NumberTheoryTest::testGCD);
 
-        TestRunner.parseTest(testLCM());
+        TestRunner.pick(NumberTheoryTest::testLCM);
 
-        TestRunner.parseTest(testIsEven());
+        TestRunner.pick(NumberTheoryTest::testIsEven);
 
-        TestRunner.parseTest(testIsOdd());
+        TestRunner.pick(NumberTheoryTest::testIsOdd);
 
-        TestRunner.parseTest(testIsPrime());
+        TestRunner.pick(NumberTheoryTest::testIsPrime);
 
-        TestRunner.parseTest(testIsComposite());
+        TestRunner.pick(NumberTheoryTest::testIsComposite);
 
-        TestRunner.parseTest(testSieveOfPrimes());
+        TestRunner.pick(NumberTheoryTest::testSieveOfPrimes);
     }
 }

@@ -62,5 +62,5 @@ const testCircularlyLinkedList = () => {
 }
 
 if (module === require.main) {
-    TestRunner.parseTest(testCircularlyLinkedList())
+    TestRunner.pick(testCircularlyLinkedList)
 }

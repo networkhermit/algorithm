@@ -1545,23 +1545,23 @@ const testSieveOfPrimes = () => {
 }
 
 if (module === require.main) {
-    TestRunner.parseTest(testIsCoprime())
+    TestRunner.pick(testIsCoprime)
 
-    TestRunner.parseTest(testFactorial())
+    TestRunner.pick(testFactorial)
 
-    TestRunner.parseTest(testFibonacci())
+    TestRunner.pick(testFibonacci)
 
-    TestRunner.parseTest(testGCD())
+    TestRunner.pick(testGCD)
 
-    TestRunner.parseTest(testLCM())
+    TestRunner.pick(testLCM)
 
-    TestRunner.parseTest(testIsEven())
+    TestRunner.pick(testIsEven)
 
-    TestRunner.parseTest(testIsOdd())
+    TestRunner.pick(testIsOdd)
 
-    TestRunner.parseTest(testIsPrime())
+    TestRunner.pick(testIsPrime)
 
-    TestRunner.parseTest(testIsComposite())
+    TestRunner.pick(testIsComposite)
 
-    TestRunner.parseTest(testSieveOfPrimes())
+    TestRunner.pick(testSieveOfPrimes)
 }

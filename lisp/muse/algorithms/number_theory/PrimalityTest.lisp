@@ -280,4 +280,4 @@
   t)
 
 (defun main ()
-  (test-runner:parse-test (test-primality)))
+  (test-runner:pick #'test-primality))

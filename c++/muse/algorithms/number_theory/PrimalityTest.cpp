@@ -297,5 +297,5 @@ bool testPrimality() {
 }
 
 int main() {
-    TestRunner::parseTest(testPrimality());
+    TestRunner::pick(&testPrimality);
 }

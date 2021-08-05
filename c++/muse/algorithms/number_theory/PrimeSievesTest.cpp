@@ -158,5 +158,5 @@ bool testPrimeSieves() {
 }
 
 int main() {
-    TestRunner::parseTest(testPrimeSieves());
+    TestRunner::pick(&testPrimeSieves);
 }

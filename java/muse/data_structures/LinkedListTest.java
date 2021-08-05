@@ -62,6 +62,6 @@ public class LinkedListTest {
     }
 
     public static void main(String[] args) {
-        TestRunner.parseTest(testLinkedList());
+        TestRunner.pick(LinkedListTest::testLinkedList);
     }
 }

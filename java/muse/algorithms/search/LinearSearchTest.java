@@ -28,6 +28,6 @@ public class LinearSearchTest {
     }
 
     public static void main(String[] args) {
-        TestRunner.parseTest(testLinearSearch());
+        TestRunner.pick(LinearSearchTest::testLinearSearch);
     }
 }

@@ -25,5 +25,5 @@ def testLinkedStack()
 end
 
 if __FILE__ == $PROGRAM_NAME
-    TestRunner.parseTest(testLinkedStack())
+    TestRunner.pick(testLinkedStack())
 end

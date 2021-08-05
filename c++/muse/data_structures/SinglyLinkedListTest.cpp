@@ -62,5 +62,5 @@ bool testSinglyLinkedList() {
 }
 
 int main() {
-    TestRunner::parseTest(testSinglyLinkedList());
+    TestRunner::pick(&testSinglyLinkedList);
 }

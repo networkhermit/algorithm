@@ -88,5 +88,5 @@ bool testFibonacciNumber() {
 }
 
 int main() {
-    TestRunner::parseTest(testFibonacciNumber());
+    TestRunner::pick(&testFibonacciNumber);
 }

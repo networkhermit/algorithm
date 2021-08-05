@@ -62,6 +62,6 @@ public class SinglyLinkedListTest {
     }
 
     public static void main(String[] args) {
-        TestRunner.parseTest(testSinglyLinkedList());
+        TestRunner.pick(SinglyLinkedListTest::testSinglyLinkedList);
     }
 }

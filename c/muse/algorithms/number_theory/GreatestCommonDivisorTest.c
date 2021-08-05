@@ -163,5 +163,5 @@ bool testGreatestCommonDivisor(void) {
 }
 
 int main(void) {
-    TestRunner_parseTest(testGreatestCommonDivisor());
+    TestRunner_pick(&testGreatestCommonDivisor);
 }

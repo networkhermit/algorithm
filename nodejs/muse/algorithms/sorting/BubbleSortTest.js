@@ -23,5 +23,5 @@ const testBubbleSort = () => {
 }
 
 if (module === require.main) {
-    TestRunner.parseTest(testBubbleSort())
+    TestRunner.pick(testBubbleSort)
 }

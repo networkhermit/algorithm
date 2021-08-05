@@ -1334,20 +1334,20 @@
   t)
 
 (defun main ()
-  (test-runner:parse-test (test-is-coprime))
+  (test-runner:pick #'test-is-coprime)
 
-  (test-runner:parse-test (test-factorial))
+  (test-runner:pick #'test-factorial)
 
-  (test-runner:parse-test (test-fibonacci))
+  (test-runner:pick #'test-fibonacci)
 
-  (test-runner:parse-test (test-gcd))
+  (test-runner:pick #'test-gcd)
 
-  (test-runner:parse-test (test-lcm))
+  (test-runner:pick #'test-lcm)
 
-  (test-runner:parse-test (test-is-even))
+  (test-runner:pick #'test-is-even)
 
-  (test-runner:parse-test (test-is-odd))
+  (test-runner:pick #'test-is-odd)
 
-  (test-runner:parse-test (test-is-prime))
+  (test-runner:pick #'test-is-prime)
 
-  (test-runner:parse-test (test-is-composite)))
+  (test-runner:pick #'test-is-composite))

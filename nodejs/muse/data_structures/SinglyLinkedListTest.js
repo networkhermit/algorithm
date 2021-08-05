@@ -62,5 +62,5 @@ const testSinglyLinkedList = () => {
 }
 
 if (module === require.main) {
-    TestRunner.parseTest(testSinglyLinkedList())
+    TestRunner.pick(testSinglyLinkedList)
 }

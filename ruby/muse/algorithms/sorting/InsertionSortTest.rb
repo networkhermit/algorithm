@@ -21,5 +21,5 @@ def testInsertionSort()
 end
 
 if __FILE__ == $PROGRAM_NAME
-    TestRunner.parseTest(testInsertionSort())
+    TestRunner.pick(testInsertionSort())
 end

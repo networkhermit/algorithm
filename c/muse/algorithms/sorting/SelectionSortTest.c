@@ -21,5 +21,5 @@ bool testSelectionSort(void) {
 }
 
 int main(void) {
-    TestRunner_parseTest(testSelectionSort());
+    TestRunner_pick(&testSelectionSort);
 }

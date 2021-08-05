@@ -187,6 +187,6 @@ public class ParityTest {
     }
 
     public static void main(String[] args) {
-        TestRunner.parseTest(testParity());
+        TestRunner.pick(ParityTest::testParity);
     }
 }

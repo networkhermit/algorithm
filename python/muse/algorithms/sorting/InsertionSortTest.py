@@ -19,7 +19,7 @@ def testInsertionSort() -> bool:
     return Sequences.isSorted(arr)
 
 def main() -> None:
-    TestRunner.parseTest(testInsertionSort())
+    TestRunner.pick(testInsertionSort)
 
 if __name__ == "__main__":
     main()

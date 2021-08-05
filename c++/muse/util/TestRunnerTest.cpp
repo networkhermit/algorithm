@@ -2,12 +2,12 @@
 
 using namespace std;
 
-void testParseTest() {
+void testPick() {
     for (int i = 0; i < 10; i++) {
-        TestRunner::parseTest((i & 1) != 0);
+        TestRunner::pick([i]() -> bool { return (i & 1) != 0; });
     }
 }
 
 int main() {
-    testParseTest();
+    testPick();
 }

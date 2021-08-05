@@ -2,14 +2,14 @@
   (:nicknames test-runner)
   (:use common-lisp)
   (:export
-    parse-test))
+    pick))
 
 (in-package test-runner)
 
 (defvar *test-runner-item-index* 0)
 
-(defun parse-test (ok)
-  (if ok
+(defun pick (func)
+  (if (funcall func)
     (format t "✓ Item [~D] PASSED~%" *test-runner-item-index*)
     (format t "✗ Item [~D] FAILED~%" *test-runner-item-index*))
 

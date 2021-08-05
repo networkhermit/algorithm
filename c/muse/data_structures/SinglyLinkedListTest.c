@@ -60,5 +60,5 @@ bool testSinglyLinkedList(void) {
 }
 
 int main(void) {
-    TestRunner_parseTest(testSinglyLinkedList());
+    TestRunner_pick(&testSinglyLinkedList);
 }

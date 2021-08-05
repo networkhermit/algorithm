@@ -26,5 +26,5 @@ def testLinearSearch
 end
 
 if __FILE__ == $PROGRAM_NAME
-    TestRunner.parseTest(testLinearSearch())
+    TestRunner.pick(testLinearSearch())
 end

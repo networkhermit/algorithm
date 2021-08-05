@@ -27,5 +27,5 @@ bool testLinkedQueue() {
 }
 
 int main() {
-    TestRunner::parseTest(testLinkedQueue());
+    TestRunner::pick(&testLinkedQueue);
 }

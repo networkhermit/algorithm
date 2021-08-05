@@ -187,5 +187,5 @@ const testParity = () => {
 }
 
 if (module === require.main) {
-    TestRunner.parseTest(testParity())
+    TestRunner.pick(testParity)
 }

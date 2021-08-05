@@ -59,7 +59,7 @@ def testArrayList() -> bool:
     return list.capacity() == 0
 
 def main() -> None:
-    TestRunner.parseTest(testArrayList())
+    TestRunner.pick(testArrayList)
 
 if __name__ == "__main__":
     main()

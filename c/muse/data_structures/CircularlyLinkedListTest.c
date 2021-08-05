@@ -60,5 +60,5 @@ bool testCircularlyLinkedList(void) {
 }
 
 int main(void) {
-    TestRunner_parseTest(testCircularlyLinkedList());
+    TestRunner_pick(&testCircularlyLinkedList);
 }

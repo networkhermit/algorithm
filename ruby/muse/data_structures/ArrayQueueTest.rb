@@ -37,5 +37,5 @@ def testArrayQueue()
 end
 
 if __FILE__ == $PROGRAM_NAME
-    TestRunner.parseTest(testArrayQueue())
+    TestRunner.pick(testArrayQueue())
 end

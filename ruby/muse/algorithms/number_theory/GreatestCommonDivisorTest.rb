@@ -161,5 +161,5 @@ def testGreatestCommonDivisor()
 end
 
 if __FILE__ == $PROGRAM_NAME
-    TestRunner.parseTest(testGreatestCommonDivisor())
+    TestRunner.pick(testGreatestCommonDivisor())
 end

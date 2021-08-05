@@ -25,5 +25,5 @@ bool testLinkedStack(void) {
 }
 
 int main(void) {
-    TestRunner_parseTest(testLinkedStack());
+    TestRunner_pick(&testLinkedStack);
 }

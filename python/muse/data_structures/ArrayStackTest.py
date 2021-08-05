@@ -30,7 +30,7 @@ def testArrayStack() -> bool:
     return stack.capacity() == 0
 
 def main() -> None:
-    TestRunner.parseTest(testArrayStack())
+    TestRunner.pick(testArrayStack)
 
 if __name__ == "__main__":
     main()

@@ -37,5 +37,5 @@ def testArrayStack()
 end
 
 if __FILE__ == $PROGRAM_NAME
-    TestRunner.parseTest(testArrayStack())
+    TestRunner.pick(testArrayStack())
 end

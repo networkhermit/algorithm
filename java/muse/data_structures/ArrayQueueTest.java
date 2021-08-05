@@ -39,6 +39,6 @@ public class ArrayQueueTest {
     }
 
     public static void main(String[] args) {
-        TestRunner.parseTest(testArrayQueue());
+        TestRunner.pick(ArrayQueueTest::testArrayQueue);
     }
 }

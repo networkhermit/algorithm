@@ -91,14 +91,14 @@ public class SortingTest {
     }
 
     public static void main(String[] args) {
-        TestRunner.parseTest(testBubbleSort());
+        TestRunner.pick(SortingTest::testBubbleSort);
 
-        TestRunner.parseTest(testInsertionSort());
+        TestRunner.pick(SortingTest::testInsertionSort);
 
-        TestRunner.parseTest(testMergeSort());
+        TestRunner.pick(SortingTest::testMergeSort);
 
-        TestRunner.parseTest(testQuickSort());
+        TestRunner.pick(SortingTest::testQuickSort);
 
-        TestRunner.parseTest(testSelectionSort());
+        TestRunner.pick(SortingTest::testSelectionSort);
     }
 }

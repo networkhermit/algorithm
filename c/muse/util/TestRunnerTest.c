@@ -1,11 +1,18 @@
 #include <muse/util/TestRunner.h>
 
-void testParseTest(void) {
+bool test(void) {
+    static int round = 0;
+    bool result = (round & 1) != 0;
+    round++;
+    return result;
+}
+
+void testPick(void) {
     for (int i = 0; i < 10; i++) {
-        TestRunner_parseTest((i & 1) != 0);
+        TestRunner_pick(&test);
     }
 }
 
 int main(void) {
-    testParseTest();
+    testPick();
 }

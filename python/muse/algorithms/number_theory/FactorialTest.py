@@ -31,7 +31,7 @@ def testFactorial() -> bool:
     return True
 
 def main() -> None:
-    TestRunner.parseTest(testFactorial())
+    TestRunner.pick(testFactorial)
 
 if __name__ == "__main__":
     main()

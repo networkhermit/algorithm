@@ -295,5 +295,5 @@ const testPrimality = () => {
 }
 
 if (module === require.main) {
-    TestRunner.parseTest(testPrimality())
+    TestRunner.pick(testPrimality)
 }

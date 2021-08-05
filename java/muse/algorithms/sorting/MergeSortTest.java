@@ -23,6 +23,6 @@ public class MergeSortTest {
     }
 
     public static void main(String[] args) {
-        TestRunner.parseTest(testMergeSort());
+        TestRunner.pick(MergeSortTest::testMergeSort);
     }
 }

@@ -163,5 +163,5 @@ bool testCoprimality(void) {
 }
 
 int main(void) {
-    TestRunner_parseTest(testCoprimality());
+    TestRunner_pick(&testCoprimality);
 }

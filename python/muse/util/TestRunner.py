@@ -1,11 +1,12 @@
+from typing import Callable
 import sys
 
 TestRunnerItemIndex = 0
 
-def parseTest(ok: bool) -> None:
+def pick(func: Callable[[], bool]) -> None:
     global TestRunnerItemIndex
 
-    if ok:
+    if func():
         print("✓ Item [%d] PASSED" % TestRunnerItemIndex)
     else:
         print("✗ Item [%d] FAILED" % TestRunnerItemIndex, file = sys.stderr)

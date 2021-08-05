@@ -23,5 +23,5 @@ const testQuickSort = () => {
 }
 
 if (module === require.main) {
-    TestRunner.parseTest(testQuickSort())
+    TestRunner.pick(testQuickSort)
 }

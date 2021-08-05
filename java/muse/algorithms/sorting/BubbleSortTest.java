@@ -23,6 +23,6 @@ public class BubbleSortTest {
     }
 
     public static void main(String[] args) {
-        TestRunner.parseTest(testBubbleSort());
+        TestRunner.pick(BubbleSortTest::testBubbleSort);
     }
 }

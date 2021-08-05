@@ -37,5 +37,5 @@ bool testArrayQueue(void) {
 }
 
 int main(void) {
-    TestRunner_parseTest(testArrayQueue());
+    TestRunner_pick(&testArrayQueue);
 }

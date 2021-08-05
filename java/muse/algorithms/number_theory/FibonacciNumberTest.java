@@ -86,6 +86,6 @@ public class FibonacciNumberTest {
     }
 
     public static void main(String[] args) {
-        TestRunner.parseTest(testFibonacciNumber());
+        TestRunner.pick(FibonacciNumberTest::testFibonacciNumber);
     }
 }

@@ -21,5 +21,5 @@ bool testQuickSort(void) {
 }
 
 int main(void) {
-    TestRunner_parseTest(testQuickSort());
+    TestRunner_pick(&testQuickSort);
 }

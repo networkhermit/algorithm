@@ -149,4 +149,4 @@
   t)
 
 (defun main ()
-  (test-runner:parse-test (test-coprimality)))
+  (test-runner:pick #'test-coprimality))

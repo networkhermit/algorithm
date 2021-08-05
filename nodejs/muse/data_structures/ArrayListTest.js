@@ -74,5 +74,5 @@ const testArrayList = () => {
 }
 
 if (module === require.main) {
-    TestRunner.parseTest(testArrayList())
+    TestRunner.pick(testArrayList)
 }

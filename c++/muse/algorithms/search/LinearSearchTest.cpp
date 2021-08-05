@@ -28,5 +28,5 @@ bool testLinearSearch() {
 }
 
 int main() {
-    TestRunner::parseTest(testLinearSearch());
+    TestRunner::pick(&testLinearSearch);
 }

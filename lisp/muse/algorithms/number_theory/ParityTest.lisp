@@ -163,4 +163,4 @@
   t)
 
 (defun main ()
-  (test-runner:parse-test (test-parity)))
+  (test-runner:pick #'test-parity))

@@ -34,5 +34,5 @@ def testFactorial()
 end
 
 if __FILE__ == $PROGRAM_NAME
-    TestRunner.parseTest(testFactorial())
+    TestRunner.pick(testFactorial())
 end

@@ -62,6 +62,6 @@ public class CircularlyLinkedListTest {
     }
 
     public static void main(String[] args) {
-        TestRunner.parseTest(testCircularlyLinkedList());
+        TestRunner.pick(CircularlyLinkedListTest::testCircularlyLinkedList);
     }
 }

@@ -86,5 +86,5 @@ bool testFibonacciNumber(void) {
 }
 
 int main(void) {
-    TestRunner_parseTest(testFibonacciNumber());
+    TestRunner_pick(&testFibonacciNumber);
 }

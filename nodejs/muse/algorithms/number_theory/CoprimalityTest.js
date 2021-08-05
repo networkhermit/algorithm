@@ -163,5 +163,5 @@ const testCoprimality = () => {
 }
 
 if (module === require.main) {
-    TestRunner.parseTest(testCoprimality())
+    TestRunner.pick(testCoprimality)
 }

@@ -58,9 +58,9 @@ bool testGenerateOdd() {
 }
 
 int main() {
-    TestRunner::parseTest(testIntegerN());
+    TestRunner::pick(&testIntegerN);
 
-    TestRunner::parseTest(testGenerateEven());
+    TestRunner::pick(&testGenerateEven);
 
-    TestRunner::parseTest(testGenerateOdd());
+    TestRunner::pick(&testGenerateOdd);
 }

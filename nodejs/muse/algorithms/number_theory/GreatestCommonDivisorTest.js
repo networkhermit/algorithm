@@ -163,5 +163,5 @@ const testGreatestCommonDivisor = () => {
 }
 
 if (module === require.main) {
-    TestRunner.parseTest(testGreatestCommonDivisor())
+    TestRunner.pick(testGreatestCommonDivisor)
 }

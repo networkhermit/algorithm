@@ -56,9 +56,9 @@ bool testGenerateOdd(void) {
 }
 
 int main(void) {
-    TestRunner_parseTest(testIntegerN());
+    TestRunner_pick(&testIntegerN);
 
-    TestRunner_parseTest(testGenerateEven());
+    TestRunner_pick(&testGenerateEven);
 
-    TestRunner_parseTest(testGenerateOdd());
+    TestRunner_pick(&testGenerateOdd);
 }

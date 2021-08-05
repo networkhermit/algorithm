@@ -4,10 +4,10 @@
 #include <stdbool.h>
 #include <stdio.h>
 
-void TestRunner_parseTest(bool ok) {
+void TestRunner_pick(bool (*func)()) {
     static size_t TestRunnerItemIndex = 0;
 
-    if (ok) {
+    if (func()) {
         printf("✓ Item [%zu] PASSED\n", TestRunnerItemIndex);
     } else {
         fprintf(stderr, "✗ Item [%zu] FAILED\n", TestRunnerItemIndex);

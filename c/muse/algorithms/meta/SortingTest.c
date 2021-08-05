@@ -89,13 +89,13 @@ bool testSelectionSort(void) {
 }
 
 int main(void) {
-    TestRunner_parseTest(testBubbleSort());
+    TestRunner_pick(&testBubbleSort);
 
-    TestRunner_parseTest(testInsertionSort());
+    TestRunner_pick(&testInsertionSort);
 
-    TestRunner_parseTest(testMergeSort());
+    TestRunner_pick(&testMergeSort);
 
-    TestRunner_parseTest(testQuickSort());
+    TestRunner_pick(&testQuickSort);
 
-    TestRunner_parseTest(testSelectionSort());
+    TestRunner_pick(&testSelectionSort);
 }

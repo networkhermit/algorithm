@@ -28,5 +28,5 @@ const testLinearSearch = () => {
 }
 
 if (module === require.main) {
-    TestRunner.parseTest(testLinearSearch())
+    TestRunner.pick(testLinearSearch)
 }

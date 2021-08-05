@@ -23,5 +23,5 @@ bool testMergeSort() {
 }
 
 int main() {
-    TestRunner::parseTest(testMergeSort());
+    TestRunner::pick(&testMergeSort);
 }

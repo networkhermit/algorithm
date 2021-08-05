@@ -20,7 +20,7 @@ def testLinkedStack() -> bool:
     return stack.isEmpty()
 
 def main() -> None:
-    TestRunner.parseTest(testLinkedStack())
+    TestRunner.pick(testLinkedStack)
 
 if __name__ == "__main__":
     main()

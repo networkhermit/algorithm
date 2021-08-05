@@ -25,5 +25,5 @@ bool testLinkedQueue(void) {
 }
 
 int main(void) {
-    TestRunner_parseTest(testLinkedQueue());
+    TestRunner_pick(&testLinkedQueue);
 }

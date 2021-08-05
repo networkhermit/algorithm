@@ -125,7 +125,7 @@ run_test () {
     c)
         echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
 
-        for instance in $(find -L "${ROOT}" -type f -name '*.c' | sort); do
+        for instance in $(find -L "${ROOT}" -type f -name '*Test.c' | sort); do
             fname=$(basename "${instance}" .c)
 
             if gcc   -O0 -g3 -Wall -Werror -std=c18 -x c -o "${fname}" "${instance}" -lm; then
@@ -144,7 +144,7 @@ run_test () {
     c++)
         echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
 
-        for instance in $(find -L "${ROOT}" -type f -name '*.cpp' | sort); do
+        for instance in $(find -L "${ROOT}" -type f -name '*Test.cpp' | sort); do
             fname=$(basename "${instance}" .cpp)
 
             if g++     -O0 -g3 -Wall -Werror -std=c++20 -x c++ -o "${fname}" "${instance}"; then
@@ -164,7 +164,7 @@ run_test () {
         echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
 
         for instance in $(find -L "${ROOT}" -type f -name '*_test.go' | sort); do
-            fname=$(basename "${instance}" _test.go)
+            fname=$(basename "${instance}" .go)
 
             pushd "$(dirname "$(readlink --canonicalize-existing "${instance}")")" &> /dev/null
             if go test -v; then
@@ -178,7 +178,7 @@ run_test () {
     java)
         echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
 
-        for instance in $(find -L "${ROOT}" -type f -name '*.java' | sort); do
+        for instance in $(find -L "${ROOT}" -type f -name '*Test.java' | sort); do
             fname=$(basename "${instance}" .java)
 
             unset _JAVA_OPTIONS
@@ -193,10 +193,10 @@ run_test () {
     lisp)
         echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
 
-        for instance in $(find -L "${ROOT}" -type f -name '*.lisp' | sort); do
+        for instance in $(find -L "${ROOT}" -type f -name '*Test.lisp' | sort); do
             fname=$(basename "${instance}" .lisp)
 
-            sbcl --noinform --non-interactive --no-sysinit --userinit "${LISP_PATH}/../.sbclrc" \
+            sbcl --noinform --non-interactive --no-sysinit --userinit "${LISP_PATH}/.sbclrc" \
                 --load "${instance}" --eval "(when (fboundp 'main) (main))"
 
             printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
@@ -205,7 +205,7 @@ run_test () {
     nodejs)
         echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
 
-        for instance in $(find -L "${ROOT}" -type f -name '*.js' | sort); do
+        for instance in $(find -L "${ROOT}" -type f -name '*Test.js' | sort); do
             fname=$(basename "${instance}" .js)
 
             node --throw-deprecation --trace-warnings "${instance}"
@@ -216,7 +216,7 @@ run_test () {
     php)
         echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
 
-        for instance in $(find -L "${ROOT}" -type f -name '*.php' | sort); do
+        for instance in $(find -L "${ROOT}" -type f -name '*Test.php' | sort); do
             fname=$(basename "${instance}" .php)
 
             php --define "include_path=.:${PHP_PATH}" -e "${instance}"
@@ -227,7 +227,7 @@ run_test () {
     python)
         echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
 
-        for instance in $(find -L "${ROOT}" -type f -name '*.py' | sort); do
+        for instance in $(find -L "${ROOT}" -type f -name '*Test.py' | sort); do
             fname=$(basename "${instance}" .py)
 
             python3 -d -W:all -B "${instance}"
@@ -238,7 +238,7 @@ run_test () {
     ruby)
         echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
 
-        for instance in $(find -L "${ROOT}" -type f -name '*.rb' | sort); do
+        for instance in $(find -L "${ROOT}" -type f -name '*Test.rb' | sort); do
             fname=$(basename "${instance}" .rb)
 
             ruby -w "${instance}"

@@ -165,5 +165,5 @@ bool testCoprimality() {
 }
 
 int main() {
-    TestRunner::parseTest(testCoprimality());
+    TestRunner::pick(&testCoprimality);
 }

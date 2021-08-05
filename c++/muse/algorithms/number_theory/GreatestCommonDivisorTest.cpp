@@ -165,5 +165,5 @@ bool testGreatestCommonDivisor() {
 }
 
 int main() {
-    TestRunner::parseTest(testGreatestCommonDivisor());
+    TestRunner::pick(&testGreatestCommonDivisor);
 }

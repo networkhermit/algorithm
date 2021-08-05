@@ -26,5 +26,5 @@ def testBinarySearch()
 end
 
 if __FILE__ == $PROGRAM_NAME
-    TestRunner.parseTest(testBinarySearch())
+    TestRunner.pick(testBinarySearch())
 end

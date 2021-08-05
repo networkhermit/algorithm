@@ -74,5 +74,5 @@ bool testArrayList() {
 }
 
 int main() {
-    TestRunner::parseTest(testArrayList());
+    TestRunner::pick(&testArrayList);
 }

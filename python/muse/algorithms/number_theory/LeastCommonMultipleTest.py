@@ -146,7 +146,7 @@ def testLeastCommonMultiple() -> bool:
     return True
 
 def main() -> None:
-    TestRunner.parseTest(testLeastCommonMultiple())
+    TestRunner.pick(testLeastCommonMultiple)
 
 if __name__ == "__main__":
     main()

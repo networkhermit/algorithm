@@ -291,5 +291,5 @@ def testPrimality()
 end
 
 if __FILE__ == $PROGRAM_NAME
-    TestRunner.parseTest(testPrimality())
+    TestRunner.pick(testPrimality())
 end

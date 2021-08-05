@@ -37,5 +37,5 @@ bool testArrayStack(void) {
 }
 
 int main(void) {
-    TestRunner_parseTest(testArrayStack());
+    TestRunner_pick(&testArrayStack);
 }

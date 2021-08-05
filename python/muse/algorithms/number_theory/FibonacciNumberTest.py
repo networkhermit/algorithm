@@ -81,7 +81,7 @@ def testFibonacciNumber() -> bool:
     return True
 
 def main() -> None:
-    TestRunner.parseTest(testFibonacciNumber())
+    TestRunner.pick(testFibonacciNumber)
 
 if __name__ == "__main__":
     main()

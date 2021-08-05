@@ -157,5 +157,5 @@ bool testPrimeSieves(void) {
 }
 
 int main(void) {
-    TestRunner_parseTest(testPrimeSieves());
+    TestRunner_pick(&testPrimeSieves);
 }

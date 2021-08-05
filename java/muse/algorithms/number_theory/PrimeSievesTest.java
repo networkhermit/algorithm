@@ -156,6 +156,6 @@ public class PrimeSievesTest {
     }
 
     public static void main(String[] args) {
-        TestRunner.parseTest(testPrimeSieves());
+        TestRunner.pick(PrimeSievesTest::testPrimeSieves);
     }
 }

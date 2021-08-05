@@ -49,7 +49,7 @@ def testCircularlyLinkedList() -> bool:
     return list.isEmpty()
 
 def main() -> None:
-    TestRunner.parseTest(testCircularlyLinkedList())
+    TestRunner.pick(testCircularlyLinkedList)
 
 if __name__ == "__main__":
     main()

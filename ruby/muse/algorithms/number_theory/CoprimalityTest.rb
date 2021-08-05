@@ -161,5 +161,5 @@ def testCoprimality()
 end
 
 if __FILE__ == $PROGRAM_NAME
-    TestRunner.parseTest(testCoprimality())
+    TestRunner.pick(testCoprimality())
 end

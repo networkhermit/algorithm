@@ -27,6 +27,6 @@ public class LinkedQueueTest {
     }
 
     public static void main(String[] args) {
-        TestRunner.parseTest(testLinkedQueue());
+        TestRunner.pick(LinkedQueueTest::testLinkedQueue);
     }
 }

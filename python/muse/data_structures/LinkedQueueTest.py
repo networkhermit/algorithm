@@ -20,7 +20,7 @@ def testLinkedQueue() -> bool:
     return queue.isEmpty()
 
 def main() -> None:
-    TestRunner.parseTest(testLinkedQueue())
+    TestRunner.pick(testLinkedQueue)
 
 if __name__ == "__main__":
     main()

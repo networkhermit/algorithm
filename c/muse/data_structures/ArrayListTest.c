@@ -72,5 +72,5 @@ bool testArrayList(void) {
 }
 
 int main(void) {
-    TestRunner_parseTest(testArrayList());
+    TestRunner_pick(&testArrayList);
 }

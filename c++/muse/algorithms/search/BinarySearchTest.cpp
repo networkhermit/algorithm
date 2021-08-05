@@ -28,5 +28,5 @@ bool testBinarySearch() {
 }
 
 int main() {
-    TestRunner::parseTest(testBinarySearch());
+    TestRunner::pick(&testBinarySearch);
 }

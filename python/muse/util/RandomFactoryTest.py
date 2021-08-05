@@ -43,11 +43,11 @@ def testGenerateOdd() -> bool:
     return True
 
 def main() -> None:
-    TestRunner.parseTest(testIntegerN())
+    TestRunner.pick(testIntegerN)
 
-    TestRunner.parseTest(testGenerateEven())
+    TestRunner.pick(testGenerateEven)
 
-    TestRunner.parseTest(testGenerateOdd())
+    TestRunner.pick(testGenerateOdd)
 
 if __name__ == "__main__":
     main()

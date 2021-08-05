@@ -21,5 +21,5 @@ bool testMergeSort(void) {
 }
 
 int main(void) {
-    TestRunner_parseTest(testMergeSort());
+    TestRunner_pick(&testMergeSort);
 }

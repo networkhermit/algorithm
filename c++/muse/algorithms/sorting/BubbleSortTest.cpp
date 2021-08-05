@@ -23,5 +23,5 @@ bool testBubbleSort() {
 }
 
 int main() {
-    TestRunner::parseTest(testBubbleSort());
+    TestRunner::pick(&testBubbleSort);
 }

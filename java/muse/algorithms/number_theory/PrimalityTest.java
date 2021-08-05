@@ -295,6 +295,6 @@ public class PrimalityTest {
     }
 
     public static void main(String[] args) {
-        TestRunner.parseTest(testPrimality());
+        TestRunner.pick(PrimalityTest::testPrimality);
     }
 }

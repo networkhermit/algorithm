@@ -283,7 +283,7 @@ def testPrimality() -> bool:
     return True
 
 def main() -> None:
-    TestRunner.parseTest(testPrimality())
+    TestRunner.pick(testPrimality)
 
 if __name__ == "__main__":
     main()

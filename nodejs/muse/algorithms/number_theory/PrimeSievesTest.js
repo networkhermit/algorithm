@@ -156,5 +156,5 @@ const testPrimeSieves = () => {
 }
 
 if (module === require.main) {
-    TestRunner.parseTest(testPrimeSieves())
+    TestRunner.pick(testPrimeSieves)
 }

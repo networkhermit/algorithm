@@ -56,9 +56,9 @@ def testGenerateOdd()
 end
 
 if __FILE__ == $PROGRAM_NAME
-    TestRunner.parseTest(testIntegerN())
+    TestRunner.pick(testIntegerN())
 
-    TestRunner.parseTest(testGenerateEven())
+    TestRunner.pick(testGenerateEven())
 
-    TestRunner.parseTest(testGenerateOdd())
+    TestRunner.pick(testGenerateOdd())
 end

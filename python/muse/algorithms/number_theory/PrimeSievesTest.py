@@ -151,7 +151,7 @@ def testPrimeSieves() -> bool:
     return True
 
 def main() -> None:
-    TestRunner.parseTest(testPrimeSieves())
+    TestRunner.pick(testPrimeSieves)
 
 if __name__ == "__main__":
     main()

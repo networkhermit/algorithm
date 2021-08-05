@@ -36,5 +36,5 @@ bool testFactorial(void) {
 }
 
 int main(void) {
-    TestRunner_parseTest(testFactorial());
+    TestRunner_pick(&testFactorial);
 }

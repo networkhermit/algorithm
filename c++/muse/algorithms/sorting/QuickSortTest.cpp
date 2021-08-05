@@ -23,5 +23,5 @@ bool testQuickSort() {
 }
 
 int main() {
-    TestRunner::parseTest(testQuickSort());
+    TestRunner::pick(&testQuickSort);
 }

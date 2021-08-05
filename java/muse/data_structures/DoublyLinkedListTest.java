@@ -62,6 +62,6 @@ public class DoublyLinkedListTest {
     }
 
     public static void main(String[] args) {
-        TestRunner.parseTest(testLinkedList());
+        TestRunner.pick(DoublyLinkedListTest::testLinkedList);
     }
 }

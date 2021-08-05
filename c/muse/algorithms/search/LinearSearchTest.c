@@ -26,5 +26,5 @@ bool testLinearSearch(void) {
 }
 
 int main(void) {
-    TestRunner_parseTest(testLinearSearch());
+    TestRunner_pick(&testLinearSearch);
 }

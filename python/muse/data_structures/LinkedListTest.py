@@ -49,7 +49,7 @@ def testLinkedList() -> bool:
     return list.isEmpty()
 
 def main() -> None:
-    TestRunner.parseTest(testLinkedList())
+    TestRunner.pick(testLinkedList)
 
 if __name__ == "__main__":
     main()

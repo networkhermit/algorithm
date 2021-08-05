@@ -28,6 +28,6 @@ public class BinarySearchTest {
     }
 
     public static void main(String[] args) {
-        TestRunner.parseTest(testBinarySearch());
+        TestRunner.pick(BinarySearchTest::testBinarySearch);
     }
 }

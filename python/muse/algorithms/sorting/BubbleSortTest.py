@@ -19,7 +19,7 @@ def testBubbleSort() -> bool:
     return Sequences.isSorted(arr)
 
 def main() -> None:
-    TestRunner.parseTest(testBubbleSort())
+    TestRunner.pick(testBubbleSort)
 
 if __name__ == "__main__":
     main()

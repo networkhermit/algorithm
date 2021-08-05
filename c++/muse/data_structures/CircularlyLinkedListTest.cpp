@@ -62,5 +62,5 @@ bool testCircularlyLinkedList() {
 }
 
 int main() {
-    TestRunner::parseTest(testCircularlyLinkedList());
+    TestRunner::pick(&testCircularlyLinkedList);
 }

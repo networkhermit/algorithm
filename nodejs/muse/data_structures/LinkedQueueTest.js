@@ -27,5 +27,5 @@ const testLinkedQueue = () => {
 }
 
 if (module === require.main) {
-    TestRunner.parseTest(testLinkedQueue())
+    TestRunner.pick(testLinkedQueue)
 }

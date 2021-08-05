@@ -23,6 +23,6 @@ public class InsertionSortTest {
     }
 
     public static void main(String[] args) {
-        TestRunner.parseTest(testInsertionSort());
+        TestRunner.pick(InsertionSortTest::testInsertionSort);
     }
 }

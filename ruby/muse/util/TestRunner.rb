@@ -2,7 +2,7 @@ module TestRunner
 
     $TestRunnerItemIndex = 0
 
-    def self.parseTest(ok)
+    def self.pick(ok)
         if ok
             puts(format("✓ Item [%s] PASSED", $TestRunnerItemIndex))
         else

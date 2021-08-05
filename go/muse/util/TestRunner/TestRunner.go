@@ -7,8 +7,8 @@ import (
 
 var TestRunnerItemIndex int
 
-func ParseTest(ok bool) {
-    if ok {
+func Pick(fn func() bool) {
+    if fn() {
         fmt.Printf("✓ Item [%d] PASSED\n", TestRunnerItemIndex)
     } else {
         fmt.Fprintf(os.Stderr, "✗ Item [%d] FAILED\n", TestRunnerItemIndex)

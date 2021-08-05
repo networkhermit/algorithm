@@ -27,5 +27,5 @@ const testLinkedStack = () => {
 }
 
 if (module === require.main) {
-    TestRunner.parseTest(testLinkedStack())
+    TestRunner.pick(testLinkedStack)
 }

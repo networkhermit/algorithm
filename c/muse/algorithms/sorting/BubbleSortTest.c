@@ -21,5 +21,5 @@ bool testBubbleSort(void) {
 }
 
 int main(void) {
-    TestRunner_parseTest(testBubbleSort());
+    TestRunner_pick(&testBubbleSort);
 }

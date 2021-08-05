@@ -39,9 +39,9 @@ def testLinearSearch() -> bool:
     return True
 
 def main() -> None:
-    TestRunner.parseTest(testBinarySearch())
+    TestRunner.pick(testBinarySearch)
 
-    TestRunner.parseTest(testLinearSearch())
+    TestRunner.pick(testLinearSearch)
 
 if __name__ == "__main__":
     main()
