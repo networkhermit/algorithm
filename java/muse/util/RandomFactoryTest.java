@@ -4,8 +4,6 @@ import muse.util.TestRunner;
 public class RandomFactoryTest {
 
     public static boolean testGenIntN() {
-        RandomFactory.seed();
-
         int value;
         for (int i = 0; i < 8192; i++) {
             if (RandomFactory.genIntN(0, 0) != 0) {
@@ -34,8 +32,6 @@ public class RandomFactoryTest {
     }
 
     public static boolean testGenEven() {
-        RandomFactory.seed();
-
         for (int i = 0; i < 8192; i++) {
             if ((RandomFactory.genEven() & 1) != 0) {
                 return false;
@@ -46,8 +42,6 @@ public class RandomFactoryTest {
     }
 
     public static boolean testGenOdd() {
-        RandomFactory.seed();
-
         for (int i = 0; i < 8192; i++) {
             if ((RandomFactory.genOdd() & 1) == 0) {
                 return false;

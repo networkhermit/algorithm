@@ -3,8 +3,6 @@ package RandomFactory
 import "testing"
 
 func TestGenIntN(t *testing.T) {
-    Seed()
-
     var value int
     for i := 0; i < 8192; i++ {
         if GenIntN(0, 0) != 0 {
@@ -31,8 +29,6 @@ func TestGenIntN(t *testing.T) {
 }
 
 func TestGenEven(t *testing.T) {
-    Seed()
-
     for i := 0; i < 8192; i++ {
         if (GenEven() & 1) != 0 {
             t.FailNow()
@@ -41,8 +37,6 @@ func TestGenEven(t *testing.T) {
 }
 
 func TestGenOdd(t *testing.T) {
-    Seed()
-
     for i := 0; i < 8192; i++ {
         if (GenOdd() & 1) == 0 {
             t.FailNow()

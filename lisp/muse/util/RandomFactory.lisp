@@ -17,7 +17,7 @@
   (+ min (random (- max min -1))))
 
 (defun gen-int ()
-  (gen-int-n 0 2147483647))
+  (gen-int-n 1 2147483647))
 
 (defun gen-even ()
   (ash (ash (gen-int) -1) 1))

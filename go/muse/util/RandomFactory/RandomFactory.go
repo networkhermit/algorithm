@@ -1,20 +1,17 @@
 package RandomFactory
 
 import (
-    "math/rand"
-    "time"
+    "crypto/rand"
+    "math/big"
 )
 
-func Seed() {
-    rand.Seed(time.Now().UnixNano())
-}
-
 func GenIntN(min int, max int) int {
-    return min + rand.Intn(max - min + 1)
+    n, _ := rand.Int(rand.Reader, big.NewInt(int64(max - min + 1)))
+    return min + int(n.Int64())
 }
 
 func GenInt() int {
-    return GenIntN(0, 2147483647)
+    return GenIntN(1, 2147483647)
 }
 
 func GenEven() int {

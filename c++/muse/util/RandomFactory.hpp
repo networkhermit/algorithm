@@ -15,7 +15,7 @@ namespace RandomFactory {
     }
 
     int genInt() {
-        return genIntN(0, 2'147'483'647);
+        return genIntN(1, 2'147'483'647);
     }
 
     int genEven() {

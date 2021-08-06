@@ -2,8 +2,6 @@ require "muse/util/RandomFactory"
 require "muse/util/TestRunner"
 
 def testGenIntN()
-    RandomFactory.seed()
-
     value = 0
     8192.times do
         if RandomFactory.genIntN(0, 0) != 0
@@ -32,8 +30,6 @@ def testGenIntN()
 end
 
 def testGenEven()
-    RandomFactory.seed()
-
     8192.times do
         if (RandomFactory.genEven() & 1) != 0
             return false
@@ -44,8 +40,6 @@ def testGenEven()
 end
 
 def testGenOdd()
-    RandomFactory.seed()
-
     8192.times do
         if (RandomFactory.genOdd() & 1).zero?
             return false

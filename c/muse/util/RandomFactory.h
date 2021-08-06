@@ -13,7 +13,7 @@ int RandomFactory_genIntN(int min, int max) {
 }
 
 int RandomFactory_genInt(void) {
-    return RandomFactory_genIntN(0, 2147483647);
+    return RandomFactory_genIntN(1, 2147483647);
 }
 
 int RandomFactory_genEven(void) {

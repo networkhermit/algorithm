@@ -47,7 +47,6 @@ func Reverse(arr []int) {
 func Shuffle(arr []int) {
     var k int
 
-    RandomFactory.Seed()
     for i, length := 0, len(arr); i < length; i++ {
         k = RandomFactory.GenIntN(i, length)
         arr[i], arr[k] = arr[k], arr[i]

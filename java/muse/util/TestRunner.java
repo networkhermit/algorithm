@@ -18,6 +18,7 @@ public final class TestRunner {
             }
         } catch (Exception e) {
             e.printStackTrace();
+            System.err.printf("✗ Item [%d] FAILED%n", itemIndex);
         }
 
         itemIndex++;

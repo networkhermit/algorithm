@@ -1,13 +1,10 @@
-import random
-
-def seed() -> None:
-    random.seed()
+import secrets
 
 def genIntN(min: int, max: int) -> int:
-    return random.randint(min, max)
+    return min + secrets.randbelow(max - min + 1)
 
 def genInt() -> int:
-    return genIntN(0, 2_147_483_647)
+    return genIntN(1, 2_147_483_647)
 
 def genEven() -> int:
     return genInt() >> 1 << 1

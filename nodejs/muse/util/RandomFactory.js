@@ -1,15 +1,13 @@
 "use strict"
 
-exports.seed = () => {
-    // preserve for consistent interface
-}
+const crypto = require("crypto")
 
 exports.genIntN = (min, max) => {
-    return min + Math.floor(Math.random() * (max - min))
+    return crypto.randomInt(min, max + 1)
 }
 
 exports.genInt = () => {
-    return this.genIntN(0, 2147483647)
+    return this.genIntN(1, 2147483647)
 }
 
 exports.genEven = () => {

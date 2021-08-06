@@ -6,8 +6,6 @@
     use muse\util\TestRunner;
 
     function testGenIntN(): bool {
-        RandomFactory\seed();
-
         $value = 0;
         for ($i = 0; $i < 8192; $i++) {
             if (RandomFactory\genIntN(0, 0) != 0) {
@@ -36,8 +34,6 @@
     }
 
     function testGenEven(): bool {
-        RandomFactory\seed();
-
         for ($i = 0; $i < 8192; $i++) {
             if ((RandomFactory\genEven() & 1) != 0) {
                 return false;
@@ -48,8 +44,6 @@
     }
 
     function testGenOdd(): bool {
-        RandomFactory\seed();
-
         for ($i = 0; $i < 8192; $i++) {
             if ((RandomFactory\genOdd() & 1) == 0) {
                 return false;

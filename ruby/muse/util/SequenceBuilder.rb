@@ -4,7 +4,6 @@ require "muse/util/Sequences"
 module SequenceBuilder
 
     def self.packIncreasing(arr)
-        RandomFactory.seed()
         arr[0] = RandomFactory.genIntN(1, 3)
         1.upto(arr.length - 1) do |i|
             arr[i] = arr[i - 1] + RandomFactory.genIntN(1, 3)
@@ -12,7 +11,6 @@ module SequenceBuilder
     end
 
     def self.packRandom(arr)
-        RandomFactory.seed()
         arr.each_index do |i|
             arr[i] = RandomFactory.genInt()
         end

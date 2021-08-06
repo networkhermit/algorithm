@@ -2,8 +2,6 @@ from muse.util import RandomFactory
 from muse.util import TestRunner
 
 def testGenIntN() -> bool:
-    RandomFactory.seed()
-
     value = 0
     for _ in range(8192):
         if RandomFactory.genIntN(0, 0) != 0:
@@ -25,8 +23,6 @@ def testGenIntN() -> bool:
     return True
 
 def testGenEven() -> bool:
-    RandomFactory.seed()
-
     for _ in range(8192):
         if (RandomFactory.genEven() & 1) != 0:
             return False
@@ -34,8 +30,6 @@ def testGenEven() -> bool:
     return True
 
 def testGenOdd() -> bool:
-    RandomFactory.seed()
-
     for _ in range(8192):
         if (RandomFactory.genOdd() & 1) == 0:
             return False

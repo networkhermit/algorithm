@@ -4,8 +4,6 @@ const RandomFactory = require("muse/util/RandomFactory")
 const TestRunner    = require("muse/util/TestRunner")
 
 const testIntegerN = () => {
-    RandomFactory.seed()
-
     let value = 0
     for (let i = 0; i < 8192; i++) {
         if (RandomFactory.genIntN(0, 0) !== 0) {
@@ -34,8 +32,6 @@ const testIntegerN = () => {
 }
 
 const testGenEven = () => {
-    RandomFactory.seed()
-
     for (let i = 0; i < 8192; i++) {
         if ((RandomFactory.genEven() & 1) !== 0) {
             return false
@@ -46,8 +42,6 @@ const testGenEven = () => {
 }
 
 const testGenOdd = () => {
-    RandomFactory.seed()
-
     for (let i = 0; i < 8192; i++) {
         if ((RandomFactory.genOdd() & 1) === 0) {
             return false

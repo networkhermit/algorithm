@@ -1,19 +1,19 @@
 package muse.util;
 
+import java.security.SecureRandom;
+
 public final class RandomFactory {
+
+    private static SecureRandom random = new SecureRandom();
 
     private RandomFactory() {}
 
-    public static void seed() {
-        // preserve for consistent interface
-    }
-
     public static int genIntN(int min, int max) {
-        return min + (int) (Math.random() * (max - min));
+        return min + random.nextInt(max - min + 1);
     }
 
     public static int genInt() {
-        return genIntN(0, 2_147_483_647);
+        return genIntN(1, 2_147_483_647);
     }
 
     public static int genEven() {

@@ -51,7 +51,6 @@
         $k;
         $temp;
 
-        RandomFactory\seed();
         for ($i = 0, $length = count($arr); $i < $length; $i++) {
             $k = RandomFactory\genIntN($i, $length);
             $temp = $arr[$i];
