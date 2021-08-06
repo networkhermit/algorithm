@@ -1548,24 +1548,24 @@
     }
 
     if (count(debug_backtrace()) == 0) {
-        TestRunner\pick(testIsCoprime);
+        TestRunner\pick("testIsCoprime");
 
-        TestRunner\pick(testFactorial);
+        TestRunner\pick("testFactorial");
 
-        TestRunner\pick(testFibonacci);
+        TestRunner\pick("testFibonacci");
 
-        TestRunner\pick(testGCD);
+        TestRunner\pick("testGCD");
 
-        TestRunner\pick(testLCM);
+        TestRunner\pick("testLCM");
 
-        TestRunner\pick(testIsEven);
+        TestRunner\pick("testIsEven");
 
-        TestRunner\pick(testIsOdd);
+        TestRunner\pick("testIsOdd");
 
-        TestRunner\pick(testIsPrime);
+        TestRunner\pick("testIsPrime");
 
-        TestRunner\pick(testIsComposite);
+        TestRunner\pick("testIsComposite");
 
-        TestRunner\pick(testSieveOfPrimes);
+        TestRunner\pick("testSieveOfPrimes");
     }
 ?>

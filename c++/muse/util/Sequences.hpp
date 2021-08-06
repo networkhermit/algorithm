@@ -57,7 +57,7 @@ namespace Sequences {
 
         RandomFactory::seed();
         for (std::size_t i = 0, length = arr.size(); i < length; i++) {
-            k = RandomFactory::integerN(i, length);
+            k = RandomFactory::genIntN(i, length);
             temp = arr[i];
             arr[i] = arr[k];
             arr[k] = temp;

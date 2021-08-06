@@ -1,13 +1,13 @@
 "use strict"
 
-let TestRunnerItemIndex = 0
+let itemIndex = 0
 
 exports.pick = (func) => {
     if (func()) {
-        console.log("✓ Item [%d] PASSED", TestRunnerItemIndex)
+        console.log("✓ Item [%d] PASSED", itemIndex)
     } else {
-        console.error("✗ Item [%d] FAILED", TestRunnerItemIndex)
+        console.error("✗ Item [%d] FAILED", itemIndex)
     }
 
-    TestRunnerItemIndex++
+    itemIndex++
 }

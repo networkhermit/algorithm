@@ -5,14 +5,14 @@ import (
     "os"
 )
 
-var TestRunnerItemIndex int
+var itemIndex int
 
 func Pick(fn func() bool) {
     if fn() {
-        fmt.Printf("✓ Item [%d] PASSED\n", TestRunnerItemIndex)
+        fmt.Printf("✓ Item [%d] PASSED\n", itemIndex)
     } else {
-        fmt.Fprintf(os.Stderr, "✗ Item [%d] FAILED\n", TestRunnerItemIndex)
+        fmt.Fprintf(os.Stderr, "✗ Item [%d] FAILED\n", itemIndex)
     }
 
-    TestRunnerItemIndex++
+    itemIndex++
 }

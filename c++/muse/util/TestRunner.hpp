@@ -8,15 +8,15 @@
 namespace TestRunner {
 
     void pick(std::function<bool()> func) {
-        static std::size_t TestRunnerItemIndex = 0;
+        static std::size_t itemIndex = 0;
 
         if (func()) {
-            std::cout << "✓ Item [" << TestRunnerItemIndex << "] PASSED" << std::endl;
+            std::cout << "✓ Item [" << itemIndex << "] PASSED" << std::endl;
         } else {
-            std::cerr << "✗ Item [" << TestRunnerItemIndex << "] FAILED" << std::endl;
+            std::cerr << "✗ Item [" << itemIndex << "] FAILED" << std::endl;
         }
 
-        TestRunnerItemIndex++;
+        itemIndex++;
     }
 }
 

@@ -8,19 +8,19 @@ public final class RandomFactory {
         // preserve for consistent interface
     }
 
-    public static int integerN(int min, int max) {
+    public static int genIntN(int min, int max) {
         return min + (int) (Math.random() * (max - min));
     }
 
-    public static int generateInteger() {
-        return integerN(0, 2_147_483_647);
+    public static int genInt() {
+        return genIntN(0, 2_147_483_647);
     }
 
-    public static int generateEven() {
-        return generateInteger() >>> 1 << 1;
+    public static int genEven() {
+        return genInt() >>> 1 << 1;
     }
 
-    public static int generateOdd() {
-        return generateInteger() | 1;
+    public static int genOdd() {
+        return genInt() | 1;
     }
 }

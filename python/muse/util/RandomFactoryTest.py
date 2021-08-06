@@ -1,53 +1,53 @@
 from muse.util import RandomFactory
 from muse.util import TestRunner
 
-def testIntegerN() -> bool:
+def testGenIntN() -> bool:
     RandomFactory.seed()
 
     value = 0
     for _ in range(8192):
-        if RandomFactory.integerN(0, 0) != 0:
+        if RandomFactory.genIntN(0, 0) != 0:
             return False
 
-        if RandomFactory.integerN(1, 1) != 1:
+        if RandomFactory.genIntN(1, 1) != 1:
             return False
 
-        value = RandomFactory.integerN(0, 1)
+        value = RandomFactory.genIntN(0, 1)
         if value < 0 or value > 1:
             return False
 
-        value = RandomFactory.integerN(100, 10000)
-        if RandomFactory.integerN(value, value) != value:
+        value = RandomFactory.genIntN(100, 10000)
+        if RandomFactory.genIntN(value, value) != value:
             return False
         if value < 100 or value > 10000:
             return False
 
     return True
 
-def testGenerateEven() -> bool:
+def testGenEven() -> bool:
     RandomFactory.seed()
 
     for _ in range(8192):
-        if (RandomFactory.generateEven() & 1) != 0:
+        if (RandomFactory.genEven() & 1) != 0:
             return False
 
     return True
 
-def testGenerateOdd() -> bool:
+def testGenOdd() -> bool:
     RandomFactory.seed()
 
     for _ in range(8192):
-        if (RandomFactory.generateOdd() & 1) == 0:
+        if (RandomFactory.genOdd() & 1) == 0:
             return False
 
     return True
 
 def main() -> None:
-    TestRunner.pick(testIntegerN)
+    TestRunner.pick(testGenIntN)
 
-    TestRunner.pick(testGenerateEven)
+    TestRunner.pick(testGenEven)
 
-    TestRunner.pick(testGenerateOdd)
+    TestRunner.pick(testGenOdd)
 
 if __name__ == "__main__":
     main()

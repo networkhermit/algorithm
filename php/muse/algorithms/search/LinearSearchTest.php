@@ -31,6 +31,6 @@
     }
 
     if (count(debug_backtrace()) == 0) {
-        TestRunner\pick(testLinearSearch);
+        TestRunner\pick("testLinearSearch");
     }
 ?>

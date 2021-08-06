@@ -3,24 +3,24 @@
   (:use common-lisp)
   (:export
     seed
-    integer-n
-    generate-integer
-    generate-even
-    generate-odd))
+    gen-int-n
+    gen-int
+    gen-even
+    gen-odd))
 
 (in-package random-factory)
 
 (defun seed ()
   (setf *random-state* (make-random-state t)) nil)
 
-(defun integer-n (min max)
+(defun gen-int-n (min max)
   (+ min (random (- max min -1))))
 
-(defun generate-integer ()
-  (integer-n 0 2147483647))
+(defun gen-int ()
+  (gen-int-n 0 2147483647))
 
-(defun generate-even ()
-  (ash (ash (generate-integer) -1) 1))
+(defun gen-even ()
+  (ash (ash (gen-int) -1) 1))
 
-(defun generate-odd ()
-  (logior (generate-integer) 1))
+(defun gen-odd ()
+  (logior (gen-int) 1))

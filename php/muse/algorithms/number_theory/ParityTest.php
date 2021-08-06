@@ -189,6 +189,6 @@
     }
 
     if (count(debug_backtrace()) == 0) {
-        TestRunner\pick(testParity);
+        TestRunner\pick("testParity");
     }
 ?>

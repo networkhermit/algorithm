@@ -4,19 +4,19 @@ module RandomFactory
         # preserve for consistent interface
     end
 
-    def self.integerN(min, max)
+    def self.genIntN(min, max)
         min + rand(max - min + 1)
     end
 
-    def self.generateInteger()
-        integerN(0, 2_147_483_647)
+    def self.genInt()
+        genIntN(0, 2_147_483_647)
     end
 
-    def self.generateEven()
-        generateInteger() >> 1 << 1
+    def self.genEven()
+        genInt() >> 1 << 1
     end
 
-    def self.generateOdd()
-        generateInteger() | 1
+    def self.genOdd()
+        genInt() | 1
     end
 end

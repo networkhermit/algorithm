@@ -7,16 +7,16 @@ import (
 
 func PackIncreasing(arr []int) {
     RandomFactory.Seed()
-    arr[0] = RandomFactory.IntegerN(1, 3)
+    arr[0] = RandomFactory.GenIntN(1, 3)
     for i, length := 1, len(arr); i < length; i++ {
-        arr[i] = arr[i - 1] + RandomFactory.IntegerN(1, 3)
+        arr[i] = arr[i - 1] + RandomFactory.GenIntN(1, 3)
     }
 }
 
 func PackRandom(arr []int) {
     RandomFactory.Seed()
     for i := range arr {
-        arr[i] = RandomFactory.GenerateInteger()
+        arr[i] = RandomFactory.GenInt()
     }
 }
 

@@ -53,7 +53,7 @@ void Sequences_shuffle(int *arr, size_t length) {
 
     RandomFactory_seed();
     for (size_t i = 0; i < length; i++) {
-        k = RandomFactory_integerN(i, length);
+        k = RandomFactory_genIntN(i, length);
         temp = arr[i];
         arr[i] = arr[k];
         arr[k] = temp;

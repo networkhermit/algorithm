@@ -52,7 +52,7 @@ public final class Sequences {
 
         RandomFactory.seed();
         for (int i = 0, length = arr.length; i < length; i++) {
-            k = RandomFactory.integerN(i, length);
+            k = RandomFactory.genIntN(i, length);
             temp = arr[i];
             arr[i] = arr[k];
             arr[k] = temp;

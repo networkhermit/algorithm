@@ -4,18 +4,18 @@ exports.seed = () => {
     // preserve for consistent interface
 }
 
-exports.integerN = (min, max) => {
+exports.genIntN = (min, max) => {
     return min + Math.floor(Math.random() * (max - min))
 }
 
-exports.generateInteger = () => {
-    return this.integerN(0, 2147483647)
+exports.genInt = () => {
+    return this.genIntN(0, 2147483647)
 }
 
-exports.generateEven = () => {
-    return this.generateInteger() >>> 1 << 1
+exports.genEven = () => {
+    return this.genInt() >>> 1 << 1
 }
 
-exports.generateOdd = () => {
-    return this.generateInteger() | 1
+exports.genOdd = () => {
+    return this.genInt() | 1
 }

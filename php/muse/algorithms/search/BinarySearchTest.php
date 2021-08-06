@@ -31,6 +31,6 @@
     }
 
     if (count(debug_backtrace()) == 0) {
-        TestRunner\pick(testBinarySearch);
+        TestRunner\pick("testBinarySearch");
     }
 ?>

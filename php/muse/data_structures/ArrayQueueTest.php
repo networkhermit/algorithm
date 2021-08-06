@@ -41,6 +41,6 @@
     }
 
     if (count(debug_backtrace()) == 0) {
-        TestRunner\pick(testArrayQueue);
+        TestRunner\pick("testArrayQueue");
     }
 ?>

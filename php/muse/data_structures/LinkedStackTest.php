@@ -29,6 +29,6 @@
     }
 
     if (count(debug_backtrace()) == 0) {
-        TestRunner\pick(testLinkedStack);
+        TestRunner\pick("testLinkedStack");
     }
 ?>

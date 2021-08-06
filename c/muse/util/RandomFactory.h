@@ -8,20 +8,20 @@ void RandomFactory_seed(void) {
     srand((unsigned) time(NULL));
 }
 
-int RandomFactory_integerN(int min, int max) {
+int RandomFactory_genIntN(int min, int max) {
     return min + rand() % (max - min + 1);
 }
 
-int RandomFactory_generateInteger(void) {
-    return RandomFactory_integerN(0, 2147483647);
+int RandomFactory_genInt(void) {
+    return RandomFactory_genIntN(0, 2147483647);
 }
 
-int RandomFactory_generateEven(void) {
-    return RandomFactory_generateInteger() >> 1 << 1;
+int RandomFactory_genEven(void) {
+    return RandomFactory_genInt() >> 1 << 1;
 }
 
-int RandomFactory_generateOdd(void) {
-    return RandomFactory_generateInteger() | 1;
+int RandomFactory_genOdd(void) {
+    return RandomFactory_genInt() | 1;
 }
 
 #endif

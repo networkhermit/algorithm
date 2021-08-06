@@ -64,6 +64,6 @@
     }
 
     if (count(debug_backtrace()) == 0) {
-        TestRunner\pick(testLinkedList);
+        TestRunner\pick("testLinkedList");
     }
 ?>

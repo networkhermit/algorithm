@@ -36,7 +36,7 @@ def shuffle(arr: list) -> None:
 
     RandomFactory.seed()
     for i in range(length):
-        k = RandomFactory.integerN(i, length)
+        k = RandomFactory.genIntN(i, length)
         arr[i], arr[k] = arr[k], arr[i]
 
 def sort(arr: list) -> None:

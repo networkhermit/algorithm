@@ -95,14 +95,14 @@
     }
 
     if (count(debug_backtrace()) == 0) {
-        TestRunner\pick(testBubbleSort);
+        TestRunner\pick("testBubbleSort");
 
-        TestRunner\pick(testInsertionSort);
+        TestRunner\pick("testInsertionSort");
 
-        TestRunner\pick(testMergeSort);
+        TestRunner\pick("testMergeSort");
 
-        TestRunner\pick(testQuickSort);
+        TestRunner\pick("testQuickSort");
 
-        TestRunner\pick(testSelectionSort);
+        TestRunner\pick("testSelectionSort");
     }
 ?>

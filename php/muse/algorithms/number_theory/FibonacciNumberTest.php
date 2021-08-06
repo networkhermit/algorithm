@@ -88,6 +88,6 @@
     }
 
     if (count(debug_backtrace()) == 0) {
-        TestRunner\pick(testFibonacciNumber);
+        TestRunner\pick("testFibonacciNumber");
     }
 ?>

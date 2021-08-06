@@ -159,6 +159,6 @@
     }
 
     if (count(debug_backtrace()) == 0) {
-        TestRunner\pick(testPrimeSieves);
+        TestRunner\pick("testPrimeSieves");
     }
 ?>

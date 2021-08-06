@@ -53,7 +53,7 @@
 
         RandomFactory\seed();
         for ($i = 0, $length = count($arr); $i < $length; $i++) {
-            $k = RandomFactory\integerN($i, $length);
+            $k = RandomFactory\genIntN($i, $length);
             $temp = $arr[$i];
             $arr[$i] = $k;
             $k = $temp;

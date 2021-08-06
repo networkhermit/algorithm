@@ -5,15 +5,15 @@
 #include <stdio.h>
 
 void TestRunner_pick(bool (*func)()) {
-    static size_t TestRunnerItemIndex = 0;
+    static size_t itemIndex = 0;
 
     if (func()) {
-        printf("✓ Item [%zu] PASSED\n", TestRunnerItemIndex);
+        printf("✓ Item [%zu] PASSED\n", itemIndex);
     } else {
-        fprintf(stderr, "✗ Item [%zu] FAILED\n", TestRunnerItemIndex);
+        fprintf(stderr, "✗ Item [%zu] FAILED\n", itemIndex);
     }
 
-    TestRunnerItemIndex++;
+    itemIndex++;
 }
 
 #endif

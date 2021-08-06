@@ -10,20 +10,20 @@ namespace RandomFactory {
         std::srand(static_cast<unsigned>(std::time(nullptr)));
     }
 
-    int integerN(int min, int max) {
+    int genIntN(int min, int max) {
         return min + std::rand() % (max - min + 1);
     }
 
-    int generateInteger() {
-        return integerN(0, 2'147'483'647);
+    int genInt() {
+        return genIntN(0, 2'147'483'647);
     }
 
-    int generateEven() {
-        return generateInteger() >> 1 << 1;
+    int genEven() {
+        return genInt() >> 1 << 1;
     }
 
-    int generateOdd() {
-        return generateInteger() | 1;
+    int genOdd() {
+        return genInt() | 1;
     }
 }
 

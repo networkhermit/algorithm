@@ -297,6 +297,6 @@
     }
 
     if (count(debug_backtrace()) == 0) {
-        TestRunner\pick(testPrimality);
+        TestRunner\pick("testPrimality");
     }
 ?>

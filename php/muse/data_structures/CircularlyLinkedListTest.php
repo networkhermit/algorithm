@@ -64,6 +64,6 @@
     }
 
     if (count(debug_backtrace()) == 0) {
-        TestRunner\pick(testCircularlyLinkedList);
+        TestRunner\pick("testCircularlyLinkedList");
     }
 ?>

@@ -1,26 +1,26 @@
 #include <muse/util/RandomFactory.h>
 #include <muse/util/TestRunner.h>
 
-bool testIntegerN(void) {
+bool testGenIntN(void) {
     RandomFactory_seed();
 
     int value;
     for (int i = 0; i < 8192; i++) {
-        if (RandomFactory_integerN(0, 0) != 0) {
+        if (RandomFactory_genIntN(0, 0) != 0) {
             return false;
         }
 
-        if (RandomFactory_integerN(1, 1) != 1) {
+        if (RandomFactory_genIntN(1, 1) != 1) {
             return false;
         }
 
-        value = RandomFactory_integerN(0, 1);
+        value = RandomFactory_genIntN(0, 1);
         if (value < 0 || value > 1) {
             return false;
         }
 
-        value = RandomFactory_integerN(100, 10000);
-        if (RandomFactory_integerN(value, value) != value) {
+        value = RandomFactory_genIntN(100, 10000);
+        if (RandomFactory_genIntN(value, value) != value) {
             return false;
         }
         if (value < 100 || value > 10000) {
@@ -31,11 +31,11 @@ bool testIntegerN(void) {
     return true;
 }
 
-bool testGenerateEven(void) {
+bool testGenEven(void) {
     RandomFactory_seed();
 
     for (int i = 0; i < 8192; i++) {
-        if ((RandomFactory_generateEven() & 1) != 0) {
+        if ((RandomFactory_genEven() & 1) != 0) {
             return false;
         }
     }
@@ -43,11 +43,11 @@ bool testGenerateEven(void) {
     return true;
 }
 
-bool testGenerateOdd(void) {
+bool testGenOdd(void) {
     RandomFactory_seed();
 
     for (int i = 0; i < 8192; i++) {
-        if ((RandomFactory_generateOdd() & 1) == 0) {
+        if ((RandomFactory_genOdd() & 1) == 0) {
             return false;
         }
     }
@@ -56,9 +56,9 @@ bool testGenerateOdd(void) {
 }
 
 int main(void) {
-    TestRunner_pick(&testIntegerN);
+    TestRunner_pick(&testGenIntN);
 
-    TestRunner_pick(&testGenerateEven);
+    TestRunner_pick(&testGenEven);
 
-    TestRunner_pick(&testGenerateOdd);
+    TestRunner_pick(&testGenOdd);
 }

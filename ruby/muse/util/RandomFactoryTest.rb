@@ -1,26 +1,26 @@
 require "muse/util/RandomFactory"
 require "muse/util/TestRunner"
 
-def testIntegerN()
+def testGenIntN()
     RandomFactory.seed()
 
     value = 0
     8192.times do
-        if RandomFactory.integerN(0, 0) != 0
+        if RandomFactory.genIntN(0, 0) != 0
             return false
         end
 
-        if RandomFactory.integerN(1, 1) != 1
+        if RandomFactory.genIntN(1, 1) != 1
             return false
         end
 
-        value = RandomFactory.integerN(0, 1)
+        value = RandomFactory.genIntN(0, 1)
         if value.negative? || value > 1
             return false
         end
 
-        value = RandomFactory.integerN(100, 10000)
-        if RandomFactory.integerN(value, value) != value
+        value = RandomFactory.genIntN(100, 10000)
+        if RandomFactory.genIntN(value, value) != value
             return false
         end
         if value < 100 || value > 10000
@@ -31,11 +31,11 @@ def testIntegerN()
     true
 end
 
-def testGenerateEven()
+def testGenEven()
     RandomFactory.seed()
 
     8192.times do
-        if (RandomFactory.generateEven() & 1) != 0
+        if (RandomFactory.genEven() & 1) != 0
             return false
         end
     end
@@ -43,11 +43,11 @@ def testGenerateEven()
     true
 end
 
-def testGenerateOdd()
+def testGenOdd()
     RandomFactory.seed()
 
     8192.times do
-        if (RandomFactory.generateOdd() & 1).zero?
+        if (RandomFactory.genOdd() & 1).zero?
             return false
         end
     end
@@ -56,9 +56,9 @@ def testGenerateOdd()
 end
 
 if __FILE__ == $PROGRAM_NAME
-    TestRunner.pick(testIntegerN())
+    TestRunner.pick(testGenIntN())
 
-    TestRunner.pick(testGenerateEven())
+    TestRunner.pick(testGenEven())
 
-    TestRunner.pick(testGenerateOdd())
+    TestRunner.pick(testGenOdd())
 end

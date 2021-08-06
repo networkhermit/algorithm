@@ -27,6 +27,6 @@
     }
 
     if (count(debug_backtrace()) == 0) {
-        TestRunner\pick(testMergeSort);
+        TestRunner\pick("testMergeSort");
     }
 ?>

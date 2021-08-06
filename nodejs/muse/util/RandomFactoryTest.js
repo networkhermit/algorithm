@@ -8,21 +8,21 @@ const testIntegerN = () => {
 
     let value = 0
     for (let i = 0; i < 8192; i++) {
-        if (RandomFactory.integerN(0, 0) !== 0) {
+        if (RandomFactory.genIntN(0, 0) !== 0) {
             return false
         }
 
-        if (RandomFactory.integerN(1, 1) !== 1) {
+        if (RandomFactory.genIntN(1, 1) !== 1) {
             return false
         }
 
-        value = RandomFactory.integerN(0, 1)
+        value = RandomFactory.genIntN(0, 1)
         if (value < 0 || value > 1) {
             return false
         }
 
-        value = RandomFactory.integerN(100, 10000)
-        if (RandomFactory.integerN(value, value) !== value) {
+        value = RandomFactory.genIntN(100, 10000)
+        if (RandomFactory.genIntN(value, value) !== value) {
             return false
         }
         if (value < 100 || value > 10000) {
@@ -33,11 +33,11 @@ const testIntegerN = () => {
     return true
 }
 
-const testGenerateEven = () => {
+const testGenEven = () => {
     RandomFactory.seed()
 
     for (let i = 0; i < 8192; i++) {
-        if ((RandomFactory.generateEven() & 1) !== 0) {
+        if ((RandomFactory.genEven() & 1) !== 0) {
             return false
         }
     }
@@ -45,11 +45,11 @@ const testGenerateEven = () => {
     return true
 }
 
-const testGenerateOdd = () => {
+const testGenOdd = () => {
     RandomFactory.seed()
 
     for (let i = 0; i < 8192; i++) {
-        if ((RandomFactory.generateOdd() & 1) === 0) {
+        if ((RandomFactory.genOdd() & 1) === 0) {
             return false
         }
     }
@@ -60,7 +60,7 @@ const testGenerateOdd = () => {
 if (module === require.main) {
     TestRunner.pick(testIntegerN)
 
-    TestRunner.pick(testGenerateEven)
+    TestRunner.pick(testGenEven)
 
-    TestRunner.pick(testGenerateOdd)
+    TestRunner.pick(testGenOdd)
 }

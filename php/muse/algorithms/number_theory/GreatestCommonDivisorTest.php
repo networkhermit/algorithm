@@ -165,6 +165,6 @@
     }
 
     if (count(debug_backtrace()) == 0) {
-        TestRunner\pick(testGreatestCommonDivisor);
+        TestRunner\pick("testGreatestCommonDivisor");
     }
 ?>

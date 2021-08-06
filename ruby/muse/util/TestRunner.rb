@@ -1,14 +1,14 @@
 module TestRunner
 
-    $TestRunnerItemIndex = 0
+    @@itemIndex = 0
 
     def self.pick(ok)
         if ok
-            puts(format("✓ Item [%s] PASSED", $TestRunnerItemIndex))
+            puts(format("✓ Item [%s] PASSED", @@itemIndex))
         else
-            STDERR.puts(format("✗ Item [%s] FAILED", $TestRunnerItemIndex))
+            STDERR.puts(format("✗ Item [%s] FAILED", @@itemIndex))
         end
 
-        $TestRunnerItemIndex += 1
+        @@itemIndex += 1
     end
 end

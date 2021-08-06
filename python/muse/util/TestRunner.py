@@ -1,14 +1,14 @@
 from typing import Callable
 import sys
 
-TestRunnerItemIndex = 0
+itemIndex = 0
 
 def pick(func: Callable[[], bool]) -> None:
-    global TestRunnerItemIndex
+    global itemIndex
 
     if func():
-        print("✓ Item [%d] PASSED" % TestRunnerItemIndex)
+        print("✓ Item [%d] PASSED" % itemIndex)
     else:
-        print("✗ Item [%d] FAILED" % TestRunnerItemIndex, file = sys.stderr)
+        print("✗ Item [%d] FAILED" % itemIndex, file = sys.stderr)
 
-    TestRunnerItemIndex += 1
+    itemIndex += 1

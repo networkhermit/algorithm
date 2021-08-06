@@ -49,7 +49,7 @@ func Shuffle(arr []int) {
 
     RandomFactory.Seed()
     for i, length := 0, len(arr); i < length; i++ {
-        k = RandomFactory.IntegerN(i, length)
+        k = RandomFactory.GenIntN(i, length)
         arr[i], arr[k] = arr[k], arr[i]
     }
 }

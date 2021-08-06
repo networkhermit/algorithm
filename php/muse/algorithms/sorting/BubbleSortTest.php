@@ -27,6 +27,6 @@
     }
 
     if (count(debug_backtrace()) == 0) {
-        TestRunner\pick(testBubbleSort);
+        TestRunner\pick("testBubbleSort");
     }
 ?>
