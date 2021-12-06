@@ -1,4 +1,6 @@
 <?php
+    declare(strict_types=1);
+
     namespace muse\algorithms\number_theory\GreatestCommonDivisor;
 
     function iterativeBinaryGCD(int $m, int $n): int {

@@ -1,4 +1,6 @@
 <?php
+    declare(strict_types=1);
+
     namespace muse\algorithms\meta\Sorting;
 
     require_once "muse/algorithms/sorting/BubbleSort.php";

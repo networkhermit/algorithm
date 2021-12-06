@@ -1,4 +1,6 @@
 <?php
+    declare(strict_types=1);
+
     namespace muse\algorithms\sorting\MergeSort;
 
     function merge(array &$arr, int $lo, int $mid, int $hi): void {

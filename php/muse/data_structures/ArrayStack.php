@@ -1,4 +1,6 @@
 <?php
+    declare(strict_types=1);
+
     namespace muse\data_structures\ArrayStack;
 
     require_once "muse/data_structures/interfaces/IStack.php";

@@ -1,4 +1,6 @@
 <?php
+    declare(strict_types=1);
+
     namespace muse\util\TestRunner;
 
     function pick(callable $func): void {

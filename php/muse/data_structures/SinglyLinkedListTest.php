@@ -1,4 +1,6 @@
 <?php
+    declare(strict_types=1);
+
     require_once "muse/data_structures/SinglyLinkedList.php";
     require_once "muse/util/TestRunner.php";
 

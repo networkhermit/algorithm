@@ -1,4 +1,6 @@
 <?php
+    declare(strict_types=1);
+
     require_once "muse/algorithms/number_theory/LeastCommonMultiple.php";
     require_once "muse/util/TestRunner.php";
 

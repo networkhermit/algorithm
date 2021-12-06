@@ -1,4 +1,6 @@
 <?php
+    declare(strict_types=1);
+
     namespace muse\algorithms\meta\Search;
 
     require_once "muse/algorithms/search/BinarySearch.php";

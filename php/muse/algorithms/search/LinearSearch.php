@@ -1,4 +1,6 @@
 <?php
+    declare(strict_types=1);
+
     namespace muse\algorithms\search\LinearSearch;
 
     function find(array &$arr, $key): int {

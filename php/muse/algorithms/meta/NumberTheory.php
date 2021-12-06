@@ -1,4 +1,6 @@
 <?php
+    declare(strict_types=1);
+
     namespace muse\algorithms\meta\NumberTheory;
 
     require_once "muse/algorithms/number_theory/Coprimality.php";

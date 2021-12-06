@@ -1,4 +1,6 @@
 <?php
+    declare(strict_types=1);
+
     require_once "muse/algorithms/sorting/BubbleSort.php";
     require_once "muse/util/SequenceBuilder.php";
     require_once "muse/util/Sequences.php";
