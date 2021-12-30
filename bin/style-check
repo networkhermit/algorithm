@@ -248,7 +248,7 @@ run_style_check () {
         for instance in $(find -L "${ROOT}" -type f -name '*.js' | sort); do
             fname=$(basename "${instance}" .js)
 
-            standard --verbose "${instance#${PWD}/}" || true
+            standard --verbose "${instance#"${PWD}"/}" || true
             xo --no-semicolon --space=4 "${instance}" || true
 
             printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
