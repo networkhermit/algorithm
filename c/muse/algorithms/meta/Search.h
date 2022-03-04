@@ -1,5 +1,5 @@
 #ifndef MUSE_ALGORITHMS_META_SEARCH_H
-#define MUSE_ALGORITHMS_META_SEARCH_H 1
+#define MUSE_ALGORITHMS_META_SEARCH_H
 
 #ifndef SEARCH_TYPE
 typedef int search_type;

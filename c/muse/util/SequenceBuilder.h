@@ -1,5 +1,5 @@
 #ifndef MUSE_UTIL_SEQUENCE_BUILDER_H
-#define MUSE_UTIL_SEQUENCE_BUILDER_H 1
+#define MUSE_UTIL_SEQUENCE_BUILDER_H
 
 #include <stddef.h>
 

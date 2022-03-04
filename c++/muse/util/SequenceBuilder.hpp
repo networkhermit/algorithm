@@ -1,5 +1,5 @@
 #ifndef MUSE_UTIL_SEQUENCE_BUILDER_HPP
-#define MUSE_UTIL_SEQUENCE_BUILDER_HPP 1
+#define MUSE_UTIL_SEQUENCE_BUILDER_HPP
 
 #include <cstddef>
 #include <vector>

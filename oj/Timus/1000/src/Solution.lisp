@@ -1,0 +1,6 @@
+(defun main ()
+  (do (a b)
+    ((not (and (setf a (read *standard-input* nil))
+               (setf b (read *standard-input* nil)))))
+    (write (+ a b))
+    (terpri)))

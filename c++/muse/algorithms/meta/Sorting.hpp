@@ -1,5 +1,5 @@
 #ifndef MUSE_ALGORITHMS_META_SORTING_HPP
-#define MUSE_ALGORITHMS_META_SORTING_HPP 1
+#define MUSE_ALGORITHMS_META_SORTING_HPP
 
 #include <muse/algorithms/sorting/BubbleSort.hpp>
 #include <muse/algorithms/sorting/InsertionSort.hpp>

@@ -1,5 +1,5 @@
 #ifndef MUSE_ALGORITHMS_META_SEARCH_HPP
-#define MUSE_ALGORITHMS_META_SEARCH_HPP 1
+#define MUSE_ALGORITHMS_META_SEARCH_HPP
 
 #include <muse/algorithms/search/BinarySearch.hpp>
 #include <muse/algorithms/search/LinearSearch.hpp>

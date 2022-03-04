@@ -1,5 +1,5 @@
 #ifndef MUSE_UTIL_SEQUENCES_HPP
-#define MUSE_UTIL_SEQUENCES_HPP 1
+#define MUSE_UTIL_SEQUENCES_HPP
 
 #include <cstddef>
 #include <iomanip>

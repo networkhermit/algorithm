@@ -1,5 +1,5 @@
 #ifndef MUSE_UTIL_TEST_RUNNER_H
-#define MUSE_UTIL_TEST_RUNNER_H 1
+#define MUSE_UTIL_TEST_RUNNER_H
 
 #include <stdbool.h>
 #include <stdio.h>

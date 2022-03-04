@@ -1,5 +1,5 @@
 #ifndef MUSE_ALGORITHMS_META_NUMBER_THEORY_H
-#define MUSE_ALGORITHMS_META_NUMBER_THEORY_H 1
+#define MUSE_ALGORITHMS_META_NUMBER_THEORY_H
 
 #include <muse/algorithms/number_theory/Coprimality.h>
 #include <muse/algorithms/number_theory/Factorial.h>

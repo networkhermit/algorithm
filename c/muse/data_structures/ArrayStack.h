@@ -1,5 +1,5 @@
 #ifndef MUSE_DATA_STRUCTURES_ARRAY_STACK_H
-#define MUSE_DATA_STRUCTURES_ARRAY_STACK_H 1
+#define MUSE_DATA_STRUCTURES_ARRAY_STACK_H
 
 #include <stdbool.h>
 #include <stdio.h>

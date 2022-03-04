@@ -1,5 +1,5 @@
 #ifndef MUSE_UTIL_RANDOM_FACTORY_HPP
-#define MUSE_UTIL_RANDOM_FACTORY_HPP 1
+#define MUSE_UTIL_RANDOM_FACTORY_HPP
 
 #include <cstdlib>
 #include <ctime>

@@ -1,5 +1,5 @@
 #ifndef MUSE_UTIL_RANDOM_FACTORY_H
-#define MUSE_UTIL_RANDOM_FACTORY_H 1
+#define MUSE_UTIL_RANDOM_FACTORY_H
 
 #include <stdlib.h>
 #include <time.h>

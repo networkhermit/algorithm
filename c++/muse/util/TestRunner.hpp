@@ -1,5 +1,5 @@
 #ifndef MUSE_UTIL_TEST_RUNNER_HPP
-#define MUSE_UTIL_TEST_RUNNER_HPP 1
+#define MUSE_UTIL_TEST_RUNNER_HPP
 
 #include <cstddef>
 #include <functional>

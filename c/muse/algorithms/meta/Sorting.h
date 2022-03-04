@@ -1,5 +1,5 @@
 #ifndef MUSE_ALGORITHMS_META_SORTING_H
-#define MUSE_ALGORITHMS_META_SORTING_H 1
+#define MUSE_ALGORITHMS_META_SORTING_H
 
 #ifndef SORTING_TYPE
 typedef int sorting_type;
