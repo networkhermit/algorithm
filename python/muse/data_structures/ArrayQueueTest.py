@@ -1,6 +1,7 @@
 from muse.data_structures.ArrayQueue import ArrayQueue
 from muse.util import TestRunner
 
+
 def testArrayQueue() -> bool:
     size = 8192
 
@@ -29,8 +30,10 @@ def testArrayQueue() -> bool:
 
     return queue.capacity() == 0
 
+
 def main() -> None:
     TestRunner.pick(testArrayQueue)
+
 
 if __name__ == "__main__":
     main()

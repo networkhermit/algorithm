@@ -3,6 +3,7 @@ class Node:
         self.data = element
         self.next = None
 
+
 class CircularlyLinkedList:
     def __init__(self):
         self.tail = None

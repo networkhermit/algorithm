@@ -13,12 +13,12 @@ import "fmt"
 
 // function declaration
 func sayHello() {
-    // output some text
-    fmt.Println("hello, world")
+	// output some text
+	fmt.Println("hello, world")
 }
 
 // entry point of the program
 func main() {
-    // function invocation
-    sayHello()
+	// function invocation
+	sayHello()
 }

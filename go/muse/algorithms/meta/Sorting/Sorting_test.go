@@ -1,103 +1,103 @@
 package Sorting
 
 import (
-    "testing"
+	"testing"
 
-    "muse/util/SequenceBuilder"
-    "muse/util/Sequences"
+	"muse/util/SequenceBuilder"
+	"muse/util/Sequences"
 )
 
 func TestBubbleSort(t *testing.T) {
-    size := 32768
+	size := 32768
 
-    arr := make([]int, size)
-    SequenceBuilder.PackRandom(arr)
+	arr := make([]int, size)
+	SequenceBuilder.PackRandom(arr)
 
-    checksum := Sequences.ParityChecksum(arr)
+	checksum := Sequences.ParityChecksum(arr)
 
-    BubbleSort(arr)
+	BubbleSort(arr)
 
-    if Sequences.ParityChecksum(arr) != checksum {
-        t.FailNow()
-    }
+	if Sequences.ParityChecksum(arr) != checksum {
+		t.FailNow()
+	}
 
-    if !Sequences.IsSorted(arr) {
-        t.FailNow()
-    }
+	if !Sequences.IsSorted(arr) {
+		t.FailNow()
+	}
 }
 
 func TestInsertionSort(t *testing.T) {
-    size := 32768
+	size := 32768
 
-    arr := make([]int, size)
-    SequenceBuilder.PackRandom(arr)
+	arr := make([]int, size)
+	SequenceBuilder.PackRandom(arr)
 
-    checksum := Sequences.ParityChecksum(arr)
+	checksum := Sequences.ParityChecksum(arr)
 
-    InsertionSort(arr)
+	InsertionSort(arr)
 
-    if Sequences.ParityChecksum(arr) != checksum {
-        t.FailNow()
-    }
+	if Sequences.ParityChecksum(arr) != checksum {
+		t.FailNow()
+	}
 
-    if !Sequences.IsSorted(arr) {
-        t.FailNow()
-    }
+	if !Sequences.IsSorted(arr) {
+		t.FailNow()
+	}
 }
 
 func TestMergeSort(t *testing.T) {
-    size := 32768
+	size := 32768
 
-    arr := make([]int, size)
-    SequenceBuilder.PackRandom(arr)
+	arr := make([]int, size)
+	SequenceBuilder.PackRandom(arr)
 
-    checksum := Sequences.ParityChecksum(arr)
+	checksum := Sequences.ParityChecksum(arr)
 
-    MergeSort(arr)
+	MergeSort(arr)
 
-    if Sequences.ParityChecksum(arr) != checksum {
-        t.FailNow()
-    }
+	if Sequences.ParityChecksum(arr) != checksum {
+		t.FailNow()
+	}
 
-    if !Sequences.IsSorted(arr) {
-        t.FailNow()
-    }
+	if !Sequences.IsSorted(arr) {
+		t.FailNow()
+	}
 }
 
 func TestQuickSort(t *testing.T) {
-    size := 32768
+	size := 32768
 
-    arr := make([]int, size)
-    SequenceBuilder.PackRandom(arr)
+	arr := make([]int, size)
+	SequenceBuilder.PackRandom(arr)
 
-    checksum := Sequences.ParityChecksum(arr)
+	checksum := Sequences.ParityChecksum(arr)
 
-    QuickSort(arr)
+	QuickSort(arr)
 
-    if Sequences.ParityChecksum(arr) != checksum {
-        t.FailNow()
-    }
+	if Sequences.ParityChecksum(arr) != checksum {
+		t.FailNow()
+	}
 
-    if !Sequences.IsSorted(arr) {
-        t.FailNow()
-    }
+	if !Sequences.IsSorted(arr) {
+		t.FailNow()
+	}
 }
 
 func TestSelectionSort(t *testing.T) {
-    size := 32768
+	size := 32768
 
-    arr := make([]int, size)
-    SequenceBuilder.PackRandom(arr)
+	arr := make([]int, size)
+	SequenceBuilder.PackRandom(arr)
 
-    checksum := Sequences.ParityChecksum(arr)
+	checksum := Sequences.ParityChecksum(arr)
 
-    SelectionSort(arr)
+	SelectionSort(arr)
 
-    if Sequences.ParityChecksum(arr) != checksum {
-        t.FailNow()
-    }
+	if Sequences.ParityChecksum(arr) != checksum {
+		t.FailNow()
+	}
 
-    if !Sequences.IsSorted(arr) {
-        t.FailNow()
-    }
+	if !Sequences.IsSorted(arr) {
+		t.FailNow()
+	}
 }

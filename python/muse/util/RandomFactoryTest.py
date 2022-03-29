@@ -1,6 +1,7 @@
 from muse.util import RandomFactory
 from muse.util import TestRunner
 
+
 def testGenIntN() -> bool:
     value = 0
     for _ in range(8192):
@@ -22,12 +23,14 @@ def testGenIntN() -> bool:
 
     return True
 
+
 def testGenEven() -> bool:
     for _ in range(8192):
         if (RandomFactory.genEven() & 1) != 0:
             return False
 
     return True
+
 
 def testGenOdd() -> bool:
     for _ in range(8192):
@@ -36,12 +39,14 @@ def testGenOdd() -> bool:
 
     return True
 
+
 def main() -> None:
     TestRunner.pick(testGenIntN)
 
     TestRunner.pick(testGenEven)
 
     TestRunner.pick(testGenOdd)
+
 
 if __name__ == "__main__":
     main()

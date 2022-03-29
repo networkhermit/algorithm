@@ -1,13 +1,13 @@
 package IQueue
 
 type IQueue interface {
-    Size() int
+	Size() int
 
-    IsEmpty() bool
+	IsEmpty() bool
 
-    Peek() int
+	Peek() int
 
-    Enqueue(element int)
+	Enqueue(element int)
 
-    Dequeue()
+	Dequeue()
 }

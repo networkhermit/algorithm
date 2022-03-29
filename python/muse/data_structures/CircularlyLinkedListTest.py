@@ -1,6 +1,7 @@
 from muse.data_structures.CircularlyLinkedList import CircularlyLinkedList
 from muse.util import TestRunner
 
+
 def testCircularlyLinkedList() -> bool:
     size = 8192
 
@@ -48,8 +49,10 @@ def testCircularlyLinkedList() -> bool:
 
     return list.isEmpty()
 
+
 def main() -> None:
     TestRunner.pick(testCircularlyLinkedList)
+
 
 if __name__ == "__main__":
     main()

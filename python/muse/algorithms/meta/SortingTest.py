@@ -3,6 +3,7 @@ from muse.util import SequenceBuilder
 from muse.util import Sequences
 from muse.util import TestRunner
 
+
 def testBubbleSort() -> bool:
     size = 32768
 
@@ -17,6 +18,7 @@ def testBubbleSort() -> bool:
         return False
 
     return Sequences.isSorted(arr)
+
 
 def testInsertionSort() -> bool:
     size = 32768
@@ -33,6 +35,7 @@ def testInsertionSort() -> bool:
 
     return Sequences.isSorted(arr)
 
+
 def testMergeSort() -> bool:
     size = 32768
 
@@ -47,6 +50,7 @@ def testMergeSort() -> bool:
         return False
 
     return Sequences.isSorted(arr)
+
 
 def testQuickSort() -> bool:
     size = 32768
@@ -63,6 +67,7 @@ def testQuickSort() -> bool:
 
     return Sequences.isSorted(arr)
 
+
 def testSelectionSort() -> bool:
     size = 32768
 
@@ -78,6 +83,7 @@ def testSelectionSort() -> bool:
 
     return Sequences.isSorted(arr)
 
+
 def main() -> None:
     TestRunner.pick(testBubbleSort)
 
@@ -88,6 +94,7 @@ def main() -> None:
     TestRunner.pick(testQuickSort)
 
     TestRunner.pick(testSelectionSort)
+
 
 if __name__ == "__main__":
     main()

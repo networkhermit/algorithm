@@ -2,6 +2,7 @@ from muse.algorithms.meta import Search
 from muse.util import SequenceBuilder
 from muse.util import TestRunner
 
+
 def testBinarySearch() -> bool:
     size = 32768
 
@@ -19,6 +20,7 @@ def testBinarySearch() -> bool:
             return False
 
     return True
+
 
 def testLinearSearch() -> bool:
     size = 32768
@@ -38,10 +40,12 @@ def testLinearSearch() -> bool:
 
     return True
 
+
 def main() -> None:
     TestRunner.pick(testBinarySearch)
 
     TestRunner.pick(testLinearSearch)
+
 
 if __name__ == "__main__":
     main()

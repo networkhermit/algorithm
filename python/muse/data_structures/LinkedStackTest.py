@@ -1,6 +1,7 @@
 from muse.data_structures.LinkedStack import LinkedStack
 from muse.util import TestRunner
 
+
 def testLinkedStack() -> bool:
     size = 8192
 
@@ -19,8 +20,10 @@ def testLinkedStack() -> bool:
 
     return stack.isEmpty()
 
+
 def main() -> None:
     TestRunner.pick(testLinkedStack)
+
 
 if __name__ == "__main__":
     main()

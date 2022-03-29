@@ -3,6 +3,7 @@ from muse.util import SequenceBuilder
 from muse.util import Sequences
 from muse.util import TestRunner
 
+
 def testQuickSort() -> bool:
     size = 32768
 
@@ -18,8 +19,10 @@ def testQuickSort() -> bool:
 
     return Sequences.isSorted(arr)
 
+
 def main() -> None:
     TestRunner.pick(testQuickSort)
+
 
 if __name__ == "__main__":
     main()

@@ -3,6 +3,7 @@ class Node:
         self.data = element
         self.next = None
 
+
 class LinkedQueue:
     def __init__(self):
         self.head = None

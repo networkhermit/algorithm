@@ -23,5 +23,6 @@ def merge(arr: list, lo: int, mid: int, hi: int) -> None:
         arr[i] = sorted[cursor]
         cursor += 1
 
+
 def sort(arr: list) -> None:
     merge(arr, 0, len(arr) >> 1, len(arr))

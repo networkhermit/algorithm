@@ -1,5 +1,6 @@
 import math
 
+
 def bruteForce(n: int) -> list:
     arr = [False] * n
 
@@ -8,6 +9,7 @@ def bruteForce(n: int) -> list:
             arr[j] = not arr[j]
 
     return arr
+
 
 def process(n: int) -> list:
     arr = [False] * n
@@ -19,6 +21,7 @@ def process(n: int) -> list:
 
     return arr
 
+
 def main() -> None:
     N = 100
 
@@ -27,6 +30,7 @@ def main() -> None:
     for i, v in enumerate(arr):
         if v:
             print("%d\t  OPEN" % (i + 1))
+
 
 if __name__ == "__main__":
     main()

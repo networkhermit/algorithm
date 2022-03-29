@@ -12,10 +12,12 @@ def sayHello() -> None:
     # output some text
     print("hello, world")
 
+
 # entry point of the program
 def main() -> None:
     # function invocation
     sayHello()
+
 
 if __name__ == "__main__":
     main()

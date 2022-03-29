@@ -1,5 +1,6 @@
 import math
 
+
 def isPrime(n: int) -> bool:
     if n < 2:
         return False
@@ -11,6 +12,7 @@ def isPrime(n: int) -> bool:
             return False
 
     return True
+
 
 def isComposite(n: int) -> bool:
     return n > 1 and not isPrime(n)

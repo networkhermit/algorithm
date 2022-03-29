@@ -1,5 +1,6 @@
 import math
 
+
 def sieveOfEratosthenes(n: int) -> list:
     if n < 2:
         return []

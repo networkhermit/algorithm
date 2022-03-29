@@ -1,6 +1,7 @@
 from muse.data_structures.LinkedList import LinkedList
 from muse.util import TestRunner
 
+
 def testLinkedList() -> bool:
     size = 8192
 
@@ -48,8 +49,10 @@ def testLinkedList() -> bool:
 
     return list.isEmpty()
 
+
 def main() -> None:
     TestRunner.pick(testLinkedList)
+
 
 if __name__ == "__main__":
     main()

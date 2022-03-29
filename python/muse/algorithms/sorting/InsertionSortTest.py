@@ -3,6 +3,7 @@ from muse.util import SequenceBuilder
 from muse.util import Sequences
 from muse.util import TestRunner
 
+
 def testInsertionSort() -> bool:
     size = 32768
 
@@ -18,8 +19,10 @@ def testInsertionSort() -> bool:
 
     return Sequences.isSorted(arr)
 
+
 def main() -> None:
     TestRunner.pick(testInsertionSort)
+
 
 if __name__ == "__main__":
     main()

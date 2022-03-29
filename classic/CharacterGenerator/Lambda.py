@@ -1,6 +1,6 @@
 def main() -> None:
-    FIRST_GLYPH = 33 # '!'
-    LAST_GLYPH = 126 # '~'
+    FIRST_GLYPH = 33  # '!'
+    LAST_GLYPH = 126  # '~'
     GLYPHS_PER_LINE = 72
 
     cursor = FIRST_GLYPH
@@ -9,7 +9,7 @@ def main() -> None:
     while True:
         i = cursor
         for _ in range(GLYPHS_PER_LINE + 1):
-            print(chr(i), end = "")
+            print(chr(i), end="")
             if i == LAST_GLYPH:
                 i = FIRST_GLYPH
             else:
@@ -19,6 +19,7 @@ def main() -> None:
             cursor = FIRST_GLYPH
         else:
             cursor += 1
+
 
 if __name__ == "__main__":
     main()

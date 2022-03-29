@@ -1,5 +1,6 @@
 import time
 
+
 def main() -> None:
     print("When’s Weekend?")
 
@@ -15,6 +16,7 @@ def main() -> None:
         print("In two days.")
     else:
         print("Too far away.")
+
 
 if __name__ == "__main__":
     main()

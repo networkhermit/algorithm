@@ -1,6 +1,7 @@
 from muse.data_structures.ArrayStack import ArrayStack
 from muse.util import TestRunner
 
+
 def testArrayStack() -> bool:
     size = 8192
 
@@ -29,8 +30,10 @@ def testArrayStack() -> bool:
 
     return stack.capacity() == 0
 
+
 def main() -> None:
     TestRunner.pick(testArrayStack)
+
 
 if __name__ == "__main__":
     main()

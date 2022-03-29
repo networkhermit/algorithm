@@ -26,6 +26,7 @@ def iterativeBinaryGCD(m: int, n: int) -> int:
         else:
             n = (n - m) >> 1
 
+
 def recursiveBinaryGCD(m: int, n: int) -> int:
     if m < 0:
         m = -m
@@ -49,6 +50,7 @@ def recursiveBinaryGCD(m: int, n: int) -> int:
         return recursiveBinaryGCD((m - n) >> 1, n)
     return recursiveBinaryGCD(m, (n - m) >> 1)
 
+
 def iterativeEuclidean(m: int, n: int) -> int:
     if m < 0:
         m = -m
@@ -59,6 +61,7 @@ def iterativeEuclidean(m: int, n: int) -> int:
         m, n = n, m % n
 
     return m
+
 
 def recursiveEuclidean(m: int, n: int) -> int:
     if m < 0:

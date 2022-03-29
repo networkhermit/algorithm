@@ -24,5 +24,6 @@ def partition(arr: list, lo: int, hi: int) -> None:
     partition(arr, lo, left)
     partition(arr, left + 1, hi)
 
+
 def sort(arr: list) -> None:
     partition(arr, 0, len(arr))

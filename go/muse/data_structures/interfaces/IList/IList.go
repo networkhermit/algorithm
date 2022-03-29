@@ -1,27 +1,27 @@
 package IList
 
 type IList interface {
-    Size() int
+	Size() int
 
-    IsEmpty() bool
+	IsEmpty() bool
 
-    Get(index int) int
+	Get(index int) int
 
-    Set(index int, element int)
+	Set(index int, element int)
 
-    Insert(index int, element int)
+	Insert(index int, element int)
 
-    Remove(index int)
+	Remove(index int)
 
-    Front() int
+	Front() int
 
-    Back() int
+	Back() int
 
-    Prepend() int
+	Prepend() int
 
-    Append() int
+	Append() int
 
-    Poll()
+	Poll()
 
-    Eject()
+	Eject()
 }

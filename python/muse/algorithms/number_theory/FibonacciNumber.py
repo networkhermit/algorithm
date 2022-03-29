@@ -17,6 +17,7 @@ def iterativeProcedure(n: int) -> int:
 
     return sign * curr
 
+
 def recursiveProcedure(n: int) -> int:
     if n < 0:
         if (n & 1) == 0:

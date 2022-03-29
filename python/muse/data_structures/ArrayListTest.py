@@ -1,6 +1,7 @@
 from muse.data_structures.ArrayList import ArrayList
 from muse.util import TestRunner
 
+
 def testArrayList() -> bool:
     size = 8192
 
@@ -58,8 +59,10 @@ def testArrayList() -> bool:
 
     return list.capacity() == 0
 
+
 def main() -> None:
     TestRunner.pick(testArrayList)
+
 
 if __name__ == "__main__":
     main()

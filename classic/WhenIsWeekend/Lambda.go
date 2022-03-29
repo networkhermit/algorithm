@@ -1,25 +1,25 @@
 package main
 
 import (
-    "fmt"
-    "time"
+	"fmt"
+	"time"
 )
 
 func main() {
-    fmt.Println("When’s Weekend?")
+	fmt.Println("When’s Weekend?")
 
-    today := time.Now().Weekday()
+	today := time.Now().Weekday()
 
-    switch today {
-    case time.Sunday:
-        fmt.Println("Today.")
-    case time.Saturday:
-        fmt.Println("Today.")
-    case time.Friday:
-        fmt.Println("Tomorrow.")
-    case time.Thursday:
-        fmt.Println("In two days.")
-    default:
-        fmt.Println("Too far away.")
-    }
+	switch today {
+	case time.Sunday:
+		fmt.Println("Today.")
+	case time.Saturday:
+		fmt.Println("Today.")
+	case time.Friday:
+		fmt.Println("Tomorrow.")
+	case time.Thursday:
+		fmt.Println("In two days.")
+	default:
+		fmt.Println("Too far away.")
+	}
 }

@@ -1,6 +1,7 @@
 from muse.data_structures.LinkedQueue import LinkedQueue
 from muse.util import TestRunner
 
+
 def testLinkedQueue() -> bool:
     size = 8192
 
@@ -19,8 +20,10 @@ def testLinkedQueue() -> bool:
 
     return queue.isEmpty()
 
+
 def main() -> None:
     TestRunner.pick(testLinkedQueue)
+
 
 if __name__ == "__main__":
     main()

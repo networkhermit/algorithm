@@ -1,13 +1,13 @@
 package IStack
 
 type IStack interface {
-    Size() int
+	Size() int
 
-    IsEmpty() bool
+	IsEmpty() bool
 
-    Peek() int
+	Peek() int
 
-    Push(element int)
+	Push(element int)
 
-    Pop()
+	Pop()
 }

@@ -1,6 +1,7 @@
 from muse.data_structures.SinglyLinkedList import SinglyLinkedList
 from muse.util import TestRunner
 
+
 def testSinglyLinkedList() -> bool:
     size = 8192
 
@@ -48,8 +49,10 @@ def testSinglyLinkedList() -> bool:
 
     return list.isEmpty()
 
+
 def main() -> None:
     TestRunner.pick(testSinglyLinkedList)
+
 
 if __name__ == "__main__":
     main()

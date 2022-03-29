@@ -3,6 +3,7 @@ from muse.util import SequenceBuilder
 from muse.util import Sequences
 from muse.util import TestRunner
 
+
 def testMergeSort() -> bool:
     size = 32768
 
@@ -18,8 +19,10 @@ def testMergeSort() -> bool:
 
     return Sequences.isSorted(arr)
 
+
 def main() -> None:
     TestRunner.pick(testMergeSort)
+
 
 if __name__ == "__main__":
     main()
