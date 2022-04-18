@@ -1,17 +1,19 @@
 <?php
-    declare(strict_types=1);
 
-    namespace muse\algorithms\search\BinarySearch;
+declare(strict_types=1);
 
-    function find(array &$arr, $key): int {
-        $lo = 0;
-        $hi = count($arr);
+namespace muse\algorithms\search\BinarySearch;
 
-        $mid = 0;
+function find(array &$arr, $key): int
+{
+    $lo = 0;
+    $hi = count($arr);
 
-        while ($lo < $hi) {
-            $mid = $lo + (($hi - $lo) >> 1);
-            switch (true) {
+    $mid = 0;
+
+    while ($lo < $hi) {
+        $mid = $lo + (($hi - $lo) >> 1);
+        switch (true) {
             case $key < $arr[$mid]:
                 $hi = $mid;
                 break;
@@ -20,9 +22,8 @@
                 break;
             default:
                 return $mid;
-            }
         }
-
-        return count($arr);
     }
-?>
+
+    return count($arr);
+}

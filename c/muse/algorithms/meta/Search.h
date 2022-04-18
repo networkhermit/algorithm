@@ -12,12 +12,14 @@ typedef SEARCH_TYPE search_type;
 #include <muse/algorithms/search/BinarySearch.h>
 #include <muse/algorithms/search/LinearSearch.h>
 
-size_t Search_binarySearch(const search_type *arr, size_t length, search_type key) {
-    return BinarySearch_find(arr, length, key);
+size_t Search_binarySearch(const search_type *arr, size_t length,
+                           search_type key) {
+  return BinarySearch_find(arr, length, key);
 }
 
-size_t Search_linearSearch(const search_type *arr, size_t length, search_type key) {
-    return LinearSearch_find(arr, length, key);
+size_t Search_linearSearch(const search_type *arr, size_t length,
+                           search_type key) {
+  return LinearSearch_find(arr, length, key);
 }
 
 #endif

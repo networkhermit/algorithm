@@ -1,37 +1,39 @@
 <?php
-    declare(strict_types=1);
 
-    namespace muse\algorithms\number_theory\LeastCommonMultiple;
+declare(strict_types=1);
 
-    require_once "muse/algorithms/number_theory/GreatestCommonDivisor.php";
+namespace muse\algorithms\number_theory\LeastCommonMultiple;
 
-    use muse\algorithms\number_theory\GreatestCommonDivisor;
+require_once "muse/algorithms/number_theory/GreatestCommonDivisor.php";
 
-    function reduceToBinaryGCD(int $m, int $n): int {
-        if ($m < 0) {
-            $m = -$m;
-        }
-        if ($n < 0) {
-            $n = -$n;
-        }
+use muse\algorithms\number_theory\GreatestCommonDivisor;
 
-        if ($m == 0 || $n == 0) {
-            return 0;
-        }
-        return $m / GreatestCommonDivisor\iterativeBinaryGCD($m, $n) * $n;
+function reduceToBinaryGCD(int $m, int $n): int
+{
+    if ($m < 0) {
+        $m = -$m;
+    }
+    if ($n < 0) {
+        $n = -$n;
     }
 
-    function reduceToEuclidean(int $m, int $n): int {
-        if ($m < 0) {
-            $m = -$m;
-        }
-        if ($n < 0) {
-            $n = -$n;
-        }
-
-        if ($m == 0 || $n == 0) {
-            return 0;
-        }
-        return $m / GreatestCommonDivisor\iterativeEuclidean($m, $n) * $n;
+    if ($m == 0 || $n == 0) {
+        return 0;
     }
-?>
+    return $m / GreatestCommonDivisor\iterativeBinaryGCD($m, $n) * $n;
+}
+
+function reduceToEuclidean(int $m, int $n): int
+{
+    if ($m < 0) {
+        $m = -$m;
+    }
+    if ($n < 0) {
+        $n = -$n;
+    }
+
+    if ($m == 0 || $n == 0) {
+        return 0;
+    }
+    return $m / GreatestCommonDivisor\iterativeEuclidean($m, $n) * $n;
+}

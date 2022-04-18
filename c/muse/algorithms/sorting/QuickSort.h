@@ -10,40 +10,40 @@ typedef QUICK_SORT_TYPE quick_sort_type;
 #endif
 
 void QuickSort_partition(quick_sort_type *arr, size_t lo, size_t hi) {
-    if (lo == hi) {
-        return;
+  if (lo == hi) {
+    return;
+  }
+
+  quick_sort_type pivot = arr[lo];
+
+  size_t left = lo;
+  size_t right = hi - 1;
+
+  while (left != right) {
+    for (size_t i = right; i > left; i--) {
+      if (arr[i] < pivot) {
+        arr[left] = arr[i];
+        arr[i] = pivot;
+        break;
+      }
+      right--;
     }
-
-    quick_sort_type pivot = arr[lo];
-
-    size_t left = lo;
-    size_t right = hi - 1;
-
-    while (left != right) {
-        for (size_t i = right; i > left; i--) {
-            if (arr[i] < pivot) {
-                arr[left] = arr[i];
-                arr[i] = pivot;
-                break;
-            }
-            right--;
-        }
-        for (size_t i = left; i < right; i++) {
-            if (arr[i] > pivot) {
-                arr[right] = arr[i];
-                arr[i] = pivot;
-                break;
-            }
-            left++;
-        }
+    for (size_t i = left; i < right; i++) {
+      if (arr[i] > pivot) {
+        arr[right] = arr[i];
+        arr[i] = pivot;
+        break;
+      }
+      left++;
     }
+  }
 
-    QuickSort_partition(arr, lo, left);
-    QuickSort_partition(arr, left + 1, hi);
+  QuickSort_partition(arr, lo, left);
+  QuickSort_partition(arr, left + 1, hi);
 }
 
 void QuickSort_sort(quick_sort_type *arr, size_t length) {
-    QuickSort_partition(arr, 0, length);
+  QuickSort_partition(arr, 0, length);
 }
 
 #endif

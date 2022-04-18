@@ -1,110 +1,115 @@
 <?php
-    declare(strict_types=1);
 
-    require_once "muse/algorithms/meta/Sorting.php";
-    require_once "muse/util/SequenceBuilder.php";
-    require_once "muse/util/Sequences.php";
-    require_once "muse/util/TestRunner.php";
+declare(strict_types=1);
 
-    use muse\algorithms\meta\Sorting;
-    use muse\util\SequenceBuilder;
-    use muse\util\Sequences;
-    use muse\util\TestRunner;
+require_once "muse/algorithms/meta/Sorting.php";
+require_once "muse/util/SequenceBuilder.php";
+require_once "muse/util/Sequences.php";
+require_once "muse/util/TestRunner.php";
 
-    function testBubbleSort(): bool {
-        $size = 32768;
+use muse\algorithms\meta\Sorting;
+use muse\util\SequenceBuilder;
+use muse\util\Sequences;
+use muse\util\TestRunner;
 
-        $arr = array_pad(array(), $size, 0);
-        SequenceBuilder\packRandom($arr);
+function testBubbleSort(): bool
+{
+    $size = 32768;
 
-        $checksum = Sequences\parityChecksum($arr);
+    $arr = array_pad(array(), $size, 0);
+    SequenceBuilder\packRandom($arr);
 
-        Sorting\bubbleSort($arr);
+    $checksum = Sequences\parityChecksum($arr);
 
-        if (Sequences\parityChecksum($arr) != $checksum) {
-            return false;
-        }
+    Sorting\bubbleSort($arr);
 
-        return Sequences\isSorted($arr);
+    if (Sequences\parityChecksum($arr) != $checksum) {
+        return false;
     }
 
-    function testInsertionSort(): bool {
-        $size = 32768;
+    return Sequences\isSorted($arr);
+}
 
-        $arr = array_pad(array(), $size, 0);
-        SequenceBuilder\packRandom($arr);
+function testInsertionSort(): bool
+{
+    $size = 32768;
 
-        $checksum = Sequences\parityChecksum($arr);
+    $arr = array_pad(array(), $size, 0);
+    SequenceBuilder\packRandom($arr);
 
-        Sorting\insertionSort($arr);
+    $checksum = Sequences\parityChecksum($arr);
 
-        if (Sequences\parityChecksum($arr) != $checksum) {
-            return false;
-        }
+    Sorting\insertionSort($arr);
 
-        return Sequences\isSorted($arr);
+    if (Sequences\parityChecksum($arr) != $checksum) {
+        return false;
     }
 
-    function testMergeSort(): bool {
-        $size = 32768;
+    return Sequences\isSorted($arr);
+}
 
-        $arr = array_pad(array(), $size, 0);
-        SequenceBuilder\packRandom($arr);
+function testMergeSort(): bool
+{
+    $size = 32768;
 
-        $checksum = Sequences\parityChecksum($arr);
+    $arr = array_pad(array(), $size, 0);
+    SequenceBuilder\packRandom($arr);
 
-        Sorting\mergeSort($arr);
+    $checksum = Sequences\parityChecksum($arr);
 
-        if (Sequences\parityChecksum($arr) != $checksum) {
-            return false;
-        }
+    Sorting\mergeSort($arr);
 
-        return Sequences\isSorted($arr);
+    if (Sequences\parityChecksum($arr) != $checksum) {
+        return false;
     }
 
-    function testQuickSort(): bool {
-        $size = 32768;
+    return Sequences\isSorted($arr);
+}
 
-        $arr = array_pad(array(), $size, 0);
-        SequenceBuilder\packRandom($arr);
+function testQuickSort(): bool
+{
+    $size = 32768;
 
-        $checksum = Sequences\parityChecksum($arr);
+    $arr = array_pad(array(), $size, 0);
+    SequenceBuilder\packRandom($arr);
 
-        Sorting\quickSort($arr);
+    $checksum = Sequences\parityChecksum($arr);
 
-        if (Sequences\parityChecksum($arr) != $checksum) {
-            return false;
-        }
+    Sorting\quickSort($arr);
 
-        return Sequences\isSorted($arr);
+    if (Sequences\parityChecksum($arr) != $checksum) {
+        return false;
     }
 
-    function testSelectionSort(): bool {
-        $size = 32768;
+    return Sequences\isSorted($arr);
+}
 
-        $arr = array_pad(array(), $size, 0);
-        SequenceBuilder\packRandom($arr);
+function testSelectionSort(): bool
+{
+    $size = 32768;
 
-        $checksum = Sequences\parityChecksum($arr);
+    $arr = array_pad(array(), $size, 0);
+    SequenceBuilder\packRandom($arr);
 
-        Sorting\selectionSort($arr);
+    $checksum = Sequences\parityChecksum($arr);
 
-        if (Sequences\parityChecksum($arr) != $checksum) {
-            return false;
-        }
+    Sorting\selectionSort($arr);
 
-        return Sequences\isSorted($arr);
+    if (Sequences\parityChecksum($arr) != $checksum) {
+        return false;
     }
 
-    if (count(debug_backtrace()) == 0) {
-        TestRunner\pick("testBubbleSort");
+    return Sequences\isSorted($arr);
+}
 
-        TestRunner\pick("testInsertionSort");
+if (count(debug_backtrace()) == 0) {
+    TestRunner\pick("testBubbleSort");
 
-        TestRunner\pick("testMergeSort");
+    TestRunner\pick("testInsertionSort");
 
-        TestRunner\pick("testQuickSort");
+    TestRunner\pick("testMergeSort");
 
-        TestRunner\pick("testSelectionSort");
-    }
-?>
+    TestRunner\pick("testQuickSort");
+
+    TestRunner\pick("testSelectionSort");
+}

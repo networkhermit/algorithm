@@ -1,78 +1,62 @@
 require "muse/data_structures/ArrayList"
 require "muse/util/TestRunner"
 
-def testArrayList()
-    size = 8192
+def testArrayList
+  size = 8192
 
-    list = ArrayList::ArrayList.new(0)
+  list = ArrayList::ArrayList.new(0)
 
-    1.upto(size) do |i|
-        list.append(i)
-    end
+  1.upto(size) do |i|
+    list.append(i)
+  end
 
-    list.shrink()
+  list.shrink
 
-    if list.size() != size
-        return false
-    end
+  return false if list.size != size
 
-    if list.capacity() != size
-        return false
-    end
+  return false if list.capacity != size
 
-    0.upto(size - 1) do |i|
-        if list.get(i) != i + 1
-            return false
-        end
-    end
+  0.upto(size - 1) do |i|
+    return false if list.get(i) != i + 1
+  end
 
-    0.upto(size - 1) do |i|
-        list.set(i, size - i)
-    end
+  0.upto(size - 1) do |i|
+    list.set(i, size - i)
+  end
 
-    0.upto(size - 1) do |i|
-        if list.get(i) != size - i
-            return false
-        end
-    end
+  0.upto(size - 1) do |i|
+    return false if list.get(i) != size - i
+  end
 
-    x = 0
-    y = 0
+  i = 0
+  j = size - 1
+  while i < j
+    x = list.get(i)
+    y = list.get(j)
 
-    i, j = 0, size - 1
-    while i < j
-        x = list.get(i)
-        y = list.get(j)
+    list.remove(i)
+    list.insert(i, y)
+    list.remove(j)
+    list.insert(j, x)
+    i += 1
+    j -= 1
+  end
 
-        list.remove(i)
-        list.insert(i, y)
-        list.remove(j)
-        list.insert(j, x)
-        i, j = i + 1, j - 1
-    end
+  0.upto(size - 1) do |i|
+    return false if list.get(i) != i + 1
+  end
 
-    0.upto(size - 1) do |i|
-        if list.get(i) != i + 1
-            return false
-        end
-    end
+  size.downto(1) do |i|
+    return false if list.back != i
 
-    size.downto(1) do |i|
-        if list.back() != i
-            return false
-        end
-        list.eject()
-    end
+    list.eject
+  end
 
-    list.shrink()
+  list.shrink
 
-    unless list.isEmpty()
-        return false
-    end
+  return false unless list.isEmpty
 
-    list.capacity().zero?
+  list.capacity.zero?
 end
 
-if __FILE__ == $PROGRAM_NAME
-    TestRunner.pick(testArrayList())
-end
+TestRunner.pick(testArrayList) if __FILE__ == $PROGRAM_NAME

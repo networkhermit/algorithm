@@ -1,41 +1,32 @@
 require "muse/data_structures/ArrayQueue"
 require "muse/util/TestRunner"
 
-def testArrayQueue()
-    size = 8192
+def testArrayQueue
+  size = 8192
 
-    queue = ArrayQueue::ArrayQueue.new(0)
+  queue = ArrayQueue::ArrayQueue.new(0)
 
-    1.upto(size) do |i|
-        queue.enqueue(i)
-    end
+  1.upto(size) do |i|
+    queue.enqueue(i)
+  end
 
-    queue.shrink()
+  queue.shrink
 
-    if queue.size() != size
-        return false
-    end
+  return false if queue.size != size
 
-    if queue.capacity() != size
-        return false
-    end
+  return false if queue.capacity != size
 
-    1.upto(size) do |i|
-        if queue.peek() != i
-            return false
-        end
-        queue.dequeue()
-    end
+  1.upto(size) do |i|
+    return false if queue.peek != i
 
-    queue.shrink()
+    queue.dequeue
+  end
 
-    unless queue.isEmpty()
-        return false
-    end
+  queue.shrink
 
-    queue.capacity().zero?
+  return false unless queue.isEmpty
+
+  queue.capacity.zero?
 end
 
-if __FILE__ == $PROGRAM_NAME
-    TestRunner.pick(testArrayQueue())
-end
+TestRunner.pick(testArrayQueue) if __FILE__ == $PROGRAM_NAME

@@ -1,12 +1,13 @@
 <?php
-    declare(strict_types=1);
 
-    if (count(debug_backtrace()) == 0) {
-        print("When’s Weekend?\n");
+declare(strict_types=1);
 
-        $today = idate("w");
+if (count(debug_backtrace()) == 0) {
+    print("When’s Weekend?\n");
 
-        switch ($today) {
+    $today = idate("w");
+
+    switch ($today) {
         case 0:
             print("Today.\n");
             break;
@@ -21,6 +22,5 @@
             break;
         default:
             print("Too far away.\n");
-        }
     }
-?>
+}

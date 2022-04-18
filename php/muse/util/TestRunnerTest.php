@@ -1,17 +1,18 @@
 <?php
-    declare(strict_types=1);
 
-    require_once "muse/util/TestRunner.php";
+declare(strict_types=1);
 
-    use muse\util\TestRunner;
+require_once "muse/util/TestRunner.php";
 
-    function testPick(): void {
-        for ($i = 0; $i < 10; $i++) {
-            TestRunner\pick(fn() => ($i & 1) != 0);
-        }
+use muse\util\TestRunner;
+
+function testPick(): void
+{
+    for ($i = 0; $i < 10; $i++) {
+        TestRunner\pick(fn() => ($i & 1) != 0);
     }
+}
 
-    if (count(debug_backtrace()) == 0) {
-        testPick();
-    }
-?>
+if (count(debug_backtrace()) == 0) {
+    testPick();
+}

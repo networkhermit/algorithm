@@ -7,17 +7,17 @@
 
 namespace TestRunner {
 
-    void pick(std::function<bool()> func) {
-        static std::size_t itemIndex = 0;
+void pick(std::function<bool()> func) {
+  static std::size_t itemIndex = 0;
 
-        if (func()) {
-            std::cout << "✓ Item [" << itemIndex << "] PASSED" << std::endl;
-        } else {
-            std::cerr << "✗ Item [" << itemIndex << "] FAILED" << std::endl;
-        }
+  if (func()) {
+    std::cout << "✓ Item [" << itemIndex << "] PASSED" << std::endl;
+  } else {
+    std::cerr << "✗ Item [" << itemIndex << "] FAILED" << std::endl;
+  }
 
-        itemIndex++;
-    }
+  itemIndex++;
 }
+} // namespace TestRunner
 
 #endif

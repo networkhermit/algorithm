@@ -1,23 +1,22 @@
 module BinarySearch
+  def self.find(arr, key)
+    lo = 0
+    hi = arr.length
 
-    def self.find(arr, key)
-        lo = 0
-        hi = arr.length
+    mid = 0
 
-        mid = 0
-
-        while lo < hi
-            mid = lo + ((hi - lo) >> 1)
-            case
-            when key < arr[mid]
-                hi = mid
-            when key > arr[mid]
-                lo = mid + 1
-            else
-                return mid
-            end
-        end
-
-        arr.length
+    while lo < hi
+      mid = lo + ((hi - lo) >> 1)
+      case
+      when key < arr[mid]
+        hi = mid
+      when key > arr[mid]
+        lo = mid + 1
+      else
+        return mid
+      end
     end
+
+    arr.length
+  end
 end

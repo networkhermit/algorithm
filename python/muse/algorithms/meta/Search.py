@@ -1,5 +1,4 @@
-from muse.algorithms.search import BinarySearch
-from muse.algorithms.search import LinearSearch
+from muse.algorithms.search import BinarySearch, LinearSearch
 
 
 def binarySearch(arr: list, key: object) -> int:

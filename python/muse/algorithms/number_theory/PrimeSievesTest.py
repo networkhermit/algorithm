@@ -1,5 +1,4 @@
-from muse.algorithms.number_theory import Primality
-from muse.algorithms.number_theory import PrimeSieves
+from muse.algorithms.number_theory import Primality, PrimeSieves
 from muse.util import TestRunner
 
 

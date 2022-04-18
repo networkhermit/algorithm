@@ -11,9 +11,9 @@ module Main (main) where
 -- function declaration
 sayHello :: IO ()
 sayHello =
-    putStrLn "hello, world" -- output some text
+  putStrLn "hello, world" -- output some text
 
 -- entry point of the program
 main :: IO ()
 main =
-    sayHello -- function invocation
+  sayHello -- function invocation

@@ -9,10 +9,10 @@
 
 (* function declaration *)
 let sayHello =
-    (* output some text *)
-    print_endline "hello, world";;
+  (* output some text *)
+  print_endline "hello, world"
 
 (* entry point of the program *)
 let () =
-    (* function invocation *)
-    sayHello;;
+  (* function invocation *)
+  sayHello

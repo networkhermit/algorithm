@@ -1,17 +1,19 @@
 <?php
-    declare(strict_types=1);
 
-    namespace muse\algorithms\number_theory\Coprimality;
+declare(strict_types=1);
 
-    require_once "muse/algorithms/number_theory/GreatestCommonDivisor.php";
+namespace muse\algorithms\number_theory\Coprimality;
 
-    use muse\algorithms\number_theory\GreatestCommonDivisor;
+require_once "muse/algorithms/number_theory/GreatestCommonDivisor.php";
 
-    function reduceToBinaryGCD(int $m, int $n): bool {
-        return GreatestCommonDivisor\iterativeBinaryGCD($m, $n) == 1;
-    }
+use muse\algorithms\number_theory\GreatestCommonDivisor;
 
-    function reduceToEuclidean(int $m, int $n): bool {
-        return GreatestCommonDivisor\iterativeEuclidean($m, $n) == 1;
-    }
-?>
+function reduceToBinaryGCD(int $m, int $n): bool
+{
+    return GreatestCommonDivisor\iterativeBinaryGCD($m, $n) == 1;
+}
+
+function reduceToEuclidean(int $m, int $n): bool
+{
+    return GreatestCommonDivisor\iterativeEuclidean($m, $n) == 1;
+}

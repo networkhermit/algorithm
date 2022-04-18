@@ -11,12 +11,12 @@
 
 // function declaration
 void sayHello(void) {
-    // output some text
-    puts("hello, world");
+  // output some text
+  puts("hello, world");
 }
 
 // entry point of the program
 int main(void) {
-    // function invocation
-    sayHello();
+  // function invocation
+  sayHello();
 }

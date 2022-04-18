@@ -7,16 +7,16 @@
  *  Copyright:    2014-2018
  */
 
-"use strict"
+'use strict'
 
 // function declaration
 const sayHello = () => {
-    // output some text
-    console.log("hello, world")
+  // output some text
+  console.log('hello, world')
 }
 
 // entry point of the program
 if (module === require.main) {
-    // function invocation
-    sayHello()
+  // function invocation
+  sayHello()
 }

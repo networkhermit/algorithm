@@ -1,5 +1,5 @@
-from typing import Callable
 import sys
+from typing import Callable
 
 itemIndex = 0
 

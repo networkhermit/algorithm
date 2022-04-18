@@ -3,28 +3,20 @@ require "muse/util/SequenceBuilder"
 require "muse/util/TestRunner"
 
 def testLinearSearch
-    size = 32768
+  size = 32_768
 
-    arr = Array.new(size)
-    SequenceBuilder.packIncreasing(arr)
+  arr = Array.new(size)
+  SequenceBuilder.packIncreasing(arr)
 
-    if LinearSearch.find(arr, -1) != size
-        return false
-    end
+  return false if LinearSearch.find(arr, -1) != size
 
-    if LinearSearch.find(arr, 2_147_483_647) != size
-        return false
-    end
+  return false if LinearSearch.find(arr, 2_147_483_647) != size
 
-    arr.each_index do |i|
-        if LinearSearch.find(arr, arr[i]) != i
-            return false
-        end
-    end
+  arr.each_index do |i|
+    return false if LinearSearch.find(arr, arr[i]) != i
+  end
 
-    true
+  true
 end
 
-if __FILE__ == $PROGRAM_NAME
-    TestRunner.pick(testLinearSearch())
-end
+TestRunner.pick(testLinearSearch) if __FILE__ == $PROGRAM_NAME

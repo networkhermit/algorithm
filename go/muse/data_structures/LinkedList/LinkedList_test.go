@@ -31,12 +31,9 @@ func TestLinkedList(t *testing.T) {
 		}
 	}
 
-	var x int
-	var y int
-
 	for i, j := 0, size-1; i < j; i, j = i+1, j-1 {
-		x = list.Get(i)
-		y = list.Get(j)
+		x := list.Get(i)
+		y := list.Get(j)
 
 		list.Remove(i)
 		list.Insert(i, y)

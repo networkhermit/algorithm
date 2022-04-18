@@ -6,22 +6,20 @@
 using namespace std;
 
 bool testMergeSort() {
-    size_t size = 32768;
+  size_t size = 32768;
 
-    vector<int> arr(size);
-    SequenceBuilder::packRandom(arr);
+  vector<int> arr(size);
+  SequenceBuilder::packRandom(arr);
 
-    int checksum = Sequences::parityChecksum(arr);
+  int checksum = Sequences::parityChecksum(arr);
 
-    MergeSort::sort(arr);
+  MergeSort::sort(arr);
 
-    if (Sequences::parityChecksum(arr) != checksum) {
-        return false;
-    }
+  if (Sequences::parityChecksum(arr) != checksum) {
+    return false;
+  }
 
-    return Sequences::isSorted(arr);
+  return Sequences::isSorted(arr);
 }
 
-int main() {
-    TestRunner::pick(&testMergeSort);
-}
+int main() { TestRunner::pick(&testMergeSort); }

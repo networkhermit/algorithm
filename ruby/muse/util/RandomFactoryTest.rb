@@ -1,58 +1,44 @@
 require "muse/util/RandomFactory"
 require "muse/util/TestRunner"
 
-def testGenIntN()
-    value = 0
-    8192.times do
-        if RandomFactory.genIntN(0, 0) != 0
-            return false
-        end
+def testGenIntN
+  value = 0
+  8192.times do
+    return false if RandomFactory.genIntN(0, 0) != 0
 
-        if RandomFactory.genIntN(1, 1) != 1
-            return false
-        end
+    return false if RandomFactory.genIntN(1, 1) != 1
 
-        value = RandomFactory.genIntN(0, 1)
-        if value.negative? || value > 1
-            return false
-        end
+    value = RandomFactory.genIntN(0, 1)
+    return false if value.negative? || value > 1
 
-        value = RandomFactory.genIntN(100, 10000)
-        if RandomFactory.genIntN(value, value) != value
-            return false
-        end
-        if value < 100 || value > 10000
-            return false
-        end
-    end
+    value = RandomFactory.genIntN(100, 10_000)
+    return false if RandomFactory.genIntN(value, value) != value
+    return false if value < 100 || value > 10_000
+  end
 
-    true
+  true
 end
 
-def testGenEven()
-    8192.times do
-        if (RandomFactory.genEven() & 1) != 0
-            return false
-        end
-    end
+def testGenEven
+  8192.times do
+    return false if (RandomFactory.genEven & 1) != 0
+  end
 
-    true
+  true
 end
 
-def testGenOdd()
-    8192.times do
-        if (RandomFactory.genOdd() & 1).zero?
-            return false
-        end
-    end
+def testGenOdd
+  8192.times do
+    return false if (RandomFactory.genOdd & 1).zero?
+  end
 
-    true
+  true
 end
 
 if __FILE__ == $PROGRAM_NAME
-    TestRunner.pick(testGenIntN())
+  TestRunner.pick(testGenIntN)
 
-    TestRunner.pick(testGenEven())
+  TestRunner.pick(testGenEven)
 
-    TestRunner.pick(testGenOdd())
+  TestRunner.pick(testGenOdd)
 end

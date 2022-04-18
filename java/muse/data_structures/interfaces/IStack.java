@@ -1,13 +1,13 @@
 package muse.data_structures.interfaces;
 
 public interface IStack<E> {
-    int size();
+  int size();
 
-    boolean isEmpty();
+  boolean isEmpty();
 
-    E peek();
+  E peek();
 
-    void push(E element);
+  void push(E element);
 
-    void pop();
+  void pop();
 }

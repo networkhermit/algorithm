@@ -13,12 +13,12 @@ using namespace std;
 
 // function declaration
 void sayHello() {
-    // output some text
-    cout << "hello, world" << endl;
+  // output some text
+  cout << "hello, world" << endl;
 }
 
 // entry point of the program
 int main() {
-    // function invocation
-    sayHello();
+  // function invocation
+  sayHello();
 }

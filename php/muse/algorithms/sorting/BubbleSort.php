@@ -1,25 +1,26 @@
 <?php
-    declare(strict_types=1);
 
-    namespace muse\algorithms\sorting\BubbleSort;
+declare(strict_types=1);
 
-    function sort(array &$arr): void {
-        $temp = NULL;
+namespace muse\algorithms\sorting\BubbleSort;
 
+function sort(array &$arr): void
+{
+    $temp = null;
+
+    $margin = 0;
+    $unsorted = count($arr);
+
+    while ($unsorted > 1) {
         $margin = 0;
-        $unsorted = count($arr);
-
-        while ($unsorted > 1) {
-            $margin = 0;
-            for ($i = 1; $i < $unsorted; $i++) {
-                if ($arr[$i - 1] > $arr[$i]) {
-                    $temp = $arr[$i - 1];
-                    $arr[$i - 1] = $arr[$i];
-                    $arr[$i] = $temp;
-                    $margin = $i;
-                }
+        for ($i = 1; $i < $unsorted; $i++) {
+            if ($arr[$i - 1] > $arr[$i]) {
+                $temp = $arr[$i - 1];
+                $arr[$i - 1] = $arr[$i];
+                $arr[$i] = $temp;
+                $margin = $i;
             }
-            $unsorted = $margin;
         }
+        $unsorted = $margin;
     }
-?>
+}

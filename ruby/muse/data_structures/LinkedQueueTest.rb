@@ -1,29 +1,24 @@
 require "muse/data_structures/LinkedQueue"
 require "muse/util/TestRunner"
 
-def testLinkedQueue()
-    size = 8192
+def testLinkedQueue
+  size = 8192
 
-    queue = LinkedQueue::LinkedQueue.new()
+  queue = LinkedQueue::LinkedQueue.new
 
-    1.upto(size) do |i|
-        queue.enqueue(i)
-    end
+  1.upto(size) do |i|
+    queue.enqueue(i)
+  end
 
-    if queue.size() != size
-        return false
-    end
+  return false if queue.size != size
 
-    1.upto(size) do |i|
-        if queue.peek() != i
-            return false
-        end
-        queue.dequeue()
-    end
+  1.upto(size) do |i|
+    return false if queue.peek != i
 
-    queue.isEmpty()
+    queue.dequeue
+  end
+
+  queue.isEmpty
 end
 
-if __FILE__ == $PROGRAM_NAME
-    TestRunner.pick(testLinkedQueue())
-end
+TestRunner.pick(testLinkedQueue) if __FILE__ == $PROGRAM_NAME

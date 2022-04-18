@@ -4,88 +4,81 @@
 #include <stdexcept>
 
 namespace LinkedStack {
-    template <typename E>
-    class LinkedStack {
-    private:
-        class Node {
-        public:
-            E data;
-            Node *next = nullptr;
+template <typename E> class LinkedStack {
+private:
+  class Node {
+  public:
+    E data;
+    Node *next = nullptr;
 
-        public:
-            Node(E element) {
-                data = element;
-            }
+  public:
+    Node(E element) { data = element; }
 
-            ~Node() {}
-        };
+    ~Node() {}
+  };
 
-    private:
-        Node *head = nullptr;
-        Node *tail = nullptr;
-        std::size_t length = 0;
+private:
+  Node *head = nullptr;
+  Node *tail = nullptr;
+  std::size_t length = 0;
 
-    public:
-        LinkedStack() {}
+public:
+  LinkedStack() {}
 
-        ~LinkedStack() {}
+  ~LinkedStack() {}
 
-    public:
-        std::size_t size() {
-            return length;
-        }
+public:
+  std::size_t size() { return length; }
 
-        bool isEmpty() {
-            return length == 0;
-        }
+  bool isEmpty() { return length == 0; }
 
-        E peek() {
-            if (length == 0) {
-                throw std::runtime_error("[PANIC - NoSuchElement]");
-            }
+  E peek() {
+    if (length == 0) {
+      throw std::runtime_error("[PANIC - NoSuchElement]");
+    }
 
-            return tail->data;
-        }
+    return tail->data;
+  }
 
-        void push(E element) {
-            auto node = new Node(element);
+  void push(E element) {
+    auto node = new Node(element);
 
-            if (length == 0) {
-                head = node;
-            } else {
-                tail->next = node;
-            }
+    if (length == 0) {
+      head = node;
+    } else {
+      tail->next = node;
+    }
 
-            tail = node;
+    tail = node;
 
-            length++;
-        }
+    length++;
+  }
 
-        void pop() {
-            if (length == 0) {
-                throw std::runtime_error("[PANIC - NoSuchElement]");
-            }
+  void pop() {
+    if (length == 0) {
+      throw std::runtime_error("[PANIC - NoSuchElement]");
+    }
 
-            auto target = tail;
+    auto target = tail;
 
-            if (length == 1) {
-                head = nullptr;
-                tail = nullptr;
-            } else {
-                auto cursor = head;
-                for (std::size_t i = 0, bound = length - 2; i < bound; i++) {
-                    cursor = cursor->next;
-                }
-                cursor->next = nullptr;
-                tail = cursor;
-            }
+    if (length == 1) {
+      head = nullptr;
+      tail = nullptr;
+    } else {
+      auto cursor = head;
+      for (std::size_t i = 0, bound = length - 2; i < bound; i++) {
+        cursor = cursor->next;
+      }
+      cursor->next = nullptr;
+      tail = cursor;
+    }
 
-            target->data = static_cast<E>(0);
-            delete target;
+    target->data = static_cast<E>(0);
+    delete target;
 
-            length--;
-        }
-    };
-}
+    length--;
+  }
+};
+} // namespace LinkedStack
 
 #endif

@@ -1,27 +1,27 @@
 package muse.data_structures.interfaces;
 
 public interface IList<E> {
-    int size();
+  int size();
 
-    boolean isEmpty();
+  boolean isEmpty();
 
-    E get(int index);
+  E get(int index);
 
-    void set(int index, E element);
+  void set(int index, E element);
 
-    void insert(int index, E element);
+  void insert(int index, E element);
 
-    void remove(int index);
+  void remove(int index);
 
-    E front();
+  E front();
 
-    E back();
+  E back();
 
-    void prepend(E element);
+  void prepend(E element);
 
-    void append(E element);
+  void append(E element);
 
-    void poll();
+  void poll();
 
-    void eject();
+  void eject();
 }

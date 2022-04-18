@@ -4,83 +4,76 @@
 #include <stdexcept>
 
 namespace LinkedQueue {
-    template <typename E>
-    class LinkedQueue {
-    private:
-        class Node {
-        public:
-            E data;
-            Node *next = nullptr;
+template <typename E> class LinkedQueue {
+private:
+  class Node {
+  public:
+    E data;
+    Node *next = nullptr;
 
-        public:
-            Node(E element) {
-                data = element;
-            }
+  public:
+    Node(E element) { data = element; }
 
-            ~Node() {}
-        };
+    ~Node() {}
+  };
 
-    private:
-        Node *head = nullptr;
-        Node *tail = nullptr;
-        std::size_t length = 0;
+private:
+  Node *head = nullptr;
+  Node *tail = nullptr;
+  std::size_t length = 0;
 
-    public:
-        LinkedQueue() {}
+public:
+  LinkedQueue() {}
 
-        ~LinkedQueue() {}
+  ~LinkedQueue() {}
 
-    public:
-        std::size_t size() {
-            return length;
-        }
+public:
+  std::size_t size() { return length; }
 
-        bool isEmpty() {
-            return length == 0;
-        }
+  bool isEmpty() { return length == 0; }
 
-        E peek() {
-            if (length == 0) {
-                throw std::runtime_error("[PANIC - NoSuchElement]");
-            }
+  E peek() {
+    if (length == 0) {
+      throw std::runtime_error("[PANIC - NoSuchElement]");
+    }
 
-            return head->data;
-        }
+    return head->data;
+  }
 
-        void enqueue(E element) {
-            auto node = new Node(element);
+  void enqueue(E element) {
+    auto node = new Node(element);
 
-            if (length == 0) {
-                head = node;
-            } else {
-                tail->next = node;
-            }
+    if (length == 0) {
+      head = node;
+    } else {
+      tail->next = node;
+    }
 
-            tail = node;
+    tail = node;
 
-            length++;
-        }
+    length++;
+  }
 
-        void dequeue() {
-            if (length == 0) {
-                throw std::runtime_error("[PANIC - NoSuchElement]");
-            }
+  void dequeue() {
+    if (length == 0) {
+      throw std::runtime_error("[PANIC - NoSuchElement]");
+    }
 
-            auto target = head;
+    auto target = head;
 
-            if (length == 1) {
-                head = nullptr;
-                tail = nullptr;
-            } else {
-                head = target->next;
-            }
+    if (length == 1) {
+      head = nullptr;
+      tail = nullptr;
+    } else {
+      head = target->next;
+    }
 
-            target->data = static_cast<E>(0);
-            delete target;
+    target->data = static_cast<E>(0);
+    delete target;
 
-            length--;
-        }
-    };
-}
+    length--;
+  }
+};
+} // namespace LinkedQueue
 
 #endif

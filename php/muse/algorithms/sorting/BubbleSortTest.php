@@ -1,34 +1,35 @@
 <?php
-    declare(strict_types=1);
 
-    require_once "muse/algorithms/sorting/BubbleSort.php";
-    require_once "muse/util/SequenceBuilder.php";
-    require_once "muse/util/Sequences.php";
-    require_once "muse/util/TestRunner.php";
+declare(strict_types=1);
 
-    use muse\algorithms\sorting\BubbleSort;
-    use muse\util\SequenceBuilder;
-    use muse\util\Sequences;
-    use muse\util\TestRunner;
+require_once "muse/algorithms/sorting/BubbleSort.php";
+require_once "muse/util/SequenceBuilder.php";
+require_once "muse/util/Sequences.php";
+require_once "muse/util/TestRunner.php";
 
-    function testBubbleSort(): bool {
-        $size = 32768;
+use muse\algorithms\sorting\BubbleSort;
+use muse\util\SequenceBuilder;
+use muse\util\Sequences;
+use muse\util\TestRunner;
 
-        $arr = array_pad(array(), $size, 0);
-        SequenceBuilder\packRandom($arr);
+function testBubbleSort(): bool
+{
+    $size = 32768;
 
-        $checksum = Sequences\parityChecksum($arr);
+    $arr = array_pad(array(), $size, 0);
+    SequenceBuilder\packRandom($arr);
 
-        BubbleSort\sort($arr);
+    $checksum = Sequences\parityChecksum($arr);
 
-        if (Sequences\parityChecksum($arr) != $checksum) {
-            return false;
-        }
+    BubbleSort\sort($arr);
 
-        return Sequences\isSorted($arr);
+    if (Sequences\parityChecksum($arr) != $checksum) {
+        return false;
     }
 
-    if (count(debug_backtrace()) == 0) {
-        TestRunner\pick("testBubbleSort");
-    }
-?>
+    return Sequences\isSorted($arr);
+}
+
+if (count(debug_backtrace()) == 0) {
+    TestRunner\pick("testBubbleSort");
+}

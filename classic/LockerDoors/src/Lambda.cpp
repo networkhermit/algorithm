@@ -6,39 +6,39 @@
 using namespace std;
 
 vector<bool> bruteForce(int n) {
-    vector<bool> arr(n);
+  vector<bool> arr(n);
 
-    fill(arr.begin(), arr.end(), false);
+  fill(arr.begin(), arr.end(), false);
 
-    for (int i = 1; i <= n; i++) {
-        for (int j = i - 1; j < n; j += i) {
-            arr[j] = !arr[j];
-        }
+  for (int i = 1; i <= n; i++) {
+    for (int j = i - 1; j < n; j += i) {
+      arr[j] = !arr[j];
     }
+  }
 
-    return arr;
+  return arr;
 }
 
 vector<bool> process(int n) {
-    vector<bool> arr(n);
+  vector<bool> arr(n);
 
-    int temp;
-    for (int i = 1; i <= n; i++) {
-        temp = static_cast<int>(sqrt(static_cast<double>(i)));
-        arr[i - 1] = temp * temp == i;
-    }
+  int temp;
+  for (int i = 1; i <= n; i++) {
+    temp = static_cast<int>(sqrt(static_cast<double>(i)));
+    arr[i - 1] = temp * temp == i;
+  }
 
-    return arr;
+  return arr;
 }
 
 int main() {
-    const int N = 100;
+  const int N = 100;
 
-    vector<bool> arr = process(N);
+  vector<bool> arr = process(N);
 
-    for (int i = 0; i < N; i++) {
-        if (arr[i]) {
-            cout << i + 1 << "\t  OPEN" << endl;
-        }
+  for (int i = 0; i < N; i++) {
+    if (arr[i]) {
+      cout << i + 1 << "\t  OPEN" << endl;
     }
+  }
 }

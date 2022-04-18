@@ -1,13 +1,13 @@
 package muse.data_structures.interfaces;
 
 public interface IQueue<E> {
-    int size();
+  int size();
 
-    boolean isEmpty();
+  boolean isEmpty();
 
-    E peek();
+  E peek();
 
-    void enqueue(E element);
+  void enqueue(E element);
 
-    void dequeue();
+  void dequeue();
 }

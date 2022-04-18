@@ -2,56 +2,53 @@ require "muse/algorithms/sorting/QuickSort"
 require "muse/util/RandomFactory"
 
 module Sequences
+  def self.inspect(arr)
+    puts("[")
+    arr.each_index do |i|
+      print(format("\t#%04X  -->  %d\n", i, arr[i]))
+    end
+    puts("]")
+  end
 
-    def self.inspect(arr)
-        puts("[")
-        arr.each_index do |i|
-            print(format("\t#%04X  -->  %d\n", i, arr[i]))
-        end
-        puts("]")
+  def self.isSorted(arr)
+    1.upto(arr.length - 1) do |i|
+      return false if arr[i] < arr[i - 1]
     end
 
-    def self.isSorted(arr)
-        1.upto(arr.length - 1) do |i|
-            if arr[i] < arr[i - 1]
-                return false
-            end
-        end
+    true
+  end
 
-        true
+  def self.parityChecksum(arr)
+    checksum = 0
+
+    arr.each do |v|
+      checksum ^= v
     end
 
-    def self.parityChecksum(arr)
-        checksum = 0
+    checksum
+  end
 
-        arr.each do |v|
-            checksum ^= v
-        end
+  def self.reverse(arr)
+    k = 0
 
-        checksum
+    length = arr.length
+    0.upto((arr.length >> 1) - 1) do |i|
+      k = length - i - 1
+      arr[i], arr[k] = arr[k], arr[i]
     end
+  end
 
-    def self.reverse(arr)
-        k = 0
+  def self.shuffle(arr)
+    k = 0
+    length = arr.length
 
-        length = arr.length
-        0.upto((arr.length >> 1) - 1) do |i|
-            k = length - i - 1
-            arr[i], arr[k] = arr[k], arr[i]
-        end
+    0.upto(arr.length - 1) do |i|
+      k = RandomFactory.genIntN(i, length)
+      arr[i], arr[k] = arr[k], arr[i]
     end
+  end
 
-    def self.shuffle(arr)
-        k = 0
-        length = arr.length
-
-        0.upto(arr.length - 1) do |i|
-            k = RandomFactory.genIntN(i, length)
-            arr[i], arr[k] = arr[k], arr[i]
-        end
-    end
-
-    def self.sort(arr)
-        QuickSort.sort(arr)
-    end
+  def self.sort(arr)
+    QuickSort.sort(arr)
+  end
 end

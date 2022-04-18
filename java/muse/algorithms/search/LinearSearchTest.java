@@ -4,30 +4,30 @@ import muse.util.TestRunner;
 
 public class LinearSearchTest {
 
-    public static boolean testLinearSearch() {
-        int size = 32768;
+  public static boolean testLinearSearch() {
+    int size = 32768;
 
-        Integer[] arr = new Integer[size];
-        SequenceBuilder.packIncreasing(arr);
+    Integer[] arr = new Integer[size];
+    SequenceBuilder.packIncreasing(arr);
 
-        if (LinearSearch.find(arr, -1) != size) {
-            return false;
-        }
-
-        if (LinearSearch.find(arr, 2_147_483_647) != size) {
-            return false;
-        }
-
-        for (int i = 0; i < size; i++) {
-            if (LinearSearch.find(arr, arr[i]) != i) {
-                return false;
-            }
-        }
-
-        return true;
+    if (LinearSearch.find(arr, -1) != size) {
+      return false;
     }
 
-    public static void main(String[] args) {
-        TestRunner.pick(LinearSearchTest::testLinearSearch);
+    if (LinearSearch.find(arr, 2_147_483_647) != size) {
+      return false;
     }
+
+    for (int i = 0; i < size; i++) {
+      if (LinearSearch.find(arr, arr[i]) != i) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  public static void main(String[] args) {
+    TestRunner.pick(LinearSearchTest::testLinearSearch);
+  }
 }

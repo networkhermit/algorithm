@@ -2,51 +2,51 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static int process(int left, int right) {
-        int n;
+  public static int process(int left, int right) {
+    int n;
 
-        int cycleLength;
+    int cycleLength;
 
-        int maxCycleLength = 0;
+    int maxCycleLength = 0;
 
-        for (int i = left; i <= right; i++) {
-            cycleLength = 0;
+    for (int i = left; i <= right; i++) {
+      cycleLength = 0;
 
-            n = i;
+      n = i;
 
-            while (true) {
-                cycleLength++;
-                if (n == 1) {
-                    if (cycleLength > maxCycleLength) {
-                        maxCycleLength = cycleLength;
-                    }
-                    break;
-                }
-                if ((n & 1) == 0) {
-                    n >>>= 1;
-                } else {
-                    n = (n << 1) + n + 1;
-                }
-            }
+      while (true) {
+        cycleLength++;
+        if (n == 1) {
+          if (cycleLength > maxCycleLength) {
+            maxCycleLength = cycleLength;
+          }
+          break;
         }
-
-        return maxCycleLength;
+        if ((n & 1) == 0) {
+          n >>>= 1;
+        } else {
+          n = (n << 1) + n + 1;
+        }
+      }
     }
 
-    public static void main(String[] args) {
-        try (Scanner input = new Scanner(System.in, "UTF-8")) {
-            int m;
-            int n;
+    return maxCycleLength;
+  }
 
-            while (input.hasNext()) {
-                m = input.nextInt();
-                n = input.nextInt();
-                if (m < n) {
-                    System.out.printf("%d %d %d%n", m, n, process(m, n));
-                } else {
-                    System.out.printf("%d %d %d%n", m, n, process(n, m));
-                }
-            }
+  public static void main(String[] args) {
+    try (Scanner input = new Scanner(System.in, "UTF-8")) {
+      int m;
+      int n;
+
+      while (input.hasNext()) {
+        m = input.nextInt();
+        n = input.nextInt();
+        if (m < n) {
+          System.out.printf("%d %d %d%n", m, n, process(m, n));
+        } else {
+          System.out.printf("%d %d %d%n", m, n, process(n, m));
         }
+      }
     }
+  }
 }

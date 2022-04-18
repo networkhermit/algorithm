@@ -1,26 +1,27 @@
 <?php
-    declare(strict_types=1);
 
-    function fizzBuzz(int $n): string {
-        $word = "";
+declare(strict_types=1);
 
-        if ($n % 3 == 0) {
-            $word .= "Fizz";
-        }
-        if ($n % 5 == 0) {
-            $word .= "Buzz";
-        }
+function fizzBuzz(int $n): string
+{
+    $word = "";
 
-        if (strlen($word) == 0) {
-            $word = (string) $n;
-        }
-
-        return $word;
+    if ($n % 3 == 0) {
+        $word .= "Fizz";
+    }
+    if ($n % 5 == 0) {
+        $word .= "Buzz";
     }
 
-    if (count(debug_backtrace()) == 0) {
-        for ($i = 1; $i <= 100; $i++) {
-            printf("%s\n", fizzBuzz($i));
-        }
+    if (strlen($word) == 0) {
+        $word = (string) $n;
     }
-?>
+
+    return $word;
+}
+
+if (count(debug_backtrace()) == 0) {
+    for ($i = 1; $i <= 100; $i++) {
+        printf("%s\n", fizzBuzz($i));
+    }
+}

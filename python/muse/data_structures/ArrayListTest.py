@@ -29,9 +29,6 @@ def testArrayList() -> bool:
         if list.get(i) != size - i:
             return False
 
-    x = 0
-    y = 0
-
     i, j = 0, size - 1
     while i < j:
         x = list.get(i)

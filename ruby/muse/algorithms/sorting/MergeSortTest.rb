@@ -3,23 +3,19 @@ require "muse/util/SequenceBuilder"
 require "muse/util/Sequences"
 require "muse/util/TestRunner"
 
-def testMergeSort()
-    size = 32768
+def testMergeSort
+  size = 32_768
 
-    arr = Array.new(size)
-    SequenceBuilder.packRandom(arr)
+  arr = Array.new(size)
+  SequenceBuilder.packRandom(arr)
 
-    checksum = Sequences.parityChecksum(arr)
+  checksum = Sequences.parityChecksum(arr)
 
-    MergeSort.sort(arr)
+  MergeSort.sort(arr)
 
-    if Sequences.parityChecksum(arr) != checksum
-        return false
-    end
+  return false if Sequences.parityChecksum(arr) != checksum
 
-    Sequences.isSorted(arr)
+  Sequences.isSorted(arr)
 end
 
-if __FILE__ == $PROGRAM_NAME
-    TestRunner.pick(testMergeSort())
-end
+TestRunner.pick(testMergeSort) if __FILE__ == $PROGRAM_NAME

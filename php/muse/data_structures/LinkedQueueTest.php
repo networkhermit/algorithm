@@ -1,36 +1,37 @@
 <?php
-    declare(strict_types=1);
 
-    require_once "muse/data_structures/LinkedQueue.php";
-    require_once "muse/util/TestRunner.php";
+declare(strict_types=1);
 
-    use muse\data_structures\LinkedQueue\LinkedQueue;
-    use muse\util\TestRunner;
+require_once "muse/data_structures/LinkedQueue.php";
+require_once "muse/util/TestRunner.php";
 
-    function testLinkedQueue(): bool {
-        $size = 8192;
+use muse\data_structures\LinkedQueue\LinkedQueue;
+use muse\util\TestRunner;
 
-        $queue = new LinkedQueue();
+function testLinkedQueue(): bool
+{
+    $size = 8192;
 
-        for ($i = 1; $i <= $size; $i++) {
-            $queue->enqueue($i);
-        }
+    $queue = new LinkedQueue();
 
-        if ($queue->size() != $size) {
+    for ($i = 1; $i <= $size; $i++) {
+        $queue->enqueue($i);
+    }
+
+    if ($queue->size() != $size) {
+        return false;
+    }
+
+    for ($i = 1; $i <= $size; $i++) {
+        if ($queue->peek() != $i) {
             return false;
         }
-
-        for ($i = 1; $i <= $size; $i++) {
-            if ($queue->peek() != $i) {
-                return false;
-            }
-            $queue->dequeue();
-        }
-
-        return $queue->isEmpty();
+        $queue->dequeue();
     }
 
-    if (count(debug_backtrace()) == 0) {
-        TestRunner\pick("testLinkedQueue");
-    }
-?>
+    return $queue->isEmpty();
+}
+
+if (count(debug_backtrace()) == 0) {
+    TestRunner\pick("testLinkedQueue");
+}

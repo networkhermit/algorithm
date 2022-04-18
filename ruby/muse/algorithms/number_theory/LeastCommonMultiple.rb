@@ -1,32 +1,21 @@
 require "muse/algorithms/number_theory/GreatestCommonDivisor"
 
 module LeastCommonMultiple
+  def self.reduceToBinaryGCD(m, n)
+    m = -m if m.negative?
+    n = -n if n.negative?
 
-    def self.reduceToBinaryGCD(m, n)
-        if m.negative?
-            m = -m
-        end
-        if n.negative?
-            n = -n
-        end
+    return 0 if m.zero? || n.zero?
 
-        if m.zero? || n.zero?
-            return 0
-        end
-        m / GreatestCommonDivisor.iterativeBinaryGCD(m, n) * n
-    end
+    m / GreatestCommonDivisor.iterativeBinaryGCD(m, n) * n
+  end
 
-    def self.reduceToEuclidean(m, n)
-        if m.negative?
-            m = -m
-        end
-        if n.negative?
-            n = -n
-        end
+  def self.reduceToEuclidean(m, n)
+    m = -m if m.negative?
+    n = -n if n.negative?
 
-        if m.zero? || n.zero?
-            return 0
-        end
-        m / GreatestCommonDivisor.iterativeEuclidean(m, n) * n
-    end
+    return 0 if m.zero? || n.zero?
+
+    m / GreatestCommonDivisor.iterativeEuclidean(m, n) * n
+  end
 end

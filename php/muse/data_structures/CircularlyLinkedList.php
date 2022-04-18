@@ -1,75 +1,86 @@
 <?php
-    declare(strict_types=1);
 
-    namespace muse\data_structures\CircularlyLinkedList;
+declare(strict_types=1);
 
-    require_once "muse/data_structures/interfaces/IList.php";
+namespace muse\data_structures\CircularlyLinkedList;
 
-    use muse\data_structures\interfaces\IList;
+require_once "muse/data_structures/interfaces/IList.php";
 
-    class Node {
-        public $data;
-        public $next = NULL;
+use muse\data_structures\interfaces\IList;
 
-        public function __construct(int $element) {
-            $this->data = $element;
-        }
+class Node
+{
+    public $data;
+    public $next = null;
+
+    public function __construct(int $element)
+    {
+        $this->data = $element;
+    }
+}
+
+class CircularlyLinkedList implements IList\IList
+{
+    private $tail = null;
+    private $length = 0;
+
+    public function __construct()
+    {
     }
 
-    class CircularlyLinkedList implements IList\IList {
-        private $tail = NULL;
-        private $length = 0;
+    public function size(): int
+    {
+        return $this->length;
+    }
 
-        public function __construct() {}
+    public function isEmpty(): bool
+    {
+        return $this->length == 0;
+    }
 
-        public function size(): int {
-            return $this->length;
+    public function get(int $index): int
+    {
+        if ($index < 0 || $index >= $this->length) {
+            throw new RuntimeException("[PANIC - IndexOutOfBounds]");
         }
 
-        public function isEmpty(): bool {
-            return $this->length == 0;
+        $cursor = $this->tail;
+
+        if ($index != $this->length - 1) {
+            for ($i = 0; $i <= $index; $i++) {
+                $cursor = $cursor->next;
+            }
         }
 
-        public function get(int $index): int {
-            if ($index < 0 || $index >= $this->length) {
-                throw new RuntimeException("[PANIC - IndexOutOfBounds]");
-            }
+        return $cursor->data;
+    }
 
-            $cursor = $this->tail;
-
-            if ($index != $this->length - 1) {
-                for ($i = 0; $i <= $index; $i++) {
-                    $cursor = $cursor->next;
-                }
-            }
-
-            return $cursor->data;
+    public function set(int $index, int $element): void
+    {
+        if ($index < 0 || $index >= $this->length) {
+            throw new RuntimeException("[PANIC - IndexOutOfBounds]");
         }
 
-        public function set(int $index, int $element): void {
-            if ($index < 0 || $index >= $this->length) {
-                throw new RuntimeException("[PANIC - IndexOutOfBounds]");
+        $cursor = $this->tail;
+
+        if ($index != $this->length - 1) {
+            for ($i = 0; $i <= $index; $i++) {
+                $cursor = $cursor->next;
             }
-
-            $cursor = $this->tail;
-
-            if ($index != $this->length - 1) {
-                for ($i = 0; $i <= $index; $i++) {
-                    $cursor = $cursor->next;
-                }
-            }
-
-            $cursor->data = $element;
         }
 
-        public function insert(int $index, int $element): void {
-            if ($index < 0 || $index > $this->length) {
-                throw new RuntimeException("[PANIC - IndexOutOfBounds]");
-            }
+        $cursor->data = $element;
+    }
 
-            $node = new Node($element);
+    public function insert(int $index, int $element): void
+    {
+        if ($index < 0 || $index > $this->length) {
+            throw new RuntimeException("[PANIC - IndexOutOfBounds]");
+        }
 
-            switch ($index) {
+        $node = new Node($element);
+
+        switch ($index) {
             case 0:
                 if ($this->length == 0) {
                     $node->next = $node;
@@ -91,64 +102,70 @@
                 }
                 $node->next = $cursor->next;
                 $cursor->next = $node;
-            }
-
-            $this->length++;
         }
 
-        public function remove(int $index): void {
-            if ($index < 0 || $index >= $this->length) {
-                throw new RuntimeException("[PANIC - IndexOutOfBounds]");
-            }
-
-            $target = NULL;
-
-            if ($index == 0) {
-                $target = $this->tail->next;
-                if ($this->length == 1) {
-                    $this->tail = NULL;
-                } else {
-                    $this->tail->next = $target->next;
-                }
-            } else {
-                $cursor = $this->tail;
-                for ($i = 0, $bound = $index - 1; $i <= $bound; $i++) {
-                    $cursor = $cursor->next;
-                }
-                $target = $cursor->next;
-                $cursor->next = $target->next;
-                if ($index == $this->length - 1) {
-                    $this->tail = $cursor;
-                }
-            }
-
-            $target->data = NULL;
-
-            $this->length--;
-        }
-
-        public function front(): int {
-            return $this->get(0);
-        }
-
-        public function back(): int {
-            return $this->get($this->length - 1);
-        }
-
-        public function prepend(int $element): void {
-            $this->insert(0, $element);
-        }
-
-        public function append(int $element): void {
-            $this->insert($this->length, $element);
-        }
-
-        public function poll(): void {
-            $this->remove(0);
-        }
-
-        public function eject(): void {
-            $this->remove($this->length - 1);
-        }
+        $this->length++;
     }
-?>
+
+    public function remove(int $index): void
+    {
+        if ($index < 0 || $index >= $this->length) {
+            throw new RuntimeException("[PANIC - IndexOutOfBounds]");
+        }
+
+        $target = null;
+
+        if ($index == 0) {
+            $target = $this->tail->next;
+            if ($this->length == 1) {
+                $this->tail = null;
+            } else {
+                $this->tail->next = $target->next;
+            }
+        } else {
+            $cursor = $this->tail;
+            for ($i = 0, $bound = $index - 1; $i <= $bound; $i++) {
+                $cursor = $cursor->next;
+            }
+            $target = $cursor->next;
+            $cursor->next = $target->next;
+            if ($index == $this->length - 1) {
+                $this->tail = $cursor;
+            }
+        }
+
+        $target->data = null;
+
+        $this->length--;
+    }
+
+    public function front(): int
+    {
+        return $this->get(0);
+    }
+
+    public function back(): int
+    {
+        return $this->get($this->length - 1);
+    }
+
+    public function prepend(int $element): void
+    {
+        $this->insert(0, $element);
+    }
+
+    public function append(int $element): void
+    {
+        $this->insert($this->length, $element);
+    }
+
+    public function poll(): void
+    {
+        $this->remove(0);
+    }
+
+    public function eject(): void
+    {
+        $this->remove($this->length - 1);
+    }
+}

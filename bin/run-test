@@ -59,7 +59,7 @@ readonly -A lang=( \
 SPEC=perf
 
 # shellcheck source=/dev/null
-source "$(git -C "$(dirname "$(realpath "${0}")")" rev-parse --show-toplevel)/library.env"
+source "$(git -C "$(dirname "$(realpath "${0}")")" rev-parse --show-toplevel)/.env"
 
 while (( $# > 0 )); do
     case ${1} in

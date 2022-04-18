@@ -1,17 +1,18 @@
 <?php
-    declare(strict_types=1);
 
-    namespace muse\data_structures\interfaces\IStack;
+declare(strict_types=1);
 
-    interface IStack {
-        public function size(): int;
+namespace muse\data_structures\interfaces\IStack;
 
-        public function isEmpty(): bool;
+interface IStack
+{
+    public function size(): int;
 
-        public function peek(): int;
+    public function isEmpty(): bool;
 
-        public function push(int $element): void;
+    public function peek(): int;
 
-        public function pop(): void;
-    }
-?>
+    public function push(int $element): void;
+
+    public function pop(): void;
+}

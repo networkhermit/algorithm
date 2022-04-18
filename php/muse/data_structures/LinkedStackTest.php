@@ -1,36 +1,37 @@
 <?php
-    declare(strict_types=1);
 
-    require_once "muse/data_structures/LinkedStack.php";
-    require_once "muse/util/TestRunner.php";
+declare(strict_types=1);
 
-    use muse\data_structures\LinkedStack\LinkedStack;
-    use muse\util\TestRunner;
+require_once "muse/data_structures/LinkedStack.php";
+require_once "muse/util/TestRunner.php";
 
-    function testLinkedStack(): bool {
-        $size = 8192;
+use muse\data_structures\LinkedStack\LinkedStack;
+use muse\util\TestRunner;
 
-        $stack = new LinkedStack();
+function testLinkedStack(): bool
+{
+    $size = 8192;
 
-        for ($i = 1; $i <= $size; $i++) {
-            $stack->push($i);
-        }
+    $stack = new LinkedStack();
 
-        if ($stack->size() != $size) {
+    for ($i = 1; $i <= $size; $i++) {
+        $stack->push($i);
+    }
+
+    if ($stack->size() != $size) {
+        return false;
+    }
+
+    for ($i = $size; $i > 0; $i--) {
+        if ($stack->peek() != $i) {
             return false;
         }
-
-        for ($i = $size; $i > 0; $i--) {
-            if ($stack->peek() != $i) {
-                return false;
-            }
-            $stack->pop();
-        }
-
-        return $stack->isEmpty();
+        $stack->pop();
     }
 
-    if (count(debug_backtrace()) == 0) {
-        TestRunner\pick("testLinkedStack");
-    }
-?>
+    return $stack->isEmpty();
+}
+
+if (count(debug_backtrace()) == 0) {
+    TestRunner\pick("testLinkedStack");
+}

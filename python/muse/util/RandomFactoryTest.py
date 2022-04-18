@@ -1,5 +1,4 @@
-from muse.util import RandomFactory
-from muse.util import TestRunner
+from muse.util import RandomFactory, TestRunner
 
 
 def testGenIntN() -> bool:

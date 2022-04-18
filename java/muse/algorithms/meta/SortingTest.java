@@ -5,100 +5,100 @@ import muse.util.TestRunner;
 
 public class SortingTest {
 
-    public static boolean testBubbleSort() {
-        int size = 32768;
+  public static boolean testBubbleSort() {
+    int size = 32768;
 
-        Integer[] arr = new Integer[size];
-        SequenceBuilder.packRandom(arr);
+    Integer[] arr = new Integer[size];
+    SequenceBuilder.packRandom(arr);
 
-        int checksum = Sequences.parityChecksum(arr);
+    int checksum = Sequences.parityChecksum(arr);
 
-        Sorting.bubbleSort(arr);
+    Sorting.bubbleSort(arr);
 
-        if (Sequences.parityChecksum(arr) != checksum) {
-            return false;
-        }
-
-        return Sequences.isSorted(arr);
+    if (Sequences.parityChecksum(arr) != checksum) {
+      return false;
     }
 
-    public static boolean testInsertionSort() {
-        int size = 32768;
+    return Sequences.isSorted(arr);
+  }
 
-        Integer[] arr = new Integer[size];
-        SequenceBuilder.packRandom(arr);
+  public static boolean testInsertionSort() {
+    int size = 32768;
 
-        int checksum = Sequences.parityChecksum(arr);
+    Integer[] arr = new Integer[size];
+    SequenceBuilder.packRandom(arr);
 
-        Sorting.insertionSort(arr);
+    int checksum = Sequences.parityChecksum(arr);
 
-        if (Sequences.parityChecksum(arr) != checksum) {
-            return false;
-        }
+    Sorting.insertionSort(arr);
 
-        return Sequences.isSorted(arr);
+    if (Sequences.parityChecksum(arr) != checksum) {
+      return false;
     }
 
-    public static boolean testMergeSort() {
-        int size = 32768;
+    return Sequences.isSorted(arr);
+  }
 
-        Integer[] arr = new Integer[size];
-        SequenceBuilder.packRandom(arr);
+  public static boolean testMergeSort() {
+    int size = 32768;
 
-        int checksum = Sequences.parityChecksum(arr);
+    Integer[] arr = new Integer[size];
+    SequenceBuilder.packRandom(arr);
 
-        Sorting.mergeSort(arr);
+    int checksum = Sequences.parityChecksum(arr);
 
-        if (Sequences.parityChecksum(arr) != checksum) {
-            return false;
-        }
+    Sorting.mergeSort(arr);
 
-        return Sequences.isSorted(arr);
+    if (Sequences.parityChecksum(arr) != checksum) {
+      return false;
     }
 
-    public static boolean testQuickSort() {
-        int size = 32768;
+    return Sequences.isSorted(arr);
+  }
 
-        Integer[] arr = new Integer[size];
-        SequenceBuilder.packRandom(arr);
+  public static boolean testQuickSort() {
+    int size = 32768;
 
-        int checksum = Sequences.parityChecksum(arr);
+    Integer[] arr = new Integer[size];
+    SequenceBuilder.packRandom(arr);
 
-        Sorting.quickSort(arr);
+    int checksum = Sequences.parityChecksum(arr);
 
-        if (Sequences.parityChecksum(arr) != checksum) {
-            return false;
-        }
+    Sorting.quickSort(arr);
 
-        return Sequences.isSorted(arr);
+    if (Sequences.parityChecksum(arr) != checksum) {
+      return false;
     }
 
-    public static boolean testSelectionSort() {
-        int size = 32768;
+    return Sequences.isSorted(arr);
+  }
 
-        Integer[] arr = new Integer[size];
-        SequenceBuilder.packRandom(arr);
+  public static boolean testSelectionSort() {
+    int size = 32768;
 
-        int checksum = Sequences.parityChecksum(arr);
+    Integer[] arr = new Integer[size];
+    SequenceBuilder.packRandom(arr);
 
-        Sorting.selectionSort(arr);
+    int checksum = Sequences.parityChecksum(arr);
 
-        if (Sequences.parityChecksum(arr) != checksum) {
-            return false;
-        }
+    Sorting.selectionSort(arr);
 
-        return Sequences.isSorted(arr);
+    if (Sequences.parityChecksum(arr) != checksum) {
+      return false;
     }
 
-    public static void main(String[] args) {
-        TestRunner.pick(SortingTest::testBubbleSort);
+    return Sequences.isSorted(arr);
+  }
 
-        TestRunner.pick(SortingTest::testInsertionSort);
+  public static void main(String[] args) {
+    TestRunner.pick(SortingTest::testBubbleSort);
 
-        TestRunner.pick(SortingTest::testMergeSort);
+    TestRunner.pick(SortingTest::testInsertionSort);
 
-        TestRunner.pick(SortingTest::testQuickSort);
+    TestRunner.pick(SortingTest::testMergeSort);
 
-        TestRunner.pick(SortingTest::testSelectionSort);
-    }
+    TestRunner.pick(SortingTest::testQuickSort);
+
+    TestRunner.pick(SortingTest::testSelectionSort);
+  }
 }

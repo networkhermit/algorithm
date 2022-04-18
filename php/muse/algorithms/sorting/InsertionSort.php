@@ -1,22 +1,23 @@
 <?php
-    declare(strict_types=1);
 
-    namespace muse\algorithms\sorting\InsertionSort;
+declare(strict_types=1);
 
-    function sort(array &$arr): void {
-        $target = NULL;
+namespace muse\algorithms\sorting\InsertionSort;
 
-        $cursor = 0;
+function sort(array &$arr): void
+{
+    $target = null;
 
-        for ($i = 1, $length = count($arr); $i < $length; $i++) {
-            $target = $arr[$i];
-            for ($cursor = $i; $cursor > 0; $cursor--) {
-                if ($arr[$cursor - 1] <= $target) {
-                    break;
-                }
-                $arr[$cursor] = $arr[$cursor - 1];
+    $cursor = 0;
+
+    for ($i = 1, $length = count($arr); $i < $length; $i++) {
+        $target = $arr[$i];
+        for ($cursor = $i; $cursor > 0; $cursor--) {
+            if ($arr[$cursor - 1] <= $target) {
+                break;
             }
-            $arr[$cursor] = $target;
+            $arr[$cursor] = $arr[$cursor - 1];
         }
+        $arr[$cursor] = $target;
     }
-?>
+}

@@ -1,39 +1,41 @@
 <?php
-    declare(strict_types=1);
 
-    namespace muse\algorithms\sorting\MergeSort;
+declare(strict_types=1);
 
-    function merge(array &$arr, int $lo, int $mid, int $hi): void {
-        if ($lo == $mid) {
-            return;
-        }
+namespace muse\algorithms\sorting\MergeSort;
 
-        merge($arr, $lo, ($lo + $mid) >> 1, $mid);
-        merge($arr, $mid, ($mid + $hi) >> 1, $hi);
+function merge(array &$arr, int $lo, int $mid, int $hi): void
+{
+    if ($lo == $mid) {
+        return;
+    }
 
-        $m = $lo;
-        $n = $mid;
+    merge($arr, $lo, ($lo + $mid) >> 1, $mid);
+    merge($arr, $mid, ($mid + $hi) >> 1, $hi);
 
-        $sorted = array_pad(array(), $hi - $lo, 0);
+    $m = $lo;
+    $n = $mid;
 
-        foreach ($sorted as &$v) {
-            if ($m != $mid && ($n == $hi || $arr[$m] < $arr[$n])) {
-                $v = $arr[$m];
-                $m++;
-            } else {
-                $v = $arr[$n];
-                $n++;
-            }
-        }
+    $sorted = array_pad(array(), $hi - $lo, 0);
 
-        $cursor = 0;
-        for ($i = $lo; $i < $hi; $i++) {
-            $arr[$i] = $sorted[$cursor];
-            $cursor++;
+    foreach ($sorted as &$v) {
+        if ($m != $mid && ($n == $hi || $arr[$m] < $arr[$n])) {
+            $v = $arr[$m];
+            $m++;
+        } else {
+            $v = $arr[$n];
+            $n++;
         }
     }
 
-    function sort(array &$arr): void {
-        merge($arr, 0, count($arr) >> 1, count($arr));
+    $cursor = 0;
+    for ($i = $lo; $i < $hi; $i++) {
+        $arr[$i] = $sorted[$cursor];
+        $cursor++;
     }
-?>
+}
+
+function sort(array &$arr): void
+{
+    merge($arr, 0, count($arr) >> 1, count($arr));
+}

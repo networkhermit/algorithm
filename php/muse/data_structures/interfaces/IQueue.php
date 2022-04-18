@@ -1,17 +1,18 @@
 <?php
-    declare(strict_types=1);
 
-    namespace muse\data_structures\interfaces\IQueue;
+declare(strict_types=1);
 
-    interface IQueue {
-        public function size(): int;
+namespace muse\data_structures\interfaces\IQueue;
 
-        public function isEmpty(): bool;
+interface IQueue
+{
+    public function size(): int;
 
-        public function peek(): int;
+    public function isEmpty(): bool;
 
-        public function enqueue(int $element): void;
+    public function peek(): int;
 
-        public function dequeue(): void;
-    }
-?>
+    public function enqueue(int $element): void;
+
+    public function dequeue(): void;
+}

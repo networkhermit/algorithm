@@ -1,6 +1,5 @@
 from muse.algorithms.meta import Search
-from muse.util import SequenceBuilder
-from muse.util import TestRunner
+from muse.util import SequenceBuilder, TestRunner
 
 
 def testBinarySearch() -> bool:

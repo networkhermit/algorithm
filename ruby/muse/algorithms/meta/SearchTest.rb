@@ -2,54 +2,42 @@ require "muse/algorithms/meta/Search"
 require "muse/util/SequenceBuilder"
 require "muse/util/TestRunner"
 
-def testBinarySearch()
-    size = 32768
+def testBinarySearch
+  size = 32_768
 
-    arr = Array.new(size)
-    SequenceBuilder.packIncreasing(arr)
+  arr = Array.new(size)
+  SequenceBuilder.packIncreasing(arr)
 
-    if Search.binarySearch(arr, -1) != size
-        return false
-    end
+  return false if Search.binarySearch(arr, -1) != size
 
-    if Search.binarySearch(arr, 2_147_483_647) != size
-        return false
-    end
+  return false if Search.binarySearch(arr, 2_147_483_647) != size
 
-    arr.each_index do |i|
-        if Search.binarySearch(arr, arr[i]) != i
-            return false
-        end
-    end
+  arr.each_index do |i|
+    return false if Search.binarySearch(arr, arr[i]) != i
+  end
 
-    true
+  true
 end
 
-def testLinearSearch()
-    size = 32768
+def testLinearSearch
+  size = 32_768
 
-    arr = Array.new(size)
-    SequenceBuilder.packIncreasing(arr)
+  arr = Array.new(size)
+  SequenceBuilder.packIncreasing(arr)
 
-    if Search.linearSearch(arr, -1) != size
-        return false
-    end
+  return false if Search.linearSearch(arr, -1) != size
 
-    if Search.linearSearch(arr, 2_147_483_647) != size
-        return false
-    end
+  return false if Search.linearSearch(arr, 2_147_483_647) != size
 
-    arr.each_index do |i|
-        if Search.linearSearch(arr, arr[i]) != i
-            return false
-        end
-    end
+  arr.each_index do |i|
+    return false if Search.linearSearch(arr, arr[i]) != i
+  end
 
-    true
+  true
 end
 
 if __FILE__ == $PROGRAM_NAME
-    TestRunner.pick(testBinarySearch())
+  TestRunner.pick(testBinarySearch)
 
-    TestRunner.pick(testLinearSearch())
+  TestRunner.pick(testLinearSearch)
 end

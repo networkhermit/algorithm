@@ -6,16 +6,17 @@
 using namespace std;
 
 int main() {
-    stack<long long> s;
+  stack<long long> s;
 
-    long long n;
+  long long n;
 
-    while (cin >> n) {
-        s.push(n);
-    }
+  while (cin >> n) {
+    s.push(n);
+  }
 
-    while (!s.empty()) {
-        cout << fixed << setprecision(4) << sqrt(static_cast<double>(s.top())) << endl;
-        s.pop();
-    }
+  while (!s.empty()) {
+    cout << fixed << setprecision(4) << sqrt(static_cast<double>(s.top()))
+         << endl;
+    s.pop();
+  }
 }

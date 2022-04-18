@@ -1,8 +1,10 @@
-from muse.algorithms.sorting import BubbleSort
-from muse.algorithms.sorting import InsertionSort
-from muse.algorithms.sorting import MergeSort
-from muse.algorithms.sorting import QuickSort
-from muse.algorithms.sorting import SelectionSort
+from muse.algorithms.sorting import (
+    BubbleSort,
+    InsertionSort,
+    MergeSort,
+    QuickSort,
+    SelectionSort,
+)
 
 
 def bubbleSort(arr: list) -> None:

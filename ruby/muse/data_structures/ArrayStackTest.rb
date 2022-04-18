@@ -1,41 +1,32 @@
 require "muse/data_structures/ArrayStack"
 require "muse/util/TestRunner"
 
-def testArrayStack()
-    size = 8192
+def testArrayStack
+  size = 8192
 
-    stack = ArrayStack::ArrayStack.new(0)
+  stack = ArrayStack::ArrayStack.new(0)
 
-    1.upto(size) do |i|
-        stack.push(i)
-    end
+  1.upto(size) do |i|
+    stack.push(i)
+  end
 
-    stack.shrink()
+  stack.shrink
 
-    if stack.size() != size
-        return false
-    end
+  return false if stack.size != size
 
-    if stack.capacity() != size
-        return false
-    end
+  return false if stack.capacity != size
 
-    size.downto(1) do |i|
-        if stack.peek() != i
-            return false
-        end
-        stack.pop()
-    end
+  size.downto(1) do |i|
+    return false if stack.peek != i
 
-    stack.shrink()
+    stack.pop
+  end
 
-    unless stack.isEmpty()
-        return false
-    end
+  stack.shrink
 
-    stack.capacity().zero?
+  return false unless stack.isEmpty
+
+  stack.capacity.zero?
 end
 
-if __FILE__ == $PROGRAM_NAME
-    TestRunner.pick(testArrayStack())
-end
+TestRunner.pick(testArrayStack) if __FILE__ == $PROGRAM_NAME

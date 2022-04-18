@@ -6,23 +6,22 @@
 
 namespace InsertionSort {
 
-    template <typename T>
-    void sort(std::vector<T> &arr) {
-        T target;
+template <typename T> void sort(std::vector<T> &arr) {
+  T target;
 
-        std::size_t cursor;
+  std::size_t cursor;
 
-        for (std::size_t i = 1, length = arr.size(); i < length; i++) {
-            target = arr[i];
-            for (cursor = i; cursor > 0; cursor--) {
-                if (arr[cursor - 1] <= target) {
-                    break;
-                }
-                arr[cursor] = arr[cursor - 1];
-            }
-            arr[cursor] = target;
-        }
+  for (std::size_t i = 1, length = arr.size(); i < length; i++) {
+    target = arr[i];
+    for (cursor = i; cursor > 0; cursor--) {
+      if (arr[cursor - 1] <= target) {
+        break;
+      }
+      arr[cursor] = arr[cursor - 1];
     }
+    arr[cursor] = target;
+  }
 }
+} // namespace InsertionSort
 
 #endif

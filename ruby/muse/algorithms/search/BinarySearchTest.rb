@@ -2,29 +2,21 @@ require "muse/algorithms/search/BinarySearch"
 require "muse/util/SequenceBuilder"
 require "muse/util/TestRunner"
 
-def testBinarySearch()
-    size = 32768
+def testBinarySearch
+  size = 32_768
 
-    arr = Array.new(size)
-    SequenceBuilder.packIncreasing(arr)
+  arr = Array.new(size)
+  SequenceBuilder.packIncreasing(arr)
 
-    if BinarySearch.find(arr, -1) != size
-        return false
-    end
+  return false if BinarySearch.find(arr, -1) != size
 
-    if BinarySearch.find(arr, 2_147_483_647) != size
-        return false
-    end
+  return false if BinarySearch.find(arr, 2_147_483_647) != size
 
-    arr.each_index do |i|
-        if BinarySearch.find(arr, arr[i]) != i
-            return false
-        end
-    end
+  arr.each_index do |i|
+    return false if BinarySearch.find(arr, arr[i]) != i
+  end
 
-    true
+  true
 end
 
-if __FILE__ == $PROGRAM_NAME
-    TestRunner.pick(testBinarySearch())
-end
+TestRunner.pick(testBinarySearch) if __FILE__ == $PROGRAM_NAME

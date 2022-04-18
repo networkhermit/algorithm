@@ -1,11 +1,13 @@
-from muse.algorithms.number_theory import Coprimality
-from muse.algorithms.number_theory import Factorial
-from muse.algorithms.number_theory import FibonacciNumber
-from muse.algorithms.number_theory import GreatestCommonDivisor
-from muse.algorithms.number_theory import LeastCommonMultiple
-from muse.algorithms.number_theory import Parity
-from muse.algorithms.number_theory import Primality
-from muse.algorithms.number_theory import PrimeSieves
+from muse.algorithms.number_theory import (
+    Coprimality,
+    Factorial,
+    FibonacciNumber,
+    GreatestCommonDivisor,
+    LeastCommonMultiple,
+    Parity,
+    Primality,
+    PrimeSieves,
+)
 
 
 def isCoprime(m: int, n: int) -> bool:

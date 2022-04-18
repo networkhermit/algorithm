@@ -1,29 +1,24 @@
 require "muse/data_structures/LinkedStack"
 require "muse/util/TestRunner"
 
-def testLinkedStack()
-    size = 8192
+def testLinkedStack
+  size = 8192
 
-    stack = LinkedStack::LinkedStack.new()
+  stack = LinkedStack::LinkedStack.new
 
-    1.upto(size) do |i|
-        stack.push(i)
-    end
+  1.upto(size) do |i|
+    stack.push(i)
+  end
 
-    if stack.size() != size
-        return false
-    end
+  return false if stack.size != size
 
-    size.downto(1) do |i|
-        if stack.peek() != i
-            return false
-        end
-        stack.pop()
-    end
+  size.downto(1) do |i|
+    return false if stack.peek != i
 
-    stack.isEmpty()
+    stack.pop
+  end
+
+  stack.isEmpty
 end
 
-if __FILE__ == $PROGRAM_NAME
-    TestRunner.pick(testLinkedStack())
-end
+TestRunner.pick(testLinkedStack) if __FILE__ == $PROGRAM_NAME

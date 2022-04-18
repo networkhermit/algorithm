@@ -4,63 +4,58 @@
 using namespace std;
 
 bool testCircularlyLinkedList() {
-    size_t size = 8192;
+  size_t size = 8192;
 
-    auto list = new CircularlyLinkedList::CircularlyLinkedList<int>();
+  auto list = new CircularlyLinkedList::CircularlyLinkedList<int>();
 
-    for (size_t i = 1; i <= size; i++) {
-        list->append(static_cast<int>(i));
+  for (size_t i = 1; i <= size; i++) {
+    list->append(static_cast<int>(i));
+  }
+
+  if (list->size() != size) {
+    return false;
+  }
+
+  for (size_t i = 0; i < size; i++) {
+    if (static_cast<size_t>(list->get(i)) != i + 1) {
+      return false;
     }
+  }
 
-    if (list->size() != size) {
-        return false;
+  for (size_t i = 0; i < size; i++) {
+    list->set(i, size - i);
+  }
+
+  for (size_t i = 0; i < size; i++) {
+    if (static_cast<size_t>(list->get(i)) != size - i) {
+      return false;
     }
+  }
 
-    for (size_t i = 0; i < size; i++) {
-        if (static_cast<size_t>(list->get(i)) != i + 1) {
-            return false;
-        }
+  for (size_t i = 0, j = size - 1; i < j; i++, j--) {
+    int x = list->get(i);
+    int y = list->get(j);
+
+    list->remove(i);
+    list->insert(i, y);
+    list->remove(j);
+    list->insert(j, x);
+  }
+
+  for (size_t i = 0; i < size; i++) {
+    if (static_cast<size_t>(list->get(i)) != i + 1) {
+      return false;
     }
+  }
 
-    for (size_t i = 0; i < size; i++) {
-        list->set(i, size - i);
+  for (size_t i = size; i >= 1; i--) {
+    if (static_cast<size_t>(list->back()) != i) {
+      return false;
     }
+    list->eject();
+  }
 
-    for (size_t i = 0; i < size; i++) {
-        if (static_cast<size_t>(list->get(i)) != size - i) {
-            return false;
-        }
-    }
-
-    int x;
-    int y;
-
-    for (size_t i = 0, j = size - 1; i < j; i++, j--) {
-        x = list->get(i);
-        y = list->get(j);
-
-        list->remove(i);
-        list->insert(i, y);
-        list->remove(j);
-        list->insert(j, x);
-    }
-
-    for (size_t i = 0; i < size; i++) {
-        if (static_cast<size_t>(list->get(i)) != i + 1) {
-            return false;
-        }
-    }
-
-    for (size_t i = size; i >= 1; i--) {
-        if (static_cast<size_t>(list->back()) != i) {
-            return false;
-        }
-        list->eject();
-    }
-
-    return list->isEmpty();
+  return list->isEmpty();
 }
 
-int main() {
-    TestRunner::pick(&testCircularlyLinkedList);
-}
+int main() { TestRunner::pick(&testCircularlyLinkedList); }

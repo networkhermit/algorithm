@@ -1,7 +1,5 @@
 from muse.algorithms.sorting import BubbleSort
-from muse.util import SequenceBuilder
-from muse.util import Sequences
-from muse.util import TestRunner
+from muse.util import SequenceBuilder, Sequences, TestRunner
 
 
 def testBubbleSort() -> bool:

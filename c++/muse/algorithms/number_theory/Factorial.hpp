@@ -3,29 +3,29 @@
 
 namespace Factorial {
 
-    long iterativeProcedure(long n) {
-        if (n < 0) {
-            return 0;
-        }
+long iterativeProcedure(long n) {
+  if (n < 0) {
+    return 0;
+  }
 
-        long result = 1;
-        for (long i = 1; i <= n; i++) {
-            result *= i;
-        }
+  long result = 1;
+  for (long i = 1; i <= n; i++) {
+    result *= i;
+  }
 
-        return result;
-    }
-
-    long recursiveProcedure(long n) {
-        if (n < 0) {
-            return 0;
-        }
-
-        if (n == 0) {
-            return 1;
-        }
-        return recursiveProcedure(n - 1) * n;
-    }
+  return result;
 }
+
+long recursiveProcedure(long n) {
+  if (n < 0) {
+    return 0;
+  }
+
+  if (n == 0) {
+    return 1;
+  }
+  return recursiveProcedure(n - 1) * n;
+}
+} // namespace Factorial
 
 #endif

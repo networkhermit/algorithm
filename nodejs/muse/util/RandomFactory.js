@@ -1,19 +1,19 @@
-"use strict"
+'use strict'
 
-const crypto = require("crypto")
+const crypto = require('crypto')
 
 exports.genIntN = (min, max) => {
-    return crypto.randomInt(min, max + 1)
+  return crypto.randomInt(min, max + 1)
 }
 
 exports.genInt = () => {
-    return this.genIntN(1, 2147483647)
+  return this.genIntN(1, 2147483647)
 }
 
 exports.genEven = () => {
-    return this.genInt() >>> 1 << 1
+  return this.genInt() >>> 1 << 1
 }
 
 exports.genOdd = () => {
-    return this.genInt() | 1
+  return this.genInt() | 1
 }

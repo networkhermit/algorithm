@@ -1,38 +1,39 @@
 <?php
-    declare(strict_types=1);
 
-    require_once "muse/algorithms/search/LinearSearch.php";
-    require_once "muse/util/SequenceBuilder.php";
-    require_once "muse/util/TestRunner.php";
+declare(strict_types=1);
 
-    use muse\algorithms\search\LinearSearch;
-    use muse\util\SequenceBuilder;
-    use muse\util\TestRunner;
+require_once "muse/algorithms/search/LinearSearch.php";
+require_once "muse/util/SequenceBuilder.php";
+require_once "muse/util/TestRunner.php";
 
-    function testLinearSearch(): bool {
-        $size = 32768;
+use muse\algorithms\search\LinearSearch;
+use muse\util\SequenceBuilder;
+use muse\util\TestRunner;
 
-        $arr = array_pad(array(), $size, 0);
-        SequenceBuilder\packIncreasing($arr);
+function testLinearSearch(): bool
+{
+    $size = 32768;
 
-        if (LinearSearch\find($arr, -1) != $size) {
-            return false;
-        }
+    $arr = array_pad(array(), $size, 0);
+    SequenceBuilder\packIncreasing($arr);
 
-        if (LinearSearch\find($arr, 2147483647) != $size) {
-            return false;
-        }
-
-        foreach ($arr as $i => $v) {
-            if (LinearSearch\find($arr, $v) != $i) {
-                return false;
-            }
-        }
-
-        return true;
+    if (LinearSearch\find($arr, -1) != $size) {
+        return false;
     }
 
-    if (count(debug_backtrace()) == 0) {
-        TestRunner\pick("testLinearSearch");
+    if (LinearSearch\find($arr, 2147483647) != $size) {
+        return false;
     }
-?>
+
+    foreach ($arr as $i => $v) {
+        if (LinearSearch\find($arr, $v) != $i) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+if (count(debug_backtrace()) == 0) {
+    TestRunner\pick("testLinearSearch");
+}

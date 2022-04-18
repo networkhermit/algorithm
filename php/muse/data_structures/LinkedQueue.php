@@ -1,75 +1,85 @@
 <?php
-    declare(strict_types=1);
 
-    namespace muse\data_structures\LinkedQueue;
+declare(strict_types=1);
 
-    require_once "muse/data_structures/interfaces/IQueue.php";
+namespace muse\data_structures\LinkedQueue;
 
-    use muse\data_structures\interfaces\IQueue;
+require_once "muse/data_structures/interfaces/IQueue.php";
 
-    class Node {
-        public $data;
-        public $next = NULL;
+use muse\data_structures\interfaces\IQueue;
 
-        public function __construct(int $element) {
-            $this->data = $element;
-        }
+class Node
+{
+    public $data;
+    public $next = null;
+
+    public function __construct(int $element)
+    {
+        $this->data = $element;
+    }
+}
+
+class LinkedQueue implements IQueue\IQueue
+{
+    private $head = null;
+    private $tail = null;
+    private $length = 0;
+
+    public function __construct()
+    {
     }
 
-    class LinkedQueue implements IQueue\IQueue {
-        private $head = NULL;
-        private $tail = NULL;
-        private $length = 0;
-
-        public function __construct() {}
-
-        public function size(): int {
-            return $this->length;
-        }
-
-        public function isEmpty(): bool {
-            return $this->length == 0;
-        }
-
-        public function peek(): int {
-            if ($this->length == 0) {
-                throw new RuntimeException("[PANIC - NoSuchElement]");
-            }
-
-            return $this->head->data;
-        }
-
-        public function enqueue(int $element): void {
-            $node = new Node($element);
-
-            if ($this->length == 0) {
-                $this->head = $node;
-            } else {
-                $this->tail->next = $node;
-            }
-
-            $this->tail = $node;
-
-            $this->length++;
-        }
-
-        public function dequeue(): void {
-            if ($this->length == 0) {
-                throw new RuntimeException("[PANIC - NoSuchElement]");
-            }
-
-            $target = $this->head;
-
-            if ($this->length == 1) {
-                $this->head = NULL;
-                $this->tail = NULL;
-            } else {
-                $this->head = $target->next;
-            }
-
-            $target->data = NULL;
-
-            $this->length--;
-        }
+    public function size(): int
+    {
+        return $this->length;
     }
-?>
+
+    public function isEmpty(): bool
+    {
+        return $this->length == 0;
+    }
+
+    public function peek(): int
+    {
+        if ($this->length == 0) {
+            throw new RuntimeException("[PANIC - NoSuchElement]");
+        }
+
+        return $this->head->data;
+    }
+
+    public function enqueue(int $element): void
+    {
+        $node = new Node($element);
+
+        if ($this->length == 0) {
+            $this->head = $node;
+        } else {
+            $this->tail->next = $node;
+        }
+
+        $this->tail = $node;
+
+        $this->length++;
+    }
+
+    public function dequeue(): void
+    {
+        if ($this->length == 0) {
+            throw new RuntimeException("[PANIC - NoSuchElement]");
+        }
+
+        $target = $this->head;
+
+        if ($this->length == 1) {
+            $this->head = null;
+            $this->tail = null;
+        } else {
+            $this->head = $target->next;
+        }
+
+        $target->data = null;
+
+        $this->length--;
+    }
+}

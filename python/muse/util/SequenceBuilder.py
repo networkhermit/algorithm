@@ -1,5 +1,4 @@
-from muse.util import RandomFactory
-from muse.util import Sequences
+from muse.util import RandomFactory, Sequences
 
 
 def packIncreasing(arr: list) -> None:

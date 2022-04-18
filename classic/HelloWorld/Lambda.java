@@ -9,15 +9,15 @@
 
 public class Lambda {
 
-    // method declaration
-    public static void sayHello() {
-        // output some text
-        System.out.println("hello, world");
-    }
+  // method declaration
+  public static void sayHello() {
+    // output some text
+    System.out.println("hello, world");
+  }
 
-    // entry point of the program
-    public static void main(String[] args) {
-        // method invocation
-        sayHello();
-    }
+  // entry point of the program
+  public static void main(String[] args) {
+    // method invocation
+    sayHello();
+  }
 }

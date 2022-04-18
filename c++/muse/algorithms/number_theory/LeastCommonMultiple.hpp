@@ -5,33 +5,33 @@
 
 namespace LeastCommonMultiple {
 
-    long reduceToBinaryGCD(long m, long n) {
-        if (m < 0) {
-            m = -m;
-        }
-        if (n < 0) {
-            n = -n;
-        }
+long reduceToBinaryGCD(long m, long n) {
+  if (m < 0) {
+    m = -m;
+  }
+  if (n < 0) {
+    n = -n;
+  }
 
-        if (m == 0 || n == 0) {
-            return 0;
-        }
-        return m / GreatestCommonDivisor::iterativeBinaryGCD(m, n) * n;
-    }
-
-    long reduceToEuclidean(long m, long n) {
-        if (m < 0) {
-            m = -m;
-        }
-        if (n < 0) {
-            n = -n;
-        }
-
-        if (m == 0 || n == 0) {
-            return 0;
-        }
-        return m / GreatestCommonDivisor::iterativeEuclidean(m, n) * n;
-    }
+  if (m == 0 || n == 0) {
+    return 0;
+  }
+  return m / GreatestCommonDivisor::iterativeBinaryGCD(m, n) * n;
 }
+
+long reduceToEuclidean(long m, long n) {
+  if (m < 0) {
+    m = -m;
+  }
+  if (n < 0) {
+    n = -n;
+  }
+
+  if (m == 0 || n == 0) {
+    return 0;
+  }
+  return m / GreatestCommonDivisor::iterativeEuclidean(m, n) * n;
+}
+} // namespace LeastCommonMultiple
 
 #endif

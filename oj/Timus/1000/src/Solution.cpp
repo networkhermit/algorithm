@@ -3,10 +3,10 @@
 using namespace std;
 
 int main() {
-    int a;
-    int b;
+  int a;
+  int b;
 
-    while (cin >> a >> b) {
-        cout << a + b << endl;
-    }
+  while (cin >> a >> b) {
+    cout << a + b << endl;
+  }
 }

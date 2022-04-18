@@ -1,21 +1,25 @@
 <?php
-    declare(strict_types=1);
 
-    namespace muse\util\RandomFactory;
+declare(strict_types=1);
 
-    function genIntN(int $min, int $max): int {
-        return random_int($min, $max);
-    }
+namespace muse\util\RandomFactory;
 
-    function genInt(): int {
-        return genIntN(1, 2147483647);
-    }
+function genIntN(int $min, int $max): int
+{
+    return random_int($min, $max);
+}
 
-    function genEven(): int {
-        return genInt() >> 1 << 1;
-    }
+function genInt(): int
+{
+    return genIntN(1, 2147483647);
+}
 
-    function genOdd(): int {
-        return genInt() | 1;
-    }
-?>
+function genEven(): int
+{
+    return genInt() >> 1 << 1;
+}
+
+function genOdd(): int
+{
+    return genInt() | 1;
+}

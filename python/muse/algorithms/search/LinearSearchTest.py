@@ -1,6 +1,5 @@
 from muse.algorithms.search import LinearSearch
-from muse.util import SequenceBuilder
-from muse.util import TestRunner
+from muse.util import SequenceBuilder, TestRunner
 
 
 def testLinearSearch() -> bool:

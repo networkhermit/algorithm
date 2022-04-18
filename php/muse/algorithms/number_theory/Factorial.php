@@ -1,29 +1,31 @@
 <?php
-    declare(strict_types=1);
 
-    namespace muse\algorithms\number_theory\Factorial;
+declare(strict_types=1);
 
-    function iterativeProcedure(int $n): int {
-        if ($n < 0) {
-            return 0;
-        }
+namespace muse\algorithms\number_theory\Factorial;
 
-        $result = 1;
-        for ($i = 1; $i <= $n; $i++) {
-            $result *= $i;
-        }
-
-        return $result;
+function iterativeProcedure(int $n): int
+{
+    if ($n < 0) {
+        return 0;
     }
 
-    function recursiveProcedure(int $n): int {
-        if ($n < 0) {
-            return 0;
-        }
-
-        if ($n == 0) {
-            return 1;
-        }
-        return recursiveProcedure($n - 1) * $n;
+    $result = 1;
+    for ($i = 1; $i <= $n; $i++) {
+        $result *= $i;
     }
-?>
+
+    return $result;
+}
+
+function recursiveProcedure(int $n): int
+{
+    if ($n < 0) {
+        return 0;
+    }
+
+    if ($n == 0) {
+        return 1;
+    }
+    return recursiveProcedure($n - 1) * $n;
+}

@@ -6,22 +6,20 @@
 using namespace std;
 
 bool testSelectionSort() {
-    size_t size = 32768;
+  size_t size = 32768;
 
-    vector<int> arr(size);
-    SequenceBuilder::packRandom(arr);
+  vector<int> arr(size);
+  SequenceBuilder::packRandom(arr);
 
-    int checksum = Sequences::parityChecksum(arr);
+  int checksum = Sequences::parityChecksum(arr);
 
-    SelectionSort::sort(arr);
+  SelectionSort::sort(arr);
 
-    if (Sequences::parityChecksum(arr) != checksum) {
-        return false;
-    }
+  if (Sequences::parityChecksum(arr) != checksum) {
+    return false;
+  }
 
-    return Sequences::isSorted(arr);
+  return Sequences::isSorted(arr);
 }
 
-int main() {
-    TestRunner::pick(&testSelectionSort);
-}
+int main() { TestRunner::pick(&testSelectionSort); }

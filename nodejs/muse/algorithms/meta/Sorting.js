@@ -1,27 +1,27 @@
-"use strict"
+'use strict'
 
-const BubbleSort    = require("muse/algorithms/sorting/BubbleSort")
-const InsertionSort = require("muse/algorithms/sorting/InsertionSort")
-const MergeSort     = require("muse/algorithms/sorting/MergeSort")
-const QuickSort     = require("muse/algorithms/sorting/QuickSort")
-const SelectionSort = require("muse/algorithms/sorting/SelectionSort")
+const BubbleSort = require('muse/algorithms/sorting/BubbleSort')
+const InsertionSort = require('muse/algorithms/sorting/InsertionSort')
+const MergeSort = require('muse/algorithms/sorting/MergeSort')
+const QuickSort = require('muse/algorithms/sorting/QuickSort')
+const SelectionSort = require('muse/algorithms/sorting/SelectionSort')
 
 exports.bubbleSort = (arr) => {
-    BubbleSort.sort(arr)
+  BubbleSort.sort(arr)
 }
 
 exports.insertionSort = (arr) => {
-    InsertionSort.sort(arr)
+  InsertionSort.sort(arr)
 }
 
 exports.mergeSort = (arr) => {
-    MergeSort.sort(arr)
+  MergeSort.sort(arr)
 }
 
 exports.quickSort = (arr) => {
-    QuickSort.sort(arr)
+  QuickSort.sort(arr)
 }
 
 exports.selectionSort = (arr) => {
-    SelectionSort.sort(arr)
+  SelectionSort.sort(arr)
 }

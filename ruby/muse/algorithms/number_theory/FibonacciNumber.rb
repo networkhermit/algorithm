@@ -1,39 +1,32 @@
 module FibonacciNumber
+  def self.iterativeProcedure(n)
+    sign = 1
 
-    def self.iterativeProcedure(n)
-        sign = 1
-
-        if n.negative?
-            if (n & 1).zero?
-                sign = -1
-            end
-            n = -n
-        end
-
-        if n < 2
-            return n
-        end
-
-        prev = 0
-        curr = 1
-
-        (n - 1).times do
-            prev, curr = curr, prev + curr
-        end
-
-        sign * curr
+    if n.negative?
+      sign = -1 if (n & 1).zero?
+      n = -n
     end
 
-    def self.recursiveProcedure(n)
-        if n.negative?
-            if (n & 1).zero?
-                return -recursiveProcedure(-n)
-            end
-            return recursiveProcedure(-n)
-        end
-        if n < 2
-            return n
-        end
-        recursiveProcedure(n - 2) + recursiveProcedure(n - 1)
+    return n if n < 2
+
+    prev = 0
+    curr = 1
+
+    (n - 1).times do
+      prev, curr = curr, prev + curr
     end
+
+    sign * curr
+  end
+
+  def self.recursiveProcedure(n)
+    if n.negative?
+      return -recursiveProcedure(-n) if (n & 1).zero?
+
+      return recursiveProcedure(-n)
+    end
+    return n if n < 2
+
+    recursiveProcedure(n - 2) + recursiveProcedure(n - 1)
+  end
 end
