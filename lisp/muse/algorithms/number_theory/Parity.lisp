@@ -2,10 +2,10 @@
   (:nicknames parity)
   (:use common-lisp)
   (:export
-    modulo-is-even
-    modulo-is-odd
-    bitwise-is-even
-    bitwise-is-odd))
+   modulo-is-even
+   modulo-is-odd
+   bitwise-is-even
+   bitwise-is-odd))
 
 (in-package parity)
 

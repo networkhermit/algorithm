@@ -11,15 +11,15 @@
   (:use common-lisp)
   (:shadow gcd lcm)
   (:export
-    is-coprime
-    factorial
-    fibonacci
-    gcd
-    lcm
-    is-even
-    is-odd
-    is-prime
-    is-composite))
+   is-coprime
+   factorial
+   fibonacci
+   gcd
+   lcm
+   is-even
+   is-odd
+   is-prime
+   is-composite))
 
 (in-package number-theory)
 

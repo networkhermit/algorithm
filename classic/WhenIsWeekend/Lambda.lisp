@@ -12,4 +12,4 @@
           ((= today 3)
            (write-line "In two days."))
           (t
-            (write-line "Too far away.")))))
+           (write-line "Too far away.")))))

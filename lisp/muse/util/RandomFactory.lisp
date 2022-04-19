@@ -2,11 +2,11 @@
   (:nicknames random-factory)
   (:use common-lisp)
   (:export
-    seed
-    gen-int-n
-    gen-int
-    gen-even
-    gen-odd))
+   seed
+   gen-int-n
+   gen-int
+   gen-even
+   gen-odd))
 
 (in-package random-factory)
 

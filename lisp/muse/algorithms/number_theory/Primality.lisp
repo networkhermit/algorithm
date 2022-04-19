@@ -2,8 +2,8 @@
   (:nicknames primality)
   (:use common-lisp)
   (:export
-    is-prime
-    is-composite))
+   is-prime
+   is-composite))
 
 (in-package primality)
 
@@ -15,7 +15,7 @@
 
   (do ((bound (isqrt n))
        (i 3 (+ i 2)))
-    ((> i bound) t)
+      ((> i bound) t)
     (when (zerop (rem n i))
       (return-from is-prime nil))))
 

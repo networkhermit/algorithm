@@ -2,10 +2,10 @@
   (:nicknames greatest-common-divisor)
   (:use common-lisp)
   (:export
-    iterative-binary-gcd
-    recursive-binary-gcd
-    iterative-euclidean
-    recursive-euclidean))
+   iterative-binary-gcd
+   recursive-binary-gcd
+   iterative-euclidean
+   recursive-euclidean))
 
 (in-package greatest-common-divisor)
 
@@ -16,7 +16,7 @@
     (setf n (- n)))
 
   (do ((shift 0))
-    (nil)
+      (nil)
     (when (= m n)
       (return-from iterative-binary-gcd (ash m shift)))
     (when (zerop m)
@@ -34,7 +34,7 @@
           ((> m n)
            (setf m (ash (- m n) -1)))
           (t
-            (setf n (ash (- n m) -1))))))
+           (setf n (ash (- n m) -1))))))
 
 (defun recursive-binary-gcd (m n)
   (when (minusp m)
@@ -50,14 +50,14 @@
     (return-from recursive-binary-gcd m))
 
   (if (zerop (logand m 1))
-    (if (zerop (logand n 1))
-      (ash (recursive-binary-gcd (ash m -1) (ash n -1)) 1)
-      (recursive-binary-gcd (ash m -1) n))
-    (if (zerop (logand n 1))
-      (recursive-binary-gcd m (ash n -1))
-      (if (> m n)
-        (recursive-binary-gcd (ash (- m n) -1) n)
-        (recursive-binary-gcd m (ash (- n m) -1))))))
+      (if (zerop (logand n 1))
+          (ash (recursive-binary-gcd (ash m -1) (ash n -1)) 1)
+          (recursive-binary-gcd (ash m -1) n))
+      (if (zerop (logand n 1))
+          (recursive-binary-gcd m (ash n -1))
+          (if (> m n)
+              (recursive-binary-gcd (ash (- m n) -1) n)
+              (recursive-binary-gcd m (ash (- n m) -1))))))
 
 (defun iterative-euclidean (m n)
   (when (minusp m)
@@ -66,7 +66,7 @@
     (setf n (- n)))
 
   (do (r)
-    ((zerop n) m)
+      ((zerop n) m)
     (setf r (rem m n))
     (shiftf m n r)))
 
@@ -77,5 +77,5 @@
     (setf n (- n)))
 
   (if (zerop n)
-    m
-    (recursive-euclidean n (rem m n))))
+      m
+      (recursive-euclidean n (rem m n))))

@@ -4,8 +4,8 @@
   (:nicknames coprimality)
   (:use common-lisp)
   (:export
-    reduce-to-binary-gcd
-    reduce-to-euclidean))
+   reduce-to-binary-gcd
+   reduce-to-euclidean))
 
 (in-package coprimality)
 

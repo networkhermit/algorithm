@@ -2,8 +2,8 @@
   (:nicknames factorial)
   (:use common-lisp)
   (:export
-    iterative-procedure
-    recursive-procedure))
+   iterative-procedure
+   recursive-procedure))
 
 (in-package factorial)
 
@@ -13,7 +13,7 @@
 
   (do ((result 1)
        (i 1 (1+ i)))
-    ((> i n) result)
+      ((> i n) result)
     (setf result (* result i))))
 
 (defun recursive-procedure (n)
@@ -21,5 +21,5 @@
     (return-from recursive-procedure 0))
 
   (if (zerop n)
-    1
-    (* (recursive-procedure (- n 1)) n)))
+      1
+      (* (recursive-procedure (- n 1)) n)))

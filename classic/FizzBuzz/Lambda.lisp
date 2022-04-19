@@ -13,5 +13,5 @@
 
 (defun main ()
   (do ((i 1 (1+ i)))
-    ((> i 100))
+      ((> i 100))
     (write-line (fizz-buzz i))))

@@ -2,7 +2,7 @@
   (:nicknames test-runner)
   (:use common-lisp)
   (:export
-    pick))
+   pick))
 
 (in-package test-runner)
 
@@ -10,7 +10,7 @@
 
 (defun pick (func)
   (if (funcall func)
-    (format t "✓ Item [~D] PASSED~%" *item-index*)
-    (format t "✗ Item [~D] FAILED~%" *item-index*))
+      (format t "✓ Item [~D] PASSED~%" *item-index*)
+      (format t "✗ Item [~D] FAILED~%" *item-index*))
 
   (incf *item-index*))

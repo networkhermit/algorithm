@@ -196,7 +196,7 @@ run_test () {
         for instance in $(find -L "${ROOT}" -type f -name '*Test.lisp' | sort); do
             fname=$(basename "${instance}" .lisp)
 
-            sbcl --noinform --non-interactive --no-sysinit --userinit "${LISP_PATH}/.sbclrc" \
+            sbcl --noinform --non-interactive --no-sysinit --userinit "${LISP_PATH}/sbcl.lisp" \
                 --load "${instance}" --eval "(when (fboundp 'main) (main))"
 
             printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
