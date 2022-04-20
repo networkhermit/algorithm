@@ -252,7 +252,7 @@ run_test () {
     esac
 }
 
-echo '===================== test session starts ======================'
+echo ===================== test session starts ======================
 
 case ${SPEC} in
 all)
@@ -270,4 +270,4 @@ perf)
     ;;
 esac
 
-echo '==================== test session finished ====================='
+echo ==================== test session finished =====================
