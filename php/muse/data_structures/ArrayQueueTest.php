@@ -5,7 +5,7 @@ declare(strict_types=1);
 require_once "muse/data_structures/ArrayQueue.php";
 require_once "muse/util/TestRunner.php";
 
-use muse\data_structures\ArrayQueue\ArrayQueue;
+use muse\data_structures\ArrayQueue;
 use muse\util\TestRunner;
 
 function testArrayQueue(): bool

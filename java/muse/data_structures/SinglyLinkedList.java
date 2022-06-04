@@ -1,8 +1,8 @@
 package muse.data_structures;
 
-import muse.data_structures.interfaces.IList;
+import muse.data_structures.List;
 
-public class SinglyLinkedList<E> implements IList<E> {
+public class SinglyLinkedList<E> implements List<E> {
   private static class Node<E> {
     public E data;
     public Node<E> next = null;

@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace muse\data_structures\ArrayList;
+namespace muse\data_structures;
 
-require_once "muse/data_structures/interfaces/IList.php";
+require_once "muse/data_structures/List.php";
 
-use muse\data_structures\interfaces\IList;
+use muse\data_structures\Lister;
 
-class ArrayList implements IList\IList
+class ArrayList implements Lister
 {
     private const DEFAULT_CAPACITY = 64;
 

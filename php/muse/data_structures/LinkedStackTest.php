@@ -5,7 +5,7 @@ declare(strict_types=1);
 require_once "muse/data_structures/LinkedStack.php";
 require_once "muse/util/TestRunner.php";
 
-use muse\data_structures\LinkedStack\LinkedStack;
+use muse\data_structures\LinkedStack;
 use muse\util\TestRunner;
 
 function testLinkedStack(): bool

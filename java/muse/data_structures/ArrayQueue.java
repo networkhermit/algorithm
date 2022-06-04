@@ -1,8 +1,8 @@
 package muse.data_structures;
 
-import muse.data_structures.interfaces.IQueue;
+import muse.data_structures.Queue;
 
-public class ArrayQueue<E> implements IQueue<E> {
+public class ArrayQueue<E> implements Queue<E> {
   private static final int DEFAULT_CAPACITY = 64;
 
   private E[] data = null;

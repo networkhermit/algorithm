@@ -5,7 +5,7 @@ declare(strict_types=1);
 require_once "muse/data_structures/LinkedList.php";
 require_once "muse/util/TestRunner.php";
 
-use muse\data_structures\LinkedList\LinkedList;
+use muse\data_structures\LinkedList;
 use muse\util\TestRunner;
 
 function testLinkedList(): bool

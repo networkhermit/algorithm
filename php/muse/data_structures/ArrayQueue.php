@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace muse\data_structures\ArrayQueue;
+namespace muse\data_structures;
 
-require_once "muse/data_structures/interfaces/IQueue.php";
+require_once "muse/data_structures/Queue.php";
 
-use muse\data_structures\interfaces\IQueue;
+use muse\data_structures\Queue;
 
-class ArrayQueue implements IQueue\IQueue
+class ArrayQueue implements Queue
 {
     private const DEFAULT_CAPACITY = 64;
 

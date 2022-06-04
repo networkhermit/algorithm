@@ -1,8 +1,8 @@
 package muse.data_structures;
 
-import muse.data_structures.interfaces.IStack;
+import muse.data_structures.Stack;
 
-public class LinkedStack<E> implements IStack<E> {
+public class LinkedStack<E> implements Stack<E> {
   private static class Node<E> {
     public E data;
     public Node<E> next = null;

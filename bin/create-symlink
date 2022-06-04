@@ -91,7 +91,13 @@ for i in "${ROOT}/symlink/algorithms/"*/* "${ROOT}/symlink/data_structures/"* "$
     pushd "${i}" &> /dev/null
     rm --force --recursive Implementation Test
     mkdir --parents Implementation Test
-    find "${PLT_PATH}" -type f -name "$(basename "${PWD}").*" -exec ln --symbolic --verbose {} Implementation/ \;
-    find "${PLT_PATH}" -type f \( -name "$(basename "${PWD}")Test.*" -o -name "$(basename "${PWD}")_test.*" \) -exec ln --symbolic --verbose {} Test/ \;
+    impl_camel=$(basename "${PWD}")
+    test_camel=${impl_camel}Test
+    impl_snake=$(sed --expression 's/\([A-Z]\)/_\L\1/g' --expression 's/^_//' <<< "${impl_camel}")
+    test_snake=$(sed --expression 's/\([A-Z]\)/_\L\1/g' --expression 's/^_//' <<< "${test_camel}")
+    impl_kebab=$(sed --expression 's/_/-/g' <<< "${impl_snake}")
+    test_kebab=$(sed --expression 's/_/-/g' <<< "${test_snake}")
+    find "${PLT_PATH}" -type f \( -name "${impl_camel}.*" -o -name "${impl_snake}.*" -o -name "${impl_kebab}.*" \) -exec ln --symbolic --verbose {} Implementation/ \;
+    find "${PLT_PATH}" -type f \( -name "${test_camel}.*" -o -name "${test_snake}.*" -o -name "${test_kebab}.*" \) -exec ln --symbolic --verbose {} Test/ \;
     popd &> /dev/null
 done

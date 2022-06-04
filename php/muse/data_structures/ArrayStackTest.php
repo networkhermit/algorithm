@@ -5,7 +5,7 @@ declare(strict_types=1);
 require_once "muse/data_structures/ArrayStack.php";
 require_once "muse/util/TestRunner.php";
 
-use muse\data_structures\ArrayStack\ArrayStack;
+use muse\data_structures\ArrayStack;
 use muse\util\TestRunner;
 
 function testArrayStack(): bool

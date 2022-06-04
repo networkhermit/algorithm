@@ -2,24 +2,14 @@
 
 declare(strict_types=1);
 
-namespace muse\data_structures\LinkedQueue;
+namespace muse\data_structures;
 
-require_once "muse/data_structures/interfaces/IQueue.php";
+require_once "muse/data_structures/Queue.php";
 
-use muse\data_structures\interfaces\IQueue;
+use muse\data_structures\LinkedQueue\Node;
+use muse\data_structures\Queue;
 
-class Node
-{
-    public $data;
-    public $next = null;
-
-    public function __construct(int $element)
-    {
-        $this->data = $element;
-    }
-}
-
-class LinkedQueue implements IQueue\IQueue
+class LinkedQueue implements Queue
 {
     private $head = null;
     private $tail = null;
@@ -81,5 +71,18 @@ class LinkedQueue implements IQueue\IQueue
         $target->data = null;
 
         $this->length--;
+    }
+}
+
+namespace muse\data_structures\LinkedQueue;
+
+class Node
+{
+    public $data;
+    public $next = null;
+
+    public function __construct(int $element)
+    {
+        $this->data = $element;
     }
 }

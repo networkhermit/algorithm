@@ -5,7 +5,7 @@ declare(strict_types=1);
 require_once "muse/data_structures/ArrayList.php";
 require_once "muse/util/TestRunner.php";
 
-use muse\data_structures\ArrayList\ArrayList;
+use muse\data_structures\ArrayList;
 use muse\util\TestRunner;
 
 function testArrayList(): bool

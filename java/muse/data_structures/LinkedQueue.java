@@ -1,8 +1,8 @@
 package muse.data_structures;
 
-import muse.data_structures.interfaces.IQueue;
+import muse.data_structures.Queue;
 
-public class LinkedQueue<E> implements IQueue<E> {
+public class LinkedQueue<E> implements Queue<E> {
   private static class Node<E> {
     public E data;
     public Node<E> next = null;

@@ -2,25 +2,14 @@
 
 declare(strict_types=1);
 
-namespace muse\data_structures\DoublyLinkedList;
+namespace muse\data_structures;
 
-require_once "muse/data_structures/interfaces/IList.php";
+require_once "muse/data_structures/List.php";
 
-use muse\data_structures\interfaces\IList;
+use muse\data_structures\DoublyLinkedList\Node;
+use muse\data_structures\Lister;
 
-class Node
-{
-    public $data;
-    public $next = null;
-    public $prev = null;
-
-    public function __construct(int $element)
-    {
-        $this->data = $element;
-    }
-}
-
-class DoublyLinkedList implements IList\IList
+class DoublyLinkedList implements Lister
 {
     private $head = null;
     private $tail = null;
@@ -204,5 +193,19 @@ class DoublyLinkedList implements IList\IList
     public function eject(): void
     {
         $this->remove($this->length - 1);
+    }
+}
+
+namespace muse\data_structures\DoublyLinkedList;
+
+class Node
+{
+    public $data;
+    public $next = null;
+    public $prev = null;
+
+    public function __construct(int $element)
+    {
+        $this->data = $element;
     }
 }

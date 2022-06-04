@@ -2,24 +2,14 @@
 
 declare(strict_types=1);
 
-namespace muse\data_structures\LinkedStack;
+namespace muse\data_structures;
 
-require_once "muse/data_structures/interfaces/IStack.php";
+require_once "muse/data_structures/Stack.php";
 
-use muse\data_structures\interfaces\IStack;
+use muse\data_structures\LinkedStack\Node;
+use muse\data_structures\Stack;
 
-class Node
-{
-    public $data;
-    public $next = null;
-
-    public function __construct(int $element)
-    {
-        $this->data = $element;
-    }
-}
-
-class LinkedStack implements IStack\IStack
+class LinkedStack implements Stack
 {
     private $head = null;
     private $tail = null;
@@ -86,5 +76,18 @@ class LinkedStack implements IStack\IStack
         $target->data = null;
 
         $this->length--;
+    }
+}
+
+namespace muse\data_structures\LinkedStack;
+
+class Node
+{
+    public $data;
+    public $next = null;
+
+    public function __construct(int $element)
+    {
+        $this->data = $element;
     }
 }

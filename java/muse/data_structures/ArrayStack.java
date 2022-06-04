@@ -1,8 +1,8 @@
 package muse.data_structures;
 
-import muse.data_structures.interfaces.IStack;
+import muse.data_structures.Stack;
 
-public class ArrayStack<E> implements IStack<E> {
+public class ArrayStack<E> implements Stack<E> {
   private static final int DEFAULT_CAPACITY = 64;
 
   private E[] data = null;

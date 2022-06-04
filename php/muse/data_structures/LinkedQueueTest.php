@@ -5,7 +5,7 @@ declare(strict_types=1);
 require_once "muse/data_structures/LinkedQueue.php";
 require_once "muse/util/TestRunner.php";
 
-use muse\data_structures\LinkedQueue\LinkedQueue;
+use muse\data_structures\LinkedQueue;
 use muse\util\TestRunner;
 
 function testLinkedQueue(): bool

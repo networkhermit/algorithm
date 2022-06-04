@@ -2,24 +2,14 @@
 
 declare(strict_types=1);
 
-namespace muse\data_structures\LinkedList;
+namespace muse\data_structures;
 
-require_once "muse/data_structures/interfaces/IList.php";
+require_once "muse/data_structures/List.php";
 
-use muse\data_structures\interfaces\IList;
+use muse\data_structures\LinkedList\Node;
+use muse\data_structures\Lister;
 
-class Node
-{
-    public $data;
-    public $next = null;
-
-    public function __construct(int $element)
-    {
-        $this->data = $element;
-    }
-}
-
-class LinkedList implements IList\IList
+class LinkedList implements Lister
 {
     private $head = null;
     private $tail = null;
@@ -173,5 +163,18 @@ class LinkedList implements IList\IList
     public function eject(): void
     {
         $this->remove($this->length - 1);
+    }
+}
+
+namespace muse\data_structures\LinkedList;
+
+class Node
+{
+    public $data;
+    public $next = null;
+
+    public function __construct(int $element)
+    {
+        $this->data = $element;
     }
 }

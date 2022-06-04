@@ -1,8 +1,8 @@
 package muse.data_structures;
 
-import muse.data_structures.interfaces.IList;
+import muse.data_structures.List;
 
-public class ArrayList<E> implements IList<E> {
+public class ArrayList<E> implements List<E> {
   private static final int DEFAULT_CAPACITY = 64;
 
   private E[] data = null;

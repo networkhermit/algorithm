@@ -2,24 +2,14 @@
 
 declare(strict_types=1);
 
-namespace muse\data_structures\SinglyLinkedList;
+namespace muse\data_structures;
 
-require_once "muse/data_structures/interfaces/IList.php";
+require_once "muse/data_structures/List.php";
 
-use muse\data_structures\interfaces\IList;
+use muse\data_structures\Lister;
+use muse\data_structures\SinglyLinkedList\Node;
 
-class Node
-{
-    public $data;
-    public $next = null;
-
-    public function __construct(int $element)
-    {
-        $this->data = $element;
-    }
-}
-
-class SinglyLinkedList implements IList\IList
+class SinglyLinkedList implements Lister
 {
     private $head = null;
     private $length = 0;
@@ -150,5 +140,18 @@ class SinglyLinkedList implements IList\IList
     public function eject(): void
     {
         $this->remove($this->length - 1);
+    }
+}
+
+namespace muse\data_structures\SinglyLinkedList;
+
+class Node
+{
+    public $data;
+    public $next = null;
+
+    public function __construct(int $element)
+    {
+        $this->data = $element;
     }
 }

@@ -5,7 +5,7 @@ declare(strict_types=1);
 require_once "muse/data_structures/SinglyLinkedList.php";
 require_once "muse/util/TestRunner.php";
 
-use muse\data_structures\SinglyLinkedList\SinglyLinkedList;
+use muse\data_structures\SinglyLinkedList;
 use muse\util\TestRunner;
 
 function testSinglyLinkedList(): bool

@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace muse\data_structures\ArrayStack;
+namespace muse\data_structures;
 
-require_once "muse/data_structures/interfaces/IStack.php";
+require_once "muse/data_structures/Stack.php";
 
-use muse\data_structures\interfaces\IStack;
+use muse\data_structures\Stack;
 
-class ArrayStack implements IStack\IStack
+class ArrayStack implements Stack
 {
     private const DEFAULT_CAPACITY = 64;
 

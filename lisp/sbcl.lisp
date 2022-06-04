@@ -1,6 +1,6 @@
 (defconstant +lisp-path+ (sb-ext:posix-getenv "LISP_PATH"))
 
-(defun import-module (module)
+(defun use (module)
   (let ((*default-pathname-defaults*
          (if +lisp-path+
              (let ((pathname (pathname +lisp-path+)))
