@@ -9,4 +9,5 @@ Test/
 archive/
 
 # Build
+__pycache__/
 target/

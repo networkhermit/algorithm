@@ -227,7 +227,7 @@ run_test () {
     python)
         echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
 
-        for instance in $(find -L "${ROOT}" -type f -name '*Test.py' | sort); do
+        for instance in $(find -L "${ROOT}" -type f -name '*_test.py' | sort); do
             fname=$(basename "${instance}" .py)
 
             python3 -d -W:all -B "${instance}"
