@@ -8,7 +8,7 @@
 """
 
 # function declaration
-def sayHello() -> None:
+def say_hello() -> None:
     # output some text
     print("hello, world")
 
@@ -16,7 +16,7 @@ def sayHello() -> None:
 # entry point of the program
 def main() -> None:
     # function invocation
-    sayHello()
+    say_hello()
 
 
 if __name__ == "__main__":

@@ -1,7 +1,7 @@
 import math
 
 
-def bruteForce(n: int) -> list:
+def brute_force(n: int) -> list:
     arr = [False] * n
 
     for i in range(1, n + 1):

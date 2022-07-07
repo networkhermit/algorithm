@@ -1,4 +1,4 @@
-def fizzBuzz(n: int) -> str:
+def fizz_buzz(n: int) -> str:
     word = ""
 
     if n % 3 == 0:
@@ -14,7 +14,7 @@ def fizzBuzz(n: int) -> str:
 
 def main() -> None:
     for i in range(1, 101):
-        print(fizzBuzz(i))
+        print(fizz_buzz(i))
 
 
 if __name__ == "__main__":
