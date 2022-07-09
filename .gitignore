@@ -6,7 +6,7 @@ Implementation/
 Test/
 
 # Problem archive
-archive/
+problem/
 
 # Build
 __pycache__/
