@@ -2,8 +2,7 @@
 *.swp
 
 # Symbolic links
-Implementation/
-Test/
+symlink/
 
 # Problem archive
 problem/
