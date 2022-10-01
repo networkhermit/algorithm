@@ -79,9 +79,9 @@ trap clean_up EXIT
 
 : "${PLT_PATH?✗ unexpected error: please specify the library path using environment variable ‘PLT_PATH’ or the ‘--library-path’ option}"
 
-if [ ! -d "${PLT_PATH}" ]; then
+if [[ ! -d "${PLT_PATH}" ]]; then
     die "✗ not a directory: ‘${PLT_PATH}’"
-elif [ ! -r "${PLT_PATH}" ]; then
+elif [[ ! -r "${PLT_PATH}" ]]; then
     die "✗ read permission not granted: ‘${PLT_PATH}’"
 fi
 
