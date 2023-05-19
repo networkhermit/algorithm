@@ -1,0 +1,245 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o errtrace
+set -o nounset
+set -o pipefail
+
+warn () {
+    if (( $# > 0 )); then
+        echo "${@}" 1>&2
+    fi
+}
+
+die () {
+    warn "${@}"
+    exit 1
+}
+
+notify () {
+    local code=$?
+    warn "✗ [FATAL] $(caller): ${BASH_COMMAND} (${code})"
+}
+
+trap notify ERR
+
+display_help () {
+    cat << EOF
+Synopsis:
+    ${0##*/} [OPTION]... SPEC
+
+Options:
+    --root DIRECTORY
+        starting point (default: env#PWD)
+    -h, --help
+        show this help message and exit
+    -v, --version
+        output version information and exit
+
+Arguments:
+    SPEC (all | perf | c | c++ | java | lisp | nodejs | php | ruby) (default: perf)
+        runtime spec
+EOF
+}
+
+ROOT=${PWD}
+
+readonly -A lang=( \
+    [c]=C \
+    [c++]=C++ \
+    [java]=Java \
+    [lisp]=Lisp \
+    [nodejs]=NodeJS \
+    [php]=PHP \
+    [ruby]=Ruby \
+)
+
+SPEC=perf
+
+# shellcheck source=/dev/null
+source "$(git -C "$(dirname "$(realpath "${0}")")" rev-parse --show-toplevel)/archive/.env"
+
+while (( $# > 0 )); do
+    case ${1} in
+    --root)
+        ROOT=${2?✗ option parsing failed: missing value for argument ‘${1}’}
+        shift 2
+        ;;
+    -h | --help)
+        display_help
+        shift
+        exit
+        ;;
+    -v | --version)
+        echo v0.1.0
+        shift
+        exit
+        ;;
+    --)
+        shift
+        break
+        ;;
+    *)
+        break
+        ;;
+    esac
+done
+
+if (( $# > 0 )); then
+    case ${1} in
+    all | perf | c | c++ | java | lisp | nodejs | php | ruby)
+        SPEC=${1}
+        ;;
+    *)
+        die "✗ argument parsing failed: acceptable values for ‘SPEC’ are all | perf | c | c++ | java | lisp | nodejs | php | ruby"
+        ;;
+    esac
+    shift
+fi
+
+if (( $# > 0 )); then
+    die "✗ argument parsing failed: unrecognizable argument ‘${1}’"
+fi
+
+clean_up () {
+    true
+}
+
+trap clean_up EXIT
+
+if [[ ! -d "${ROOT}" ]]; then
+    die "✗ not a directory: ‘${ROOT}’"
+elif [[ ! -r "${ROOT}" ]]; then
+    die "✗ read permission not granted: ‘${ROOT}’"
+fi
+
+readonly prefix=---------------------------
+readonly suffix=---------------------------------
+
+run_test () {
+    local instance
+    local fname
+    case ${1} in
+    c)
+        echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
+
+        for instance in $(find -L "${ROOT}" -type f -name '*Test.c' | sort); do
+            fname=$(basename "${instance}" .c)
+
+            if gcc   -O0 -g3 -Wall -Werror -std=c18 -x c -o "${fname}" "${instance}" -lm; then
+                ./"${fname}"
+                rm -f "${fname}"
+            fi
+
+            if clang -O0 -g3 -Wall -Werror -std=c18 -x c -o "${fname}" "${instance}" -lm; then
+                ./"${fname}"
+                rm -f "${fname}"
+            fi
+
+            printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
+        done
+        ;;
+    c++)
+        echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
+
+        for instance in $(find -L "${ROOT}" -type f -name '*Test.cpp' | sort); do
+            fname=$(basename "${instance}" .cpp)
+
+            if g++     -O0 -g3 -Wall -Werror -std=c++20 -x c++ -o "${fname}" "${instance}"; then
+                ./"${fname}"
+                rm -f "${fname}"
+            fi
+
+            if clang++ -O0 -g3 -Wall -Werror -std=c++20 -x c++ -o "${fname}" "${instance}"; then
+                ./"${fname}"
+                rm -f "${fname}"
+            fi
+
+            printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
+        done
+        ;;
+    java)
+        echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
+
+        for instance in $(find -L "${ROOT}" -type f -name '*Test.java' | sort); do
+            fname=$(basename "${instance}" .java)
+
+            unset _JAVA_OPTIONS
+            if javac -d local_build -g -deprecation -Werror -Xlint:all,-path "${instance}"; then
+                java -cp local_build -ea "${fname}"
+                rm --force --recursive local_build
+            fi
+
+            printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
+        done
+        ;;
+    lisp)
+        echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
+
+        for instance in $(find -L "${ROOT}" -type f -name '*-test.lisp' | sort); do
+            fname=$(basename "${instance}" .lisp)
+
+            sbcl --noinform --non-interactive --no-sysinit --userinit "${LISP_PATH}/sbcl.lisp" \
+                --load "${instance}" --eval "(when (fboundp 'main) (main))"
+
+            printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
+        done
+        ;;
+    nodejs)
+        echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
+
+        for instance in $(find -L "${ROOT}" -type f -name '*Test.js' | sort); do
+            fname=$(basename "${instance}" .js)
+
+            node --throw-deprecation --trace-warnings "${instance}"
+
+            printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
+        done
+        ;;
+    php)
+        echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
+
+        for instance in $(find -L "${ROOT}" -type f -name '*Test.php' | sort); do
+            fname=$(basename "${instance}" .php)
+
+            php --define "include_path=.:${PHP_PATH}" -e "${instance}"
+
+            printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
+        done
+        ;;
+    ruby)
+        echo "${prefix}[ ${lang[${1}]} ]${suffix:${#lang[${1}]}}"
+
+        for instance in $(find -L "${ROOT}" -type f -name '*Test.rb' | sort); do
+            fname=$(basename "${instance}" .rb)
+
+            ruby -w "${instance}"
+
+            printf '\t\t%s    [%s]\n' "${prefix}" "${fname}"
+        done
+        ;;
+    *)
+        return 1
+        ;;
+    esac
+}
+
+echo ===================== test session starts ======================
+
+case ${SPEC} in
+all)
+    for k in "${!lang[@]}"; do
+        run_test "${k}"
+    done
+    ;;
+perf)
+    for k in "${!lang[@]}"; do
+        time run_test "${k}"
+    done
+    ;;
+*)
+    run_test "${SPEC}"
+    ;;
+esac
+
+echo ==================== test session finished =====================
