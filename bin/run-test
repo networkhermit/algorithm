@@ -37,7 +37,7 @@ Options:
         output version information and exit
 
 Arguments:
-    SPEC (all | perf | go | python) (default: perf)
+    SPEC (all | perf | go | python) (default: ${SPEC})
         runtime spec
 EOF
 }

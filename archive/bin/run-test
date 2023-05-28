@@ -37,7 +37,7 @@ Options:
         output version information and exit
 
 Arguments:
-    SPEC (all | perf | c | c++ | java | lisp | nodejs | php | ruby) (default: perf)
+    SPEC (all | perf | c | c++ | java | lisp | nodejs | php | ruby) (default: ${SPEC})
         runtime spec
 EOF
 }
