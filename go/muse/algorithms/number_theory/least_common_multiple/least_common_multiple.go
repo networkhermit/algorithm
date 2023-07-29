@@ -2,7 +2,7 @@ package least_common_multiple
 
 import "muse/algorithms/number_theory/greatest_common_divisor"
 
-func ReduceToBinaryGCD(m int64, n int64) int64 {
+func ReduceToBinaryGCD(m, n int64) int64 {
 	if m < 0 {
 		m = -m
 	}
@@ -16,7 +16,7 @@ func ReduceToBinaryGCD(m int64, n int64) int64 {
 	return m / greatest_common_divisor.IterativeBinaryGCD(m, n) * n
 }
 
-func ReduceToEuclidean(m int64, n int64) int64 {
+func ReduceToEuclidean(m, n int64) int64 {
 	if m < 0 {
 		m = -m
 	}

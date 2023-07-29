@@ -6,7 +6,7 @@ import (
 	"math"
 )
 
-func process(m int, n int) {
+func process(m, n int) {
 	if n == 1 {
 		return
 	}

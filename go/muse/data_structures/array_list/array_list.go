@@ -10,7 +10,11 @@ type ArrayList struct {
 	physicalSize int
 }
 
-func New(physicalSize int) *ArrayList {
+func New() *ArrayList {
+	return NewWithCapacity(0)
+}
+
+func NewWithCapacity(physicalSize int) *ArrayList {
 	list := &ArrayList{data: nil, logicalSize: 0, physicalSize: DEFAULT_CAPACITY}
 
 	if physicalSize > 1 {

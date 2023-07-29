@@ -11,7 +11,7 @@ import (
 	"muse/algorithms/number_theory/prime_sieves"
 )
 
-func IsCoprime(m int64, n int64) bool {
+func IsCoprime(m, n int64) bool {
 	return coprimality.ReduceToBinaryGCD(m, n)
 }
 
@@ -23,11 +23,11 @@ func Fibonacci(n int64) int64 {
 	return fibonacci_number.IterativeProcedure(n)
 }
 
-func GCD(m int64, n int64) int64 {
+func GCD(m, n int64) int64 {
 	return greatest_common_divisor.IterativeBinaryGCD(m, n)
 }
 
-func LCM(m int64, n int64) int64 {
+func LCM(m, n int64) int64 {
 	return least_common_multiple.ReduceToBinaryGCD(m, n)
 }
 

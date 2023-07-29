@@ -17,9 +17,9 @@ type List interface {
 
 	Back() int
 
-	Prepend() int
+	Prepend(element int)
 
-	Append() int
+	Append(element int)
 
 	Poll()
 

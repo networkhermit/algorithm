@@ -1,6 +1,6 @@
 package quick_sort
 
-func Partition(arr []int, lo int, hi int) {
+func Partition(arr []int, lo, hi int) {
 	if lo == hi {
 		return
 	}

@@ -3,101 +3,25 @@ package sorting
 import (
 	"testing"
 
-	"muse/util/sequence_builder"
-	"muse/util/sequences"
+	"muse/algorithms/sorting/tests"
 )
 
 func TestBubbleSort(t *testing.T) {
-	size := 32768
-
-	arr := make([]int, size)
-	sequence_builder.PackRandom(arr)
-
-	checksum := sequences.ParityChecksum(arr)
-
-	BubbleSort(arr)
-
-	if sequences.ParityChecksum(arr) != checksum {
-		t.FailNow()
-	}
-
-	if !sequences.IsSorted(arr) {
-		t.FailNow()
-	}
+	t.Run("BubbleSort", tests.Derive(BubbleSort))
 }
 
 func TestInsertionSort(t *testing.T) {
-	size := 32768
-
-	arr := make([]int, size)
-	sequence_builder.PackRandom(arr)
-
-	checksum := sequences.ParityChecksum(arr)
-
-	InsertionSort(arr)
-
-	if sequences.ParityChecksum(arr) != checksum {
-		t.FailNow()
-	}
-
-	if !sequences.IsSorted(arr) {
-		t.FailNow()
-	}
+	t.Run("InsertionSort", tests.Derive(InsertionSort))
 }
 
 func TestMergeSort(t *testing.T) {
-	size := 32768
-
-	arr := make([]int, size)
-	sequence_builder.PackRandom(arr)
-
-	checksum := sequences.ParityChecksum(arr)
-
-	MergeSort(arr)
-
-	if sequences.ParityChecksum(arr) != checksum {
-		t.FailNow()
-	}
-
-	if !sequences.IsSorted(arr) {
-		t.FailNow()
-	}
+	t.Run("MergeSort", tests.Derive(MergeSort))
 }
 
 func TestQuickSort(t *testing.T) {
-	size := 32768
-
-	arr := make([]int, size)
-	sequence_builder.PackRandom(arr)
-
-	checksum := sequences.ParityChecksum(arr)
-
-	QuickSort(arr)
-
-	if sequences.ParityChecksum(arr) != checksum {
-		t.FailNow()
-	}
-
-	if !sequences.IsSorted(arr) {
-		t.FailNow()
-	}
+	t.Run("QuickSort", tests.Derive(QuickSort))
 }
 
 func TestSelectionSort(t *testing.T) {
-	size := 32768
-
-	arr := make([]int, size)
-	sequence_builder.PackRandom(arr)
-
-	checksum := sequences.ParityChecksum(arr)
-
-	SelectionSort(arr)
-
-	if sequences.ParityChecksum(arr) != checksum {
-		t.FailNow()
-	}
-
-	if !sequences.IsSorted(arr) {
-		t.FailNow()
-	}
+	t.Run("SelectionSort", tests.Derive(SelectionSort))
 }

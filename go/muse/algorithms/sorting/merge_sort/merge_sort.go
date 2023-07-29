@@ -1,6 +1,6 @@
 package merge_sort
 
-func Merge(arr []int, lo int, mid int, hi int) {
+func Merge(arr []int, lo, mid, hi int) {
 	if lo == mid {
 		return
 	}

@@ -1,6 +1,6 @@
 package greatest_common_divisor
 
-func IterativeBinaryGCD(m int64, n int64) int64 {
+func IterativeBinaryGCD(m, n int64) int64 {
 	if m < 0 {
 		m = -m
 	}
@@ -37,7 +37,7 @@ func IterativeBinaryGCD(m int64, n int64) int64 {
 	}
 }
 
-func RecursiveBinaryGCD(m int64, n int64) int64 {
+func RecursiveBinaryGCD(m, n int64) int64 {
 	if m < 0 {
 		m = -m
 	}
@@ -70,7 +70,7 @@ func RecursiveBinaryGCD(m int64, n int64) int64 {
 	return RecursiveBinaryGCD(m, (n-m)>>1)
 }
 
-func IterativeEuclidean(m int64, n int64) int64 {
+func IterativeEuclidean(m, n int64) int64 {
 	if m < 0 {
 		m = -m
 	}
@@ -85,7 +85,7 @@ func IterativeEuclidean(m int64, n int64) int64 {
 	return m
 }
 
-func RecursiveEuclidean(m int64, n int64) int64 {
+func RecursiveEuclidean(m, n int64) int64 {
 	if m < 0 {
 		m = -m
 	}

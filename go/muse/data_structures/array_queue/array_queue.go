@@ -11,7 +11,11 @@ type ArrayQueue struct {
 	physicalSize int
 }
 
-func New(physicalSize int) *ArrayQueue {
+func New() *ArrayQueue {
+	return NewWithCapacity(0)
+}
+
+func NewWithCapacity(physicalSize int) *ArrayQueue {
 	queue := &ArrayQueue{data: nil, logicalSize: 0, physicalSize: DEFAULT_CAPACITY}
 
 	if physicalSize > 1 {

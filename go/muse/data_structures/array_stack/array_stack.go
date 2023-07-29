@@ -10,7 +10,11 @@ type ArrayStack struct {
 	physicalSize int
 }
 
-func New(physicalSize int) *ArrayStack {
+func New() *ArrayStack {
+	return NewWithCapacity(0)
+}
+
+func NewWithCapacity(physicalSize int) *ArrayStack {
 	stack := &ArrayStack{data: nil, logicalSize: 0, physicalSize: DEFAULT_CAPACITY}
 
 	if physicalSize > 1 {

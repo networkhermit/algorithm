@@ -5,7 +5,7 @@ import (
 	"io"
 )
 
-func process(left int, right int) int {
+func process(left, right int) int {
 	var n int
 
 	var cycleLength int

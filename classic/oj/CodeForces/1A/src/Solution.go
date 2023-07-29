@@ -5,7 +5,7 @@ import (
 	"io"
 )
 
-func process(n int, m int, a int) int64 {
+func process(n, m, a int) int64 {
 	x := (n-1)/a + 1
 	y := (m-1)/a + 1
 

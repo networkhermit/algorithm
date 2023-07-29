@@ -15,7 +15,7 @@ func bruteForce(sentinel int) int64 {
 	return sum
 }
 
-func arithmeticSeries(sentinel int, unit int) int64 {
+func arithmeticSeries(sentinel, unit int) int64 {
 	n := int64((sentinel - 1) / unit)
 
 	return int64(unit) * (n * (1 + n) >> 1)

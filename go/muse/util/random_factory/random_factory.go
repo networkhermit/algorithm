@@ -5,7 +5,7 @@ import (
 	"math/big"
 )
 
-func GenIntN(min int, max int) int {
+func GenIntN(min, max int) int {
 	n, _ := rand.Int(rand.Reader, big.NewInt(int64(max-min+1)))
 	return min + int(n.Int64())
 }
