@@ -1,6 +1,5 @@
-[tool.isort]
-profile = "black"
-case_sensitive = true
-
 [tool.mypy]
 cache_dir = "~/.cache/mypy"
+
+[tool.ruff]
+select = ["E", "F", "I"]
