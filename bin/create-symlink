@@ -97,7 +97,13 @@ for i in "${ROOT}/symlink/algorithms/"*/* "${ROOT}/symlink/data_structures/"* "$
     test_snake=$(sed --expression 's/\([A-Z]\)/_\L\1/g' --expression 's/^_//' <<< "${test_camel}")
     impl_kebab=$(sed --expression 's/_/-/g' <<< "${impl_snake}")
     test_kebab=$(sed --expression 's/_/-/g' <<< "${test_snake}")
-    find "${PLT_PATH}" -type f \( -name "${impl_camel}.*" -o -name "${impl_snake}.*" -o -name "${impl_kebab}.*" \) -exec ln --symbolic --verbose {} Implementation/ \;
-    find "${PLT_PATH}" -type f \( -name "${test_camel}.*" -o -name "${test_snake}.*" -o -name "${test_kebab}.*" \) -exec ln --symbolic --verbose {} Test/ \;
+    find "${PLT_PATH}" -type f \
+        \( -name "${impl_camel}.*" -o -name "${impl_snake}.*" -o -name "${impl_kebab}.*" \) \
+        -not -path "*/__pycache__/*" \
+        -exec ln --symbolic --verbose {} Implementation/ \;
+    find "${PLT_PATH}" -type f \
+        \( -name "${test_camel}.*" -o -name "${test_snake}.*" -o -name "${test_kebab}.*" \) \
+        -not -path "*/__pycache__/*" \
+        -exec ln --symbolic --verbose {} Test/ \;
     popd &> /dev/null
 done

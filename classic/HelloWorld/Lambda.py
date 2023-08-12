@@ -7,6 +7,7 @@
     Copyright:    2014-2018
 """
 
+
 # function declaration
 def say_hello() -> None:
     # output some text
