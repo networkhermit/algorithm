@@ -1,6 +1,6 @@
 package data_structures
 
-type Shrinkable interface {
+type Resizable interface {
 	Capacity() int
 	Shrink()
 }

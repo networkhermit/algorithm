@@ -14,7 +14,7 @@ const testBinarySearch = () => {
     return false
   }
 
-  if (Search.binarySearch(arr, 2147483647) !== size) {
+  if (Search.binarySearch(arr, 2_147_483_647) !== size) {
     return false
   }
 
@@ -37,7 +37,7 @@ const testLinearSearch = () => {
     return false
   }
 
-  if (Search.linearSearch(arr, 2147483647) !== size) {
+  if (Search.linearSearch(arr, 2_147_483_647) !== size) {
     return false
   }
 

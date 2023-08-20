@@ -1,10 +1,6 @@
 package quick_sort
 
-func Partition(arr []int, lo, hi int) {
-	if lo == hi {
-		return
-	}
-
+func Partition(arr []int, lo, hi int) int {
 	pivot := arr[lo]
 
 	left := lo
@@ -29,10 +25,20 @@ func Partition(arr []int, lo, hi int) {
 		}
 	}
 
-	Partition(arr, lo, left)
-	Partition(arr, left+1, hi)
+	return left
 }
 
 func Sort(arr []int) {
-	Partition(arr, 0, len(arr))
+	SortWithRange(arr, 0, len(arr))
+}
+
+func SortWithRange(arr []int, lo, hi int) {
+	if lo >= hi {
+		return
+	}
+
+	p := Partition(arr, lo, hi)
+
+	SortWithRange(arr, lo, p)
+	SortWithRange(arr, p+1, hi)
 }

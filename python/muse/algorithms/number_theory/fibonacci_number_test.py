@@ -4,7 +4,7 @@ from muse.util import test_runner
 
 def test_fibonacci_number() -> bool:
     sample = [
-        [-31, 1346269],
+        [-31, 1_346_269],
         [-30, -832040],
         [-29, 514229],
         [-28, -317811],
@@ -66,7 +66,7 @@ def test_fibonacci_number() -> bool:
         [28, 317811],
         [29, 514229],
         [30, 832040],
-        [31, 1346269],
+        [31, 1_346_269],
     ]
 
     for i, _ in enumerate(sample):

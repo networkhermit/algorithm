@@ -7,7 +7,7 @@ exports.genIntN = (min, max) => {
 }
 
 exports.genInt = () => {
-  return this.genIntN(1, 2147483647)
+  return this.genIntN(1, 2_147_483_647)
 }
 
 exports.genEven = () => {

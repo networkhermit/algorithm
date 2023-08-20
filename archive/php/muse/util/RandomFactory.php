@@ -11,7 +11,7 @@ function genIntN(int $min, int $max): int
 
 function genInt(): int
 {
-    return genIntN(1, 2147483647);
+    return genIntN(1, 2_147_483_647);
 }
 
 function genEven(): int

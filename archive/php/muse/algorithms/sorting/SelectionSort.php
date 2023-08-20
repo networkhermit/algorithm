@@ -10,8 +10,6 @@ function sort(array &$arr): void
         return;
     }
 
-    $temp = null;
-
     $iMin = 0;
 
     for ($i = 0, $bound = count($arr) - 1; $i < $bound; $i++) {
@@ -22,9 +20,7 @@ function sort(array &$arr): void
             }
         }
         if ($iMin != $i) {
-            $temp = $arr[$i];
-            $arr[$i] = $arr[$iMin];
-            $arr[$iMin] = $temp;
+            [$arr[$i], $arr[$iMin]] = [$arr[$iMin], $arr[$i]];
         }
     }
 }

@@ -21,7 +21,7 @@ function testBinarySearch(): bool
         return false;
     }
 
-    if (BinarySearch\find($arr, 2147483647) != $size) {
+    if (BinarySearch\find($arr, 2_147_483_647) != $size) {
         return false;
     }
 

@@ -14,7 +14,7 @@ const testLinearSearch = () => {
     return false
   }
 
-  if (LinearSearch.find(arr, 2147483647) !== size) {
+  if (LinearSearch.find(arr, 2_147_483_647) !== size) {
     return false
   }
 

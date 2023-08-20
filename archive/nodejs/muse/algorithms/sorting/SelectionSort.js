@@ -5,8 +5,6 @@ exports.sort = (arr) => {
     return
   }
 
-  let temp = null
-
   let iMin = 0
 
   for (let i = 0, bound = arr.length - 1; i < bound; i++) {
@@ -17,9 +15,7 @@ exports.sort = (arr) => {
       }
     }
     if (iMin !== i) {
-      temp = arr[i]
-      arr[i] = arr[iMin]
-      arr[iMin] = temp
+      [arr[i], arr[iMin]] = [arr[iMin], arr[i]]
     }
   }
 }

@@ -5,7 +5,7 @@ const TestRunner = require('muse/util/TestRunner')
 
 const testFibonacciNumber = () => {
   const sample = [
-    [-31, 1346269],
+    [-31, 1_346_269],
     [-30, -832040],
     [-29, 514229],
     [-28, -317811],
@@ -67,7 +67,7 @@ const testFibonacciNumber = () => {
     [28, 317811],
     [29, 514229],
     [30, 832040],
-    [31, 1346269]
+    [31, 1_346_269]
   ]
 
   for (let i = 0, size = sample.length; i < size; i++) {

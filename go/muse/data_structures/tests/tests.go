@@ -16,7 +16,7 @@ func ListDerive[L data_structures.List](factory func() L) func(t *testing.T) {
 			list.Append(i)
 		}
 
-		if o, ok := any(list).(data_structures.Shrinkable); ok {
+		if o, ok := any(list).(data_structures.Resizable); ok {
 			o.Shrink()
 		}
 
@@ -24,7 +24,7 @@ func ListDerive[L data_structures.List](factory func() L) func(t *testing.T) {
 			t.FailNow()
 		}
 
-		if o, ok := any(list).(data_structures.Shrinkable); ok {
+		if o, ok := any(list).(data_structures.Resizable); ok {
 			if o.Capacity() != size {
 				t.FailNow()
 			}
@@ -69,7 +69,7 @@ func ListDerive[L data_structures.List](factory func() L) func(t *testing.T) {
 			list.Eject()
 		}
 
-		if o, ok := any(list).(data_structures.Shrinkable); ok {
+		if o, ok := any(list).(data_structures.Resizable); ok {
 			o.Shrink()
 		}
 
@@ -77,7 +77,7 @@ func ListDerive[L data_structures.List](factory func() L) func(t *testing.T) {
 			t.FailNow()
 		}
 
-		if o, ok := any(list).(data_structures.Shrinkable); ok {
+		if o, ok := any(list).(data_structures.Resizable); ok {
 			if o.Capacity() != 0 {
 				t.FailNow()
 			}
@@ -95,7 +95,7 @@ func QueueDerive[Q data_structures.Queue](factory func() Q) func(t *testing.T) {
 			queue.Enqueue(i)
 		}
 
-		if o, ok := any(queue).(data_structures.Shrinkable); ok {
+		if o, ok := any(queue).(data_structures.Resizable); ok {
 			o.Shrink()
 		}
 
@@ -103,7 +103,7 @@ func QueueDerive[Q data_structures.Queue](factory func() Q) func(t *testing.T) {
 			t.FailNow()
 		}
 
-		if o, ok := any(queue).(data_structures.Shrinkable); ok {
+		if o, ok := any(queue).(data_structures.Resizable); ok {
 			if o.Capacity() != size {
 				t.FailNow()
 			}
@@ -116,7 +116,7 @@ func QueueDerive[Q data_structures.Queue](factory func() Q) func(t *testing.T) {
 			queue.Dequeue()
 		}
 
-		if o, ok := any(queue).(data_structures.Shrinkable); ok {
+		if o, ok := any(queue).(data_structures.Resizable); ok {
 			o.Shrink()
 		}
 
@@ -124,7 +124,7 @@ func QueueDerive[Q data_structures.Queue](factory func() Q) func(t *testing.T) {
 			t.FailNow()
 		}
 
-		if o, ok := any(queue).(data_structures.Shrinkable); ok {
+		if o, ok := any(queue).(data_structures.Resizable); ok {
 			if o.Capacity() != 0 {
 				t.FailNow()
 			}
@@ -142,7 +142,7 @@ func StackDerive[S data_structures.Stack](factory func() S) func(t *testing.T) {
 			stack.Push(i)
 		}
 
-		if o, ok := any(stack).(data_structures.Shrinkable); ok {
+		if o, ok := any(stack).(data_structures.Resizable); ok {
 			o.Shrink()
 		}
 
@@ -150,7 +150,7 @@ func StackDerive[S data_structures.Stack](factory func() S) func(t *testing.T) {
 			t.FailNow()
 		}
 
-		if o, ok := any(stack).(data_structures.Shrinkable); ok {
+		if o, ok := any(stack).(data_structures.Resizable); ok {
 			if o.Capacity() != size {
 				t.FailNow()
 			}
@@ -163,7 +163,7 @@ func StackDerive[S data_structures.Stack](factory func() S) func(t *testing.T) {
 			stack.Pop()
 		}
 
-		if o, ok := any(stack).(data_structures.Shrinkable); ok {
+		if o, ok := any(stack).(data_structures.Resizable); ok {
 			o.Shrink()
 		}
 
@@ -171,7 +171,7 @@ func StackDerive[S data_structures.Stack](factory func() S) func(t *testing.T) {
 			t.FailNow()
 		}
 
-		if o, ok := any(stack).(data_structures.Shrinkable); ok {
+		if o, ok := any(stack).(data_structures.Resizable); ok {
 			if o.Capacity() != 0 {
 				t.FailNow()
 			}

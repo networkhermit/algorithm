@@ -33,25 +33,19 @@ exports.parityChecksum = (arr) => {
 
 exports.reverse = (arr) => {
   let k
-  let temp
 
   for (let i = 0, bound = Math.floor(arr.length >>> 1), length = arr.length; i < bound; i++) {
-    k = length - i - 1
-    temp = arr[i]
-    arr[i] = arr[k]
-    arr[k] = temp
+    k = length - i - 1;
+    [arr[i], arr[k]] = [arr[k], arr[i]]
   }
 }
 
 exports.shuffle = (arr) => {
   let k
-  let temp
 
   for (let i = 0, length = arr.length; i < length; i++) {
     k = RandomFactory.genIntN(i, length)
-    temp = arr[i]
-    arr[i] = arr[k]
-    arr[k] = temp
+    [arr[i], arr[k]] = [arr[k], arr[i]]
   }
 }
 
