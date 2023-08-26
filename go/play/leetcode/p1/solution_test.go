@@ -24,7 +24,7 @@ func Test(t *testing.T) {
 	}
 }
 
-func TestSimple(t *testing.T) {
+func TestBruteForce(t *testing.T) {
 	var sample = []struct {
 		nums     []int
 		target   int
@@ -36,7 +36,7 @@ func TestSimple(t *testing.T) {
 	}
 
 	for _, tt := range sample {
-		actual := twoSumSimple(tt.nums, tt.target)
+		actual := twoSumBruteForce(tt.nums, tt.target)
 		if !reflect.DeepEqual(actual, tt.expected) {
 			t.Errorf("%s(%v, %d) returned %v, expected %v", t.Name(), tt.nums, tt.target, actual, tt.expected)
 		}

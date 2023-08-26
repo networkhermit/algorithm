@@ -7,5 +7,5 @@ import (
 )
 
 func TestBubbleSort(t *testing.T) {
-	t.Run("BubbleSort", tests.Derive(Sort))
+	t.Run("BubbleSort", tests.DeriveRandom(Sort, 32768))
 }

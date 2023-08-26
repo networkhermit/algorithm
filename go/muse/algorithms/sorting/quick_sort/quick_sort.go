@@ -1,31 +1,29 @@
 package quick_sort
 
 func Partition(arr []int, lo, hi int) int {
-	pivot := arr[lo]
+	pivot := arr[lo+((hi-1-lo)>>1)]
 
-	left := lo
-	right := hi - 1
+	i := lo - 1
+	j := hi
 
-	for left != right {
-		for i := right; i > left; i-- {
-			if arr[i] < pivot {
-				arr[left] = arr[i]
-				arr[i] = pivot
+	for {
+		for {
+			i++
+			if arr[i] >= pivot {
 				break
 			}
-			right--
 		}
-		for i := left; i < right; i++ {
-			if arr[i] > pivot {
-				arr[right] = arr[i]
-				arr[i] = pivot
+		for {
+			j--
+			if arr[j] <= pivot {
 				break
 			}
-			left++
 		}
+		if i >= j {
+			return j
+		}
+		arr[i], arr[j] = arr[j], arr[i]
 	}
-
-	return left
 }
 
 func Sort(arr []int) {
@@ -33,12 +31,53 @@ func Sort(arr []int) {
 }
 
 func SortWithRange(arr []int, lo, hi int) {
-	if lo >= hi {
+	if lo >= hi-1 {
 		return
 	}
 
 	p := Partition(arr, lo, hi)
 
-	SortWithRange(arr, lo, p)
+	SortWithRange(arr, lo, p+1)
 	SortWithRange(arr, p+1, hi)
+}
+
+func PartitionInefficient(arr []int, lo, hi int) int {
+	pivot := arr[lo]
+
+	i := lo
+	j := hi - 1
+
+	for i != j {
+		for j > i {
+			if arr[j] < pivot {
+				arr[i], arr[j] = arr[j], pivot
+				break
+			}
+			j--
+		}
+		for i < j {
+			if arr[i] > pivot {
+				arr[j], arr[i] = arr[i], pivot
+				break
+			}
+			i++
+		}
+	}
+
+	return i
+}
+
+func SortInefficient(arr []int) {
+	SortWithRangeInefficient(arr, 0, len(arr))
+}
+
+func SortWithRangeInefficient(arr []int, lo, hi int) {
+	if lo >= hi {
+		return
+	}
+
+	p := PartitionInefficient(arr, lo, hi)
+
+	SortWithRangeInefficient(arr, lo, p)
+	SortWithRangeInefficient(arr, p+1, hi)
 }

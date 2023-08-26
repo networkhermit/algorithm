@@ -5,6 +5,13 @@ import (
 	"muse/util/sequences"
 )
 
+func PackIdentical(arr []int) {
+	n := random_factory.GenInt()
+	for i := 0; i < len(arr); i++ {
+		arr[i] = n
+	}
+}
+
 func PackIncreasing(arr []int) {
 	arr[0] = random_factory.GenIntN(1, 3)
 	for i, length := 1, len(arr); i < length; i++ {

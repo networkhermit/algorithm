@@ -1,24 +1,22 @@
 def partition(arr: list, lo: int, hi: int) -> int:
     pivot = arr[lo]
 
-    left = lo
-    right = hi - 1
+    i = lo
+    j = hi - 1
 
-    while left != right:
-        for i in range(right, left, -1):
-            if arr[i] < pivot:
-                arr[left] = arr[i]
-                arr[i] = pivot
+    while i != j:
+        while j > i:
+            if arr[j] < pivot:
+                arr[i], arr[j] = arr[j], pivot
                 break
-            right -= 1
-        for i in range(left, right, +1):
+            j -= 1
+        while i < j:
             if arr[i] > pivot:
-                arr[right] = arr[i]
-                arr[i] = pivot
+                arr[j], arr[i] = arr[i], pivot
                 break
-            left += 1
+            i += 1
 
-    return left
+    return i
 
 
 def sort(arr: list) -> None:

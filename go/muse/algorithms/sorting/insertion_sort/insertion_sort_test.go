@@ -7,5 +7,5 @@ import (
 )
 
 func TestInsertionSort(t *testing.T) {
-	t.Run("InsertionSort", tests.Derive(Sort))
+	t.Run("InsertionSort", tests.DeriveRandom(Sort, 32768))
 }

@@ -15,7 +15,7 @@ func twoSum(nums []int, target int) []int {
 	return []int{}
 }
 
-func twoSumSimple(nums []int, target int) []int {
+func twoSumBruteForce(nums []int, target int) []int {
 	for i := range nums {
 		for j := i + 1; j < len(nums); j++ {
 			if nums[i]+nums[j] == target {

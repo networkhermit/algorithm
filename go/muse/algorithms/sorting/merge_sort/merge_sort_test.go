@@ -7,5 +7,5 @@ import (
 )
 
 func TestMergeSort(t *testing.T) {
-	t.Run("MergeSort", tests.Derive(Sort))
+	t.Run("MergeSort", tests.DeriveRandom(Sort, 32768))
 }
