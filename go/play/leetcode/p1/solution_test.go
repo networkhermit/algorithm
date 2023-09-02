@@ -1,7 +1,7 @@
 package p1
 
 import (
-	"reflect"
+	"slices"
 	"testing"
 )
 
@@ -18,7 +18,7 @@ func Test(t *testing.T) {
 
 	for _, tt := range sample {
 		actual := twoSum(tt.nums, tt.target)
-		if !reflect.DeepEqual(actual, tt.expected) {
+		if !slices.Equal(actual, tt.expected) {
 			t.Errorf("%s(%v, %d) returned %v, expected %v", t.Name(), tt.nums, tt.target, actual, tt.expected)
 		}
 	}
@@ -37,7 +37,7 @@ func TestBruteForce(t *testing.T) {
 
 	for _, tt := range sample {
 		actual := twoSumBruteForce(tt.nums, tt.target)
-		if !reflect.DeepEqual(actual, tt.expected) {
+		if !slices.Equal(actual, tt.expected) {
 			t.Errorf("%s(%v, %d) returned %v, expected %v", t.Name(), tt.nums, tt.target, actual, tt.expected)
 		}
 	}

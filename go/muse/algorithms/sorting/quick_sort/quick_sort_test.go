@@ -18,7 +18,7 @@ func TestQuickSort(t *testing.T) {
 func TestQuickSortInefficient(t *testing.T) {
 	t.Parallel()
 	t.Run("Decreasing", tests.DeriveDecreasing(SortInefficient, 100_000))
-	t.Run("Empty", tests.DeriveEmpty(Sort))
+	t.Run("Empty", tests.DeriveEmpty(SortInefficient))
 	t.Run("Identical", tests.DeriveIdentical(SortInefficient, 100_000))
 	t.Run("Increasing", tests.DeriveIncreasing(SortInefficient, 100_000))
 	t.Run("Random", tests.DeriveRandom(SortInefficient, 100_000))
