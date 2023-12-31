@@ -100,10 +100,10 @@ for i in "${ROOT}/symlink/algorithms/"*/* "${ROOT}/symlink/data_structures/"* "$
     find "${PLT_PATH}" -type f \
         \( -name "${impl_camel}.*" -o -name "${impl_snake}.*" -o -name "${impl_kebab}.*" \) \
         -not -path "*/__pycache__/*" \
-        -exec ln --symbolic --verbose {} Implementation/ \;
+        -exec ln --relative --symbolic --verbose {} Implementation/ \;
     find "${PLT_PATH}" -type f \
         \( -name "${test_camel}.*" -o -name "${test_snake}.*" -o -name "${test_kebab}.*" \) \
         -not -path "*/__pycache__/*" \
-        -exec ln --symbolic --verbose {} Test/ \;
+        -exec ln --relative --symbolic --verbose {} Test/ \;
     popd &> /dev/null
 done
