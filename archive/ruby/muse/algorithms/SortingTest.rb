@@ -4,7 +4,7 @@ require "muse/util/Sequences"
 require "muse/util/TestRunner"
 
 def testBubbleSort
-  size = 32_768
+  size = 32768
 
   arr = Array.new(size)
   SequenceBuilder.packRandom(arr)
@@ -19,7 +19,7 @@ def testBubbleSort
 end
 
 def testInsertionSort
-  size = 32_768
+  size = 32768
 
   arr = Array.new(size)
   SequenceBuilder.packRandom(arr)
@@ -34,7 +34,7 @@ def testInsertionSort
 end
 
 def testMergeSort
-  size = 32_768
+  size = 32768
 
   arr = Array.new(size)
   SequenceBuilder.packRandom(arr)
@@ -49,7 +49,7 @@ def testMergeSort
 end
 
 def testQuickSort
-  size = 32_768
+  size = 32768
 
   arr = Array.new(size)
   SequenceBuilder.packRandom(arr)
@@ -64,7 +64,7 @@ def testQuickSort
 end
 
 def testSelectionSort
-  size = 32_768
+  size = 32768
 
   arr = Array.new(size)
   SequenceBuilder.packRandom(arr)

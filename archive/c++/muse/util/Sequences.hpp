@@ -59,7 +59,7 @@ void shuffle(std::vector<int> &arr) {
 
   RandomFactory::seed();
   for (std::size_t i = 0, length = arr.size(); i < length; i++) {
-    k = RandomFactory::genIntN(i, length);
+    k = RandomFactory::genIntN(i, length - 1);
     temp = arr[i];
     arr[i] = arr[k];
     arr[k] = temp;

@@ -1,5 +1,5 @@
 def sort(arr: list) -> None:
-    if len(arr) == 0:
+    if not arr:
         return
 
     i_min = 0

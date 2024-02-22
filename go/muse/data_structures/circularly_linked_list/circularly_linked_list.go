@@ -32,7 +32,7 @@ func (list *CircularlyLinkedList) Get(index int) int {
 	cursor := list.tail
 
 	if index != list.length-1 {
-		for i := 0; i <= index; i++ {
+		for range index + 1 {
 			cursor = cursor.next
 		}
 	}
@@ -48,7 +48,7 @@ func (list *CircularlyLinkedList) Set(index int, element int) {
 	cursor := list.tail
 
 	if index != list.length-1 {
-		for i := 0; i <= index; i++ {
+		for range index + 1 {
 			cursor = cursor.next
 		}
 	}

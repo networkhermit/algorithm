@@ -7,7 +7,7 @@
 namespace SelectionSort {
 
 template <typename T> void sort(std::vector<T> &arr) {
-  if (arr.size() == 0) {
+  if (arr.empty()) {
     return;
   }
 

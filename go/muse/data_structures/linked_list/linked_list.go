@@ -36,7 +36,7 @@ func (list *LinkedList) Get(index int) int {
 		cursor = list.tail
 	} else {
 		cursor = list.head
-		for i := 0; i < index; i++ {
+		for range index {
 			cursor = cursor.next
 		}
 	}
@@ -55,7 +55,7 @@ func (list *LinkedList) Set(index int, element int) {
 		cursor = list.tail
 	} else {
 		cursor = list.head
-		for i := 0; i < index; i++ {
+		for range index {
 			cursor = cursor.next
 		}
 	}

@@ -89,21 +89,20 @@ ROOT=$(git -C "$(dirname "$(realpath "${0}")")" rev-parse --show-toplevel)
 
 for i in "${ROOT}/symlink/algorithms/"*/* "${ROOT}/symlink/data_structures/"* "${ROOT}/symlink/util/"*; do
     pushd "${i}" &> /dev/null
-    rm --force --recursive Implementation Test
-    mkdir --parents Implementation Test
-    impl_camel=$(basename "${PWD}")
-    test_camel=${impl_camel}Test
-    impl_snake=$(sed --expression 's/\([A-Z]\)/_\L\1/g' --expression 's/^_//' <<< "${impl_camel}")
-    test_snake=$(sed --expression 's/\([A-Z]\)/_\L\1/g' --expression 's/^_//' <<< "${test_camel}")
+    find implementation test -mindepth 1 -delete
+    impl_snake=$(basename "${PWD}")
+    test_snake=${impl_snake}_test
+    impl_camel=$(sed --expression 's/_\([a-z]\)/\U\1/g' --expression 's/^\([a-z]\)/\U\1/' <<< "${impl_snake}")
+    test_camel=$(sed --expression 's/_\([a-z]\)/\U\1/g' --expression 's/^\([a-z]\)/\U\1/' <<< "${test_snake}")
     impl_kebab=$(sed --expression 's/_/-/g' <<< "${impl_snake}")
     test_kebab=$(sed --expression 's/_/-/g' <<< "${test_snake}")
     find "${PLT_PATH}" -type f \
-        \( -name "${impl_camel}.*" -o -name "${impl_snake}.*" -o -name "${impl_kebab}.*" \) \
+        \( -name "${impl_snake}.*" -o -name "${impl_camel}.*" -o -name "${impl_kebab}.*" \) \
         -not -path "*/__pycache__/*" \
-        -exec ln --relative --symbolic --verbose {} Implementation/ \;
+        -exec ln --relative --symbolic --verbose {} implementation/ \;
     find "${PLT_PATH}" -type f \
-        \( -name "${test_camel}.*" -o -name "${test_snake}.*" -o -name "${test_kebab}.*" \) \
+        \( -name "${test_snake}.*" -o -path "*/${impl_snake}/tests.rs" -o -name "${test_camel}.*" -o -name "${test_kebab}.*" \) \
         -not -path "*/__pycache__/*" \
-        -exec ln --relative --symbolic --verbose {} Test/ \;
+        -exec ln --relative --symbolic --verbose {} test/ \;
     popd &> /dev/null
 done

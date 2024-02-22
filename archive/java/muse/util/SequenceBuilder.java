@@ -5,6 +5,9 @@ public final class SequenceBuilder {
   private SequenceBuilder() {}
 
   public static void packIncreasing(Integer[] arr) {
+    if (arr.length == 0) {
+      return;
+    }
     arr[0] = RandomFactory.genIntN(1, 3);
     for (int i = 1, length = arr.length; i < length; i++) {
       arr[i] = arr[i - 1] + RandomFactory.genIntN(1, 3);

@@ -16,7 +16,7 @@ fn fizz_buzz(n: i32) -> String {
 }
 
 fn main() {
-    for i in 1..=100 {
+    (1..=100).for_each(|i| {
         println!("{}", fizz_buzz(i));
-    }
+    });
 }

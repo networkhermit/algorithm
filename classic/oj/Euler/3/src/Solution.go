@@ -41,7 +41,7 @@ func main() {
 		if err == io.EOF {
 			break
 		}
-		for i := 0; i < testCases; i++ {
+		for range testCases {
 			fmt.Scan(&n)
 			fmt.Println(process(n))
 		}

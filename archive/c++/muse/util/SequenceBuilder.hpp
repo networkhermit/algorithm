@@ -10,6 +10,9 @@
 namespace SequenceBuilder {
 
 void packIncreasing(std::vector<int> &arr) {
+  if (arr.empty()) {
+    return;
+  }
   RandomFactory::seed();
   arr[0] = RandomFactory::genIntN(1, 3);
   for (std::size_t i = 1, length = arr.size(); i < length; i++) {

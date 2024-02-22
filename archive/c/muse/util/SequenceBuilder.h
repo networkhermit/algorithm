@@ -7,6 +7,9 @@
 #include <muse/util/Sequences.h>
 
 void SequenceBuilder_packIncreasing(int *arr, size_t length) {
+  if (length == 0) {
+    return;
+  }
   RandomFactory_seed();
   arr[0] = RandomFactory_genIntN(1, 3);
   for (size_t i = 1; i < length; i++) {

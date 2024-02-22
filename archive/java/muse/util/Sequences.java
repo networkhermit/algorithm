@@ -51,7 +51,7 @@ public final class Sequences {
     Integer temp;
 
     for (int i = 0, length = arr.length; i < length; i++) {
-      k = RandomFactory.genIntN(i, length);
+      k = RandomFactory.genIntN(i, length - 1);
       temp = arr[i];
       arr[i] = arr[k];
       arr[k] = temp;

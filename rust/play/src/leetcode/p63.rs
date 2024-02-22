@@ -46,7 +46,7 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test() {
+    fn test_unique_paths_with_obstacles() {
         assert_eq!(
             Solution::unique_paths_with_obstacles(vec![
                 vec![0, 0, 0],

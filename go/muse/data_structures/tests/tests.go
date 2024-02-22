@@ -30,17 +30,17 @@ func ListDerive[L data_structures.List](factory func() L) func(t *testing.T) {
 			}
 		}
 
-		for i := 0; i < size; i++ {
+		for i := range size {
 			if list.Get(i) != i+1 {
 				t.FailNow()
 			}
 		}
 
-		for i := 0; i < size; i++ {
+		for i := range size {
 			list.Set(i, size-i)
 		}
 
-		for i := 0; i < size; i++ {
+		for i := range size {
 			if list.Get(i) != size-i {
 				t.FailNow()
 			}
@@ -56,7 +56,7 @@ func ListDerive[L data_structures.List](factory func() L) func(t *testing.T) {
 			list.Insert(j, x)
 		}
 
-		for i := 0; i < size; i++ {
+		for i := range size {
 			if list.Get(i) != i+1 {
 				t.FailNow()
 			}

@@ -3,7 +3,7 @@ require "muse/util/SequenceBuilder"
 require "muse/util/TestRunner"
 
 def testLinearSearch
-  size = 32_768
+  size = 32768
 
   arr = Array.new(size)
   SequenceBuilder.packIncreasing(arr)

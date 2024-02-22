@@ -13,7 +13,7 @@ var Derive = func(fn func([]int, int) int) func(t *testing.T) {
 		arr := make([]int, size)
 		sequence_builder.PackIncreasing(arr)
 
-		sentinel := []int{-1, 2147483647}
+		sentinel := []int{-1, 2_147_483_647}
 
 		for _, v := range sentinel {
 			if actual := fn(arr, v); actual != size {

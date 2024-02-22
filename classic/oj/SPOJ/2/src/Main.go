@@ -93,7 +93,7 @@ func main() {
 		if err == io.EOF {
 			break
 		}
-		for i := 0; i < testCases; i++ {
+		for i := range testCases {
 			fmt.Scan(&m, &n)
 			if i != 0 {
 				fmt.Println()

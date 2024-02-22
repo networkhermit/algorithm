@@ -40,7 +40,7 @@ def shuffle(arr: list) -> None:
     length = len(arr)
 
     for i in range(length):
-        k = random_factory.gen_int_n(i, length)
+        k = random_factory.gen_int_n(i, length - 1)
         arr[i], arr[k] = arr[k], arr[i]
 
 

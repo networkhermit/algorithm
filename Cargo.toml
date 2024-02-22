@@ -3,3 +3,4 @@ members = [
     "rust/muse",
     "rust/play",
 ]
+resolver = "2"

@@ -2,6 +2,8 @@ from muse.util import random_factory, sequences
 
 
 def pack_increasing(arr: list) -> None:
+    if not arr:
+        return
     arr[0] = random_factory.gen_int_n(1, 3)
     for i in range(1, len(arr)):
         arr[i] = arr[i - 1] + random_factory.gen_int_n(1, 3)

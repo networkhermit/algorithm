@@ -4,7 +4,7 @@ require "muse/util/Sequences"
 require "muse/util/TestRunner"
 
 def testMergeSort
-  size = 32_768
+  size = 32768
 
   arr = Array.new(size)
   SequenceBuilder.packRandom(arr)

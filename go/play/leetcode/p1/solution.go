@@ -7,9 +7,8 @@ func twoSum(nums []int, target int) []int {
 		m := target - n
 		if i, ok := hashmap[m]; ok {
 			return []int{i, j}
-		} else {
-			hashmap[n] = j
 		}
+		hashmap[n] = j
 	}
 
 	return []int{}

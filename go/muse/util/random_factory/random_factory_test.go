@@ -4,7 +4,7 @@ import "testing"
 
 func TestGenIntN(t *testing.T) {
 	var value int
-	for i := 0; i < 8192; i++ {
+	for range 8192 {
 		if GenIntN(0, 0) != 0 {
 			t.FailNow()
 		}
@@ -29,7 +29,7 @@ func TestGenIntN(t *testing.T) {
 }
 
 func TestGenEven(t *testing.T) {
-	for i := 0; i < 8192; i++ {
+	for range 8192 {
 		if (GenEven() & 1) != 0 {
 			t.FailNow()
 		}
@@ -37,7 +37,7 @@ func TestGenEven(t *testing.T) {
 }
 
 func TestGenOdd(t *testing.T) {
-	for i := 0; i < 8192; i++ {
+	for range 8192 {
 		if (GenOdd() & 1) == 0 {
 			t.FailNow()
 		}

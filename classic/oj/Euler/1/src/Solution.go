@@ -7,7 +7,7 @@ import (
 
 func bruteForce(sentinel int) int64 {
 	sum := int64(0)
-	for i := 0; i < sentinel; i++ {
+	for i := range sentinel {
 		if i%3 == 0 || i%5 == 0 {
 			sum += int64(i)
 		}
@@ -41,7 +41,7 @@ func main() {
 		if err == io.EOF {
 			break
 		}
-		for i := 0; i < testCases; i++ {
+		for range testCases {
 			fmt.Scan(&sentinel)
 			fmt.Println(process(sentinel))
 		}

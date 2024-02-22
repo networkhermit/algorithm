@@ -44,7 +44,7 @@ exports.shuffle = (arr) => {
   let k
 
   for (let i = 0, length = arr.length; i < length; i++) {
-    k = RandomFactory.genIntN(i, length)
+    k = RandomFactory.genIntN(i, length - 1)
     [arr[i], arr[k]] = [arr[k], arr[i]]
   }
 }

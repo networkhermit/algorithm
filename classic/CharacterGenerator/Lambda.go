@@ -14,8 +14,8 @@ func main() {
 	var i int
 	for {
 		i = cursor
-		for j := 0; j < GLYPHS_PER_LINE; j++ {
-			fmt.Print(string(i))
+		for range GLYPHS_PER_LINE {
+			fmt.Print(string(rune(i)))
 			if i == LAST_GLYPH {
 				i = FIRST_GLYPH
 			} else {

@@ -31,7 +31,7 @@ func (list *SinglyLinkedList) Get(index int) int {
 
 	cursor := list.head
 
-	for i := 0; i < index; i++ {
+	for range index {
 		cursor = cursor.next
 	}
 
@@ -45,7 +45,7 @@ func (list *SinglyLinkedList) Set(index int, element int) {
 
 	cursor := list.head
 
-	for i := 0; i < index; i++ {
+	for range index {
 		cursor = cursor.next
 	}
 

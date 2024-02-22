@@ -35,7 +35,7 @@ func (list *DoublyLinkedList) Get(index int) int {
 
 	if index < list.length>>1 {
 		cursor = list.head
-		for i := 0; i < index; i++ {
+		for range index {
 			cursor = cursor.next
 		}
 	} else {
@@ -57,7 +57,7 @@ func (list *DoublyLinkedList) Set(index int, element int) {
 
 	if index < list.length>>1 {
 		cursor = list.head
-		for i := 0; i < index; i++ {
+		for range index {
 			cursor = cursor.next
 		}
 	} else {
@@ -94,7 +94,7 @@ func (list *DoublyLinkedList) Insert(index int, element int) {
 		var cursor *Node
 		if index < list.length>>1 {
 			cursor = list.head
-			for i := 0; i < index; i++ {
+			for range index {
 				cursor = cursor.next
 			}
 		} else {
@@ -136,7 +136,7 @@ func (list *DoublyLinkedList) Remove(index int) {
 	default:
 		if index < list.length>>1 {
 			target = list.head
-			for i := 0; i < index; i++ {
+			for range index {
 				target = target.next
 			}
 		} else {

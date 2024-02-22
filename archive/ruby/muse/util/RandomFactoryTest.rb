@@ -11,9 +11,9 @@ def testGenIntN
     value = RandomFactory.genIntN(0, 1)
     return false if value.negative? || value > 1
 
-    value = RandomFactory.genIntN(100, 10_000)
+    value = RandomFactory.genIntN(100, 10000)
     return false if RandomFactory.genIntN(value, value) != value
-    return false if value < 100 || value > 10_000
+    return false if value < 100 || value > 10000
   end
 
   true

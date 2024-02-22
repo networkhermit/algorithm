@@ -8,7 +8,7 @@ def main() -> None:
     i = 0
     while True:
         i = cursor
-        for _ in range(GLYPHS_PER_LINE + 1):
+        for _ in range(GLYPHS_PER_LINE):
             print(chr(i), end="")
             if i == LAST_GLYPH:
                 i = FIRST_GLYPH

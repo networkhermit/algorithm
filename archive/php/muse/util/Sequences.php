@@ -56,7 +56,7 @@ function shuffle(array &$arr): void
     $k;
 
     for ($i = 0, $length = count($arr); $i < $length; $i++) {
-        $k = RandomFactory\genIntN($i, $length);
+        $k = RandomFactory\genIntN($i, $length - 1);
         [$arr[$i], $arr[$k]] = [$arr[$k], $arr[$i]];
     }
 }

@@ -3,6 +3,7 @@ require "muse/util/Sequences"
 
 module SequenceBuilder
   def self.packIncreasing(arr)
+    return if arr.empty?
     arr[0] = RandomFactory.genIntN(1, 3)
     1.upto(arr.length - 1) do |i|
       arr[i] = arr[i - 1] + RandomFactory.genIntN(1, 3)

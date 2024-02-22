@@ -48,7 +48,7 @@ func Shuffle(arr []int) {
 	var k int
 
 	for i, length := 0, len(arr); i < length; i++ {
-		k = random_factory.GenIntN(i, length)
+		k = random_factory.GenIntN(i, length-1)
 		arr[i], arr[k] = arr[k], arr[i]
 	}
 }

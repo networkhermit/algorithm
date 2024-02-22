@@ -43,7 +43,7 @@ module Sequences
     length = arr.length
 
     0.upto(arr.length - 1) do |i|
-      k = RandomFactory.genIntN(i, length)
+      k = RandomFactory.genIntN(i, length - 1)
       arr[i], arr[k] = arr[k], arr[i]
     end
   end

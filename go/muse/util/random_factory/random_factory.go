@@ -11,7 +11,7 @@ func GenIntN(min, max int) int {
 }
 
 func GenInt() int {
-	return GenIntN(1, 2147483647)
+	return GenIntN(1, 2_147_483_647)
 }
 
 func GenEven() int {

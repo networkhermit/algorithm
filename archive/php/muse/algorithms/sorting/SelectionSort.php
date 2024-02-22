@@ -6,7 +6,7 @@ namespace muse\algorithms\sorting\SelectionSort;
 
 function sort(array &$arr): void
 {
-    if (count($arr) == 0) {
+    if (empty($arr)) {
         return;
     }
 
