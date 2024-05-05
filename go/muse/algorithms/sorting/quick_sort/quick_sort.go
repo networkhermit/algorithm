@@ -1,6 +1,6 @@
 package quick_sort
 
-import "math/rand"
+import "math/rand/v2"
 
 func Partition(arr []int, lo, hi int) int {
 	pivot := arr[lo+((hi-1-lo)>>1)]

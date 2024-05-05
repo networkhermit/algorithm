@@ -1,13 +1,11 @@
 package random_factory
 
 import (
-	"crypto/rand"
-	"math/big"
+	"math/rand/v2"
 )
 
 func GenIntN(min, max int) int {
-	n, _ := rand.Int(rand.Reader, big.NewInt(int64(max-min+1)))
-	return min + int(n.Int64())
+	return min + rand.N(max-min+1)
 }
 
 func GenInt() int {
