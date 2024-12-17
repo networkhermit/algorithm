@@ -1,10 +1,10 @@
 """
-    Just for Fun
+Just for Fun
 
-    Author:       vac
-    Organization: STEM
-    LICENCE:      MIT
-    Copyright:    2014-2018
+Author:       vac
+Organization: STEM
+LICENCE:      MIT
+Copyright:    2014-2018
 """
 
 
