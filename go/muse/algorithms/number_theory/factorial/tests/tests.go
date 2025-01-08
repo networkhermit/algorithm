@@ -26,7 +26,7 @@ var Derive = func(fn func(int64) int64) func(t *testing.T) {
 		for _, tt := range sample {
 			actual := fn(tt.n)
 			if actual != tt.expected {
-				t.Errorf("%s(%d) returned %d, expected %d", t.Name(), tt.n, actual, tt.expected)
+				t.Errorf("%s(%d) returned %d, expect %d", t.Name(), tt.n, actual, tt.expected)
 			}
 		}
 	}

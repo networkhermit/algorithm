@@ -13,7 +13,7 @@ func UniqueCategoryDerive[N, C comparable](fn func(N) bool, sample []UniqueCateg
 			actual := fn(tt.N)
 			expected := tt.Category == c
 			if actual != expected {
-				t.Errorf("%s(%v) returned %t, expected %t", t.Name(), tt.N, actual, expected)
+				t.Errorf("%s(%v) returned %t, expect %t", t.Name(), tt.N, actual, expected)
 			}
 		}
 	}
@@ -31,7 +31,7 @@ func MNUniqueCategoryDerive[N, C comparable](fn func(N, N) bool, sample []MNUniq
 			actual := fn(tt.M, tt.N)
 			expected := tt.Category == c
 			if actual != expected {
-				t.Errorf("%s(%v, %v) returned %t, expected %t", t.Name(), tt.M, tt.N, actual, expected)
+				t.Errorf("%s(%v, %v) returned %t, expect %t", t.Name(), tt.M, tt.N, actual, expected)
 			}
 		}
 	}

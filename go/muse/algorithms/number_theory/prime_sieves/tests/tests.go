@@ -147,7 +147,7 @@ var Derive = func(fn func(int) []int, predicate func(int64) bool) func(t *testin
 			t.Run(fmt.Sprintf("%d", tt.n), func(t *testing.T) {
 				actual := fn(tt.n)
 				if len(actual) != tt.expected {
-					t.Errorf("%s returned %d elements, expected %d", t.Name(), len(actual), tt.expected)
+					t.Errorf("%s returned %d elements, expect %d", t.Name(), len(actual), tt.expected)
 				}
 				for i, v := range actual {
 					if !predicate(int64(v)) {

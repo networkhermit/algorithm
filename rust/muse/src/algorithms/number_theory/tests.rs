@@ -20,6 +20,11 @@ pub(crate) fn unique_category_derive<'a, N: Copy + Display, C: Eq>(
 }
 
 #[test]
+fn test_gcd() {
+    greatest_common_divisor::tests::derive(&gcd)();
+}
+
+#[test]
 fn test_is_even() {
     use parity::tests::{derive, Category::Even};
 

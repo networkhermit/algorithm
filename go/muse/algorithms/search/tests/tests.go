@@ -17,13 +17,13 @@ var Derive = func(fn func([]int, int) int) func(t *testing.T) {
 
 		for _, v := range sentinel {
 			if actual := fn(arr, v); actual != size {
-				t.Errorf("%s(arr, %d) returned %d, expected %d", t.Name(), v, actual, size)
+				t.Errorf("%s(arr, %d) returned %d, expect %d", t.Name(), v, actual, size)
 			}
 		}
 
 		for i, v := range arr {
 			if actual := fn(arr, v); actual != i {
-				t.Errorf("%s(arr, %d) returned %d, expected %d", t.Name(), i, actual, i)
+				t.Errorf("%s(arr, %d) returned %d, expect %d", t.Name(), i, actual, i)
 			}
 		}
 	}

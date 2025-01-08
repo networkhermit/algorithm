@@ -17,7 +17,7 @@ func Test(t *testing.T) {
 	for _, tt := range sample {
 		actual := uniquePathsWithObstacles(tt.obstacleGrid)
 		if !reflect.DeepEqual(actual, tt.expected) {
-			t.Errorf("%s(%v) returned %d, expected %d", t.Name(), tt.obstacleGrid, actual, tt.expected)
+			t.Errorf("%s(%v) returned %d, expect %d", t.Name(), tt.obstacleGrid, actual, tt.expected)
 		}
 	}
 }

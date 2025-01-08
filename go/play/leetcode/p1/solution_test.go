@@ -19,7 +19,7 @@ func Test(t *testing.T) {
 	for _, tt := range sample {
 		actual := twoSum(tt.nums, tt.target)
 		if !slices.Equal(actual, tt.expected) {
-			t.Errorf("%s(%v, %d) returned %v, expected %v", t.Name(), tt.nums, tt.target, actual, tt.expected)
+			t.Errorf("%s(%v, %d) returned %v, expect %v", t.Name(), tt.nums, tt.target, actual, tt.expected)
 		}
 	}
 }
@@ -38,7 +38,7 @@ func TestBruteForce(t *testing.T) {
 	for _, tt := range sample {
 		actual := twoSumBruteForce(tt.nums, tt.target)
 		if !slices.Equal(actual, tt.expected) {
-			t.Errorf("%s(%v, %d) returned %v, expected %v", t.Name(), tt.nums, tt.target, actual, tt.expected)
+			t.Errorf("%s(%v, %d) returned %v, expect %v", t.Name(), tt.nums, tt.target, actual, tt.expected)
 		}
 	}
 }
