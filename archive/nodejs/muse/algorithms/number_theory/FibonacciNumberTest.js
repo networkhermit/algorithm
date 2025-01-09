@@ -1,7 +1,7 @@
-'use strict'
+'use strict';
 
-const FibonacciNumber = require('muse/algorithms/number_theory/FibonacciNumber')
-const TestRunner = require('muse/util/TestRunner')
+const FibonacciNumber = require('muse/algorithms/number_theory/FibonacciNumber');
+const TestRunner = require('muse/util/TestRunner');
 
 const testFibonacciNumber = () => {
   const sample = [
@@ -67,24 +67,24 @@ const testFibonacciNumber = () => {
     [28, 317811],
     [29, 514229],
     [30, 832040],
-    [31, 1_346_269]
-  ]
+    [31, 1_346_269],
+  ];
 
   for (let i = 0, size = sample.length; i < size; i++) {
     if (FibonacciNumber.iterativeProcedure(sample[i][0]) !== sample[i][1]) {
-      return false
+      return false;
     }
   }
 
   for (let i = 0, size = sample.length; i < size; i++) {
     if (FibonacciNumber.recursiveProcedure(sample[i][0]) !== sample[i][1]) {
-      return false
+      return false;
     }
   }
 
-  return true
-}
+  return true;
+};
 
 if (module === require.main) {
-  TestRunner.pick(testFibonacciNumber)
+  TestRunner.pick(testFibonacciNumber);
 }

@@ -1,7 +1,7 @@
-'use strict'
+'use strict';
 
-const Parity = require('muse/algorithms/number_theory/Parity')
-const TestRunner = require('muse/util/TestRunner')
+const Parity = require('muse/algorithms/number_theory/Parity');
+const TestRunner = require('muse/util/TestRunner');
 
 const testParity = () => {
   const sample = [
@@ -132,17 +132,17 @@ const testParity = () => {
     [-846_034_014, 0],
     [411_817_058, 0],
     [2_147_483_647, 1],
-    [-2_147_483_648, 0]
-  ]
+    [-2_147_483_648, 0],
+  ];
 
   for (let i = 0, size = sample.length; i < size; i++) {
     if (sample[i][1] === 0) {
       if (!Parity.moduloIsEven(sample[i][0])) {
-        return false
+        return false;
       }
     } else {
       if (Parity.moduloIsEven(sample[i][0])) {
-        return false
+        return false;
       }
     }
   }
@@ -150,11 +150,11 @@ const testParity = () => {
   for (let i = 0, size = sample.length; i < size; i++) {
     if (sample[i][1] === 0) {
       if (!Parity.bitwiseIsEven(sample[i][0])) {
-        return false
+        return false;
       }
     } else {
       if (Parity.bitwiseIsEven(sample[i][0])) {
-        return false
+        return false;
       }
     }
   }
@@ -162,11 +162,11 @@ const testParity = () => {
   for (let i = 0, size = sample.length; i < size; i++) {
     if (sample[i][1] === 0) {
       if (Parity.moduloIsOdd(sample[i][0])) {
-        return false
+        return false;
       }
     } else {
       if (!Parity.moduloIsOdd(sample[i][0])) {
-        return false
+        return false;
       }
     }
   }
@@ -174,18 +174,18 @@ const testParity = () => {
   for (let i = 0, size = sample.length; i < size; i++) {
     if (sample[i][1] === 0) {
       if (Parity.bitwiseIsOdd(sample[i][0])) {
-        return false
+        return false;
       }
     } else {
       if (!Parity.bitwiseIsOdd(sample[i][0])) {
-        return false
+        return false;
       }
     }
   }
 
-  return true
-}
+  return true;
+};
 
 if (module === require.main) {
-  TestRunner.pick(testParity)
+  TestRunner.pick(testParity);
 }

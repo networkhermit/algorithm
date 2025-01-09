@@ -1,27 +1,27 @@
-'use strict'
+'use strict';
 
-const InsertionSort = require('muse/algorithms/sorting/InsertionSort')
-const SequenceBuilder = require('muse/util/SequenceBuilder')
-const Sequences = require('muse/util/Sequences')
-const TestRunner = require('muse/util/TestRunner')
+const InsertionSort = require('muse/algorithms/sorting/InsertionSort');
+const SequenceBuilder = require('muse/util/SequenceBuilder');
+const Sequences = require('muse/util/Sequences');
+const TestRunner = require('muse/util/TestRunner');
 
 const testInsertionSort = () => {
-  const size = 32768
+  const size = 32768;
 
-  const arr = new Array(size)
-  SequenceBuilder.packRandom(arr)
+  const arr = new Array(size);
+  SequenceBuilder.packRandom(arr);
 
-  const checksum = Sequences.parityChecksum(arr)
+  const checksum = Sequences.parityChecksum(arr);
 
-  InsertionSort.sort(arr)
+  InsertionSort.sort(arr);
 
   if (Sequences.parityChecksum(arr) !== checksum) {
-    return false
+    return false;
   }
 
-  return Sequences.isSorted(arr)
-}
+  return Sequences.isSorted(arr);
+};
 
 if (module === require.main) {
-  TestRunner.pick(testInsertionSort)
+  TestRunner.pick(testInsertionSort);
 }

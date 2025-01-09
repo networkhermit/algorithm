@@ -1,7 +1,7 @@
-'use strict'
+'use strict';
 
-const Primality = require('muse/algorithms/number_theory/Primality')
-const TestRunner = require('muse/util/TestRunner')
+const Primality = require('muse/algorithms/number_theory/Primality');
+const TestRunner = require('muse/util/TestRunner');
 
 const testPrimality = () => {
   const sample = [
@@ -260,40 +260,40 @@ const testPrimality = () => {
     [2_291_487, 4],
     [3_893_849, 2],
     [1_308_913, 4],
-    [14_162_880, 4]
-  ]
+    [14_162_880, 4],
+  ];
 
   for (let i = 0, size = sample.length; i < size; i++) {
     switch (sample[i][1]) {
       case 1:
         if (Primality.isPrime(sample[i][0])) {
-          return false
+          return false;
         }
         if (Primality.isComposite(sample[i][0])) {
-          return false
+          return false;
         }
-        break
+        break;
       case 2:
         if (!Primality.isPrime(sample[i][0])) {
-          return false
+          return false;
         }
         if (Primality.isComposite(sample[i][0])) {
-          return false
+          return false;
         }
-        break
+        break;
       default:
         if (Primality.isPrime(sample[i][0])) {
-          return false
+          return false;
         }
         if (!Primality.isComposite(sample[i][0])) {
-          return false
+          return false;
         }
     }
   }
 
-  return true
-}
+  return true;
+};
 
 if (module === require.main) {
-  TestRunner.pick(testPrimality)
+  TestRunner.pick(testPrimality);
 }

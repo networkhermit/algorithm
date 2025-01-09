@@ -1,24 +1,24 @@
-'use strict'
+'use strict';
 
 const fizzBuzz = (n) => {
-  let word = ''
+  let word = '';
 
   if (n % 3 === 0) {
-    word += 'Fizz'
+    word += 'Fizz';
   }
   if (n % 5 === 0) {
-    word += 'Buzz'
+    word += 'Buzz';
   }
 
   if (word.length === 0) {
-    word = String(n)
+    word = String(n);
   }
 
-  return word
-}
+  return word;
+};
 
 if (module === require.main) {
   for (let i = 1; i <= 100; i++) {
-    console.log(fizzBuzz(i))
+    console.log(fizzBuzz(i));
   }
 }

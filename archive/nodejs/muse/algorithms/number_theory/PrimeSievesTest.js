@@ -1,8 +1,8 @@
-'use strict'
+'use strict';
 
-const Primality = require('muse/algorithms/number_theory/Primality')
-const PrimeSieves = require('muse/algorithms/number_theory/PrimeSieves')
-const TestRunner = require('muse/util/TestRunner')
+const Primality = require('muse/algorithms/number_theory/Primality');
+const PrimeSieves = require('muse/algorithms/number_theory/PrimeSieves');
+const TestRunner = require('muse/util/TestRunner');
 
 const testPrimeSieves = () => {
   const sample = [
@@ -133,28 +133,28 @@ const testPrimeSieves = () => {
     [108289, 10303],
     [1_228_187, 94920],
     [709431, 57257],
-    [1_294_061, 99610]
-  ]
+    [1_294_061, 99610],
+  ];
 
-  let arr = null
+  let arr = null;
 
   for (let i = 0, size = sample.length; i < size; i++) {
-    arr = PrimeSieves.sieveOfEratosthenes(sample[i][0])
+    arr = PrimeSieves.sieveOfEratosthenes(sample[i][0]);
 
     if (arr.length !== sample[i][1]) {
-      return false
+      return false;
     }
 
     for (const v of arr) {
       if (!Primality.isPrime(v)) {
-        return false
+        return false;
       }
     }
   }
 
-  return true
-}
+  return true;
+};
 
 if (module === require.main) {
-  TestRunner.pick(testPrimeSieves)
+  TestRunner.pick(testPrimeSieves);
 }

@@ -1,75 +1,75 @@
-'use strict'
+'use strict';
 
-const ArrayList = require('muse/data_structures/ArrayList')
-const TestRunner = require('muse/util/TestRunner')
+const ArrayList = require('muse/data_structures/ArrayList');
+const TestRunner = require('muse/util/TestRunner');
 
 const testArrayList = () => {
-  const size = 8192
+  const size = 8192;
 
-  const list = new ArrayList.ArrayList(0)
+  const list = new ArrayList.ArrayList(0);
 
   for (let i = 1; i <= size; i++) {
-    list.append(i)
+    list.append(i);
   }
 
-  list.shrink()
+  list.shrink();
 
   if (list.size() !== size) {
-    return false
+    return false;
   }
 
   if (list.capacity() !== size) {
-    return false
+    return false;
   }
 
   for (let i = 0; i < size; i++) {
     if (list.get(i) !== i + 1) {
-      return false
+      return false;
     }
   }
 
   for (let i = 0; i < size; i++) {
-    list.set(i, size - i)
+    list.set(i, size - i);
   }
 
   for (let i = 0; i < size; i++) {
     if (list.get(i) !== size - i) {
-      return false
+      return false;
     }
   }
 
   for (let i = 0, j = size - 1; i < j; i++, j--) {
-    const x = list.get(i)
-    const y = list.get(j)
+    const x = list.get(i);
+    const y = list.get(j);
 
-    list.remove(i)
-    list.insert(i, y)
-    list.remove(j)
-    list.insert(j, x)
+    list.remove(i);
+    list.insert(i, y);
+    list.remove(j);
+    list.insert(j, x);
   }
 
   for (let i = 0; i < size; i++) {
     if (list.get(i) !== i + 1) {
-      return false
+      return false;
     }
   }
 
   for (let i = size; i >= 1; i--) {
     if (list.back() !== i) {
-      return false
+      return false;
     }
-    list.eject()
+    list.eject();
   }
 
-  list.shrink()
+  list.shrink();
 
   if (!list.isEmpty()) {
-    return false
+    return false;
   }
 
-  return list.capacity() === 0
-}
+  return list.capacity() === 0;
+};
 
 if (module === require.main) {
-  TestRunner.pick(testArrayList)
+  TestRunner.pick(testArrayList);
 }

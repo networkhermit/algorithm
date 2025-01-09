@@ -1,70 +1,70 @@
-'use strict'
+'use strict';
 
 const Node = class {
-  constructor (element) {
-    this.data = element
-    this.next = null
+  constructor(element) {
+    this.data = element;
+    this.next = null;
   }
-}
+};
 
 exports.LinkedStack = class {
-  constructor (physicalSize = 0) {
-    this.head = null
-    this.tail = null
-    this.length = 0
+  constructor(physicalSize = 0) {
+    this.head = null;
+    this.tail = null;
+    this.length = 0;
   }
 
-  size () {
-    return this.length
+  size() {
+    return this.length;
   }
 
-  isEmpty () {
-    return this.length === 0
+  isEmpty() {
+    return this.length === 0;
   }
 
-  peek () {
+  peek() {
     if (this.length === 0) {
-      throw new Error('[PANIC - NoSuchElement]')
+      throw new Error('[PANIC - NoSuchElement]');
     }
 
-    return this.tail.data
+    return this.tail.data;
   }
 
-  push (element) {
-    const node = new Node(element)
+  push(element) {
+    const node = new Node(element);
 
     if (this.length === 0) {
-      this.head = node
+      this.head = node;
     } else {
-      this.tail.next = node
+      this.tail.next = node;
     }
 
-    this.tail = node
+    this.tail = node;
 
-    this.length++
+    this.length++;
   }
 
-  pop () {
+  pop() {
     if (this.length === 0) {
-      throw new Error('[PANIC - NoSuchElement]')
+      throw new Error('[PANIC - NoSuchElement]');
     }
 
-    const target = this.tail
+    const target = this.tail;
 
     if (this.length === 1) {
-      this.head = null
-      this.tail = null
+      this.head = null;
+      this.tail = null;
     } else {
-      let cursor = this.head
+      let cursor = this.head;
       for (let i = 0, bound = this.length - 2; i < bound; i++) {
-        cursor = cursor.next
+        cursor = cursor.next;
       }
-      cursor.next = null
-      this.tail = cursor
+      cursor.next = null;
+      this.tail = cursor;
     }
 
-    target.data = null
+    target.data = null;
 
-    this.length--
+    this.length--;
   }
-}
+};

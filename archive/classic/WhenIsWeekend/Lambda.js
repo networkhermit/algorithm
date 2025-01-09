@@ -1,24 +1,24 @@
-'use strict'
+'use strict';
 
 if (module === require.main) {
-  console.log('When’s Weekend?')
+  console.log('When’s Weekend?');
 
-  const today = new Date().getDay()
+  const today = new Date().getDay();
 
   switch (today) {
     case 0:
-      console.log('Today.')
-      break
+      console.log('Today.');
+      break;
     case 6:
-      console.log('Today.')
-      break
+      console.log('Today.');
+      break;
     case 5:
-      console.log('Tomorrow.')
-      break
+      console.log('Tomorrow.');
+      break;
     case 4:
-      console.log('In two days.')
-      break
+      console.log('In two days.');
+      break;
     default:
-      console.log('Too far away.')
+      console.log('Too far away.');
   }
 }

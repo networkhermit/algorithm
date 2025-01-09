@@ -1,7 +1,7 @@
-'use strict'
+'use strict';
 
-const GreatestCommonDivisor = require('muse/algorithms/number_theory/GreatestCommonDivisor')
-const TestRunner = require('muse/util/TestRunner')
+const GreatestCommonDivisor = require('muse/algorithms/number_theory/GreatestCommonDivisor');
+const TestRunner = require('muse/util/TestRunner');
 
 const testGreatestCommonDivisor = () => {
   const sample = [
@@ -132,36 +132,48 @@ const testGreatestCommonDivisor = () => {
     [1_483_217_656, 1_658_473_101, 1],
     [-1_069_835_847, 1_308_503_268, 3],
     [2_147_483_647, -1_884_119_046, 1],
-    [645_159_694, -2_147_483_647, 1]
-  ]
+    [645_159_694, -2_147_483_647, 1],
+  ];
 
   for (let i = 0, size = sample.length; i < size; i++) {
-    if (GreatestCommonDivisor.iterativeBinaryGCD(sample[i][0], sample[i][1]) !== sample[i][2]) {
-      return false
+    if (
+      GreatestCommonDivisor.iterativeBinaryGCD(sample[i][0], sample[i][1]) !==
+      sample[i][2]
+    ) {
+      return false;
     }
   }
 
   for (let i = 0, size = sample.length; i < size; i++) {
-    if (GreatestCommonDivisor.recursiveBinaryGCD(sample[i][0], sample[i][1]) !== sample[i][2]) {
-      return false
+    if (
+      GreatestCommonDivisor.recursiveBinaryGCD(sample[i][0], sample[i][1]) !==
+      sample[i][2]
+    ) {
+      return false;
     }
   }
 
   for (let i = 0, size = sample.length; i < size; i++) {
-    if (GreatestCommonDivisor.iterativeEuclidean(sample[i][0], sample[i][1]) !== sample[i][2]) {
-      return false
+    if (
+      GreatestCommonDivisor.iterativeEuclidean(sample[i][0], sample[i][1]) !==
+      sample[i][2]
+    ) {
+      return false;
     }
   }
 
   for (let i = 0, size = sample.length; i < size; i++) {
-    if (GreatestCommonDivisor.recursiveEuclidean(sample[i][0], sample[i][1]) !== sample[i][2]) {
-      return false
+    if (
+      GreatestCommonDivisor.recursiveEuclidean(sample[i][0], sample[i][1]) !==
+      sample[i][2]
+    ) {
+      return false;
     }
   }
 
-  return true
-}
+  return true;
+};
 
 if (module === require.main) {
-  TestRunner.pick(testGreatestCommonDivisor)
+  TestRunner.pick(testGreatestCommonDivisor);
 }

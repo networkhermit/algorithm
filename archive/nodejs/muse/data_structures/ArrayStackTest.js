@@ -1,43 +1,43 @@
-'use strict'
+'use strict';
 
-const ArrayStack = require('muse/data_structures/ArrayStack')
-const TestRunner = require('muse/util/TestRunner')
+const ArrayStack = require('muse/data_structures/ArrayStack');
+const TestRunner = require('muse/util/TestRunner');
 
 const testArrayStack = () => {
-  const size = 8192
+  const size = 8192;
 
-  const stack = new ArrayStack.ArrayStack(0)
+  const stack = new ArrayStack.ArrayStack(0);
 
   for (let i = 1; i <= size; i++) {
-    stack.push(i)
+    stack.push(i);
   }
 
-  stack.shrink()
+  stack.shrink();
 
   if (stack.size() !== size) {
-    return false
+    return false;
   }
 
   if (stack.capacity() !== size) {
-    return false
+    return false;
   }
 
   for (let i = size; i > 0; i--) {
     if (stack.peek() !== i) {
-      return false
+      return false;
     }
-    stack.pop()
+    stack.pop();
   }
 
-  stack.shrink()
+  stack.shrink();
 
   if (!stack.isEmpty()) {
-    return false
+    return false;
   }
 
-  return stack.capacity() === 0
-}
+  return stack.capacity() === 0;
+};
 
 if (module === require.main) {
-  TestRunner.pick(testArrayStack)
+  TestRunner.pick(testArrayStack);
 }

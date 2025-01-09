@@ -1,7 +1,7 @@
-'use strict'
+'use strict';
 
-const LeastCommonMultiple = require('muse/algorithms/number_theory/LeastCommonMultiple')
-const TestRunner = require('muse/util/TestRunner')
+const LeastCommonMultiple = require('muse/algorithms/number_theory/LeastCommonMultiple');
+const TestRunner = require('muse/util/TestRunner');
 
 const testLeastCommonMultiple = () => {
   const sample = [
@@ -132,24 +132,30 @@ const testLeastCommonMultiple = () => {
     [30250, -28845, 174_512_250],
     [45203, -23693, 1_070_994_679],
     [46340, 46341, 2_147_441_940],
-    [-46340, -46341, 2_147_441_940]
-  ]
+    [-46340, -46341, 2_147_441_940],
+  ];
 
   for (let i = 0, size = sample.length; i < size; i++) {
-    if (LeastCommonMultiple.reduceToBinaryGCD(sample[i][0], sample[i][1]) !== sample[i][2]) {
-      return false
+    if (
+      LeastCommonMultiple.reduceToBinaryGCD(sample[i][0], sample[i][1]) !==
+      sample[i][2]
+    ) {
+      return false;
     }
   }
 
   for (let i = 0, size = sample.length; i < size; i++) {
-    if (LeastCommonMultiple.reduceToEuclidean(sample[i][0], sample[i][1]) !== sample[i][2]) {
-      return false
+    if (
+      LeastCommonMultiple.reduceToEuclidean(sample[i][0], sample[i][1]) !==
+      sample[i][2]
+    ) {
+      return false;
     }
   }
 
-  return true
-}
+  return true;
+};
 
 if (module === require.main) {
-  TestRunner.pick(testLeastCommonMultiple)
+  TestRunner.pick(testLeastCommonMultiple);
 }

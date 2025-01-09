@@ -1,7 +1,7 @@
-'use strict'
+'use strict';
 
-const Factorial = require('muse/algorithms/number_theory/Factorial')
-const TestRunner = require('muse/util/TestRunner')
+const Factorial = require('muse/algorithms/number_theory/Factorial');
+const TestRunner = require('muse/util/TestRunner');
 
 const testFactorial = () => {
   const sample = [
@@ -17,24 +17,24 @@ const testFactorial = () => {
     [9, 362880],
     [10, 3_628_800],
     [11, 39_916_800],
-    [12, 479_001_600]
-  ]
+    [12, 479_001_600],
+  ];
 
   for (let i = 0, size = sample.length; i < size; i++) {
     if (Factorial.iterativeProcedure(sample[i][0]) !== sample[i][1]) {
-      return false
+      return false;
     }
   }
 
   for (let i = 0, size = sample.length; i < size; i++) {
     if (Factorial.recursiveProcedure(sample[i][0]) !== sample[i][1]) {
-      return false
+      return false;
     }
   }
 
-  return true
-}
+  return true;
+};
 
 if (module === require.main) {
-  TestRunner.pick(testFactorial)
+  TestRunner.pick(testFactorial);
 }

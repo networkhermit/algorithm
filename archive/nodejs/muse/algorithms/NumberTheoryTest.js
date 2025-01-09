@@ -1,8 +1,8 @@
-'use strict'
+'use strict';
 
-const NumberTheory = require('muse/algorithms/NumberTheory')
-const Primality = require('muse/algorithms/number_theory/Primality')
-const TestRunner = require('muse/util/TestRunner')
+const NumberTheory = require('muse/algorithms/NumberTheory');
+const Primality = require('muse/algorithms/number_theory/Primality');
+const TestRunner = require('muse/util/TestRunner');
 
 const testIsCoprime = () => {
   const sample = [
@@ -133,23 +133,23 @@ const testIsCoprime = () => {
     [442_691_160, 1_680_572_092, 0],
     [1_241_208_470, -647_438_045, 0],
     [2_147_483_647, -561_158_902, 1],
-    [761_395_308, -2_147_483_647, 1]
-  ]
+    [761_395_308, -2_147_483_647, 1],
+  ];
 
   for (let i = 0, size = sample.length; i < size; i++) {
     if (sample[i][2] === 0) {
       if (NumberTheory.isCoprime(sample[i][0], sample[i][1])) {
-        return false
+        return false;
       }
     } else {
       if (!NumberTheory.isCoprime(sample[i][0], sample[i][1])) {
-        return false
+        return false;
       }
     }
   }
 
-  return true
-}
+  return true;
+};
 
 const testFactorial = () => {
   const sample = [
@@ -165,17 +165,17 @@ const testFactorial = () => {
     [9, 362880],
     [10, 3_628_800],
     [11, 39_916_800],
-    [12, 479_001_600]
-  ]
+    [12, 479_001_600],
+  ];
 
   for (let i = 0, size = sample.length; i < size; i++) {
     if (NumberTheory.factorial(sample[i][0]) !== sample[i][1]) {
-      return false
+      return false;
     }
   }
 
-  return true
-}
+  return true;
+};
 
 const testFibonacci = () => {
   const sample = [
@@ -241,17 +241,17 @@ const testFibonacci = () => {
     [28, 317811],
     [29, 514229],
     [30, 832040],
-    [31, 1_346_269]
-  ]
+    [31, 1_346_269],
+  ];
 
   for (let i = 0, size = sample.length; i < size; i++) {
     if (NumberTheory.fibonacci(sample[i][0]) !== sample[i][1]) {
-      return false
+      return false;
     }
   }
 
-  return true
-}
+  return true;
+};
 
 const testGCD = () => {
   const sample = [
@@ -382,17 +382,17 @@ const testGCD = () => {
     [1_483_217_656, 1_658_473_101, 1],
     [-1_069_835_847, 1_308_503_268, 3],
     [2_147_483_647, -1_884_119_046, 1],
-    [645_159_694, -2_147_483_647, 1]
-  ]
+    [645_159_694, -2_147_483_647, 1],
+  ];
 
   for (let i = 0, size = sample.length; i < size; i++) {
     if (NumberTheory.gcd(sample[i][0], sample[i][1]) !== sample[i][2]) {
-      return false
+      return false;
     }
   }
 
-  return true
-}
+  return true;
+};
 
 const testLCM = () => {
   const sample = [
@@ -523,17 +523,17 @@ const testLCM = () => {
     [30250, -28845, 174_512_250],
     [45203, -23693, 1_070_994_679],
     [46340, 46341, 2_147_441_940],
-    [-46340, -46341, 2_147_441_940]
-  ]
+    [-46340, -46341, 2_147_441_940],
+  ];
 
   for (let i = 0, size = sample.length; i < size; i++) {
     if (NumberTheory.lcm(sample[i][0], sample[i][1]) !== sample[i][2]) {
-      return false
+      return false;
     }
   }
 
-  return true
-}
+  return true;
+};
 
 const testIsEven = () => {
   const sample = [
@@ -664,23 +664,23 @@ const testIsEven = () => {
     [-846_034_014, 0],
     [411_817_058, 0],
     [2_147_483_647, 1],
-    [-2_147_483_648, 0]
-  ]
+    [-2_147_483_648, 0],
+  ];
 
   for (let i = 0, size = sample.length; i < size; i++) {
     if (sample[i][1] === 0) {
       if (!NumberTheory.isEven(sample[i][0])) {
-        return false
+        return false;
       }
     } else {
       if (NumberTheory.isEven(sample[i][0])) {
-        return false
+        return false;
       }
     }
   }
 
-  return true
-}
+  return true;
+};
 
 const testIsOdd = () => {
   const sample = [
@@ -811,23 +811,23 @@ const testIsOdd = () => {
     [-846_034_014, 0],
     [411_817_058, 0],
     [2_147_483_647, 1],
-    [-2_147_483_648, 0]
-  ]
+    [-2_147_483_648, 0],
+  ];
 
   for (let i = 0, size = sample.length; i < size; i++) {
     if (sample[i][1] === 0) {
       if (NumberTheory.isOdd(sample[i][0])) {
-        return false
+        return false;
       }
     } else {
       if (!NumberTheory.isOdd(sample[i][0])) {
-        return false
+        return false;
       }
     }
   }
 
-  return true
-}
+  return true;
+};
 
 const testIsPrime = () => {
   const sample = [
@@ -1086,30 +1086,30 @@ const testIsPrime = () => {
     [2_291_487, 4],
     [3_893_849, 2],
     [1_308_913, 4],
-    [14_162_880, 4]
-  ]
+    [14_162_880, 4],
+  ];
 
   for (let i = 0, size = sample.length; i < size; i++) {
     switch (sample[i][1]) {
       case 1:
         if (NumberTheory.isPrime(sample[i][0])) {
-          return false
+          return false;
         }
-        break
+        break;
       case 2:
         if (!NumberTheory.isPrime(sample[i][0])) {
-          return false
+          return false;
         }
-        break
+        break;
       default:
         if (NumberTheory.isPrime(sample[i][0])) {
-          return false
+          return false;
         }
     }
   }
 
-  return true
-}
+  return true;
+};
 
 const testIsComposite = () => {
   const sample = [
@@ -1368,30 +1368,30 @@ const testIsComposite = () => {
     [2_291_487, 4],
     [3_893_849, 2],
     [1_308_913, 4],
-    [14_162_880, 4]
-  ]
+    [14_162_880, 4],
+  ];
 
   for (let i = 0, size = sample.length; i < size; i++) {
     switch (sample[i][1]) {
       case 1:
         if (NumberTheory.isComposite(sample[i][0])) {
-          return false
+          return false;
         }
-        break
+        break;
       case 2:
         if (NumberTheory.isComposite(sample[i][0])) {
-          return false
+          return false;
         }
-        break
+        break;
       default:
         if (!NumberTheory.isComposite(sample[i][0])) {
-          return false
+          return false;
         }
     }
   }
 
-  return true
-}
+  return true;
+};
 
 const testSieveOfPrimes = () => {
   const sample = [
@@ -1522,46 +1522,46 @@ const testSieveOfPrimes = () => {
     [108289, 10303],
     [1_228_187, 94920],
     [709431, 57257],
-    [1_294_061, 99610]
-  ]
+    [1_294_061, 99610],
+  ];
 
-  let arr = null
+  let arr = null;
 
   for (let i = 0, size = sample.length; i < size; i++) {
-    arr = NumberTheory.sieveOfPrimes(sample[i][0])
+    arr = NumberTheory.sieveOfPrimes(sample[i][0]);
 
     if (arr.length !== sample[i][1]) {
-      return false
+      return false;
     }
 
     for (const v of arr) {
       if (!Primality.isPrime(v)) {
-        return false
+        return false;
       }
     }
   }
 
-  return true
-}
+  return true;
+};
 
 if (module === require.main) {
-  TestRunner.pick(testIsCoprime)
+  TestRunner.pick(testIsCoprime);
 
-  TestRunner.pick(testFactorial)
+  TestRunner.pick(testFactorial);
 
-  TestRunner.pick(testFibonacci)
+  TestRunner.pick(testFibonacci);
 
-  TestRunner.pick(testGCD)
+  TestRunner.pick(testGCD);
 
-  TestRunner.pick(testLCM)
+  TestRunner.pick(testLCM);
 
-  TestRunner.pick(testIsEven)
+  TestRunner.pick(testIsEven);
 
-  TestRunner.pick(testIsOdd)
+  TestRunner.pick(testIsOdd);
 
-  TestRunner.pick(testIsPrime)
+  TestRunner.pick(testIsPrime);
 
-  TestRunner.pick(testIsComposite)
+  TestRunner.pick(testIsComposite);
 
-  TestRunner.pick(testSieveOfPrimes)
+  TestRunner.pick(testSieveOfPrimes);
 }

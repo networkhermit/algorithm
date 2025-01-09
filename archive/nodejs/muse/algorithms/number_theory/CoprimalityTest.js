@@ -1,7 +1,7 @@
-'use strict'
+'use strict';
 
-const Coprimality = require('muse/algorithms/number_theory/Coprimality')
-const TestRunner = require('muse/util/TestRunner')
+const Coprimality = require('muse/algorithms/number_theory/Coprimality');
+const TestRunner = require('muse/util/TestRunner');
 
 const testCoprimality = () => {
   const sample = [
@@ -132,17 +132,17 @@ const testCoprimality = () => {
     [442_691_160, 1_680_572_092, 0],
     [1_241_208_470, -647_438_045, 0],
     [2_147_483_647, -561_158_902, 1],
-    [761_395_308, -2_147_483_647, 1]
-  ]
+    [761_395_308, -2_147_483_647, 1],
+  ];
 
   for (let i = 0, size = sample.length; i < size; i++) {
     if (sample[i][2] === 0) {
       if (Coprimality.reduceToBinaryGCD(sample[i][0], sample[i][1])) {
-        return false
+        return false;
       }
     } else {
       if (!Coprimality.reduceToBinaryGCD(sample[i][0], sample[i][1])) {
-        return false
+        return false;
       }
     }
   }
@@ -150,18 +150,18 @@ const testCoprimality = () => {
   for (let i = 0, size = sample.length; i < size; i++) {
     if (sample[i][2] === 0) {
       if (Coprimality.reduceToEuclidean(sample[i][0], sample[i][1])) {
-        return false
+        return false;
       }
     } else {
       if (!Coprimality.reduceToEuclidean(sample[i][0], sample[i][1])) {
-        return false
+        return false;
       }
     }
   }
 
-  return true
-}
+  return true;
+};
 
 if (module === require.main) {
-  TestRunner.pick(testCoprimality)
+  TestRunner.pick(testCoprimality);
 }
