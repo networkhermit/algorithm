@@ -7,5 +7,7 @@ import (
 )
 
 func TestLinearSearch(t *testing.T) {
-	t.Run("LinearSearch", tests.Derive(Find))
+	t.Parallel()
+	t.Run("Empty", tests.DeriveEmpty(Find))
+	t.Run("Increasing", tests.DeriveIncreasing(Find, 10000))
 }

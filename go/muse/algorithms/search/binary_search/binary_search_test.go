@@ -7,5 +7,7 @@ import (
 )
 
 func TestBinarySearch(t *testing.T) {
-	t.Run("BinarySearch", tests.Derive(Find))
+	t.Parallel()
+	t.Run("Empty", tests.DeriveEmpty(Find))
+	t.Run("Increasing", tests.DeriveIncreasing(Find, 100000))
 }

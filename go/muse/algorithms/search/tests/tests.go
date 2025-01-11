@@ -6,12 +6,10 @@ import (
 	"muse/util/sequence_builder"
 )
 
-var Derive = func(fn func([]int, int) int) func(t *testing.T) {
+var Derive = func(fn func([]int, int) int, size int, pack func([]int)) func(t *testing.T) {
 	return func(t *testing.T) {
-		size := 32768
-
 		arr := make([]int, size)
-		sequence_builder.PackIncreasing(arr)
+		pack(arr)
 
 		sentinel := []int{-1, 2_147_483_647}
 
@@ -27,4 +25,12 @@ var Derive = func(fn func([]int, int) int) func(t *testing.T) {
 			}
 		}
 	}
+}
+
+var DeriveEmpty = func(fn func([]int, int) int) func(t *testing.T) {
+	return Derive(fn, 0, sequence_builder.PackIdentical)
+}
+
+var DeriveIncreasing = func(fn func([]int, int) int, size int) func(t *testing.T) {
+	return Derive(fn, size, sequence_builder.PackIncreasing)
 }
