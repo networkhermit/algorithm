@@ -24,15 +24,13 @@ func SieveOfEratosthenes(n int) []int {
 		}
 	}
 
-	primes := make([]int, numPrimes)
+	primes := make([]int, 0, numPrimes)
 
-	primes[0] = 2
+	primes = append(primes, 2)
 
-	curr := 1
 	for i, bound := 3, n+1; i < bound; i += 2 {
 		if !arr[i>>1] {
-			primes[curr] = i
-			curr++
+			primes = append(primes, i)
 		}
 	}
 

@@ -139,10 +139,10 @@ var sample = []struct {
 
 var Derive = func(fn func(int64, int64) int64) func(t *testing.T) {
 	return func(t *testing.T) {
-		for _, tt := range sample {
-			actual := fn(tt.m, tt.n)
-			if actual != tt.expected {
-				t.Errorf("%s(%d, %d) returned %d, expect %d", t.Name(), tt.m, tt.n, actual, tt.expected)
+		for _, tc := range sample {
+			actual := fn(tc.m, tc.n)
+			if actual != tc.expected {
+				t.Errorf("%s(%d, %d) returned %d, expect %d", t.Name(), tc.m, tc.n, actual, tc.expected)
 			}
 		}
 	}

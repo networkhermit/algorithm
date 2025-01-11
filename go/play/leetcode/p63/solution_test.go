@@ -14,10 +14,10 @@ func Test(t *testing.T) {
 		{[][]int{{0, 1}, {0, 0}}, 1},
 	}
 
-	for _, tt := range sample {
-		actual := uniquePathsWithObstacles(tt.obstacleGrid)
-		if !reflect.DeepEqual(actual, tt.expected) {
-			t.Errorf("%s(%v) returned %d, expect %d", t.Name(), tt.obstacleGrid, actual, tt.expected)
+	for _, tc := range sample {
+		actual := uniquePathsWithObstacles(tc.obstacleGrid)
+		if !reflect.DeepEqual(actual, tc.expected) {
+			t.Errorf("%s(%v) returned %d, expect %d", t.Name(), tc.obstacleGrid, actual, tc.expected)
 		}
 	}
 }

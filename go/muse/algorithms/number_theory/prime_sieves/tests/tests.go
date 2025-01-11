@@ -142,12 +142,12 @@ var sample = []struct {
 var Derive = func(fn func(int) []int, predicate func(int64) bool) func(t *testing.T) {
 	return func(t *testing.T) {
 		t.Parallel()
-		for _, tt := range sample {
-			tt := tt
-			t.Run(fmt.Sprintf("%d", tt.n), func(t *testing.T) {
-				actual := fn(tt.n)
-				if len(actual) != tt.expected {
-					t.Errorf("%s returned %d elements, expect %d", t.Name(), len(actual), tt.expected)
+		for _, tc := range sample {
+			tc := tc
+			t.Run(fmt.Sprintf("%d", tc.n), func(t *testing.T) {
+				actual := fn(tc.n)
+				if len(actual) != tc.expected {
+					t.Errorf("%s returned %d elements, expect %d", t.Name(), len(actual), tc.expected)
 				}
 				for i, v := range actual {
 					if !predicate(int64(v)) {

@@ -16,10 +16,10 @@ func Test(t *testing.T) {
 		{[]int{3, 3}, 6, []int{0, 1}},
 	}
 
-	for _, tt := range sample {
-		actual := twoSum(tt.nums, tt.target)
-		if !slices.Equal(actual, tt.expected) {
-			t.Errorf("%s(%v, %d) returned %v, expect %v", t.Name(), tt.nums, tt.target, actual, tt.expected)
+	for _, tc := range sample {
+		actual := twoSum(tc.nums, tc.target)
+		if !slices.Equal(actual, tc.expected) {
+			t.Errorf("%s(%v, %d) returned %v, expect %v", t.Name(), tc.nums, tc.target, actual, tc.expected)
 		}
 	}
 }
@@ -35,10 +35,10 @@ func TestBruteForce(t *testing.T) {
 		{[]int{3, 3}, 6, []int{0, 1}},
 	}
 
-	for _, tt := range sample {
-		actual := twoSumBruteForce(tt.nums, tt.target)
-		if !slices.Equal(actual, tt.expected) {
-			t.Errorf("%s(%v, %d) returned %v, expect %v", t.Name(), tt.nums, tt.target, actual, tt.expected)
+	for _, tc := range sample {
+		actual := twoSumBruteForce(tc.nums, tc.target)
+		if !slices.Equal(actual, tc.expected) {
+			t.Errorf("%s(%v, %d) returned %v, expect %v", t.Name(), tc.nums, tc.target, actual, tc.expected)
 		}
 	}
 }

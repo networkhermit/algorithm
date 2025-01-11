@@ -133,13 +133,12 @@ const SAMPLE: [(i64, i64, i64); 128] = [
 
 pub(crate) fn derive(f: &dyn Fn(i64, i64) -> i64) -> impl Fn() + '_ {
     move || {
-        SAMPLE.iter().for_each(|tt| {
-            let (m, n, expected) = *tt;
+        SAMPLE.iter().for_each(|&(m, n, expected)| {
             let actual = f(m, n);
             assert_eq!(
                 actual, expected,
-                "fn({}, {}) returned {}, expect {}",
-                m, n, actual, expected
+                "fn({}, {}) returned the left result, expect the right result",
+                m, n
             );
         });
     }
