@@ -4,9 +4,9 @@ pub fn iterative_procedure(n: i64) -> i64 {
     }
 
     let mut result = 1;
-    for i in 1..=n {
+    (1..=n).for_each(|i| {
         result *= i;
-    }
+    });
 
     result
 }

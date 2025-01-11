@@ -1,5 +1,7 @@
 use crate::util::{sequence_builder, sequences};
 
+use super::*;
+
 pub(crate) fn derive<'a>(
     f: &'a dyn Fn(&mut [i32]),
     size: usize,
@@ -44,4 +46,29 @@ pub(crate) fn derive_increasing(f: &dyn Fn(&mut [i32]), size: usize) -> impl Fn(
 
 pub(crate) fn derive_random(f: &dyn Fn(&mut [i32]), size: usize) -> impl Fn() + '_ {
     derive(f, size, &sequence_builder::pack_random)
+}
+
+#[test]
+fn test_bubble_sort() {
+    derive_random(&bubble_sort, 10000)();
+}
+
+#[test]
+fn test_insertion_sort() {
+    derive_random(&insertion_sort, 10000)();
+}
+
+#[test]
+fn test_merge_sort() {
+    derive_random(&merge_sort, 100000)();
+}
+
+#[test]
+fn test_quick_sort() {
+    derive_random(&quick_sort, 100000)();
+}
+
+#[test]
+fn test_selection_sort() {
+    derive_random(&selection_sort, 10000)();
 }

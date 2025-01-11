@@ -7,21 +7,21 @@ import (
 )
 
 func TestBubbleSort(t *testing.T) {
-	t.Run("BubbleSort", tests.DeriveRandom(BubbleSort, 32768))
+	t.Run("BubbleSort", tests.DeriveRandom(BubbleSort, 10000))
 }
 
 func TestInsertionSort(t *testing.T) {
-	t.Run("InsertionSort", tests.DeriveRandom(InsertionSort, 32768))
+	t.Run("InsertionSort", tests.DeriveRandom(InsertionSort, 10000))
 }
 
 func TestMergeSort(t *testing.T) {
-	t.Run("MergeSort", tests.DeriveRandom(MergeSort, 32768))
+	t.Run("MergeSort", tests.DeriveRandom(MergeSort, 100000))
 }
 
 func TestQuickSort(t *testing.T) {
-	t.Run("QuickSort", tests.DeriveRandom(QuickSort, 32768))
+	t.Run("QuickSort", tests.DeriveRandom(QuickSort, 100000))
 }
 
 func TestSelectionSort(t *testing.T) {
-	t.Run("SelectionSort", tests.DeriveRandom(SelectionSort, 32768))
+	t.Run("SelectionSort", tests.DeriveRandom(SelectionSort, 10000))
 }

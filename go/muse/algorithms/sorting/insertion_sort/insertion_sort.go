@@ -1,13 +1,10 @@
 package insertion_sort
 
 func Sort(arr []int) {
-	var target int
-
-	var cursor int
-
-	for i, length := 1, len(arr); i < length; i++ {
-		target = arr[i]
-		for cursor = i; cursor > 0; cursor-- {
+	for i := 1; i < len(arr); i++ {
+		target := arr[i]
+		cursor := i
+		for ; cursor > 0; cursor-- {
 			if arr[cursor-1] <= target {
 				break
 			}

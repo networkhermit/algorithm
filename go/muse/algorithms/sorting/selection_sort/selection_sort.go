@@ -5,11 +5,9 @@ func Sort(arr []int) {
 		return
 	}
 
-	var iMin int
-
-	for i, bound := 0, len(arr)-1; i < bound; i++ {
-		iMin = i
-		for j := i + 1; j <= bound; j++ {
+	for i := range len(arr) - 1 {
+		iMin := i
+		for j := i + 1; j < len(arr); j++ {
 			if arr[j] < arr[iMin] {
 				iMin = j
 			}

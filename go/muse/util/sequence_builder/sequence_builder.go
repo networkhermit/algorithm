@@ -17,7 +17,7 @@ func PackIncreasing(arr []int) {
 		return
 	}
 	arr[0] = random_factory.GenIntN(1, 3)
-	for i, length := 1, len(arr); i < length; i++ {
+	for i := 1; i < len(arr); i++ {
 		arr[i] = arr[i-1] + random_factory.GenIntN(1, 3)
 	}
 }

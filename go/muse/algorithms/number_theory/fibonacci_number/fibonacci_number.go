@@ -26,10 +26,11 @@ func IterativeProcedure(n int64) int64 {
 
 func RecursiveProcedure(n int64) int64 {
 	if n < 0 {
+		val := RecursiveProcedure(-n)
 		if (n & 1) == 0 {
-			return -RecursiveProcedure(-n)
+			return -val
 		}
-		return RecursiveProcedure(-n)
+		return val
 	}
 	if n < 2 {
 		return n

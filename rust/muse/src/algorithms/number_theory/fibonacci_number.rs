@@ -15,19 +15,20 @@ pub fn iterative_procedure(mut n: i64) -> i64 {
     let mut prev = 0;
     let mut curr = 1;
 
-    for _ in 2..=n {
+    (2..=n).for_each(|_| {
         (prev, curr) = (curr, prev + curr);
-    }
+    });
 
     sign * curr
 }
 
 pub fn recursive_procedure(n: i64) -> i64 {
     if n < 0 {
+        let val = recursive_procedure(-n);
         if (n & 1) == 0 {
-            return -recursive_procedure(-n);
-        }
-        return recursive_procedure(-n);
+            return -val;
+        };
+        return val;
     }
     if n < 2 {
         return n;

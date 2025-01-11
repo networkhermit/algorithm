@@ -13,7 +13,7 @@ func Merge(arr []int, lo, mid, hi int) {
 
 	sorted := make([]int, hi-lo)
 
-	for i, length := 0, len(sorted); i < length; i++ {
+	for i := range len(sorted) {
 		if m != mid && (n == hi || arr[m] < arr[n]) {
 			sorted[i] = arr[m]
 			m++
