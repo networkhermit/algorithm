@@ -1,43 +1,14 @@
 from muse.algorithms import search
-from muse.util import sequence_builder, test_runner
+from muse.algorithms.search import tests
+from muse.util import test_runner
 
 
 def test_binary_search() -> bool:
-    size = 32768
-
-    arr = [0] * size
-    sequence_builder.pack_increasing(arr)
-
-    if search.binarysearch(arr, -1) != size:
-        return False
-
-    if search.binarysearch(arr, 2_147_483_647) != size:
-        return False
-
-    for i, v in enumerate(arr):
-        if search.binarysearch(arr, v) != i:
-            return False
-
-    return True
+    return tests.derive_increasing(search.binarysearch, 100000)()
 
 
 def test_linear_search() -> bool:
-    size = 32768
-
-    arr = [0] * size
-    sequence_builder.pack_increasing(arr)
-
-    if search.linearsearch(arr, -1) != size:
-        return False
-
-    if search.linearsearch(arr, 2_147_483_647) != size:
-        return False
-
-    for i, v in enumerate(arr):
-        if search.linearsearch(arr, v) != i:
-            return False
-
-    return True
+    return tests.derive_increasing(search.linearsearch, 10000)()
 
 
 def main() -> None:

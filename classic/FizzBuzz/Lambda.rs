@@ -8,7 +8,7 @@ fn fizz_buzz(n: i32) -> String {
         word += "Buzz";
     }
 
-    if word.len() == 0 {
+    if word.is_empty() {
         word = n.to_string();
     }
 

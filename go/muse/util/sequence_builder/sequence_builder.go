@@ -7,7 +7,7 @@ import (
 
 func PackIdentical(arr []int) {
 	n := random_factory.GenInt()
-	for i := range len(arr) {
+	for i := range arr {
 		arr[i] = n
 	}
 }

@@ -3,7 +3,7 @@ use crate::util::sequence_builder;
 use super::*;
 
 pub(crate) fn derive<'a>(
-    f: &'a dyn Fn(&[i32], i32) -> usize,
+    find: &'a dyn Fn(&[i32], i32) -> usize,
     size: usize,
     pack: &'a dyn Fn(&mut [i32]),
 ) -> impl Fn() + 'a {
@@ -14,7 +14,7 @@ pub(crate) fn derive<'a>(
         let sentinel = [-1, 2_147_483_647];
 
         for v in sentinel {
-            let actual = f(&arr, v);
+            let actual = find(&arr, v);
             assert_eq!(
                 actual, size,
                 "fn(arr, {}) returned the left result, expect the right result",
@@ -23,7 +23,7 @@ pub(crate) fn derive<'a>(
         }
 
         for (i, &v) in arr.iter().enumerate() {
-            let actual = f(&arr, v);
+            let actual = find(&arr, v);
             assert_eq!(
                 actual, i,
                 "fn(arr, {}) returned the left result, expect the right result",
@@ -33,12 +33,15 @@ pub(crate) fn derive<'a>(
     }
 }
 
-pub(crate) fn derive_empty(f: &dyn Fn(&[i32], i32) -> usize) -> impl Fn() + '_ {
-    derive(f, 0, &sequence_builder::pack_identical)
+pub(crate) fn derive_empty(find: &dyn Fn(&[i32], i32) -> usize) -> impl Fn() + '_ {
+    derive(find, 0, &sequence_builder::pack_identical)
 }
 
-pub(crate) fn derive_increasing(f: &dyn Fn(&[i32], i32) -> usize, size: usize) -> impl Fn() + '_ {
-    derive(f, size, &sequence_builder::pack_increasing)
+pub(crate) fn derive_increasing(
+    find: &dyn Fn(&[i32], i32) -> usize,
+    size: usize,
+) -> impl Fn() + '_ {
+    derive(find, size, &sequence_builder::pack_increasing)
 }
 
 #[test]

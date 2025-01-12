@@ -20,9 +20,10 @@ def iterative_procedure(n: int) -> int:
 
 def recursive_procedure(n: int) -> int:
     if n < 0:
+        val = recursive_procedure(-n)
         if (n & 1) == 0:
-            return -recursive_procedure(-n)
-        return recursive_procedure(-n)
+            return -val
+        return val
     if n < 2:
         return n
     return recursive_procedure(n - 2) + recursive_procedure(n - 1)

@@ -1,21 +1,16 @@
-from muse.algorithms.sorting import quick_sort
-from muse.util import sequence_builder, sequences, test_runner
+from muse.algorithms.sorting import quick_sort, tests
+from muse.util import test_runner
 
 
 def test_quick_sort() -> bool:
-    size = 32768
-
-    arr = [0] * size
-    sequence_builder.pack_random(arr)
-
-    checksum = sequences.parity_checksum(arr)
-
-    quick_sort.sort(arr)
-
-    if sequences.parity_checksum(arr) != checksum:
-        return False
-
-    return sequences.is_sorted(arr)
+    sort = quick_sort.sort
+    return (
+        tests.derive_decreasing(sort, 100)()
+        and tests.derive_empty(sort)()
+        and tests.derive_identical(sort, 100)()
+        and tests.derive_increasing(sort, 100)()
+        and tests.derive_random(sort, 100000)()
+    )
 
 
 def main() -> None:

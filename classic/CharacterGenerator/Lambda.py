@@ -5,7 +5,6 @@ def main() -> None:
 
     cursor = FIRST_GLYPH
 
-    i = 0
     while True:
         i = cursor
         for _ in range(GLYPHS_PER_LINE):

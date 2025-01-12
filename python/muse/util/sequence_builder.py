@@ -1,6 +1,12 @@
 from muse.util import random_factory, sequences
 
 
+def pack_identical(arr: list) -> None:
+    n = random_factory.gen_int()
+    for i in range(len(arr)):
+        arr[i] = n
+
+
 def pack_increasing(arr: list) -> None:
     if not arr:
         return
@@ -10,7 +16,7 @@ def pack_increasing(arr: list) -> None:
 
 
 def pack_random(arr: list) -> None:
-    for i, _ in enumerate(arr):
+    for i in range(len(arr)):
         arr[i] = random_factory.gen_int()
 
 

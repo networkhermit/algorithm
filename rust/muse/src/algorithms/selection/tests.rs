@@ -32,30 +32,33 @@ pub(crate) fn derive<'a>(
 }
 
 pub(crate) fn derive_decreasing(
-    f: &dyn Fn(&mut [i32], usize) -> i32,
+    select: &dyn Fn(&mut [i32], usize) -> i32,
     size: usize,
 ) -> impl Fn() + '_ {
-    derive(f, size, &sequence_builder::pack_decreasing)
+    derive(select, size, &sequence_builder::pack_decreasing)
 }
 
-pub(crate) fn derive_empty(f: &dyn Fn(&mut [i32], usize) -> i32) -> impl Fn() + '_ {
-    derive(f, 0, &sequence_builder::pack_identical)
+pub(crate) fn derive_empty(select: &dyn Fn(&mut [i32], usize) -> i32) -> impl Fn() + '_ {
+    derive(select, 0, &sequence_builder::pack_identical)
 }
 
 pub(crate) fn derive_identical(
-    f: &dyn Fn(&mut [i32], usize) -> i32,
+    select: &dyn Fn(&mut [i32], usize) -> i32,
     size: usize,
 ) -> impl Fn() + '_ {
-    derive(f, size, &sequence_builder::pack_identical)
+    derive(select, size, &sequence_builder::pack_identical)
 }
 
 pub(crate) fn derive_increasing(
-    f: &dyn Fn(&mut [i32], usize) -> i32,
+    select: &dyn Fn(&mut [i32], usize) -> i32,
     size: usize,
 ) -> impl Fn() + '_ {
-    derive(f, size, &sequence_builder::pack_increasing)
+    derive(select, size, &sequence_builder::pack_increasing)
 }
 
-pub(crate) fn derive_random(f: &dyn Fn(&mut [i32], usize) -> i32, size: usize) -> impl Fn() + '_ {
-    derive(f, size, &sequence_builder::pack_random)
+pub(crate) fn derive_random(
+    select: &dyn Fn(&mut [i32], usize) -> i32,
+    size: usize,
+) -> impl Fn() + '_ {
+    derive(select, size, &sequence_builder::pack_random)
 }

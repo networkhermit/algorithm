@@ -36,19 +36,15 @@ func ParityChecksum(arr []int) int {
 }
 
 func Reverse(arr []int) {
-	var k int
-
-	for i, bound := 0, len(arr)>>1; i < bound; i++ {
-		k = len(arr) - i - 1
+	for i := range len(arr) >> 1 {
+		k := len(arr) - i - 1
 		arr[i], arr[k] = arr[k], arr[i]
 	}
 }
 
 func Shuffle(arr []int) {
-	var k int
-
-	for i := range len(arr) {
-		k = random_factory.GenIntN(i, len(arr)-1)
+	for i := range arr {
+		k := random_factory.GenIntN(i, len(arr)-1)
 		arr[i], arr[k] = arr[k], arr[i]
 	}
 }

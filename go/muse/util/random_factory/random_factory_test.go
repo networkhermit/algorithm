@@ -3,7 +3,6 @@ package random_factory
 import "testing"
 
 func TestGenIntN(t *testing.T) {
-	var value int
 	for range 8192 {
 		if GenIntN(0, 0) != 0 {
 			t.FailNow()
@@ -13,7 +12,7 @@ func TestGenIntN(t *testing.T) {
 			t.FailNow()
 		}
 
-		value = GenIntN(0, 1)
+		value := GenIntN(0, 1)
 		if value < 0 || value > 1 {
 			t.FailNow()
 		}

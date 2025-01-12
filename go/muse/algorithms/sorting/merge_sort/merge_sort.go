@@ -5,15 +5,15 @@ func Merge(arr []int, lo, mid, hi int) {
 		return
 	}
 
-	Merge(arr, lo, (lo+mid)>>1, mid)
-	Merge(arr, mid, (mid+hi)>>1, hi)
+	Merge(arr, lo, lo+((mid-lo)>>1), mid)
+	Merge(arr, mid, mid+((hi-mid)>>1), hi)
 
 	m := lo
 	n := mid
 
 	sorted := make([]int, hi-lo)
 
-	for i := range len(sorted) {
+	for i := range sorted {
 		if m != mid && (n == hi || arr[m] < arr[n]) {
 			sorted[i] = arr[m]
 			m++

@@ -15,7 +15,7 @@ pub fn iterative_procedure(mut n: i64) -> i64 {
     let mut prev = 0;
     let mut curr = 1;
 
-    (2..=n).for_each(|_| {
+    (0..n - 1).for_each(|_| {
         (prev, curr) = (curr, prev + curr);
     });
 

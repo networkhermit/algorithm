@@ -1,13 +1,13 @@
 import sys
-from typing import Callable
+from collections.abc import Callable
 
 ItemIndex = 0
 
 
-def pick(func: Callable[[], bool]) -> None:
+def pick(fn: Callable[[], bool]) -> None:
     global ItemIndex
 
-    if func():
+    if fn():
         print("✓ Item [%d] PASSED" % ItemIndex)
     else:
         print("✗ Item [%d] FAILED" % ItemIndex, file=sys.stderr)

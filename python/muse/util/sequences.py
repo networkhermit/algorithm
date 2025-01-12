@@ -27,20 +27,14 @@ def parity_checksum(arr: list) -> int:
 
 
 def reverse(arr: list) -> None:
-    k = 0
-
-    length = len(arr)
     for i in range(len(arr) >> 1):
-        k = length - i - 1
+        k = len(arr) - i - 1
         arr[i], arr[k] = arr[k], arr[i]
 
 
 def shuffle(arr: list) -> None:
-    k = 0
-    length = len(arr)
-
-    for i in range(length):
-        k = random_factory.gen_int_n(i, length - 1)
+    for i in range(len(arr)):
+        k = random_factory.gen_int_n(i, len(arr) - 1)
         arr[i], arr[k] = arr[k], arr[i]
 
 

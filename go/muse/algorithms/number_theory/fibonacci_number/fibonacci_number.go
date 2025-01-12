@@ -17,7 +17,7 @@ func IterativeProcedure(n int64) int64 {
 	prev := int64(0)
 	curr := int64(1)
 
-	for i := int64(2); i <= n; i++ {
+	for range n - 1 {
 		prev, curr = curr, prev+curr
 	}
 

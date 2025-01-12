@@ -6,7 +6,7 @@ import (
 )
 
 func Test(t *testing.T) {
-	var sample = []struct {
+	sample := []struct {
 		obstacleGrid [][]int
 		expected     int
 	}{

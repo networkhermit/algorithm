@@ -3,8 +3,8 @@ pub fn merge(arr: &mut [i32], lo: usize, mid: usize, hi: usize) {
         return;
     }
 
-    merge(arr, lo, (lo + mid) >> 1, mid);
-    merge(arr, mid, (mid + hi) >> 1, hi);
+    merge(arr, lo, lo + ((mid - lo) >> 1), mid);
+    merge(arr, mid, mid + ((hi - mid) >> 1), hi);
 
     let mut m = lo;
     let mut n = mid;

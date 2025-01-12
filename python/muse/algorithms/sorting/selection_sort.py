@@ -2,12 +2,9 @@ def sort(arr: list) -> None:
     if not arr:
         return
 
-    i_min = 0
-
-    bound = len(arr) - 1
-    for i in range(bound):
+    for i in range(len(arr) - 1):
         i_min = i
-        for j in range(i + 1, bound + 1):
+        for j in range(i + 1, len(arr)):
             if arr[j] < arr[i_min]:
                 i_min = j
         if i_min != i:

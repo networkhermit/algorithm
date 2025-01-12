@@ -2,15 +2,15 @@ def merge(arr: list, lo: int, mid: int, hi: int) -> None:
     if lo == mid:
         return
 
-    merge(arr, lo, (lo + mid) >> 1, mid)
-    merge(arr, mid, (mid + hi) >> 1, hi)
+    merge(arr, lo, lo + ((mid - lo) >> 1), mid)
+    merge(arr, mid, mid + ((hi - mid) >> 1), hi)
 
     m = lo
     n = mid
 
     sorted = [0] * (hi - lo)
 
-    for i, _ in enumerate(sorted):
+    for i in range(len(sorted)):
         if m != mid and (n == hi or arr[m] < arr[n]):
             sorted[i] = arr[m]
             m += 1

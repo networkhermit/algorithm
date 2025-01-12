@@ -11,9 +11,8 @@ func main() {
 
 	cursor := FIRST_GLYPH
 
-	var i int
 	for {
-		i = cursor
+		i := cursor
 		for range GLYPHS_PER_LINE {
 			fmt.Print(string(rune(i)))
 			if i == LAST_GLYPH {

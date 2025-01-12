@@ -1,85 +1,26 @@
 from muse.algorithms import sorting
-from muse.util import sequence_builder, sequences, test_runner
+from muse.algorithms.sorting import tests
+from muse.util import test_runner
 
 
 def test_bubble_sort() -> bool:
-    size = 32768
-
-    arr = [0] * size
-    sequence_builder.pack_random(arr)
-
-    checksum = sequences.parity_checksum(arr)
-
-    sorting.bubblesort(arr)
-
-    if sequences.parity_checksum(arr) != checksum:
-        return False
-
-    return sequences.is_sorted(arr)
+    return tests.derive_random(sorting.bubblesort, 10000)()
 
 
 def test_insertion_sort() -> bool:
-    size = 32768
-
-    arr = [0] * size
-    sequence_builder.pack_random(arr)
-
-    checksum = sequences.parity_checksum(arr)
-
-    sorting.insertionsort(arr)
-
-    if sequences.parity_checksum(arr) != checksum:
-        return False
-
-    return sequences.is_sorted(arr)
+    return tests.derive_random(sorting.insertionsort, 10000)()
 
 
 def test_merge_sort() -> bool:
-    size = 32768
-
-    arr = [0] * size
-    sequence_builder.pack_random(arr)
-
-    checksum = sequences.parity_checksum(arr)
-
-    sorting.mergesort(arr)
-
-    if sequences.parity_checksum(arr) != checksum:
-        return False
-
-    return sequences.is_sorted(arr)
+    return tests.derive_random(sorting.mergesort, 100000)()
 
 
 def test_quick_sort() -> bool:
-    size = 32768
-
-    arr = [0] * size
-    sequence_builder.pack_random(arr)
-
-    checksum = sequences.parity_checksum(arr)
-
-    sorting.quicksort(arr)
-
-    if sequences.parity_checksum(arr) != checksum:
-        return False
-
-    return sequences.is_sorted(arr)
+    return tests.derive_random(sorting.quicksort, 100000)()
 
 
 def test_selection_sort() -> bool:
-    size = 32768
-
-    arr = [0] * size
-    sequence_builder.pack_random(arr)
-
-    checksum = sequences.parity_checksum(arr)
-
-    sorting.selectionsort(arr)
-
-    if sequences.parity_checksum(arr) != checksum:
-        return False
-
-    return sequences.is_sorted(arr)
+    return tests.derive_random(sorting.selectionsort, 10000)()
 
 
 def main() -> None:

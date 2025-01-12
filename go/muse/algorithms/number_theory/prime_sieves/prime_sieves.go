@@ -28,7 +28,7 @@ func SieveOfEratosthenes(n int) []int {
 
 	primes = append(primes, 2)
 
-	for i, bound := 3, n+1; i < bound; i += 2 {
+	for i := 3; i <= n; i += 2 {
 		if !arr[i>>1] {
 			primes = append(primes, i)
 		}

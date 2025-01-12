@@ -2,7 +2,6 @@ from muse.util import random_factory, test_runner
 
 
 def test_gen_int_n() -> bool:
-    value = 0
     for _ in range(8192):
         if random_factory.gen_int_n(0, 0) != 0:
             return False

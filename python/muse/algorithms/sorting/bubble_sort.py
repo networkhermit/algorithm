@@ -1,7 +1,5 @@
 def sort(arr: list) -> None:
-    margin = 0
     unsorted = len(arr)
-
     while unsorted > 1:
         margin = 0
         for i in range(1, unsorted):

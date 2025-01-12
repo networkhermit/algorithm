@@ -6,7 +6,7 @@ import (
 )
 
 func Test(t *testing.T) {
-	var sample = []struct {
+	sample := []struct {
 		nums     []int
 		target   int
 		expected []int
@@ -25,7 +25,7 @@ func Test(t *testing.T) {
 }
 
 func TestBruteForce(t *testing.T) {
-	var sample = []struct {
+	sample := []struct {
 		nums     []int
 		target   int
 		expected []int
