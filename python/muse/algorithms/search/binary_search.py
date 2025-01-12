@@ -1,4 +1,4 @@
-def find(arr: list, key: object) -> int:
+def find(arr: list[int], key: int) -> int:
     lo = 0
     hi = len(arr)
 

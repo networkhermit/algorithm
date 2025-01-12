@@ -34,23 +34,23 @@ def test_lcm() -> bool:
 
 
 def test_is_even() -> bool:
-    return parity_test.derive(number_theory.is_even, parity_test.EVEN)
+    return parity_test.derive(number_theory.is_even, parity_test.EVEN)()
 
 
 def test_is_odd() -> bool:
-    return parity_test.derive(number_theory.is_odd, parity_test.ODD)
+    return parity_test.derive(number_theory.is_odd, parity_test.ODD)()
 
 
 def test_is_prime() -> bool:
-    return primality_test.derive(number_theory.is_prime, primality_test.PRIME)
+    return primality_test.derive(number_theory.is_prime, primality_test.PRIME)()
 
 
 def test_is_composite() -> bool:
-    return primality_test.derive(number_theory.is_composite, primality_test.COMPOSITE)
+    return primality_test.derive(number_theory.is_composite, primality_test.COMPOSITE)()
 
 
 def test_sieve_of_primes() -> bool:
-    return prime_sieves_test.derive(number_theory.sieve_of_primes, primality.is_prime)
+    return prime_sieves_test.derive(number_theory.sieve_of_primes, primality.is_prime)()
 
 
 def main() -> None:

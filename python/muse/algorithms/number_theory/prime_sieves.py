@@ -1,7 +1,7 @@
 import math
 
 
-def sieve_of_eratosthenes(n: int) -> list:
+def sieve_of_eratosthenes(n: int) -> list[int]:
     if n < 2:
         return []
 

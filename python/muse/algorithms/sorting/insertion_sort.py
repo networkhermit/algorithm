@@ -1,4 +1,4 @@
-def sort(arr: list) -> None:
+def sort(arr: list[int]) -> None:
     for i in range(1, len(arr)):
         target = arr[i]
         for cursor in range(i, 0, -1):

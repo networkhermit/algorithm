@@ -1,7 +1,10 @@
+from typing import Any
+
+
 class Node:
-    def __init__(self, element: object):
+    def __init__(self, element: Any):
         self.data = element
-        self.next = None
+        self.next: Node | None = None
 
 
 class LinkedQueue:
@@ -16,13 +19,13 @@ class LinkedQueue:
     def is_empty(self) -> bool:
         return self.length == 0
 
-    def peek(self) -> int:
+    def peek(self) -> Any:
         if self.length == 0:
             raise RuntimeError("[PANIC - NoSuchElement]")
 
         return self.head.data
 
-    def enqueue(self, element: object) -> None:
+    def enqueue(self, element: Any) -> None:
         node = Node(element)
 
         if self.length == 0:

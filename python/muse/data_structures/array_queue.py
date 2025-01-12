@@ -1,8 +1,11 @@
+from typing import Any
+
+
 class ArrayQueue:
     DEFAULT_CAPACITY = 64
 
     def __init__(self, physicalSize: int = 0):
-        self.data = None
+        self.data: list[Any] = []
         self.front = 0
         self.logical_size = 0
         self.physical_size = self.DEFAULT_CAPACITY
@@ -17,13 +20,13 @@ class ArrayQueue:
     def is_empty(self) -> bool:
         return self.logical_size == 0
 
-    def peek(self) -> int:
+    def peek(self) -> Any:
         if self.logical_size == 0:
             raise RuntimeError("[PANIC - NoSuchElement]")
 
         return self.data[self.front]
 
-    def enqueue(self, element: object) -> None:
+    def enqueue(self, element: Any) -> None:
         if self.logical_size == self.physical_size:
             newCapacity = self.DEFAULT_CAPACITY
 

@@ -46,5 +46,5 @@ def is_composite(n: int) -> bool:
     return primality.is_composite(n)
 
 
-def sieve_of_primes(n: int) -> list:
+def sieve_of_primes(n: int) -> list[int]:
     return prime_sieves.sieve_of_eratosthenes(n)

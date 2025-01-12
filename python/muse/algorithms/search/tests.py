@@ -4,7 +4,9 @@ from muse.util import sequence_builder
 
 
 def derive(
-    find: Callable[[list, object], int], size: int, pack: Callable[[list], None]
+    find: Callable[[list[int], int], int],
+    size: int,
+    pack: Callable[[list[int]], None],
 ) -> Callable[[], bool]:
     def f() -> bool:
         arr = [0] * size
@@ -25,11 +27,11 @@ def derive(
     return f
 
 
-def derive_empty(find: Callable[[list, object], int]) -> Callable[[], bool]:
+def derive_empty(find: Callable[[list[int], int], int]) -> Callable[[], bool]:
     return derive(find, 0, sequence_builder.pack_identical)
 
 
 def derive_increasing(
-    find: Callable[[list, object], int], size: int
+    find: Callable[[list[int], int], int], size: int
 ) -> Callable[[], bool]:
     return derive(find, size, sequence_builder.pack_increasing)

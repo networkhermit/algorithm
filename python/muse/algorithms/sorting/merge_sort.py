@@ -1,4 +1,4 @@
-def merge(arr: list, lo: int, mid: int, hi: int) -> None:
+def merge(arr: list[int], lo: int, mid: int, hi: int) -> None:
     if lo == mid:
         return
 
@@ -24,5 +24,5 @@ def merge(arr: list, lo: int, mid: int, hi: int) -> None:
         cursor += 1
 
 
-def sort(arr: list) -> None:
+def sort(arr: list[int]) -> None:
     merge(arr, 0, len(arr) >> 1, len(arr))

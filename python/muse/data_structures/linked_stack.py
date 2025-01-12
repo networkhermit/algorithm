@@ -1,7 +1,10 @@
+from typing import Any
+
+
 class Node:
-    def __init__(self, element: object):
+    def __init__(self, element: Any):
         self.data = element
-        self.next = None
+        self.next: Node | None = None
 
 
 class LinkedStack:
@@ -16,13 +19,13 @@ class LinkedStack:
     def is_empty(self) -> bool:
         return self.length == 0
 
-    def peek(self) -> int:
+    def peek(self) -> Any:
         if self.length == 0:
             raise RuntimeError("[PANIC - NoSuchElement]")
 
         return self.tail.data
 
-    def push(self, element: object) -> None:
+    def push(self, element: Any) -> None:
         node = Node(element)
 
         if self.length == 0:
@@ -45,7 +48,7 @@ class LinkedStack:
             self.tail = None
         else:
             cursor = self.head
-            for i in range(self.length - 2):
+            for _ in range(self.length - 2):
                 cursor = cursor.next
             cursor.next = None
             self.tail = cursor

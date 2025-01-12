@@ -136,7 +136,7 @@ sample = [
 
 
 def derive(
-    fn: Callable[[int], list], predicate: Callable[[int], bool]
+    fn: Callable[[int], list[int]], predicate: Callable[[int], bool]
 ) -> Callable[[], bool]:
     def f() -> bool:
         for tc in sample:

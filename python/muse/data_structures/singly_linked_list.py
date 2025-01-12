@@ -1,7 +1,10 @@
+from typing import Any
+
+
 class Node:
-    def __init__(self, element: object):
+    def __init__(self, element: Any):
         self.data = element
-        self.next = None
+        self.next: Node | None = None
 
 
 class SinglyLinkedList:
@@ -15,7 +18,7 @@ class SinglyLinkedList:
     def is_empty(self) -> bool:
         return self.length == 0
 
-    def get(self, index: int) -> int:
+    def get(self, index: int) -> Any:
         if index < 0 or index >= self.length:
             raise RuntimeError("[PANIC - IndexOutOfBounds]")
 
@@ -26,18 +29,18 @@ class SinglyLinkedList:
 
         return cursor.data
 
-    def set(self, index: int, element: object) -> None:
+    def set(self, index: int, element: Any) -> None:
         if index < 0 or index >= self.length:
             raise RuntimeError("[PANIC - IndexOutOfBounds]")
 
         cursor = self.head
 
-        for i in range(index):
+        for _ in range(index):
             cursor = cursor.next
 
         cursor.data = element
 
-    def insert(self, index: int, element: object) -> None:
+    def insert(self, index: int, element: Any) -> None:
         if index < 0 or index > self.length:
             raise RuntimeError("[PANIC - IndexOutOfBounds]")
 
@@ -49,7 +52,7 @@ class SinglyLinkedList:
             self.head = node
         else:
             cursor = self.head
-            for i in range(index - 1):
+            for _ in range(index - 1):
                 cursor = cursor.next
             node.next = cursor.next
             cursor.next = node
@@ -70,7 +73,7 @@ class SinglyLinkedList:
                 self.head = target.next
         else:
             cursor = self.head
-            for i in range(index - 1):
+            for _ in range(index - 1):
                 cursor = cursor.next
             target = cursor.next
             cursor.next = target.next
@@ -79,16 +82,16 @@ class SinglyLinkedList:
 
         self.length -= 1
 
-    def front(self) -> int:
+    def front(self) -> Any:
         return self.get(0)
 
-    def back(self) -> int:
+    def back(self) -> Any:
         return self.get(self.length - 1)
 
-    def prepend(self, element: object) -> None:
+    def prepend(self, element: Any) -> None:
         self.insert(0, element)
 
-    def append(self, element: object) -> None:
+    def append(self, element: Any) -> None:
         self.insert(self.length, element)
 
     def poll(self) -> None:

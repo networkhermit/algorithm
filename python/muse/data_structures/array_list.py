@@ -1,8 +1,11 @@
+from typing import Any
+
+
 class ArrayList:
     DEFAULT_CAPACITY = 64
 
     def __init__(self, physicalSize: int = 0):
-        self.data = None
+        self.data: list[Any] = []
         self.logical_size = 0
         self.physical_size = self.DEFAULT_CAPACITY
 
@@ -16,19 +19,19 @@ class ArrayList:
     def is_empty(self) -> bool:
         return self.logical_size == 0
 
-    def get(self, index: int) -> int:
+    def get(self, index: int) -> Any:
         if index < 0 or index >= self.logical_size:
             raise RuntimeError("[PANIC - IndexOutOfBounds]")
 
         return self.data[index]
 
-    def set(self, index: int, element: object) -> None:
+    def set(self, index: int, element: Any) -> None:
         if index < 0 or index >= self.logical_size:
             raise RuntimeError("[PANIC - IndexOutOfBounds]")
 
         self.data[index] = element
 
-    def insert(self, index: int, element: object) -> None:
+    def insert(self, index: int, element: Any) -> None:
         if index < 0 or index > self.logical_size:
             raise RuntimeError("[PANIC - IndexOutOfBounds]")
 
@@ -64,16 +67,16 @@ class ArrayList:
 
         self.data[self.logical_size] = None
 
-    def front(self) -> int:
+    def front(self) -> Any:
         return self.get(0)
 
-    def back(self) -> int:
+    def back(self) -> Any:
         return self.get(self.logical_size - 1)
 
-    def prepend(self, element: object) -> None:
+    def prepend(self, element: Any) -> None:
         self.insert(0, element)
 
-    def append(self, element: object) -> None:
+    def append(self, element: Any) -> None:
         self.insert(self.logical_size, element)
 
     def poll(self) -> None:

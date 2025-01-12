@@ -1,4 +1,4 @@
-def partition(arr: list, lo: int, hi: int) -> int:
+def partition(arr: list[int], lo: int, hi: int) -> int:
     pivot = arr[lo]
 
     i = lo
@@ -19,11 +19,11 @@ def partition(arr: list, lo: int, hi: int) -> int:
     return i
 
 
-def sort(arr: list) -> None:
+def sort(arr: list[int]) -> None:
     sort_with_range(arr, 0, len(arr))
 
 
-def sort_with_range(arr: list, lo: int, hi: int) -> None:
+def sort_with_range(arr: list[int], lo: int, hi: int) -> None:
     if lo >= hi:
         return
 

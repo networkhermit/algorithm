@@ -143,7 +143,6 @@ var Derive = func(fn func(int) []int, predicate func(int64) bool) func(t *testin
 	return func(t *testing.T) {
 		t.Parallel()
 		for _, tc := range sample {
-			tc := tc
 			t.Run(fmt.Sprintf("%d", tc.n), func(t *testing.T) {
 				actual := fn(tc.n)
 				if len(actual) != tc.expected {

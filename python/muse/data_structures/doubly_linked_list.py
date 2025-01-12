@@ -1,8 +1,11 @@
+from typing import Any
+
+
 class Node:
-    def __init__(self, element: object):
+    def __init__(self, element: Any):
         self.data = element
-        self.next = None
-        self.prev = None
+        self.next: Node | None = None
+        self.prev: Node | None = None
 
 
 class DoublyLinkedList:
@@ -17,7 +20,7 @@ class DoublyLinkedList:
     def is_empty(self) -> bool:
         return self.length == 0
 
-    def get(self, index: int) -> int:
+    def get(self, index: int) -> Any:
         if index < 0 or index >= self.length:
             raise RuntimeError("[PANIC - IndexOutOfBounds]")
 
@@ -34,7 +37,7 @@ class DoublyLinkedList:
 
         return cursor.data
 
-    def set(self, index: int, element: object) -> None:
+    def set(self, index: int, element: Any) -> None:
         if index < 0 or index >= self.length:
             raise RuntimeError("[PANIC - IndexOutOfBounds]")
 
@@ -42,16 +45,16 @@ class DoublyLinkedList:
 
         if index < self.length >> 1:
             cursor = self.head
-            for i in range(index):
+            for _ in range(index):
                 cursor = cursor.next
         else:
             cursor = self.tail
-            for i in range(self.length - 1, index, -1):
+            for _ in range(self.length - 1, index, -1):
                 cursor = cursor.prev
 
         cursor.data = element
 
-    def insert(self, index: int, element: object) -> None:
+    def insert(self, index: int, element: Any) -> None:
         if index < 0 or index > self.length:
             raise RuntimeError("[PANIC - IndexOutOfBounds]")
 
@@ -72,11 +75,11 @@ class DoublyLinkedList:
             cursor = None
             if index < self.length >> 1:
                 cursor = self.head
-                for i in range(index):
+                for _ in range(index):
                     cursor = cursor.next
             else:
                 cursor = self.tail
-                for i in range(self.length - 1, index, -1):
+                for _ in range(self.length - 1, index, -1):
                     cursor = cursor.prev
             node.next = cursor
             node.prev = cursor.prev
@@ -106,11 +109,11 @@ class DoublyLinkedList:
         else:
             if index < self.length >> 1:
                 target = self.head
-                for i in range(index):
+                for _ in range(index):
                     target = target.next
             else:
                 target = self.tail
-                for i in range(self.length - 1, index, -1):
+                for _ in range(self.length - 1, index, -1):
                     target = target.prev
             target.prev.next = target.next
             target.next.prev = target.prev
@@ -119,16 +122,16 @@ class DoublyLinkedList:
 
         self.length -= 1
 
-    def front(self) -> int:
+    def front(self) -> Any:
         return self.get(0)
 
-    def back(self) -> int:
+    def back(self) -> Any:
         return self.get(self.length - 1)
 
-    def prepend(self, element: object) -> None:
+    def prepend(self, element: Any) -> None:
         self.insert(0, element)
 
-    def append(self, element: object) -> None:
+    def append(self, element: Any) -> None:
         self.insert(self.length, element)
 
     def poll(self) -> None:

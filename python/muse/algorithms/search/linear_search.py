@@ -1,4 +1,4 @@
-def find(arr: list, key: object) -> int:
+def find(arr: list[int], key: int) -> int:
     for i, v in enumerate(arr):
         if v == key:
             return i

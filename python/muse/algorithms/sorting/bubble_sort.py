@@ -1,4 +1,4 @@
-def sort(arr: list) -> None:
+def sort(arr: list[int]) -> None:
     unsorted = len(arr)
     while unsorted > 1:
         margin = 0

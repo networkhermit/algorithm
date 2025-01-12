@@ -1,4 +1,4 @@
-def sort(arr: list) -> None:
+def sort(arr: list[int]) -> None:
     if not arr:
         return
 
