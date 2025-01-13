@@ -15,7 +15,7 @@ def process(n)
 
   temp = 0
   1.upto(n) do |i|
-    temp = Math.sqrt(i.to_f).to_i
+    temp = Integer.sqrt(i)
     arr[i - 1] = temp * temp == i
   end
 

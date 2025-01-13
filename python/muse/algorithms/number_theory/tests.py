@@ -1,17 +1,18 @@
 from collections.abc import Callable
 from dataclasses import dataclass
-from typing import Any
 
 
 @dataclass
-class UniqueCategorySample:
-    n: Any
-    category: Any
+class UniqueCategorySample[T, C]:
+    n: T
+    category: C
 
 
-def unique_category_derive(
-    fn: Callable[[Any], bool], sample: list[UniqueCategorySample], c: Any
-) -> Callable[[], bool]:
+def unique_category_derive[
+    T, C
+](fn: Callable[[T], bool], sample: list[UniqueCategorySample[T, C]], c: C) -> Callable[
+    [], bool
+]:
     def f() -> bool:
         for tc in sample:
             actual = fn(tc.n)
@@ -24,14 +25,16 @@ def unique_category_derive(
 
 
 @dataclass
-class MNUniqueCategorySample:
-    m: Any
-    n: Any
-    category: Any
+class MNUniqueCategorySample[T, C]:
+    m: T
+    n: T
+    category: C
 
 
-def mn_unique_category_derive(
-    fn: Callable[[Any, Any], bool], sample: list[MNUniqueCategorySample], c: Any
+def mn_unique_category_derive[
+    T, C
+](
+    fn: Callable[[T, T], bool], sample: list[MNUniqueCategorySample[T, C]], c: C
 ) -> Callable[[], bool]:
     def f() -> bool:
         for tc in sample:

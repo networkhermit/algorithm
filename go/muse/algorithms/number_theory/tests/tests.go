@@ -2,12 +2,12 @@ package tests
 
 import "testing"
 
-type UniqueCategorySample[N, C comparable] struct {
-	N        N
+type UniqueCategorySample[T, C comparable] struct {
+	N        T
 	Category C
 }
 
-func UniqueCategoryDerive[N, C comparable](fn func(N) bool, sample []UniqueCategorySample[N, C], c C) func(t *testing.T) {
+func UniqueCategoryDerive[T, C comparable](fn func(T) bool, sample []UniqueCategorySample[T, C], c C) func(t *testing.T) {
 	return func(t *testing.T) {
 		for _, tc := range sample {
 			actual := fn(tc.N)
@@ -19,13 +19,13 @@ func UniqueCategoryDerive[N, C comparable](fn func(N) bool, sample []UniqueCateg
 	}
 }
 
-type MNUniqueCategorySample[N, C comparable] struct {
-	M        N
-	N        N
+type MNUniqueCategorySample[T, C comparable] struct {
+	M        T
+	N        T
 	Category C
 }
 
-func MNUniqueCategoryDerive[N, C comparable](fn func(N, N) bool, sample []MNUniqueCategorySample[N, C], c C) func(t *testing.T) {
+func MNUniqueCategoryDerive[T, C comparable](fn func(T, T) bool, sample []MNUniqueCategorySample[T, C], c C) func(t *testing.T) {
 	return func(t *testing.T) {
 		for _, tc := range sample {
 			actual := fn(tc.M, tc.N)

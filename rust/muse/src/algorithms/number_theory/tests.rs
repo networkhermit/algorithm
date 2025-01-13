@@ -3,11 +3,11 @@ use std::fmt::Display;
 use super::*;
 
 #[derive(Debug)]
-pub(crate) struct UniqueCategorySample<N, C>(pub(crate) N, pub(crate) C);
+pub(crate) struct UniqueCategorySample<T, C>(pub(crate) T, pub(crate) C);
 
-pub(crate) fn unique_category_derive<'a, N: Copy + Display, C: Eq>(
-    f: &'a dyn Fn(N) -> bool,
-    sample: &'a [UniqueCategorySample<N, C>],
+pub(crate) fn unique_category_derive<'a, T: Copy + Display, C: Eq>(
+    f: &'a dyn Fn(T) -> bool,
+    sample: &'a [UniqueCategorySample<T, C>],
     c: C,
 ) -> impl Fn() + 'a {
     move || {
@@ -20,11 +20,11 @@ pub(crate) fn unique_category_derive<'a, N: Copy + Display, C: Eq>(
 }
 
 #[derive(Debug)]
-pub(crate) struct MNUniqueCategorySample<N, C>(pub(crate) N, pub(crate) N, pub(crate) C);
+pub(crate) struct MNUniqueCategorySample<T, C>(pub(crate) T, pub(crate) T, pub(crate) C);
 
-pub(crate) fn mn_unique_category_derive<'a, N: Copy + Display, C: Eq>(
-    f: &'a dyn Fn(N, N) -> bool,
-    sample: &'a [MNUniqueCategorySample<N, C>],
+pub(crate) fn mn_unique_category_derive<'a, T: Copy + Display, C: Eq>(
+    f: &'a dyn Fn(T, T) -> bool,
+    sample: &'a [MNUniqueCategorySample<T, C>],
     c: C,
 ) -> impl Fn() + 'a {
     move || {

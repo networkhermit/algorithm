@@ -1,8 +1,9 @@
 from collections.abc import Callable
-from typing import Any
+
+from muse.data_structures import List, Queue, Resizable, Stack
 
 
-def list_derive(factory: type[Any]) -> Callable[[], bool]:
+def list_derive[T: List](factory: type[T]) -> Callable[[], bool]:
     def f() -> bool:
         size = 8192
 
@@ -11,13 +12,13 @@ def list_derive(factory: type[Any]) -> Callable[[], bool]:
         for i in range(1, size + 1):
             list.append(i)
 
-        if hasattr(list, "shrink") and callable(list.shrink):
+        if isinstance(list, Resizable):
             list.shrink()
 
         if list.size() != size:
             return False
 
-        if hasattr(list, "capacity") and callable(list.capacity):
+        if isinstance(list, Resizable):
             if list.capacity() != size:
                 return False
 
@@ -52,13 +53,13 @@ def list_derive(factory: type[Any]) -> Callable[[], bool]:
                 return False
             list.eject()
 
-        if hasattr(list, "shrink") and callable(list.shrink):
+        if isinstance(list, Resizable):
             list.shrink()
 
         if not list.is_empty():
             return False
 
-        if hasattr(list, "capacity") and callable(list.capacity):
+        if isinstance(list, Resizable):
             return list.capacity() == 0
         else:
             return True
@@ -66,7 +67,7 @@ def list_derive(factory: type[Any]) -> Callable[[], bool]:
     return f
 
 
-def queue_derive(factory: type[Any]) -> Callable[[], bool]:
+def queue_derive[T: Queue](factory: type[T]) -> Callable[[], bool]:
     def f() -> bool:
         size = 8192
 
@@ -75,13 +76,13 @@ def queue_derive(factory: type[Any]) -> Callable[[], bool]:
         for i in range(1, size + 1):
             queue.enqueue(i)
 
-        if hasattr(queue, "shrink") and callable(queue.shrink):
+        if isinstance(queue, Resizable):
             queue.shrink()
 
         if queue.size() != size:
             return False
 
-        if hasattr(queue, "capacity") and callable(queue.capacity):
+        if isinstance(queue, Resizable):
             if queue.capacity() != size:
                 return False
 
@@ -90,13 +91,13 @@ def queue_derive(factory: type[Any]) -> Callable[[], bool]:
                 return False
             queue.dequeue()
 
-        if hasattr(queue, "shrink") and callable(queue.shrink):
+        if isinstance(queue, Resizable):
             queue.shrink()
 
         if not queue.is_empty():
             return False
 
-        if hasattr(queue, "capacity") and callable(queue.capacity):
+        if isinstance(queue, Resizable):
             return queue.capacity() == 0
         else:
             return True
@@ -104,7 +105,7 @@ def queue_derive(factory: type[Any]) -> Callable[[], bool]:
     return f
 
 
-def stack_derive(factory: type[Any]) -> Callable[[], bool]:
+def stack_derive[T: Stack](factory: type[T]) -> Callable[[], bool]:
     def f() -> bool:
         size = 8192
 
@@ -113,13 +114,13 @@ def stack_derive(factory: type[Any]) -> Callable[[], bool]:
         for i in range(1, size + 1):
             stack.push(i)
 
-        if hasattr(stack, "shrink") and callable(stack.shrink):
+        if isinstance(stack, Resizable):
             stack.shrink()
 
         if stack.size() != size:
             return False
 
-        if hasattr(stack, "capacity") and callable(stack.capacity):
+        if isinstance(stack, Resizable):
             if stack.capacity() != size:
                 return False
 
@@ -128,13 +129,13 @@ def stack_derive(factory: type[Any]) -> Callable[[], bool]:
                 return False
             stack.pop()
 
-        if hasattr(stack, "shrink") and callable(stack.shrink):
+        if isinstance(stack, Resizable):
             stack.shrink()
 
         if not stack.is_empty():
             return False
 
-        if hasattr(stack, "capacity") and callable(stack.capacity):
+        if isinstance(stack, Resizable):
             return stack.capacity() == 0
         else:
             return True

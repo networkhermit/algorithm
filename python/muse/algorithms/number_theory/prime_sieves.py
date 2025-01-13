@@ -10,7 +10,7 @@ def sieve_of_eratosthenes(n: int) -> list[int]:
     arr = [False] * size
 
     num_primes = size
-    for i in range(3, int(math.sqrt(n)) + 1, 2):
+    for i in range(3, math.isqrt(n) + 1, 2):
         if arr[i >> 1]:
             continue
         for j in range(i * i, n + 1, i << 1):

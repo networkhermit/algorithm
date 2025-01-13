@@ -1,13 +1,10 @@
-from typing import Any
+class Node[T]:
+    def __init__(self, element: T):
+        self.data: T | None = element
+        self.next: Node[T] | None = None
 
 
-class Node:
-    def __init__(self, element: Any):
-        self.data = element
-        self.next: Node | None = None
-
-
-class LinkedStack:
+class LinkedStack[T]:
     def __init__(self):
         self.head = None
         self.tail = None
@@ -19,13 +16,13 @@ class LinkedStack:
     def is_empty(self) -> bool:
         return self.length == 0
 
-    def peek(self) -> Any:
+    def peek(self) -> T:
         if self.length == 0:
             raise RuntimeError("[PANIC - NoSuchElement]")
 
         return self.tail.data
 
-    def push(self, element: Any) -> None:
+    def push(self, element: T) -> None:
         node = Node(element)
 
         if self.length == 0:

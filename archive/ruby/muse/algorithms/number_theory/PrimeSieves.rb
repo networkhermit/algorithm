@@ -7,7 +7,7 @@ module PrimeSieves
     arr = Array.new(size, false)
 
     numPrimes = size
-    3.step(Math.sqrt(n).to_i, 2) do |i|
+    3.step(Integer.sqrt(n), 2) do |i|
       next if arr[i >> 1]
 
       (i * i).step(n, i << 1) do |j|

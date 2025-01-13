@@ -16,7 +16,7 @@ def process(n: int) -> list:
 
     temp = 0
     for i in range(1, n + 1):
-        temp = int(math.sqrt(float(i)))
+        temp = math.isqrt(i)
         arr[i - 1] = temp * temp == i
 
     return arr

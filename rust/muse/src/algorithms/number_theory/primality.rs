@@ -6,7 +6,7 @@ pub fn is_prime(n: i64) -> bool {
         return false;
     }
 
-    let bound = (n as f64).sqrt() as i64 + 1;
+    let bound = n.isqrt() + 1;
     for i in (3..bound).step_by(2) {
         if n % i == 0 {
             return false;

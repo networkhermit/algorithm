@@ -3,7 +3,7 @@ module Primality
     return false if n < 2
     return false if (n & 1).zero? && n != 2
 
-    3.step(Math.sqrt(n).to_i, 2) do |i|
+    3.step(Integer.sqrt(n), 2) do |i|
       return false if (n % i).zero?
     end
 

@@ -8,7 +8,7 @@ pub fn sieve_of_eratosthenes(n: i32) -> Vec<i32> {
     let mut arr = vec![false; size];
 
     let mut num_primes = size;
-    let bound = (n as f64).sqrt() as usize + 1;
+    let bound = (n as usize).isqrt() + 1;
     for i in (3..bound).step_by(2) {
         if arr[i >> 1] {
             continue;

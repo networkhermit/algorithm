@@ -1,13 +1,10 @@
-from typing import Any
+class Node[T]:
+    def __init__(self, element: T):
+        self.data: T | None = element
+        self.next: Node[T] | None = None
 
 
-class Node:
-    def __init__(self, element: Any):
-        self.data = element
-        self.next: Node | None = None
-
-
-class CircularlyLinkedList:
+class CircularlyLinkedList[T]:
     def __init__(self):
         self.tail = None
         self.length = 0
@@ -18,7 +15,7 @@ class CircularlyLinkedList:
     def is_empty(self) -> bool:
         return self.length == 0
 
-    def get(self, index: int) -> Any:
+    def get(self, index: int) -> T:
         if index < 0 or index >= self.length:
             raise RuntimeError("[PANIC - IndexOutOfBounds]")
 
@@ -30,7 +27,7 @@ class CircularlyLinkedList:
 
         return cursor.data
 
-    def set(self, index: int, element: Any) -> None:
+    def set(self, index: int, element: T) -> None:
         if index < 0 or index >= self.length:
             raise RuntimeError("[PANIC - IndexOutOfBounds]")
 
@@ -42,7 +39,7 @@ class CircularlyLinkedList:
 
         cursor.data = element
 
-    def insert(self, index: int, element: Any) -> None:
+    def insert(self, index: int, element: T) -> None:
         if index < 0 or index > self.length:
             raise RuntimeError("[PANIC - IndexOutOfBounds]")
 
@@ -93,16 +90,16 @@ class CircularlyLinkedList:
 
         self.length -= 1
 
-    def front(self) -> Any:
+    def front(self) -> T:
         return self.get(0)
 
-    def back(self) -> Any:
+    def back(self) -> T:
         return self.get(self.length - 1)
 
-    def prepend(self, element: Any) -> None:
+    def prepend(self, element: T) -> None:
         self.insert(0, element)
 
-    def append(self, element: Any) -> None:
+    def append(self, element: T) -> None:
         self.insert(self.length, element)
 
     def poll(self) -> None:
