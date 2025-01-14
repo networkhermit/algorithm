@@ -6,6 +6,7 @@ import (
 	"muse/algorithms/sorting/merge_sort"
 	"muse/algorithms/sorting/quick_sort"
 	"muse/algorithms/sorting/selection_sort"
+	"muse/algorithms/sorting/shell_sort"
 )
 
 func BubbleSort(arr []int) {
@@ -26,4 +27,8 @@ func QuickSort(arr []int) {
 
 func SelectionSort(arr []int) {
 	selection_sort.Sort(arr)
+}
+
+func ShellSort(arr []int) {
+	shell_sort.Sort(arr)
 }

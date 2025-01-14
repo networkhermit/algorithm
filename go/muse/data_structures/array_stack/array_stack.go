@@ -4,36 +4,36 @@ import "errors"
 
 const DEFAULT_CAPACITY int = 64
 
-type ArrayStack struct {
-	data         []int
+type ArrayStack[T any] struct {
+	data         []T
 	logicalSize  int
 	physicalSize int
 }
 
-func New() *ArrayStack {
-	return NewWithCapacity(0)
+func New[T any]() *ArrayStack[T] {
+	return NewWithCapacity[T](0)
 }
 
-func NewWithCapacity(physicalSize int) *ArrayStack {
-	stack := &ArrayStack{data: nil, logicalSize: 0, physicalSize: DEFAULT_CAPACITY}
+func NewWithCapacity[T any](physicalSize int) *ArrayStack[T] {
+	stack := &ArrayStack[T]{data: nil, logicalSize: 0, physicalSize: DEFAULT_CAPACITY}
 
 	if physicalSize > 1 {
 		stack.physicalSize = physicalSize
 	}
-	stack.data = make([]int, stack.physicalSize)
+	stack.data = make([]T, stack.physicalSize)
 
 	return stack
 }
 
-func (stack *ArrayStack) Size() int {
+func (stack *ArrayStack[T]) Size() int {
 	return stack.logicalSize
 }
 
-func (stack *ArrayStack) IsEmpty() bool {
+func (stack *ArrayStack[T]) IsEmpty() bool {
 	return stack.logicalSize == 0
 }
 
-func (stack *ArrayStack) Peek() int {
+func (stack *ArrayStack[T]) Peek() T {
 	if stack.logicalSize == 0 {
 		panic(errors.New("[PANIC - NoSuchElement]"))
 	}
@@ -41,7 +41,7 @@ func (stack *ArrayStack) Peek() int {
 	return stack.data[stack.logicalSize-1]
 }
 
-func (stack *ArrayStack) Push(element int) {
+func (stack *ArrayStack[T]) Push(element T) {
 	if stack.logicalSize == stack.physicalSize {
 		newCapacity := DEFAULT_CAPACITY
 
@@ -49,9 +49,9 @@ func (stack *ArrayStack) Push(element int) {
 			newCapacity = stack.physicalSize + (stack.physicalSize >> 1)
 		}
 
-		temp := make([]int, newCapacity)
+		temp := make([]T, newCapacity)
 
-		for i, length := 0, stack.logicalSize; i < length; i++ {
+		for i := range stack.logicalSize {
 			temp[i] = stack.data[i]
 		}
 
@@ -64,24 +64,24 @@ func (stack *ArrayStack) Push(element int) {
 	stack.logicalSize++
 }
 
-func (stack *ArrayStack) Pop() {
+func (stack *ArrayStack[T]) Pop() {
 	if stack.logicalSize == 0 {
 		panic(errors.New("[PANIC - NoSuchElement]"))
 	}
 
 	stack.logicalSize--
 
-	stack.data[stack.logicalSize] = int(0)
+	stack.data[stack.logicalSize] = *new(T)
 }
 
-func (stack *ArrayStack) Capacity() int {
+func (stack *ArrayStack[T]) Capacity() int {
 	return stack.physicalSize
 }
 
-func (stack *ArrayStack) Shrink() {
-	temp := make([]int, stack.logicalSize)
+func (stack *ArrayStack[T]) Shrink() {
+	temp := make([]T, stack.logicalSize)
 
-	for i, length := 0, stack.logicalSize; i < length; i++ {
+	for i := range stack.logicalSize {
 		temp[i] = stack.data[i]
 	}
 

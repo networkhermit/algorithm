@@ -1,13 +1,13 @@
 package data_structures
 
-type Stack interface {
+type Stack[T any] interface {
 	Size() int
 
 	IsEmpty() bool
 
-	Peek() int
+	Peek() T
 
-	Push(element int)
+	Push(element T)
 
 	Pop()
 }

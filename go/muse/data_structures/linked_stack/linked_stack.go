@@ -2,30 +2,30 @@ package linked_stack
 
 import "errors"
 
-type Node struct {
-	data int
-	next *Node
+type Node[T any] struct {
+	data T
+	next *Node[T]
 }
 
-type LinkedStack struct {
-	head   *Node
-	tail   *Node
+type LinkedStack[T any] struct {
+	head   *Node[T]
+	tail   *Node[T]
 	length int
 }
 
-func New() *LinkedStack {
-	return &LinkedStack{head: nil, tail: nil, length: 0}
+func New[T any]() *LinkedStack[T] {
+	return &LinkedStack[T]{head: nil, tail: nil, length: 0}
 }
 
-func (stack *LinkedStack) Size() int {
+func (stack *LinkedStack[T]) Size() int {
 	return stack.length
 }
 
-func (stack *LinkedStack) IsEmpty() bool {
+func (stack *LinkedStack[T]) IsEmpty() bool {
 	return stack.length == 0
 }
 
-func (stack *LinkedStack) Peek() int {
+func (stack *LinkedStack[T]) Peek() T {
 	if stack.length == 0 {
 		panic(errors.New("[PANIC - NoSuchElement]"))
 	}
@@ -33,8 +33,8 @@ func (stack *LinkedStack) Peek() int {
 	return stack.tail.data
 }
 
-func (stack *LinkedStack) Push(element int) {
-	node := &Node{data: element, next: nil}
+func (stack *LinkedStack[T]) Push(element T) {
+	node := &Node[T]{data: element, next: nil}
 
 	if stack.length == 0 {
 		stack.head = node
@@ -47,7 +47,7 @@ func (stack *LinkedStack) Push(element int) {
 	stack.length++
 }
 
-func (stack *LinkedStack) Pop() {
+func (stack *LinkedStack[T]) Pop() {
 	if stack.length == 0 {
 		panic(errors.New("[PANIC - NoSuchElement]"))
 	}
@@ -59,14 +59,14 @@ func (stack *LinkedStack) Pop() {
 		stack.tail = nil
 	} else {
 		cursor := stack.head
-		for i, bound := 0, stack.length-2; i < bound; i++ {
+		for range stack.length - 2 {
 			cursor = cursor.next
 		}
 		cursor.next = nil
 		stack.tail = cursor
 	}
 
-	target.data = int(0)
+	target.data = *new(T)
 
 	stack.length--
 }

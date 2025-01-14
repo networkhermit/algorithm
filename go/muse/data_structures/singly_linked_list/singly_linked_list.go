@@ -2,29 +2,29 @@ package singly_linked_list
 
 import "errors"
 
-type Node struct {
-	data int
-	next *Node
+type Node[T any] struct {
+	data T
+	next *Node[T]
 }
 
-type SinglyLinkedList struct {
-	head   *Node
+type SinglyLinkedList[T any] struct {
+	head   *Node[T]
 	length int
 }
 
-func New() *SinglyLinkedList {
-	return &SinglyLinkedList{head: nil, length: 0}
+func New[T any]() *SinglyLinkedList[T] {
+	return &SinglyLinkedList[T]{head: nil, length: 0}
 }
 
-func (list *SinglyLinkedList) Size() int {
+func (list *SinglyLinkedList[T]) Size() int {
 	return list.length
 }
 
-func (list *SinglyLinkedList) IsEmpty() bool {
+func (list *SinglyLinkedList[T]) IsEmpty() bool {
 	return list.length == 0
 }
 
-func (list *SinglyLinkedList) Get(index int) int {
+func (list *SinglyLinkedList[T]) Get(index int) T {
 	if index < 0 || index >= list.length {
 		panic(errors.New("[PANIC - IndexOutOfBounds]"))
 	}
@@ -38,7 +38,7 @@ func (list *SinglyLinkedList) Get(index int) int {
 	return cursor.data
 }
 
-func (list *SinglyLinkedList) Set(index int, element int) {
+func (list *SinglyLinkedList[T]) Set(index int, element T) {
 	if index < 0 || index >= list.length {
 		panic(errors.New("[PANIC - IndexOutOfBounds]"))
 	}
@@ -52,12 +52,12 @@ func (list *SinglyLinkedList) Set(index int, element int) {
 	cursor.data = element
 }
 
-func (list *SinglyLinkedList) Insert(index int, element int) {
+func (list *SinglyLinkedList[T]) Insert(index int, element T) {
 	if index < 0 || index > list.length {
 		panic(errors.New("[PANIC - IndexOutOfBounds]"))
 	}
 
-	node := &Node{data: element, next: nil}
+	node := &Node[T]{data: element, next: nil}
 
 	if index == 0 {
 		if list.length != 0 {
@@ -76,12 +76,12 @@ func (list *SinglyLinkedList) Insert(index int, element int) {
 	list.length++
 }
 
-func (list *SinglyLinkedList) Remove(index int) {
+func (list *SinglyLinkedList[T]) Remove(index int) {
 	if index < 0 || index >= list.length {
 		panic(errors.New("[PANIC - IndexOutOfBounds]"))
 	}
 
-	var target *Node
+	var target *Node[T]
 
 	if index == 0 {
 		target = list.head
@@ -99,31 +99,31 @@ func (list *SinglyLinkedList) Remove(index int) {
 		cursor.next = target.next
 	}
 
-	target.data = int(0)
+	target.data = *new(T)
 
 	list.length--
 }
 
-func (list *SinglyLinkedList) Front() int {
+func (list *SinglyLinkedList[T]) Front() T {
 	return list.Get(0)
 }
 
-func (list *SinglyLinkedList) Back() int {
+func (list *SinglyLinkedList[T]) Back() T {
 	return list.Get(list.length - 1)
 }
 
-func (list *SinglyLinkedList) Prepend(element int) {
+func (list *SinglyLinkedList[T]) Prepend(element T) {
 	list.Insert(0, element)
 }
 
-func (list *SinglyLinkedList) Append(element int) {
+func (list *SinglyLinkedList[T]) Append(element T) {
 	list.Insert(list.length, element)
 }
 
-func (list *SinglyLinkedList) Poll() {
+func (list *SinglyLinkedList[T]) Poll() {
 	list.Remove(0)
 }
 
-func (list *SinglyLinkedList) Eject() {
+func (list *SinglyLinkedList[T]) Eject() {
 	list.Remove(list.length - 1)
 }

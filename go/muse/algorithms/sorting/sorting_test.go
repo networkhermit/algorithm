@@ -25,3 +25,7 @@ func TestQuickSort(t *testing.T) {
 func TestSelectionSort(t *testing.T) {
 	t.Run("SelectionSort", tests.DeriveRandom(SelectionSort, 10000))
 }
+
+func TestShellSort(t *testing.T) {
+	t.Run("ShellSort", tests.DeriveRandom(ShellSort, 100000))
+}

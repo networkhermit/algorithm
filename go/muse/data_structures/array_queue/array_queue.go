@@ -4,37 +4,37 @@ import "errors"
 
 const DEFAULT_CAPACITY int = 64
 
-type ArrayQueue struct {
-	data         []int
+type ArrayQueue[T any] struct {
+	data         []T
 	front        int
 	logicalSize  int
 	physicalSize int
 }
 
-func New() *ArrayQueue {
-	return NewWithCapacity(0)
+func New[T any]() *ArrayQueue[T] {
+	return NewWithCapacity[T](0)
 }
 
-func NewWithCapacity(physicalSize int) *ArrayQueue {
-	queue := &ArrayQueue{data: nil, logicalSize: 0, physicalSize: DEFAULT_CAPACITY}
+func NewWithCapacity[T any](physicalSize int) *ArrayQueue[T] {
+	queue := &ArrayQueue[T]{data: nil, logicalSize: 0, physicalSize: DEFAULT_CAPACITY}
 
 	if physicalSize > 1 {
 		queue.physicalSize = physicalSize
 	}
-	queue.data = make([]int, queue.physicalSize)
+	queue.data = make([]T, queue.physicalSize)
 
 	return queue
 }
 
-func (queue *ArrayQueue) Size() int {
+func (queue *ArrayQueue[T]) Size() int {
 	return queue.logicalSize
 }
 
-func (queue *ArrayQueue) IsEmpty() bool {
+func (queue *ArrayQueue[T]) IsEmpty() bool {
 	return queue.logicalSize == 0
 }
 
-func (queue *ArrayQueue) Peek() int {
+func (queue *ArrayQueue[T]) Peek() T {
 	if queue.logicalSize == 0 {
 		panic(errors.New("[PANIC - NoSuchElement]"))
 	}
@@ -42,7 +42,7 @@ func (queue *ArrayQueue) Peek() int {
 	return queue.data[queue.front]
 }
 
-func (queue *ArrayQueue) Enqueue(element int) {
+func (queue *ArrayQueue[T]) Enqueue(element T) {
 	if queue.logicalSize == queue.physicalSize {
 		newCapacity := DEFAULT_CAPACITY
 
@@ -50,11 +50,11 @@ func (queue *ArrayQueue) Enqueue(element int) {
 			newCapacity = queue.physicalSize + (queue.physicalSize >> 1)
 		}
 
-		temp := make([]int, newCapacity)
+		temp := make([]T, newCapacity)
 
 		cursor := queue.front
 
-		for i, length := 0, queue.logicalSize; i < length; i++ {
+		for i := range queue.logicalSize {
 			if cursor == queue.physicalSize {
 				cursor = 0
 			}
@@ -72,28 +72,28 @@ func (queue *ArrayQueue) Enqueue(element int) {
 	queue.logicalSize++
 }
 
-func (queue *ArrayQueue) Dequeue() {
+func (queue *ArrayQueue[T]) Dequeue() {
 	if queue.logicalSize == 0 {
 		panic(errors.New("[PANIC - NoSuchElement]"))
 	}
 
-	queue.data[queue.front] = int(0)
+	queue.data[queue.front] = *new(T)
 
 	queue.front = (queue.front + 1) % queue.physicalSize
 
 	queue.logicalSize--
 }
 
-func (queue *ArrayQueue) Capacity() int {
+func (queue *ArrayQueue[T]) Capacity() int {
 	return queue.physicalSize
 }
 
-func (queue *ArrayQueue) Shrink() {
-	temp := make([]int, queue.logicalSize)
+func (queue *ArrayQueue[T]) Shrink() {
+	temp := make([]T, queue.logicalSize)
 
 	cursor := queue.front
 
-	for i, length := 0, queue.logicalSize; i < length; i++ {
+	for i := range queue.logicalSize {
 		if cursor == queue.physicalSize {
 			cursor = 0
 		}

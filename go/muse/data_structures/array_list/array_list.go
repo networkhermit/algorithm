@@ -4,36 +4,36 @@ import "errors"
 
 const DEFAULT_CAPACITY int = 64
 
-type ArrayList struct {
-	data         []int
+type ArrayList[T any] struct {
+	data         []T
 	logicalSize  int
 	physicalSize int
 }
 
-func New() *ArrayList {
-	return NewWithCapacity(0)
+func New[T any]() *ArrayList[T] {
+	return NewWithCapacity[T](0)
 }
 
-func NewWithCapacity(physicalSize int) *ArrayList {
-	list := &ArrayList{data: nil, logicalSize: 0, physicalSize: DEFAULT_CAPACITY}
+func NewWithCapacity[T any](physicalSize int) *ArrayList[T] {
+	list := &ArrayList[T]{data: nil, logicalSize: 0, physicalSize: DEFAULT_CAPACITY}
 
 	if physicalSize > 1 {
 		list.physicalSize = physicalSize
 	}
-	list.data = make([]int, list.physicalSize)
+	list.data = make([]T, list.physicalSize)
 
 	return list
 }
 
-func (list *ArrayList) Size() int {
+func (list *ArrayList[T]) Size() int {
 	return list.logicalSize
 }
 
-func (list *ArrayList) IsEmpty() bool {
+func (list *ArrayList[T]) IsEmpty() bool {
 	return list.logicalSize == 0
 }
 
-func (list *ArrayList) Get(index int) int {
+func (list *ArrayList[T]) Get(index int) T {
 	if index < 0 || index >= list.logicalSize {
 		panic(errors.New("[PANIC - IndexOutOfBounds]"))
 	}
@@ -41,7 +41,7 @@ func (list *ArrayList) Get(index int) int {
 	return list.data[index]
 }
 
-func (list *ArrayList) Set(index int, element int) {
+func (list *ArrayList[T]) Set(index int, element T) {
 	if index < 0 || index >= list.logicalSize {
 		panic(errors.New("[PANIC - IndexOutOfBounds]"))
 	}
@@ -49,7 +49,7 @@ func (list *ArrayList) Set(index int, element int) {
 	list.data[index] = element
 }
 
-func (list *ArrayList) Insert(index int, element int) {
+func (list *ArrayList[T]) Insert(index int, element T) {
 	if index < 0 || index > list.logicalSize {
 		panic(errors.New("[PANIC - IndexOutOfBounds]"))
 	}
@@ -61,9 +61,9 @@ func (list *ArrayList) Insert(index int, element int) {
 			newCapacity = list.physicalSize + (list.physicalSize >> 1)
 		}
 
-		temp := make([]int, newCapacity)
+		temp := make([]T, newCapacity)
 
-		for i, length := 0, list.logicalSize; i < length; i++ {
+		for i := range list.logicalSize {
 			temp[i] = list.data[i]
 		}
 
@@ -80,7 +80,7 @@ func (list *ArrayList) Insert(index int, element int) {
 	list.logicalSize++
 }
 
-func (list *ArrayList) Remove(index int) {
+func (list *ArrayList[T]) Remove(index int) {
 	if index < 0 || index >= list.logicalSize {
 		panic(errors.New("[PANIC - IndexOutOfBounds]"))
 	}
@@ -91,41 +91,41 @@ func (list *ArrayList) Remove(index int) {
 
 	list.logicalSize--
 
-	list.data[list.logicalSize] = int(0)
+	list.data[list.logicalSize] = *new(T)
 }
 
-func (list *ArrayList) Front() int {
+func (list *ArrayList[T]) Front() T {
 	return list.Get(0)
 }
 
-func (list *ArrayList) Back() int {
+func (list *ArrayList[T]) Back() T {
 	return list.Get(list.logicalSize - 1)
 }
 
-func (list *ArrayList) Prepend(element int) {
+func (list *ArrayList[T]) Prepend(element T) {
 	list.Insert(0, element)
 }
 
-func (list *ArrayList) Append(element int) {
+func (list *ArrayList[T]) Append(element T) {
 	list.Insert(list.logicalSize, element)
 }
 
-func (list *ArrayList) Poll() {
+func (list *ArrayList[T]) Poll() {
 	list.Remove(0)
 }
 
-func (list *ArrayList) Eject() {
+func (list *ArrayList[T]) Eject() {
 	list.Remove(list.logicalSize - 1)
 }
 
-func (list *ArrayList) Capacity() int {
+func (list *ArrayList[T]) Capacity() int {
 	return list.physicalSize
 }
 
-func (list *ArrayList) Shrink() {
-	temp := make([]int, list.logicalSize)
+func (list *ArrayList[T]) Shrink() {
+	temp := make([]T, list.logicalSize)
 
-	for i, length := 0, list.logicalSize; i < length; i++ {
+	for i := range list.logicalSize {
 		temp[i] = list.data[i]
 	}
 

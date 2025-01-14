@@ -2,29 +2,29 @@ package circularly_linked_list
 
 import "errors"
 
-type Node struct {
-	data int
-	next *Node
+type Node[T any] struct {
+	data T
+	next *Node[T]
 }
 
-type CircularlyLinkedList struct {
-	tail   *Node
+type CircularlyLinkedList[T any] struct {
+	tail   *Node[T]
 	length int
 }
 
-func New() *CircularlyLinkedList {
-	return &CircularlyLinkedList{tail: nil, length: 0}
+func New[T any]() *CircularlyLinkedList[T] {
+	return &CircularlyLinkedList[T]{tail: nil, length: 0}
 }
 
-func (list *CircularlyLinkedList) Size() int {
+func (list *CircularlyLinkedList[T]) Size() int {
 	return list.length
 }
 
-func (list *CircularlyLinkedList) IsEmpty() bool {
+func (list *CircularlyLinkedList[T]) IsEmpty() bool {
 	return list.length == 0
 }
 
-func (list *CircularlyLinkedList) Get(index int) int {
+func (list *CircularlyLinkedList[T]) Get(index int) T {
 	if index < 0 || index >= list.length {
 		panic(errors.New("[PANIC - IndexOutOfBounds]"))
 	}
@@ -40,7 +40,7 @@ func (list *CircularlyLinkedList) Get(index int) int {
 	return cursor.data
 }
 
-func (list *CircularlyLinkedList) Set(index int, element int) {
+func (list *CircularlyLinkedList[T]) Set(index int, element T) {
 	if index < 0 || index >= list.length {
 		panic(errors.New("[PANIC - IndexOutOfBounds]"))
 	}
@@ -56,12 +56,12 @@ func (list *CircularlyLinkedList) Set(index int, element int) {
 	cursor.data = element
 }
 
-func (list *CircularlyLinkedList) Insert(index int, element int) {
+func (list *CircularlyLinkedList[T]) Insert(index int, element T) {
 	if index < 0 || index > list.length {
 		panic(errors.New("[PANIC - IndexOutOfBounds]"))
 	}
 
-	node := &Node{data: element, next: nil}
+	node := &Node[T]{data: element, next: nil}
 
 	switch index {
 	case 0:
@@ -88,12 +88,12 @@ func (list *CircularlyLinkedList) Insert(index int, element int) {
 	list.length++
 }
 
-func (list *CircularlyLinkedList) Remove(index int) {
+func (list *CircularlyLinkedList[T]) Remove(index int) {
 	if index < 0 || index >= list.length {
 		panic(errors.New("[PANIC - IndexOutOfBounds]"))
 	}
 
-	var target *Node
+	var target *Node[T]
 
 	if index == 0 {
 		target = list.tail.next
@@ -114,31 +114,31 @@ func (list *CircularlyLinkedList) Remove(index int) {
 		}
 	}
 
-	target.data = int(0)
+	target.data = *new(T)
 
 	list.length--
 }
 
-func (list *CircularlyLinkedList) Front() int {
+func (list *CircularlyLinkedList[T]) Front() T {
 	return list.Get(0)
 }
 
-func (list *CircularlyLinkedList) Back() int {
+func (list *CircularlyLinkedList[T]) Back() T {
 	return list.Get(list.length - 1)
 }
 
-func (list *CircularlyLinkedList) Prepend(element int) {
+func (list *CircularlyLinkedList[T]) Prepend(element T) {
 	list.Insert(0, element)
 }
 
-func (list *CircularlyLinkedList) Append(element int) {
+func (list *CircularlyLinkedList[T]) Append(element T) {
 	list.Insert(list.length, element)
 }
 
-func (list *CircularlyLinkedList) Poll() {
+func (list *CircularlyLinkedList[T]) Poll() {
 	list.Remove(0)
 }
 
-func (list *CircularlyLinkedList) Eject() {
+func (list *CircularlyLinkedList[T]) Eject() {
 	list.Remove(list.length - 1)
 }

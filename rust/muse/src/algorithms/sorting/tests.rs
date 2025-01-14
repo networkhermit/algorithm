@@ -72,3 +72,8 @@ fn test_quick_sort() {
 fn test_selection_sort() {
     derive_random(&selection_sort, 10000)();
 }
+
+#[test]
+fn test_shell_sort() {
+    derive_random(&shell_sort, 100000)();
+}

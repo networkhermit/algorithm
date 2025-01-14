@@ -1,13 +1,13 @@
 package data_structures
 
-type Queue interface {
+type Queue[T any] interface {
 	Size() int
 
 	IsEmpty() bool
 
-	Peek() int
+	Peek() T
 
-	Enqueue(element int)
+	Enqueue(element T)
 
 	Dequeue()
 }

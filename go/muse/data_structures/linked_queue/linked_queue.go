@@ -2,30 +2,30 @@ package linked_queue
 
 import "errors"
 
-type Node struct {
-	data int
-	next *Node
+type Node[T any] struct {
+	data T
+	next *Node[T]
 }
 
-type LinkedQueue struct {
-	head   *Node
-	tail   *Node
+type LinkedQueue[T any] struct {
+	head   *Node[T]
+	tail   *Node[T]
 	length int
 }
 
-func New() *LinkedQueue {
-	return &LinkedQueue{head: nil, tail: nil, length: 0}
+func New[T any]() *LinkedQueue[T] {
+	return &LinkedQueue[T]{head: nil, tail: nil, length: 0}
 }
 
-func (queue *LinkedQueue) Size() int {
+func (queue *LinkedQueue[T]) Size() int {
 	return queue.length
 }
 
-func (queue *LinkedQueue) IsEmpty() bool {
+func (queue *LinkedQueue[T]) IsEmpty() bool {
 	return queue.length == 0
 }
 
-func (queue *LinkedQueue) Peek() int {
+func (queue *LinkedQueue[T]) Peek() T {
 	if queue.length == 0 {
 		panic(errors.New("[PANIC - NoSuchElement]"))
 	}
@@ -33,8 +33,8 @@ func (queue *LinkedQueue) Peek() int {
 	return queue.head.data
 }
 
-func (queue *LinkedQueue) Enqueue(element int) {
-	node := &Node{data: element, next: nil}
+func (queue *LinkedQueue[T]) Enqueue(element T) {
+	node := &Node[T]{data: element, next: nil}
 
 	if queue.length == 0 {
 		queue.head = node
@@ -47,7 +47,7 @@ func (queue *LinkedQueue) Enqueue(element int) {
 	queue.length++
 }
 
-func (queue *LinkedQueue) Dequeue() {
+func (queue *LinkedQueue[T]) Dequeue() {
 	if queue.length == 0 {
 		panic(errors.New("[PANIC - NoSuchElement]"))
 	}
@@ -61,7 +61,7 @@ func (queue *LinkedQueue) Dequeue() {
 		queue.head = target.next
 	}
 
-	target.data = int(0)
+	target.data = *new(T)
 
 	queue.length--
 }

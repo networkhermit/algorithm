@@ -1,25 +1,25 @@
 package data_structures
 
-type List interface {
+type List[T any] interface {
 	Size() int
 
 	IsEmpty() bool
 
-	Get(index int) int
+	Get(index int) T
 
-	Set(index int, element int)
+	Set(index int, element T)
 
-	Insert(index int, element int)
+	Insert(index int, element T)
 
 	Remove(index int)
 
-	Front() int
+	Front() T
 
-	Back() int
+	Back() T
 
-	Prepend(element int)
+	Prepend(element T)
 
-	Append(element int)
+	Append(element T)
 
 	Poll()
 

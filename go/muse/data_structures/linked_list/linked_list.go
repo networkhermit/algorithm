@@ -2,35 +2,35 @@ package linked_list
 
 import "errors"
 
-type Node struct {
-	data int
-	next *Node
+type Node[T any] struct {
+	data T
+	next *Node[T]
 }
 
-type LinkedList struct {
-	head   *Node
-	tail   *Node
+type LinkedList[T any] struct {
+	head   *Node[T]
+	tail   *Node[T]
 	length int
 }
 
-func New() *LinkedList {
-	return &LinkedList{head: nil, tail: nil, length: 0}
+func New[T any]() *LinkedList[T] {
+	return &LinkedList[T]{head: nil, tail: nil, length: 0}
 }
 
-func (list *LinkedList) Size() int {
+func (list *LinkedList[T]) Size() int {
 	return list.length
 }
 
-func (list *LinkedList) IsEmpty() bool {
+func (list *LinkedList[T]) IsEmpty() bool {
 	return list.length == 0
 }
 
-func (list *LinkedList) Get(index int) int {
+func (list *LinkedList[T]) Get(index int) T {
 	if index < 0 || index >= list.length {
 		panic(errors.New("[PANIC - IndexOutOfBounds]"))
 	}
 
-	var cursor *Node
+	var cursor *Node[T]
 
 	if index == list.length-1 {
 		cursor = list.tail
@@ -44,12 +44,12 @@ func (list *LinkedList) Get(index int) int {
 	return cursor.data
 }
 
-func (list *LinkedList) Set(index int, element int) {
+func (list *LinkedList[T]) Set(index int, element T) {
 	if index < 0 || index >= list.length {
 		panic(errors.New("[PANIC - IndexOutOfBounds]"))
 	}
 
-	var cursor *Node
+	var cursor *Node[T]
 
 	if index == list.length-1 {
 		cursor = list.tail
@@ -63,12 +63,12 @@ func (list *LinkedList) Set(index int, element int) {
 	cursor.data = element
 }
 
-func (list *LinkedList) Insert(index int, element int) {
+func (list *LinkedList[T]) Insert(index int, element T) {
 	if index < 0 || index > list.length {
 		panic(errors.New("[PANIC - IndexOutOfBounds]"))
 	}
 
-	node := &Node{data: element, next: nil}
+	node := &Node[T]{data: element, next: nil}
 
 	switch index {
 	case 0:
@@ -93,12 +93,12 @@ func (list *LinkedList) Insert(index int, element int) {
 	list.length++
 }
 
-func (list *LinkedList) Remove(index int) {
+func (list *LinkedList[T]) Remove(index int) {
 	if index < 0 || index >= list.length {
 		panic(errors.New("[PANIC - IndexOutOfBounds]"))
 	}
 
-	var target *Node
+	var target *Node[T]
 
 	if index == 0 {
 		target = list.head
@@ -120,31 +120,31 @@ func (list *LinkedList) Remove(index int) {
 		}
 	}
 
-	target.data = int(0)
+	target.data = *new(T)
 
 	list.length--
 }
 
-func (list *LinkedList) Front() int {
+func (list *LinkedList[T]) Front() T {
 	return list.Get(0)
 }
 
-func (list *LinkedList) Back() int {
+func (list *LinkedList[T]) Back() T {
 	return list.Get(list.length - 1)
 }
 
-func (list *LinkedList) Prepend(element int) {
+func (list *LinkedList[T]) Prepend(element T) {
 	list.Insert(0, element)
 }
 
-func (list *LinkedList) Append(element int) {
+func (list *LinkedList[T]) Append(element T) {
 	list.Insert(list.length, element)
 }
 
-func (list *LinkedList) Poll() {
+func (list *LinkedList[T]) Poll() {
 	list.Remove(0)
 }
 
-func (list *LinkedList) Eject() {
+func (list *LinkedList[T]) Eject() {
 	list.Remove(list.length - 1)
 }

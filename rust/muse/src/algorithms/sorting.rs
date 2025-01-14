@@ -3,6 +3,7 @@ pub mod insertion_sort;
 pub mod merge_sort;
 pub mod quick_sort;
 pub mod selection_sort;
+pub mod shell_sort;
 
 pub fn bubble_sort(arr: &mut [i32]) {
     bubble_sort::sort(arr);
@@ -22,6 +23,10 @@ pub fn quick_sort(arr: &mut [i32]) {
 
 pub fn selection_sort(arr: &mut [i32]) {
     selection_sort::sort(arr);
+}
+
+pub fn shell_sort(arr: &mut [i32]) {
+    shell_sort::sort(arr);
 }
 
 #[cfg(test)]
