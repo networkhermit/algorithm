@@ -78,7 +78,7 @@ func (list *CircularlyLinkedList[T]) Insert(index int, element T) {
 		list.tail = node
 	default:
 		cursor := list.tail
-		for i, bound := 0, index-1; i <= bound; i++ {
+		for range index {
 			cursor = cursor.next
 		}
 		node.next = cursor.next
@@ -104,7 +104,7 @@ func (list *CircularlyLinkedList[T]) Remove(index int) {
 		}
 	} else {
 		cursor := list.tail
-		for i, bound := 0, index-1; i <= bound; i++ {
+		for range index {
 			cursor = cursor.next
 		}
 		target = cursor.next

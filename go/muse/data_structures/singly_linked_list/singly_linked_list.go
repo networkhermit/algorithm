@@ -66,7 +66,7 @@ func (list *SinglyLinkedList[T]) Insert(index int, element T) {
 		list.head = node
 	} else {
 		cursor := list.head
-		for i, bound := 0, index-1; i < bound; i++ {
+		for range index - 1 {
 			cursor = cursor.next
 		}
 		node.next = cursor.next
@@ -92,7 +92,7 @@ func (list *SinglyLinkedList[T]) Remove(index int) {
 		}
 	} else {
 		cursor := list.head
-		for i, bound := 0, index-1; i < bound; i++ {
+		for range index - 1 {
 			cursor = cursor.next
 		}
 		target = cursor.next

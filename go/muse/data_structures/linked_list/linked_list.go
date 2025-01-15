@@ -83,7 +83,7 @@ func (list *LinkedList[T]) Insert(index int, element T) {
 		list.tail = node
 	default:
 		cursor := list.head
-		for i, bound := 0, index-1; i < bound; i++ {
+		for range index - 1 {
 			cursor = cursor.next
 		}
 		node.next = cursor.next
@@ -110,7 +110,7 @@ func (list *LinkedList[T]) Remove(index int) {
 		}
 	} else {
 		cursor := list.head
-		for i, bound := 0, index-1; i < bound; i++ {
+		for range index - 1 {
 			cursor = cursor.next
 		}
 		target = cursor.next
