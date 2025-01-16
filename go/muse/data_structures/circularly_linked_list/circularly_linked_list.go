@@ -16,22 +16,22 @@ func New[T any]() *CircularlyLinkedList[T] {
 	return &CircularlyLinkedList[T]{tail: nil, length: 0}
 }
 
-func (list *CircularlyLinkedList[T]) Size() int {
-	return list.length
+func (l *CircularlyLinkedList[T]) Size() int {
+	return l.length
 }
 
-func (list *CircularlyLinkedList[T]) IsEmpty() bool {
-	return list.length == 0
+func (l *CircularlyLinkedList[T]) IsEmpty() bool {
+	return l.length == 0
 }
 
-func (list *CircularlyLinkedList[T]) Get(index int) T {
-	if index < 0 || index >= list.length {
+func (l *CircularlyLinkedList[T]) Get(index int) T {
+	if index < 0 || index >= l.length {
 		panic(errors.New("[PANIC - IndexOutOfBounds]"))
 	}
 
-	cursor := list.tail
+	cursor := l.tail
 
-	if index != list.length-1 {
+	if index != l.length-1 {
 		for range index + 1 {
 			cursor = cursor.next
 		}
@@ -40,14 +40,14 @@ func (list *CircularlyLinkedList[T]) Get(index int) T {
 	return cursor.data
 }
 
-func (list *CircularlyLinkedList[T]) Set(index int, element T) {
-	if index < 0 || index >= list.length {
+func (l *CircularlyLinkedList[T]) Set(index int, element T) {
+	if index < 0 || index >= l.length {
 		panic(errors.New("[PANIC - IndexOutOfBounds]"))
 	}
 
-	cursor := list.tail
+	cursor := l.tail
 
-	if index != list.length-1 {
+	if index != l.length-1 {
 		for range index + 1 {
 			cursor = cursor.next
 		}
@@ -56,8 +56,8 @@ func (list *CircularlyLinkedList[T]) Set(index int, element T) {
 	cursor.data = element
 }
 
-func (list *CircularlyLinkedList[T]) Insert(index int, element T) {
-	if index < 0 || index > list.length {
+func (l *CircularlyLinkedList[T]) Insert(index int, element T) {
+	if index < 0 || index > l.length {
 		panic(errors.New("[PANIC - IndexOutOfBounds]"))
 	}
 
@@ -65,19 +65,19 @@ func (list *CircularlyLinkedList[T]) Insert(index int, element T) {
 
 	switch index {
 	case 0:
-		if list.length == 0 {
+		if l.length == 0 {
 			node.next = node
-			list.tail = node
+			l.tail = node
 		} else {
-			node.next = list.tail.next
-			list.tail.next = node
+			node.next = l.tail.next
+			l.tail.next = node
 		}
-	case list.length:
-		node.next = list.tail.next
-		list.tail.next = node
-		list.tail = node
+	case l.length:
+		node.next = l.tail.next
+		l.tail.next = node
+		l.tail = node
 	default:
-		cursor := list.tail
+		cursor := l.tail
 		for range index {
 			cursor = cursor.next
 		}
@@ -85,60 +85,60 @@ func (list *CircularlyLinkedList[T]) Insert(index int, element T) {
 		cursor.next = node
 	}
 
-	list.length++
+	l.length++
 }
 
-func (list *CircularlyLinkedList[T]) Remove(index int) {
-	if index < 0 || index >= list.length {
+func (l *CircularlyLinkedList[T]) Remove(index int) {
+	if index < 0 || index >= l.length {
 		panic(errors.New("[PANIC - IndexOutOfBounds]"))
 	}
 
 	var target *Node[T]
 
 	if index == 0 {
-		target = list.tail.next
-		if list.length == 1 {
-			list.tail = nil
+		target = l.tail.next
+		if l.length == 1 {
+			l.tail = nil
 		} else {
-			list.tail.next = target.next
+			l.tail.next = target.next
 		}
 	} else {
-		cursor := list.tail
+		cursor := l.tail
 		for range index {
 			cursor = cursor.next
 		}
 		target = cursor.next
 		cursor.next = target.next
-		if index == list.length-1 {
-			list.tail = cursor
+		if index == l.length-1 {
+			l.tail = cursor
 		}
 	}
 
 	target.data = *new(T)
 
-	list.length--
+	l.length--
 }
 
-func (list *CircularlyLinkedList[T]) Front() T {
-	return list.Get(0)
+func (l *CircularlyLinkedList[T]) Front() T {
+	return l.Get(0)
 }
 
-func (list *CircularlyLinkedList[T]) Back() T {
-	return list.Get(list.length - 1)
+func (l *CircularlyLinkedList[T]) Back() T {
+	return l.Get(l.length - 1)
 }
 
-func (list *CircularlyLinkedList[T]) Prepend(element T) {
-	list.Insert(0, element)
+func (l *CircularlyLinkedList[T]) Prepend(element T) {
+	l.Insert(0, element)
 }
 
-func (list *CircularlyLinkedList[T]) Append(element T) {
-	list.Insert(list.length, element)
+func (l *CircularlyLinkedList[T]) Append(element T) {
+	l.Insert(l.length, element)
 }
 
-func (list *CircularlyLinkedList[T]) Poll() {
-	list.Remove(0)
+func (l *CircularlyLinkedList[T]) Poll() {
+	l.Remove(0)
 }
 
-func (list *CircularlyLinkedList[T]) Eject() {
-	list.Remove(list.length - 1)
+func (l *CircularlyLinkedList[T]) Eject() {
+	l.Remove(l.length - 1)
 }

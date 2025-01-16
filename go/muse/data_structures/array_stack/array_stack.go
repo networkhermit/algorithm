@@ -25,66 +25,66 @@ func NewWithCapacity[T any](physicalSize int) *ArrayStack[T] {
 	return stack
 }
 
-func (stack *ArrayStack[T]) Size() int {
-	return stack.logicalSize
+func (s *ArrayStack[T]) Size() int {
+	return s.logicalSize
 }
 
-func (stack *ArrayStack[T]) IsEmpty() bool {
-	return stack.logicalSize == 0
+func (s *ArrayStack[T]) IsEmpty() bool {
+	return s.logicalSize == 0
 }
 
-func (stack *ArrayStack[T]) Peek() T {
-	if stack.logicalSize == 0 {
+func (s *ArrayStack[T]) Peek() T {
+	if s.logicalSize == 0 {
 		panic(errors.New("[PANIC - NoSuchElement]"))
 	}
 
-	return stack.data[stack.logicalSize-1]
+	return s.data[s.logicalSize-1]
 }
 
-func (stack *ArrayStack[T]) Push(element T) {
-	if stack.logicalSize == stack.physicalSize {
+func (s *ArrayStack[T]) Push(element T) {
+	if s.logicalSize == s.physicalSize {
 		newCapacity := DEFAULT_CAPACITY
 
-		if stack.physicalSize >= DEFAULT_CAPACITY {
-			newCapacity = stack.physicalSize + (stack.physicalSize >> 1)
+		if s.physicalSize >= DEFAULT_CAPACITY {
+			newCapacity = s.physicalSize + (s.physicalSize >> 1)
 		}
 
 		temp := make([]T, newCapacity)
 
-		for i := range stack.logicalSize {
-			temp[i] = stack.data[i]
+		for i := range s.logicalSize {
+			temp[i] = s.data[i]
 		}
 
-		stack.data = temp
-		stack.physicalSize = newCapacity
+		s.data = temp
+		s.physicalSize = newCapacity
 	}
 
-	stack.data[stack.logicalSize] = element
+	s.data[s.logicalSize] = element
 
-	stack.logicalSize++
+	s.logicalSize++
 }
 
-func (stack *ArrayStack[T]) Pop() {
-	if stack.logicalSize == 0 {
+func (s *ArrayStack[T]) Pop() {
+	if s.logicalSize == 0 {
 		panic(errors.New("[PANIC - NoSuchElement]"))
 	}
 
-	stack.logicalSize--
+	s.logicalSize--
 
-	stack.data[stack.logicalSize] = *new(T)
+	s.data[s.logicalSize] = *new(T)
 }
 
-func (stack *ArrayStack[T]) Capacity() int {
-	return stack.physicalSize
+func (s *ArrayStack[T]) Capacity() int {
+	return s.physicalSize
 }
 
-func (stack *ArrayStack[T]) Shrink() {
-	temp := make([]T, stack.logicalSize)
+func (s *ArrayStack[T]) Shrink() {
+	temp := make([]T, s.logicalSize)
 
-	for i := range stack.logicalSize {
-		temp[i] = stack.data[i]
+	for i := range s.logicalSize {
+		temp[i] = s.data[i]
 	}
 
-	stack.data = temp
-	stack.physicalSize = stack.logicalSize
+	s.data = temp
+	s.physicalSize = s.logicalSize
 }

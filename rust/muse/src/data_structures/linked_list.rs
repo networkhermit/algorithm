@@ -149,14 +149,10 @@ impl<T> List<T> for LinkedList<T> {
         }
 
         if index == 0 {
-            unsafe {
-                self.head
-                    .as_mut()
-                    .expect("element should exist")
-                    .as_mut()
-                    .data
-                    .take();
-            }
+            let mut target = unsafe {
+                Box::from_raw(self.head.as_mut().expect("element should exist").as_mut())
+            };
+            target.as_mut().data.take();
             if self.length == 1 {
                 self.head.take();
                 self.tail.take();
@@ -176,16 +172,13 @@ impl<T> List<T> for LinkedList<T> {
                 cursor =
                     unsafe { &mut cursor.as_mut().expect("element should exist").as_mut().next };
             }
+            let mut target = unsafe {
+                let ptr = &mut cursor.as_mut().expect("element should exist").as_mut().next;
+                Box::from_raw(ptr.as_mut().expect("element should exist").as_mut())
+            };
+            target.as_mut().data.take();
             unsafe {
-                let target = &mut cursor.as_mut().expect("element should exist").as_mut().next;
-                target
-                    .as_mut()
-                    .expect("element should exist")
-                    .as_mut()
-                    .data
-                    .take();
-                cursor.as_mut().expect("element should exist").as_mut().next =
-                    target.as_mut().expect("element should exist").as_mut().next;
+                cursor.as_mut().expect("element should exist").as_mut().next = target.as_mut().next;
             }
             if index == self.length - 1 {
                 self.tail = *cursor;

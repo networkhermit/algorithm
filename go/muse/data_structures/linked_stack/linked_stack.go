@@ -17,56 +17,56 @@ func New[T any]() *LinkedStack[T] {
 	return &LinkedStack[T]{head: nil, tail: nil, length: 0}
 }
 
-func (stack *LinkedStack[T]) Size() int {
-	return stack.length
+func (s *LinkedStack[T]) Size() int {
+	return s.length
 }
 
-func (stack *LinkedStack[T]) IsEmpty() bool {
-	return stack.length == 0
+func (s *LinkedStack[T]) IsEmpty() bool {
+	return s.length == 0
 }
 
-func (stack *LinkedStack[T]) Peek() T {
-	if stack.length == 0 {
+func (s *LinkedStack[T]) Peek() T {
+	if s.length == 0 {
 		panic(errors.New("[PANIC - NoSuchElement]"))
 	}
 
-	return stack.tail.data
+	return s.tail.data
 }
 
-func (stack *LinkedStack[T]) Push(element T) {
+func (s *LinkedStack[T]) Push(element T) {
 	node := &Node[T]{data: element, next: nil}
 
-	if stack.length == 0 {
-		stack.head = node
+	if s.length == 0 {
+		s.head = node
 	} else {
-		stack.tail.next = node
+		s.tail.next = node
 	}
 
-	stack.tail = node
+	s.tail = node
 
-	stack.length++
+	s.length++
 }
 
-func (stack *LinkedStack[T]) Pop() {
-	if stack.length == 0 {
+func (s *LinkedStack[T]) Pop() {
+	if s.length == 0 {
 		panic(errors.New("[PANIC - NoSuchElement]"))
 	}
 
-	target := stack.tail
+	target := s.tail
 
-	if stack.length == 1 {
-		stack.head = nil
-		stack.tail = nil
+	if s.length == 1 {
+		s.head = nil
+		s.tail = nil
 	} else {
-		cursor := stack.head
-		for range stack.length - 2 {
+		cursor := s.head
+		for range s.length - 2 {
 			cursor = cursor.next
 		}
 		cursor.next = nil
-		stack.tail = cursor
+		s.tail = cursor
 	}
 
 	target.data = *new(T)
 
-	stack.length--
+	s.length--
 }

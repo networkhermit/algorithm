@@ -17,25 +17,25 @@ func New[T any]() *LinkedList[T] {
 	return &LinkedList[T]{head: nil, tail: nil, length: 0}
 }
 
-func (list *LinkedList[T]) Size() int {
-	return list.length
+func (l *LinkedList[T]) Size() int {
+	return l.length
 }
 
-func (list *LinkedList[T]) IsEmpty() bool {
-	return list.length == 0
+func (l *LinkedList[T]) IsEmpty() bool {
+	return l.length == 0
 }
 
-func (list *LinkedList[T]) Get(index int) T {
-	if index < 0 || index >= list.length {
+func (l *LinkedList[T]) Get(index int) T {
+	if index < 0 || index >= l.length {
 		panic(errors.New("[PANIC - IndexOutOfBounds]"))
 	}
 
 	var cursor *Node[T]
 
-	if index == list.length-1 {
-		cursor = list.tail
+	if index == l.length-1 {
+		cursor = l.tail
 	} else {
-		cursor = list.head
+		cursor = l.head
 		for range index {
 			cursor = cursor.next
 		}
@@ -44,17 +44,17 @@ func (list *LinkedList[T]) Get(index int) T {
 	return cursor.data
 }
 
-func (list *LinkedList[T]) Set(index int, element T) {
-	if index < 0 || index >= list.length {
+func (l *LinkedList[T]) Set(index int, element T) {
+	if index < 0 || index >= l.length {
 		panic(errors.New("[PANIC - IndexOutOfBounds]"))
 	}
 
 	var cursor *Node[T]
 
-	if index == list.length-1 {
-		cursor = list.tail
+	if index == l.length-1 {
+		cursor = l.tail
 	} else {
-		cursor = list.head
+		cursor = l.head
 		for range index {
 			cursor = cursor.next
 		}
@@ -63,8 +63,8 @@ func (list *LinkedList[T]) Set(index int, element T) {
 	cursor.data = element
 }
 
-func (list *LinkedList[T]) Insert(index int, element T) {
-	if index < 0 || index > list.length {
+func (l *LinkedList[T]) Insert(index int, element T) {
+	if index < 0 || index > l.length {
 		panic(errors.New("[PANIC - IndexOutOfBounds]"))
 	}
 
@@ -72,17 +72,17 @@ func (list *LinkedList[T]) Insert(index int, element T) {
 
 	switch index {
 	case 0:
-		if list.length != 0 {
-			node.next = list.head
+		if l.length != 0 {
+			node.next = l.head
 		} else {
-			list.tail = node
+			l.tail = node
 		}
-		list.head = node
-	case list.length:
-		list.tail.next = node
-		list.tail = node
+		l.head = node
+	case l.length:
+		l.tail.next = node
+		l.tail = node
 	default:
-		cursor := list.head
+		cursor := l.head
 		for range index - 1 {
 			cursor = cursor.next
 		}
@@ -90,61 +90,61 @@ func (list *LinkedList[T]) Insert(index int, element T) {
 		cursor.next = node
 	}
 
-	list.length++
+	l.length++
 }
 
-func (list *LinkedList[T]) Remove(index int) {
-	if index < 0 || index >= list.length {
+func (l *LinkedList[T]) Remove(index int) {
+	if index < 0 || index >= l.length {
 		panic(errors.New("[PANIC - IndexOutOfBounds]"))
 	}
 
 	var target *Node[T]
 
 	if index == 0 {
-		target = list.head
-		if list.length == 1 {
-			list.head = nil
-			list.tail = nil
+		target = l.head
+		if l.length == 1 {
+			l.head = nil
+			l.tail = nil
 		} else {
-			list.head = target.next
+			l.head = target.next
 		}
 	} else {
-		cursor := list.head
+		cursor := l.head
 		for range index - 1 {
 			cursor = cursor.next
 		}
 		target = cursor.next
 		cursor.next = target.next
-		if index == list.length-1 {
-			list.tail = cursor
+		if index == l.length-1 {
+			l.tail = cursor
 		}
 	}
 
 	target.data = *new(T)
 
-	list.length--
+	l.length--
 }
 
-func (list *LinkedList[T]) Front() T {
-	return list.Get(0)
+func (l *LinkedList[T]) Front() T {
+	return l.Get(0)
 }
 
-func (list *LinkedList[T]) Back() T {
-	return list.Get(list.length - 1)
+func (l *LinkedList[T]) Back() T {
+	return l.Get(l.length - 1)
 }
 
-func (list *LinkedList[T]) Prepend(element T) {
-	list.Insert(0, element)
+func (l *LinkedList[T]) Prepend(element T) {
+	l.Insert(0, element)
 }
 
-func (list *LinkedList[T]) Append(element T) {
-	list.Insert(list.length, element)
+func (l *LinkedList[T]) Append(element T) {
+	l.Insert(l.length, element)
 }
 
-func (list *LinkedList[T]) Poll() {
-	list.Remove(0)
+func (l *LinkedList[T]) Poll() {
+	l.Remove(0)
 }
 
-func (list *LinkedList[T]) Eject() {
-	list.Remove(list.length - 1)
+func (l *LinkedList[T]) Eject() {
+	l.Remove(l.length - 1)
 }

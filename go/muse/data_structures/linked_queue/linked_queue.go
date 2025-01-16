@@ -17,51 +17,51 @@ func New[T any]() *LinkedQueue[T] {
 	return &LinkedQueue[T]{head: nil, tail: nil, length: 0}
 }
 
-func (queue *LinkedQueue[T]) Size() int {
-	return queue.length
+func (q *LinkedQueue[T]) Size() int {
+	return q.length
 }
 
-func (queue *LinkedQueue[T]) IsEmpty() bool {
-	return queue.length == 0
+func (q *LinkedQueue[T]) IsEmpty() bool {
+	return q.length == 0
 }
 
-func (queue *LinkedQueue[T]) Peek() T {
-	if queue.length == 0 {
+func (q *LinkedQueue[T]) Peek() T {
+	if q.length == 0 {
 		panic(errors.New("[PANIC - NoSuchElement]"))
 	}
 
-	return queue.head.data
+	return q.head.data
 }
 
-func (queue *LinkedQueue[T]) Enqueue(element T) {
+func (q *LinkedQueue[T]) Enqueue(element T) {
 	node := &Node[T]{data: element, next: nil}
 
-	if queue.length == 0 {
-		queue.head = node
+	if q.length == 0 {
+		q.head = node
 	} else {
-		queue.tail.next = node
+		q.tail.next = node
 	}
 
-	queue.tail = node
+	q.tail = node
 
-	queue.length++
+	q.length++
 }
 
-func (queue *LinkedQueue[T]) Dequeue() {
-	if queue.length == 0 {
+func (q *LinkedQueue[T]) Dequeue() {
+	if q.length == 0 {
 		panic(errors.New("[PANIC - NoSuchElement]"))
 	}
 
-	target := queue.head
+	target := q.head
 
-	if queue.length == 1 {
-		queue.head = nil
-		queue.tail = nil
+	if q.length == 1 {
+		q.head = nil
+		q.tail = nil
 	} else {
-		queue.head = target.next
+		q.head = target.next
 	}
 
 	target.data = *new(T)
 
-	queue.length--
+	q.length--
 }

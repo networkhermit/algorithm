@@ -18,29 +18,29 @@ func New[T any]() *DoublyLinkedList[T] {
 	return &DoublyLinkedList[T]{head: nil, tail: nil, length: 0}
 }
 
-func (list *DoublyLinkedList[T]) Size() int {
-	return list.length
+func (l *DoublyLinkedList[T]) Size() int {
+	return l.length
 }
 
-func (list *DoublyLinkedList[T]) IsEmpty() bool {
-	return list.length == 0
+func (l *DoublyLinkedList[T]) IsEmpty() bool {
+	return l.length == 0
 }
 
-func (list *DoublyLinkedList[T]) Get(index int) T {
-	if index < 0 || index >= list.length {
+func (l *DoublyLinkedList[T]) Get(index int) T {
+	if index < 0 || index >= l.length {
 		panic(errors.New("[PANIC - IndexOutOfBounds]"))
 	}
 
 	var cursor *Node[T]
 
-	if index < list.length>>1 {
-		cursor = list.head
+	if index < l.length>>1 {
+		cursor = l.head
 		for range index {
 			cursor = cursor.next
 		}
 	} else {
-		cursor = list.tail
-		for i := list.length - 1; i > index; i-- {
+		cursor = l.tail
+		for i := l.length - 1; i > index; i-- {
 			cursor = cursor.prev
 		}
 	}
@@ -48,21 +48,21 @@ func (list *DoublyLinkedList[T]) Get(index int) T {
 	return cursor.data
 }
 
-func (list *DoublyLinkedList[T]) Set(index int, element T) {
-	if index < 0 || index >= list.length {
+func (l *DoublyLinkedList[T]) Set(index int, element T) {
+	if index < 0 || index >= l.length {
 		panic(errors.New("[PANIC - IndexOutOfBounds]"))
 	}
 
 	var cursor *Node[T]
 
-	if index < list.length>>1 {
-		cursor = list.head
+	if index < l.length>>1 {
+		cursor = l.head
 		for range index {
 			cursor = cursor.next
 		}
 	} else {
-		cursor = list.tail
-		for i := list.length - 1; i > index; i-- {
+		cursor = l.tail
+		for i := l.length - 1; i > index; i-- {
 			cursor = cursor.prev
 		}
 	}
@@ -70,8 +70,8 @@ func (list *DoublyLinkedList[T]) Set(index int, element T) {
 	cursor.data = element
 }
 
-func (list *DoublyLinkedList[T]) Insert(index int, element T) {
-	if index < 0 || index > list.length {
+func (l *DoublyLinkedList[T]) Insert(index int, element T) {
+	if index < 0 || index > l.length {
 		panic(errors.New("[PANIC - IndexOutOfBounds]"))
 	}
 
@@ -79,27 +79,27 @@ func (list *DoublyLinkedList[T]) Insert(index int, element T) {
 
 	switch index {
 	case 0:
-		if list.length != 0 {
-			node.next = list.head
-			list.head.prev = node
+		if l.length != 0 {
+			node.next = l.head
+			l.head.prev = node
 		} else {
-			list.tail = node
+			l.tail = node
 		}
-		list.head = node
-	case list.length:
-		node.prev = list.tail
-		list.tail.next = node
-		list.tail = node
+		l.head = node
+	case l.length:
+		node.prev = l.tail
+		l.tail.next = node
+		l.tail = node
 	default:
 		var cursor *Node[T]
-		if index < list.length>>1 {
-			cursor = list.head
+		if index < l.length>>1 {
+			cursor = l.head
 			for range index {
 				cursor = cursor.next
 			}
 		} else {
-			cursor = list.tail
-			for i := list.length - 1; i > index; i-- {
+			cursor = l.tail
+			for i := l.length - 1; i > index; i-- {
 				cursor = cursor.prev
 			}
 		}
@@ -109,11 +109,11 @@ func (list *DoublyLinkedList[T]) Insert(index int, element T) {
 		cursor.prev = node
 	}
 
-	list.length++
+	l.length++
 }
 
-func (list *DoublyLinkedList[T]) Remove(index int) {
-	if index < 0 || index >= list.length {
+func (l *DoublyLinkedList[T]) Remove(index int) {
+	if index < 0 || index >= l.length {
 		panic(errors.New("[PANIC - IndexOutOfBounds]"))
 	}
 
@@ -121,27 +121,27 @@ func (list *DoublyLinkedList[T]) Remove(index int) {
 
 	switch index {
 	case 0:
-		target = list.head
-		if list.length == 1 {
-			list.head = nil
-			list.tail = nil
+		target = l.head
+		if l.length == 1 {
+			l.head = nil
+			l.tail = nil
 		} else {
 			target.next.prev = nil
-			list.head = target.next
+			l.head = target.next
 		}
-	case list.length - 1:
-		target = list.tail
+	case l.length - 1:
+		target = l.tail
 		target.prev.next = nil
-		list.tail = target.prev
+		l.tail = target.prev
 	default:
-		if index < list.length>>1 {
-			target = list.head
+		if index < l.length>>1 {
+			target = l.head
 			for range index {
 				target = target.next
 			}
 		} else {
-			target = list.tail
-			for i := list.length - 1; i > index; i-- {
+			target = l.tail
+			for i := l.length - 1; i > index; i-- {
 				target = target.prev
 			}
 		}
@@ -151,29 +151,29 @@ func (list *DoublyLinkedList[T]) Remove(index int) {
 
 	target.data = *new(T)
 
-	list.length--
+	l.length--
 }
 
-func (list *DoublyLinkedList[T]) Front() T {
-	return list.Get(0)
+func (l *DoublyLinkedList[T]) Front() T {
+	return l.Get(0)
 }
 
-func (list *DoublyLinkedList[T]) Back() T {
-	return list.Get(list.length - 1)
+func (l *DoublyLinkedList[T]) Back() T {
+	return l.Get(l.length - 1)
 }
 
-func (list *DoublyLinkedList[T]) Prepend(element T) {
-	list.Insert(0, element)
+func (l *DoublyLinkedList[T]) Prepend(element T) {
+	l.Insert(0, element)
 }
 
-func (list *DoublyLinkedList[T]) Append(element T) {
-	list.Insert(list.length, element)
+func (l *DoublyLinkedList[T]) Append(element T) {
+	l.Insert(l.length, element)
 }
 
-func (list *DoublyLinkedList[T]) Poll() {
-	list.Remove(0)
+func (l *DoublyLinkedList[T]) Poll() {
+	l.Remove(0)
 }
 
-func (list *DoublyLinkedList[T]) Eject() {
-	list.Remove(list.length - 1)
+func (l *DoublyLinkedList[T]) Eject() {
+	l.Remove(l.length - 1)
 }

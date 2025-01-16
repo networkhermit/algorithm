@@ -26,82 +26,82 @@ func NewWithCapacity[T any](physicalSize int) *ArrayQueue[T] {
 	return queue
 }
 
-func (queue *ArrayQueue[T]) Size() int {
-	return queue.logicalSize
+func (q *ArrayQueue[T]) Size() int {
+	return q.logicalSize
 }
 
-func (queue *ArrayQueue[T]) IsEmpty() bool {
-	return queue.logicalSize == 0
+func (q *ArrayQueue[T]) IsEmpty() bool {
+	return q.logicalSize == 0
 }
 
-func (queue *ArrayQueue[T]) Peek() T {
-	if queue.logicalSize == 0 {
+func (q *ArrayQueue[T]) Peek() T {
+	if q.logicalSize == 0 {
 		panic(errors.New("[PANIC - NoSuchElement]"))
 	}
 
-	return queue.data[queue.front]
+	return q.data[q.front]
 }
 
-func (queue *ArrayQueue[T]) Enqueue(element T) {
-	if queue.logicalSize == queue.physicalSize {
+func (q *ArrayQueue[T]) Enqueue(element T) {
+	if q.logicalSize == q.physicalSize {
 		newCapacity := DEFAULT_CAPACITY
 
-		if queue.physicalSize >= DEFAULT_CAPACITY {
-			newCapacity = queue.physicalSize + (queue.physicalSize >> 1)
+		if q.physicalSize >= DEFAULT_CAPACITY {
+			newCapacity = q.physicalSize + (q.physicalSize >> 1)
 		}
 
 		temp := make([]T, newCapacity)
 
-		cursor := queue.front
+		cursor := q.front
 
-		for i := range queue.logicalSize {
-			if cursor == queue.physicalSize {
+		for i := range q.logicalSize {
+			if cursor == q.physicalSize {
 				cursor = 0
 			}
-			temp[i] = queue.data[cursor]
+			temp[i] = q.data[cursor]
 			cursor++
 		}
 
-		queue.data = temp
-		queue.front = 0
-		queue.physicalSize = newCapacity
+		q.data = temp
+		q.front = 0
+		q.physicalSize = newCapacity
 	}
 
-	queue.data[(queue.front+queue.logicalSize)%queue.physicalSize] = element
+	q.data[(q.front+q.logicalSize)%q.physicalSize] = element
 
-	queue.logicalSize++
+	q.logicalSize++
 }
 
-func (queue *ArrayQueue[T]) Dequeue() {
-	if queue.logicalSize == 0 {
+func (q *ArrayQueue[T]) Dequeue() {
+	if q.logicalSize == 0 {
 		panic(errors.New("[PANIC - NoSuchElement]"))
 	}
 
-	queue.data[queue.front] = *new(T)
+	q.data[q.front] = *new(T)
 
-	queue.front = (queue.front + 1) % queue.physicalSize
+	q.front = (q.front + 1) % q.physicalSize
 
-	queue.logicalSize--
+	q.logicalSize--
 }
 
-func (queue *ArrayQueue[T]) Capacity() int {
-	return queue.physicalSize
+func (q *ArrayQueue[T]) Capacity() int {
+	return q.physicalSize
 }
 
-func (queue *ArrayQueue[T]) Shrink() {
-	temp := make([]T, queue.logicalSize)
+func (q *ArrayQueue[T]) Shrink() {
+	temp := make([]T, q.logicalSize)
 
-	cursor := queue.front
+	cursor := q.front
 
-	for i := range queue.logicalSize {
-		if cursor == queue.physicalSize {
+	for i := range q.logicalSize {
+		if cursor == q.physicalSize {
 			cursor = 0
 		}
-		temp[i] = queue.data[cursor]
+		temp[i] = q.data[cursor]
 		cursor++
 	}
 
-	queue.data = temp
-	queue.front = 0
-	queue.physicalSize = queue.logicalSize
+	q.data = temp
+	q.front = 0
+	q.physicalSize = q.logicalSize
 }

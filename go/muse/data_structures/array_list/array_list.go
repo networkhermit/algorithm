@@ -25,110 +25,110 @@ func NewWithCapacity[T any](physicalSize int) *ArrayList[T] {
 	return list
 }
 
-func (list *ArrayList[T]) Size() int {
-	return list.logicalSize
+func (l *ArrayList[T]) Size() int {
+	return l.logicalSize
 }
 
-func (list *ArrayList[T]) IsEmpty() bool {
-	return list.logicalSize == 0
+func (l *ArrayList[T]) IsEmpty() bool {
+	return l.logicalSize == 0
 }
 
-func (list *ArrayList[T]) Get(index int) T {
-	if index < 0 || index >= list.logicalSize {
+func (l *ArrayList[T]) Get(index int) T {
+	if index < 0 || index >= l.logicalSize {
 		panic(errors.New("[PANIC - IndexOutOfBounds]"))
 	}
 
-	return list.data[index]
+	return l.data[index]
 }
 
-func (list *ArrayList[T]) Set(index int, element T) {
-	if index < 0 || index >= list.logicalSize {
+func (l *ArrayList[T]) Set(index int, element T) {
+	if index < 0 || index >= l.logicalSize {
 		panic(errors.New("[PANIC - IndexOutOfBounds]"))
 	}
 
-	list.data[index] = element
+	l.data[index] = element
 }
 
-func (list *ArrayList[T]) Insert(index int, element T) {
-	if index < 0 || index > list.logicalSize {
+func (l *ArrayList[T]) Insert(index int, element T) {
+	if index < 0 || index > l.logicalSize {
 		panic(errors.New("[PANIC - IndexOutOfBounds]"))
 	}
 
-	if list.logicalSize == list.physicalSize {
+	if l.logicalSize == l.physicalSize {
 		newCapacity := DEFAULT_CAPACITY
 
-		if list.physicalSize >= DEFAULT_CAPACITY {
-			newCapacity = list.physicalSize + (list.physicalSize >> 1)
+		if l.physicalSize >= DEFAULT_CAPACITY {
+			newCapacity = l.physicalSize + (l.physicalSize >> 1)
 		}
 
 		temp := make([]T, newCapacity)
 
-		for i := range list.logicalSize {
-			temp[i] = list.data[i]
+		for i := range l.logicalSize {
+			temp[i] = l.data[i]
 		}
 
-		list.data = temp
-		list.physicalSize = newCapacity
+		l.data = temp
+		l.physicalSize = newCapacity
 	}
 
-	for i := list.logicalSize; i > index; i-- {
-		list.data[i] = list.data[i-1]
+	for i := l.logicalSize; i > index; i-- {
+		l.data[i] = l.data[i-1]
 	}
 
-	list.data[index] = element
+	l.data[index] = element
 
-	list.logicalSize++
+	l.logicalSize++
 }
 
-func (list *ArrayList[T]) Remove(index int) {
-	if index < 0 || index >= list.logicalSize {
+func (l *ArrayList[T]) Remove(index int) {
+	if index < 0 || index >= l.logicalSize {
 		panic(errors.New("[PANIC - IndexOutOfBounds]"))
 	}
 
-	for i := index + 1; i < list.logicalSize; i++ {
-		list.data[i-1] = list.data[i]
+	for i := index + 1; i < l.logicalSize; i++ {
+		l.data[i-1] = l.data[i]
 	}
 
-	list.logicalSize--
+	l.logicalSize--
 
-	list.data[list.logicalSize] = *new(T)
+	l.data[l.logicalSize] = *new(T)
 }
 
-func (list *ArrayList[T]) Front() T {
-	return list.Get(0)
+func (l *ArrayList[T]) Front() T {
+	return l.Get(0)
 }
 
-func (list *ArrayList[T]) Back() T {
-	return list.Get(list.logicalSize - 1)
+func (l *ArrayList[T]) Back() T {
+	return l.Get(l.logicalSize - 1)
 }
 
-func (list *ArrayList[T]) Prepend(element T) {
-	list.Insert(0, element)
+func (l *ArrayList[T]) Prepend(element T) {
+	l.Insert(0, element)
 }
 
-func (list *ArrayList[T]) Append(element T) {
-	list.Insert(list.logicalSize, element)
+func (l *ArrayList[T]) Append(element T) {
+	l.Insert(l.logicalSize, element)
 }
 
-func (list *ArrayList[T]) Poll() {
-	list.Remove(0)
+func (l *ArrayList[T]) Poll() {
+	l.Remove(0)
 }
 
-func (list *ArrayList[T]) Eject() {
-	list.Remove(list.logicalSize - 1)
+func (l *ArrayList[T]) Eject() {
+	l.Remove(l.logicalSize - 1)
 }
 
-func (list *ArrayList[T]) Capacity() int {
-	return list.physicalSize
+func (l *ArrayList[T]) Capacity() int {
+	return l.physicalSize
 }
 
-func (list *ArrayList[T]) Shrink() {
-	temp := make([]T, list.logicalSize)
+func (l *ArrayList[T]) Shrink() {
+	temp := make([]T, l.logicalSize)
 
-	for i := range list.logicalSize {
-		temp[i] = list.data[i]
+	for i := range l.logicalSize {
+		temp[i] = l.data[i]
 	}
 
-	list.data = temp
-	list.physicalSize = list.logicalSize
+	l.data = temp
+	l.physicalSize = l.logicalSize
 }
