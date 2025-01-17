@@ -1,0 +1,12 @@
+{
+  "python.envFile": "${workspaceFolder}/python/.env",
+  "terminal.integrated.env.linux": {
+    "PYTHONPATH": "${workspaceFolder}/python"
+  },
+  "terminal.integrated.env.osx": {
+    "PYTHONPATH": "${workspaceFolder}/python"
+  },
+  "terminal.integrated.env.windows": {
+    "PYTHONPATH": "${workspaceFolder}/python"
+  }
+}
