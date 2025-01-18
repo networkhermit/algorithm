@@ -2,7 +2,6 @@
 #define MUSE_ALGORITHMS_NUMBER_THEORY_PRIMALITY_H
 
 #include <math.h>
-#include <stdbool.h>
 
 bool Primality_isPrime(long n) {
   if (n < 2) {

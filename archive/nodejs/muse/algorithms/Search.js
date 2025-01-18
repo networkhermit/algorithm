@@ -1,12 +1,10 @@
-'use strict';
+import * as BinarySearch from './search/BinarySearch.js';
+import * as LinearSearch from './search/LinearSearch.js';
 
-const BinarySearch = require('muse/algorithms/search/BinarySearch');
-const LinearSearch = require('muse/algorithms/search/LinearSearch');
-
-exports.binarySearch = (arr, key) => {
+export const binarySearch = (arr, key) => {
   return BinarySearch.find(arr, key);
 };
 
-exports.linearSearch = (arr, key) => {
+export const linearSearch = (arr, key) => {
   return LinearSearch.find(arr, key);
 };

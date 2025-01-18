@@ -1,6 +1,4 @@
-'use strict';
-
-exports.iterativeBinaryGCD = (m, n) => {
+export const iterativeBinaryGCD = (m, n) => {
   if (m < 0) {
     m = -m;
   }
@@ -37,7 +35,7 @@ exports.iterativeBinaryGCD = (m, n) => {
   }
 };
 
-exports.recursiveBinaryGCD = (m, n) => {
+export const recursiveBinaryGCD = (m, n) => {
   if (m < 0) {
     m = -m;
   }
@@ -57,20 +55,20 @@ exports.recursiveBinaryGCD = (m, n) => {
 
   if ((m & 1) === 0) {
     if ((n & 1) === 0) {
-      return this.recursiveBinaryGCD(m >>> 1, n >>> 1) << 1;
+      return recursiveBinaryGCD(m >>> 1, n >>> 1) << 1;
     }
-    return this.recursiveBinaryGCD(m >>> 1, n);
+    return recursiveBinaryGCD(m >>> 1, n);
   }
   if ((n & 1) === 0) {
-    return this.recursiveBinaryGCD(m, n >>> 1);
+    return recursiveBinaryGCD(m, n >>> 1);
   }
   if (m > n) {
-    return this.recursiveBinaryGCD((m - n) >>> 1, n);
+    return recursiveBinaryGCD((m - n) >>> 1, n);
   }
-  return this.recursiveBinaryGCD(m, (n - m) >>> 1);
+  return recursiveBinaryGCD(m, (n - m) >>> 1);
 };
 
-exports.iterativeEuclidean = (m, n) => {
+export const iterativeEuclidean = (m, n) => {
   if (m < 0) {
     m = -m;
   }
@@ -88,7 +86,7 @@ exports.iterativeEuclidean = (m, n) => {
   return m;
 };
 
-exports.recursiveEuclidean = (m, n) => {
+export const recursiveEuclidean = (m, n) => {
   if (m < 0) {
     m = -m;
   }
@@ -99,5 +97,5 @@ exports.recursiveEuclidean = (m, n) => {
   if (n === 0) {
     return m;
   }
-  return this.recursiveEuclidean(n, m % n);
+  return recursiveEuclidean(n, m % n);
 };

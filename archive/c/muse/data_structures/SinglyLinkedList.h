@@ -1,7 +1,6 @@
 #ifndef MUSE_DATA_STRUCTURES_SINGLY_LINKED_LIST_H
 #define MUSE_DATA_STRUCTURES_SINGLY_LINKED_LIST_H
 
-#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -24,7 +23,7 @@ typedef struct {
 SinglyLinkedList *SinglyLinkedList_new(void) {
   SinglyLinkedList *list = (SinglyLinkedList *)malloc(sizeof(SinglyLinkedList));
 
-  list->head = NULL;
+  list->head = nullptr;
   list->length = 0;
 
   return list;
@@ -79,7 +78,7 @@ void SinglyLinkedList_insert(SinglyLinkedList *list, size_t index,
       (SinglyLinkedListNode *)malloc(sizeof(SinglyLinkedListNode));
 
   node->data = element;
-  node->next = NULL;
+  node->next = nullptr;
 
   if (index == 0) {
     if (list->length != 0) {
@@ -109,7 +108,7 @@ void SinglyLinkedList_remove(SinglyLinkedList *list, size_t index) {
   if (index == 0) {
     target = list->head;
     if (list->length == 1) {
-      list->head = NULL;
+      list->head = nullptr;
     } else {
       list->head = target->next;
     }

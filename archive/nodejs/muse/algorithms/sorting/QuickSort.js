@@ -1,6 +1,4 @@
-'use strict';
-
-exports.partition = (arr, lo, hi) => {
+export const partition = (arr, lo, hi) => {
   if (lo === hi) {
     return;
   }
@@ -29,10 +27,10 @@ exports.partition = (arr, lo, hi) => {
     }
   }
 
-  this.partition(arr, lo, left);
-  this.partition(arr, left + 1, hi);
+  partition(arr, lo, left);
+  partition(arr, left + 1, hi);
 };
 
-exports.sort = (arr) => {
-  this.partition(arr, 0, arr.length);
+export const sort = (arr) => {
+  partition(arr, 0, arr.length);
 };

@@ -1,7 +1,5 @@
-'use strict';
-
-const CircularlyLinkedList = require('muse/data_structures/CircularlyLinkedList');
-const TestRunner = require('muse/util/TestRunner');
+import * as TestRunner from '../util/TestRunner.js';
+import * as CircularlyLinkedList from './CircularlyLinkedList.js';
 
 const testCircularlyLinkedList = () => {
   const size = 8192;
@@ -58,6 +56,8 @@ const testCircularlyLinkedList = () => {
   return list.isEmpty();
 };
 
-if (module === require.main) {
+const main = () => {
   TestRunner.pick(testCircularlyLinkedList);
-}
+};
+
+main();

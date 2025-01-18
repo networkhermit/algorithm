@@ -1,6 +1,4 @@
-'use strict';
-
-exports.sort = (arr) => {
+export const sort = (arr) => {
   let margin = 0;
   let unsorted = arr.length;
 

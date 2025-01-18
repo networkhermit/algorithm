@@ -1,6 +1,4 @@
-'use strict';
-
-exports.sieveOfEratosthenes = (n) => {
+export const sieveOfEratosthenes = (n) => {
   if (n < 2) {
     return new Array(0);
   }

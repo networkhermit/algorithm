@@ -1,7 +1,6 @@
 #ifndef MUSE_DATA_STRUCTURES_LINKED_STACK_H
 #define MUSE_DATA_STRUCTURES_LINKED_STACK_H
 
-#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -25,8 +24,8 @@ typedef struct {
 LinkedStack *LinkedStack_new(void) {
   LinkedStack *stack = (LinkedStack *)malloc(sizeof(LinkedStack));
 
-  stack->head = NULL;
-  stack->tail = NULL;
+  stack->head = nullptr;
+  stack->tail = nullptr;
   stack->length = 0;
 
   return stack;
@@ -49,7 +48,7 @@ void LinkedStack_push(LinkedStack *stack, linked_stack_type element) {
   LinkedStackNode *node = (LinkedStackNode *)malloc(sizeof(LinkedStackNode));
 
   node->data = element;
-  node->next = NULL;
+  node->next = nullptr;
 
   if (stack->length == 0) {
     stack->head = node;
@@ -71,14 +70,14 @@ void LinkedStack_pop(LinkedStack *stack) {
   LinkedStackNode *target = stack->tail;
 
   if (stack->length == 1) {
-    stack->head = NULL;
-    stack->tail = NULL;
+    stack->head = nullptr;
+    stack->tail = nullptr;
   } else {
     LinkedStackNode *cursor = stack->head;
     for (size_t i = 0, bound = stack->length - 2; i < bound; i++) {
       cursor = cursor->next;
     }
-    cursor->next = NULL;
+    cursor->next = nullptr;
     stack->tail = cursor;
   }
 

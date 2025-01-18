@@ -1,9 +1,7 @@
-'use strict';
+import * as QuickSort from '../algorithms/sorting/QuickSort.js';
+import * as RandomFactory from './RandomFactory.js';
 
-const QuickSort = require('muse/algorithms/sorting/QuickSort');
-const RandomFactory = require('muse/util/RandomFactory');
-
-exports.inspect = (arr) => {
+export const inspect = (arr) => {
   console.log('[');
   for (let i = 0, length = arr.length; i < length; i++) {
     process.stdout.write(
@@ -13,7 +11,7 @@ exports.inspect = (arr) => {
   console.log(']');
 };
 
-exports.isSorted = (arr) => {
+export const isSorted = (arr) => {
   for (let i = 1, length = arr.length; i < length; i++) {
     if (arr[i] < arr[i - 1]) {
       return false;
@@ -23,7 +21,7 @@ exports.isSorted = (arr) => {
   return true;
 };
 
-exports.parityChecksum = (arr) => {
+export const parityChecksum = (arr) => {
   let checksum = 0;
 
   for (const v of arr) {
@@ -33,7 +31,7 @@ exports.parityChecksum = (arr) => {
   return checksum;
 };
 
-exports.reverse = (arr) => {
+export const reverse = (arr) => {
   let k;
 
   for (
@@ -46,7 +44,7 @@ exports.reverse = (arr) => {
   }
 };
 
-exports.shuffle = (arr) => {
+export const shuffle = (arr) => {
   let k;
 
   for (let i = 0, length = arr.length; i < length; i++) {
@@ -55,6 +53,6 @@ exports.shuffle = (arr) => {
   }
 };
 
-exports.sort = (arr) => {
+export const sort = (arr) => {
   QuickSort.sort(arr);
 };

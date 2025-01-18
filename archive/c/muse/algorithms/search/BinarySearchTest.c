@@ -12,7 +12,7 @@ bool testBinarySearch(void) {
     return false;
   }
 
-  if (BinarySearch_find(arr, size, 2147483647) != size) {
+  if (BinarySearch_find(arr, size, 2'147'483'647) != size) {
     return false;
   }
 

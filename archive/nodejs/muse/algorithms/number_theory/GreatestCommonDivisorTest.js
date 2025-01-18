@@ -1,7 +1,5 @@
-'use strict';
-
-const GreatestCommonDivisor = require('muse/algorithms/number_theory/GreatestCommonDivisor');
-const TestRunner = require('muse/util/TestRunner');
+import * as TestRunner from '../../util/TestRunner.js';
+import * as GreatestCommonDivisor from './GreatestCommonDivisor.js';
 
 const testGreatestCommonDivisor = () => {
   const sample = [
@@ -174,6 +172,8 @@ const testGreatestCommonDivisor = () => {
   return true;
 };
 
-if (module === require.main) {
+const main = () => {
   TestRunner.pick(testGreatestCommonDivisor);
-}
+};
+
+main();

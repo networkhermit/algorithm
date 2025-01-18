@@ -4,7 +4,7 @@
 int main(void) {
   puts("When’s Weekend?");
 
-  time_t t = time(NULL);
+  time_t t = time(nullptr);
   int today = localtime(&t)->tm_wday;
 
   switch (today) {

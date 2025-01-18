@@ -1,7 +1,5 @@
-'use strict';
-
-const DoublyLinkedList = require('muse/data_structures/DoublyLinkedList');
-const TestRunner = require('muse/util/TestRunner');
+import * as TestRunner from '../util/TestRunner.js';
+import * as DoublyLinkedList from './DoublyLinkedList.js';
 
 const testLinkedList = () => {
   const size = 8192;
@@ -58,6 +56,8 @@ const testLinkedList = () => {
   return list.isEmpty();
 };
 
-if (module === require.main) {
+const main = () => {
   TestRunner.pick(testLinkedList);
-}
+};
+
+main();

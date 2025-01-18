@@ -1,7 +1,5 @@
-'use strict';
-
-const Factorial = require('muse/algorithms/number_theory/Factorial');
-const TestRunner = require('muse/util/TestRunner');
+import * as TestRunner from '../../util/TestRunner.js';
+import * as Factorial from './Factorial.js';
 
 const testFactorial = () => {
   const sample = [
@@ -35,6 +33,8 @@ const testFactorial = () => {
   return true;
 };
 
-if (module === require.main) {
+const main = () => {
   TestRunner.pick(testFactorial);
-}
+};
+
+main();

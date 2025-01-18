@@ -1,50 +1,48 @@
-'use strict';
+import * as Coprimality from './number_theory/Coprimality.js';
+import * as Factorial from './number_theory/Factorial.js';
+import * as FibonacciNumber from './number_theory/FibonacciNumber.js';
+import * as GreatestCommonDivisor from './number_theory/GreatestCommonDivisor.js';
+import * as LeastCommonMultiple from './number_theory/LeastCommonMultiple.js';
+import * as Parity from './number_theory/Parity.js';
+import * as Primality from './number_theory/Primality.js';
+import * as PrimeSieves from './number_theory/PrimeSieves.js';
 
-const Coprimality = require('muse/algorithms/number_theory/Coprimality');
-const Factorial = require('muse/algorithms/number_theory/Factorial');
-const FibonacciNumber = require('muse/algorithms/number_theory/FibonacciNumber');
-const GreatestCommonDivisor = require('muse/algorithms/number_theory/GreatestCommonDivisor');
-const LeastCommonMultiple = require('muse/algorithms/number_theory/LeastCommonMultiple');
-const Parity = require('muse/algorithms/number_theory/Parity');
-const Primality = require('muse/algorithms/number_theory/Primality');
-const PrimeSieves = require('muse/algorithms/number_theory/PrimeSieves');
-
-exports.isCoprime = (m, n) => {
+export const isCoprime = (m, n) => {
   return Coprimality.reduceToBinaryGCD(m, n);
 };
 
-exports.factorial = (n) => {
+export const factorial = (n) => {
   return Factorial.iterativeProcedure(n);
 };
 
-exports.fibonacci = (n) => {
+export const fibonacci = (n) => {
   return FibonacciNumber.iterativeProcedure(n);
 };
 
-exports.gcd = (m, n) => {
+export const gcd = (m, n) => {
   return GreatestCommonDivisor.iterativeBinaryGCD(m, n);
 };
 
-exports.lcm = (m, n) => {
+export const lcm = (m, n) => {
   return LeastCommonMultiple.reduceToBinaryGCD(m, n);
 };
 
-exports.isEven = (n) => {
+export const isEven = (n) => {
   return Parity.bitwiseIsEven(n);
 };
 
-exports.isOdd = (n) => {
+export const isOdd = (n) => {
   return Parity.bitwiseIsOdd(n);
 };
 
-exports.isPrime = (n) => {
+export const isPrime = (n) => {
   return Primality.isPrime(n);
 };
 
-exports.isComposite = (n) => {
+export const isComposite = (n) => {
   return Primality.isComposite(n);
 };
 
-exports.sieveOfPrimes = (n) => {
+export const sieveOfPrimes = (n) => {
   return PrimeSieves.sieveOfEratosthenes(n);
 };

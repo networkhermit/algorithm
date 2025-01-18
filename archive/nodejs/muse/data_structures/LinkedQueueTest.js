@@ -1,7 +1,5 @@
-'use strict';
-
-const LinkedQueue = require('muse/data_structures/LinkedQueue');
-const TestRunner = require('muse/util/TestRunner');
+import * as TestRunner from '../util/TestRunner.js';
+import * as LinkedQueue from './LinkedQueue.js';
 
 const testLinkedQueue = () => {
   const size = 8192;
@@ -26,6 +24,8 @@ const testLinkedQueue = () => {
   return queue.isEmpty();
 };
 
-if (module === require.main) {
+const main = () => {
   TestRunner.pick(testLinkedQueue);
-}
+};
+
+main();

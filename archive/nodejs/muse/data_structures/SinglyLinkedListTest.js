@@ -1,7 +1,5 @@
-'use strict';
-
-const SinglyLinkedList = require('muse/data_structures/SinglyLinkedList');
-const TestRunner = require('muse/util/TestRunner');
+import * as TestRunner from '../util/TestRunner.js';
+import * as SinglyLinkedList from './SinglyLinkedList.js';
 
 const testSinglyLinkedList = () => {
   const size = 8192;
@@ -58,6 +56,8 @@ const testSinglyLinkedList = () => {
   return list.isEmpty();
 };
 
-if (module === require.main) {
+const main = () => {
   TestRunner.pick(testSinglyLinkedList);
-}
+};
+
+main();

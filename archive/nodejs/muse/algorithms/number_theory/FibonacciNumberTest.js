@@ -1,7 +1,5 @@
-'use strict';
-
-const FibonacciNumber = require('muse/algorithms/number_theory/FibonacciNumber');
-const TestRunner = require('muse/util/TestRunner');
+import * as TestRunner from '../../util/TestRunner.js';
+import * as FibonacciNumber from './FibonacciNumber.js';
 
 const testFibonacciNumber = () => {
   const sample = [
@@ -85,6 +83,8 @@ const testFibonacciNumber = () => {
   return true;
 };
 
-if (module === require.main) {
+const main = () => {
   TestRunner.pick(testFibonacciNumber);
-}
+};
+
+main();

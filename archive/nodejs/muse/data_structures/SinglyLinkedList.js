@@ -1,5 +1,3 @@
-'use strict';
-
 const Node = class {
   constructor(element) {
     this.data = element;
@@ -7,8 +5,8 @@ const Node = class {
   }
 };
 
-exports.SinglyLinkedList = class {
-  constructor(physicalSize = 0) {
+export const SinglyLinkedList = class {
+  constructor() {
     this.head = null;
     this.length = 0;
   }

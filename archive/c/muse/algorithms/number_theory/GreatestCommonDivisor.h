@@ -1,8 +1,6 @@
 #ifndef MUSE_ALGORITHMS_NUMBER_THEORY_GREATEST_COMMON_DIVISOR_H
 #define MUSE_ALGORITHMS_NUMBER_THEORY_GREATEST_COMMON_DIVISOR_H
 
-#include <stdbool.h>
-
 long GreatestCommonDivisor_iterativeBinaryGCD(long m, long n) {
   if (m < 0) {
     m = -m;

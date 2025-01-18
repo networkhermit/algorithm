@@ -1,7 +1,6 @@
 #ifndef MUSE_UTIL_SEQUENCES_H
 #define MUSE_UTIL_SEQUENCES_H
 
-#include <stdbool.h>
 #include <stdio.h>
 
 #include <muse/algorithms/sorting/QuickSort.h>

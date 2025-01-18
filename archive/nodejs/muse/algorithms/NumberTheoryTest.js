@@ -1,8 +1,6 @@
-'use strict';
-
-const NumberTheory = require('muse/algorithms/NumberTheory');
-const Primality = require('muse/algorithms/number_theory/Primality');
-const TestRunner = require('muse/util/TestRunner');
+import * as TestRunner from '../util/TestRunner.js';
+import * as NumberTheory from './NumberTheory.js';
+import * as Primality from './number_theory/Primality.js';
 
 const testIsCoprime = () => {
   const sample = [
@@ -1544,7 +1542,7 @@ const testSieveOfPrimes = () => {
   return true;
 };
 
-if (module === require.main) {
+const main = () => {
   TestRunner.pick(testIsCoprime);
 
   TestRunner.pick(testFactorial);
@@ -1564,4 +1562,6 @@ if (module === require.main) {
   TestRunner.pick(testIsComposite);
 
   TestRunner.pick(testSieveOfPrimes);
-}
+};
+
+main();

@@ -1,7 +1,5 @@
-'use strict';
-
-const ArrayList = require('muse/data_structures/ArrayList');
-const TestRunner = require('muse/util/TestRunner');
+import * as TestRunner from '../util/TestRunner.js';
+import * as ArrayList from './ArrayList.js';
 
 const testArrayList = () => {
   const size = 8192;
@@ -70,6 +68,8 @@ const testArrayList = () => {
   return list.capacity() === 0;
 };
 
-if (module === require.main) {
+const main = () => {
   TestRunner.pick(testArrayList);
-}
+};
+
+main();

@@ -1,7 +1,5 @@
-'use strict';
-
-const LeastCommonMultiple = require('muse/algorithms/number_theory/LeastCommonMultiple');
-const TestRunner = require('muse/util/TestRunner');
+import * as TestRunner from '../../util/TestRunner.js';
+import * as LeastCommonMultiple from './LeastCommonMultiple.js';
 
 const testLeastCommonMultiple = () => {
   const sample = [
@@ -156,6 +154,8 @@ const testLeastCommonMultiple = () => {
   return true;
 };
 
-if (module === require.main) {
+const main = () => {
   TestRunner.pick(testLeastCommonMultiple);
-}
+};
+
+main();

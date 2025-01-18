@@ -1,7 +1,6 @@
 #ifndef MUSE_DATA_STRUCTURES_DOUBLY_LINKED_LIST_H
 #define MUSE_DATA_STRUCTURES_DOUBLY_LINKED_LIST_H
 
-#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -26,8 +25,8 @@ typedef struct {
 DoublyLinkedList *DoublyLinkedList_new(void) {
   DoublyLinkedList *list = (DoublyLinkedList *)malloc(sizeof(DoublyLinkedList));
 
-  list->head = NULL;
-  list->tail = NULL;
+  list->head = nullptr;
+  list->tail = nullptr;
   list->length = 0;
 
   return list;
@@ -98,8 +97,8 @@ void DoublyLinkedList_insert(DoublyLinkedList *list, size_t index,
       (DoublyLinkedListNode *)malloc(sizeof(DoublyLinkedListNode));
 
   node->data = element;
-  node->next = NULL;
-  node->prev = NULL;
+  node->next = nullptr;
+  node->prev = nullptr;
 
   if (index == 0) {
     if (list->length != 0) {
@@ -146,15 +145,15 @@ void DoublyLinkedList_remove(DoublyLinkedList *list, size_t index) {
   if (index == 0) {
     target = list->head;
     if (list->length == 1) {
-      list->head = NULL;
-      list->tail = NULL;
+      list->head = nullptr;
+      list->tail = nullptr;
     } else {
-      target->next->prev = NULL;
+      target->next->prev = nullptr;
       list->head = target->next;
     }
   } else if (index == list->length - 1) {
     target = list->tail;
-    target->prev->next = NULL;
+    target->prev->next = nullptr;
     list->tail = target->prev;
   } else {
     if (index < list->length >> 1) {

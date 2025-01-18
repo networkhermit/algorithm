@@ -1,7 +1,5 @@
-'use strict';
-
-const LinkedStack = require('muse/data_structures/LinkedStack');
-const TestRunner = require('muse/util/TestRunner');
+import * as TestRunner from '../util/TestRunner.js';
+import * as LinkedStack from './LinkedStack.js';
 
 const testLinkedStack = () => {
   const size = 8192;
@@ -26,6 +24,8 @@ const testLinkedStack = () => {
   return stack.isEmpty();
 };
 
-if (module === require.main) {
+const main = () => {
   TestRunner.pick(testLinkedStack);
-}
+};
+
+main();

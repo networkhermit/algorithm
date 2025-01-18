@@ -1,5 +1,3 @@
-'use strict';
-
 const Node = class {
   constructor(element) {
     this.data = element;
@@ -7,8 +5,8 @@ const Node = class {
   }
 };
 
-exports.LinkedList = class {
-  constructor(physicalSize = 0) {
+export const LinkedList = class {
+  constructor() {
     this.head = null;
     this.tail = null;
     this.length = 0;

@@ -1,7 +1,6 @@
 #ifndef MUSE_DATA_STRUCTURES_ARRAY_LIST_H
 #define MUSE_DATA_STRUCTURES_ARRAY_LIST_H
 
-#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -22,7 +21,7 @@ typedef struct {
 ArrayList *ArrayList_new(size_t physicalSize) {
   ArrayList *list = (ArrayList *)malloc(sizeof(ArrayList));
 
-  list->data = NULL;
+  list->data = nullptr;
   list->logicalSize = 0;
   list->physicalSize = ARRAY_LIST_DEFAULT_CAPACITY;
 

@@ -1,7 +1,6 @@
 #ifndef MUSE_UTIL_TEST_RUNNER_H
 #define MUSE_UTIL_TEST_RUNNER_H
 
-#include <stdbool.h>
 #include <stdio.h>
 
 void TestRunner_pick(bool (*func)()) {

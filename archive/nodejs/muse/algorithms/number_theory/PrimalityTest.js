@@ -1,7 +1,5 @@
-'use strict';
-
-const Primality = require('muse/algorithms/number_theory/Primality');
-const TestRunner = require('muse/util/TestRunner');
+import * as TestRunner from '../../util/TestRunner.js';
+import * as Primality from './Primality.js';
 
 const testPrimality = () => {
   const sample = [
@@ -294,6 +292,8 @@ const testPrimality = () => {
   return true;
 };
 
-if (module === require.main) {
+const main = () => {
   TestRunner.pick(testPrimality);
-}
+};
+
+main();

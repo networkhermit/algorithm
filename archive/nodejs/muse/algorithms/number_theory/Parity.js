@@ -1,17 +1,15 @@
-'use strict';
-
-exports.moduloIsEven = (n) => {
+export const moduloIsEven = (n) => {
   return n % 2 === 0;
 };
 
-exports.moduloIsOdd = (n) => {
+export const moduloIsOdd = (n) => {
   return n % 2 !== 0;
 };
 
-exports.bitwiseIsEven = (n) => {
+export const bitwiseIsEven = (n) => {
   return (n & 1) === 0;
 };
 
-exports.bitwiseIsOdd = (n) => {
+export const bitwiseIsOdd = (n) => {
   return (n & 1) !== 0;
 };

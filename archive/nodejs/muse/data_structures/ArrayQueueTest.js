@@ -1,7 +1,5 @@
-'use strict';
-
-const ArrayQueue = require('muse/data_structures/ArrayQueue');
-const TestRunner = require('muse/util/TestRunner');
+import * as TestRunner from '../util/TestRunner.js';
+import * as ArrayQueue from './ArrayQueue.js';
 
 const testArrayQueue = () => {
   const size = 8192;
@@ -38,6 +36,8 @@ const testArrayQueue = () => {
   return queue.capacity() === 0;
 };
 
-if (module === require.main) {
+const main = () => {
   TestRunner.pick(testArrayQueue);
-}
+};
+
+main();

@@ -1,6 +1,4 @@
-'use strict';
-
-exports.isPrime = (n) => {
+export const isPrime = (n) => {
   if (n < 2) {
     return false;
   }
@@ -17,6 +15,6 @@ exports.isPrime = (n) => {
   return true;
 };
 
-exports.isComposite = (n) => {
-  return n > 1 && !this.isPrime(n);
+export const isComposite = (n) => {
+  return n > 1 && !isPrime(n);
 };

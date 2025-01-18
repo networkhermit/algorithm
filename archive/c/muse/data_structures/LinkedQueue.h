@@ -1,7 +1,6 @@
 #ifndef MUSE_DATA_STRUCTURES_LINKED_QUEUE_H
 #define MUSE_DATA_STRUCTURES_LINKED_QUEUE_H
 
-#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -25,8 +24,8 @@ typedef struct {
 LinkedQueue *LinkedQueue_new(void) {
   LinkedQueue *queue = (LinkedQueue *)malloc(sizeof(LinkedQueue));
 
-  queue->head = NULL;
-  queue->tail = NULL;
+  queue->head = nullptr;
+  queue->tail = nullptr;
   queue->length = 0;
 
   return queue;
@@ -49,7 +48,7 @@ void LinkedQueue_enqueue(LinkedQueue *queue, linked_queue_type element) {
   LinkedQueueNode *node = (LinkedQueueNode *)malloc(sizeof(LinkedQueueNode));
 
   node->data = element;
-  node->next = NULL;
+  node->next = nullptr;
 
   if (queue->length == 0) {
     queue->head = node;
@@ -71,8 +70,8 @@ void LinkedQueue_dequeue(LinkedQueue *queue) {
   LinkedQueueNode *target = queue->head;
 
   if (queue->length == 1) {
-    queue->head = NULL;
-    queue->tail = NULL;
+    queue->head = nullptr;
+    queue->tail = nullptr;
   } else {
     queue->head = target->next;
   }

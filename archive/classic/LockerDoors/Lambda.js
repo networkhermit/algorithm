@@ -1,5 +1,3 @@
-'use strict';
-
 const bruteForce = (n) => {
   const arr = new Array(n);
 
@@ -26,7 +24,7 @@ const process = (n) => {
   return arr;
 };
 
-if (module === require.main) {
+const main = () => {
   const N = 100;
 
   const arr = process(N);
@@ -36,4 +34,6 @@ if (module === require.main) {
       console.log('%d\t  OPEN', i + 1);
     }
   }
-}
+};
+
+main();

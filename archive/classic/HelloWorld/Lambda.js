@@ -7,8 +7,6 @@
  *  Copyright:    2014-2018
  */
 
-'use strict';
-
 // function declaration
 const sayHello = () => {
   // output some text
@@ -16,7 +14,9 @@ const sayHello = () => {
 };
 
 // entry point of the program
-if (module === require.main) {
+const main = () => {
   // function invocation
   sayHello();
-}
+};
+
+main();

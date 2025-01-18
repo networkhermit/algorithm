@@ -1,5 +1,3 @@
-'use strict';
-
 const fizzBuzz = (n) => {
   let word = '';
 
@@ -17,8 +15,10 @@ const fizzBuzz = (n) => {
   return word;
 };
 
-if (module === require.main) {
+const main = () => {
   for (let i = 1; i <= 100; i++) {
     console.log(fizzBuzz(i));
   }
-}
+};
+
+main();

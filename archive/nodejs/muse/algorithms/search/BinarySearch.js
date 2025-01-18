@@ -1,6 +1,4 @@
-'use strict';
-
-exports.find = (arr, key) => {
+export const find = (arr, key) => {
   let lo = 0;
   let hi = arr.length;
 

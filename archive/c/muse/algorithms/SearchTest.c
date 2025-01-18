@@ -12,7 +12,7 @@ bool testBinarySearch(void) {
     return false;
   }
 
-  if (Search_binarySearch(arr, size, 2147483647) != size) {
+  if (Search_binarySearch(arr, size, 2'147'483'647) != size) {
     return false;
   }
 
@@ -35,7 +35,7 @@ bool testLinearSearch(void) {
     return false;
   }
 
-  if (Search_linearSearch(arr, size, 2147483647) != size) {
+  if (Search_linearSearch(arr, size, 2'147'483'647) != size) {
     return false;
   }
 

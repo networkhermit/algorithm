@@ -1,9 +1,7 @@
-'use strict';
-
-const InsertionSort = require('muse/algorithms/sorting/InsertionSort');
-const SequenceBuilder = require('muse/util/SequenceBuilder');
-const Sequences = require('muse/util/Sequences');
-const TestRunner = require('muse/util/TestRunner');
+import * as SequenceBuilder from '../../util/SequenceBuilder.js';
+import * as Sequences from '../../util/Sequences.js';
+import * as TestRunner from '../../util/TestRunner.js';
+import * as InsertionSort from './InsertionSort.js';
 
 const testInsertionSort = () => {
   const size = 32768;
@@ -22,6 +20,8 @@ const testInsertionSort = () => {
   return Sequences.isSorted(arr);
 };
 
-if (module === require.main) {
+const main = () => {
   TestRunner.pick(testInsertionSort);
-}
+};
+
+main();

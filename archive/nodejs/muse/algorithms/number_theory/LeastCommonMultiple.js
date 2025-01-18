@@ -1,8 +1,6 @@
-'use strict';
+import * as GreatestCommonDivisor from './GreatestCommonDivisor.js';
 
-const GreatestCommonDivisor = require('muse/algorithms/number_theory/GreatestCommonDivisor');
-
-exports.reduceToBinaryGCD = (m, n) => {
+export const reduceToBinaryGCD = (m, n) => {
   if (m < 0) {
     m = -m;
   }
@@ -16,7 +14,7 @@ exports.reduceToBinaryGCD = (m, n) => {
   return (m / GreatestCommonDivisor.iterativeBinaryGCD(m, n)) * n;
 };
 
-exports.reduceToEuclidean = (m, n) => {
+export const reduceToEuclidean = (m, n) => {
   if (m < 0) {
     m = -m;
   }

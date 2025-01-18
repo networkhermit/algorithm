@@ -1,12 +1,10 @@
-'use strict';
-
-exports.merge = (arr, lo, mid, hi) => {
+export const merge = (arr, lo, mid, hi) => {
   if (lo === mid) {
     return;
   }
 
-  this.merge(arr, lo, (lo + mid) >>> 1, mid);
-  this.merge(arr, mid, (mid + hi) >>> 1, hi);
+  merge(arr, lo, (lo + mid) >>> 1, mid);
+  merge(arr, mid, (mid + hi) >>> 1, hi);
 
   let m = lo;
   let n = mid;
@@ -30,6 +28,6 @@ exports.merge = (arr, lo, mid, hi) => {
   }
 };
 
-exports.sort = (arr) => {
-  this.merge(arr, 0, arr.length >>> 1, arr.length);
+export const sort = (arr) => {
+  merge(arr, 0, arr.length >>> 1, arr.length);
 };

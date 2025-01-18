@@ -1,7 +1,6 @@
 #ifndef MUSE_DATA_STRUCTURES_ARRAY_STACK_H
 #define MUSE_DATA_STRUCTURES_ARRAY_STACK_H
 
-#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -22,7 +21,7 @@ typedef struct {
 ArrayStack *ArrayStack_new(size_t physicalSize) {
   ArrayStack *stack = (ArrayStack *)malloc(sizeof(ArrayStack));
 
-  stack->data = NULL;
+  stack->data = nullptr;
   stack->logicalSize = 0;
   stack->physicalSize = ARRAY_STACK_DEFAULT_CAPACITY;
 

@@ -1,6 +1,4 @@
-'use strict';
-
-if (module === require.main) {
+const main = () => {
   const FIRST_GLYPH = 33; // '!'
   const LAST_GLYPH = 126; // '~'
   const GLYPHS_PER_LINE = 72;
@@ -25,4 +23,6 @@ if (module === require.main) {
       cursor++;
     }
   }
-}
+};
+
+main();

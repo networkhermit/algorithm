@@ -1,9 +1,7 @@
-'use strict';
+import * as RandomFactory from './RandomFactory.js';
+import * as Sequences from './Sequences.js';
 
-const RandomFactory = require('muse/util/RandomFactory');
-const Sequences = require('muse/util/Sequences');
-
-exports.packIncreasing = (arr) => {
+export const packIncreasing = (arr) => {
   if (arr.length === 0) {
     return;
   }
@@ -13,13 +11,13 @@ exports.packIncreasing = (arr) => {
   }
 };
 
-exports.packRandom = (arr) => {
+export const packRandom = (arr) => {
   for (let i = 0, length = arr.length; i < length; i++) {
     arr[i] = RandomFactory.genInt();
   }
 };
 
-exports.packDecreasing = (arr) => {
+export const packDecreasing = (arr) => {
   this.packIncreasing(arr);
   Sequences.reverse(arr);
 };

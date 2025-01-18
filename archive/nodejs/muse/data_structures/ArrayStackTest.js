@@ -1,7 +1,5 @@
-'use strict';
-
-const ArrayStack = require('muse/data_structures/ArrayStack');
-const TestRunner = require('muse/util/TestRunner');
+import * as TestRunner from '../util/TestRunner.js';
+import * as ArrayStack from './ArrayStack.js';
 
 const testArrayStack = () => {
   const size = 8192;
@@ -38,6 +36,8 @@ const testArrayStack = () => {
   return stack.capacity() === 0;
 };
 
-if (module === require.main) {
+const main = () => {
   TestRunner.pick(testArrayStack);
-}
+};
+
+main();

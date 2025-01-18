@@ -1,8 +1,6 @@
-'use strict';
-
 let itemIndex = 0;
 
-exports.pick = (func) => {
+export const pick = (func) => {
   if (func()) {
     console.log('✓ Item [%d] PASSED', itemIndex);
   } else {

@@ -1,6 +1,4 @@
-'use strict';
-
-const TestRunner = require('muse/util/TestRunner');
+import * as TestRunner from './TestRunner.js';
 
 const testPick = () => {
   for (let i = 0; i < 10; i++) {
@@ -8,6 +6,8 @@ const testPick = () => {
   }
 };
 
-if (module === require.main) {
+const main = () => {
   testPick();
-}
+};
+
+main();

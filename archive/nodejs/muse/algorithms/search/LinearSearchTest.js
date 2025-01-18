@@ -1,8 +1,6 @@
-'use strict';
-
-const LinearSearch = require('muse/algorithms/search/LinearSearch');
-const SequenceBuilder = require('muse/util/SequenceBuilder');
-const TestRunner = require('muse/util/TestRunner');
+import * as SequenceBuilder from '../../util/SequenceBuilder.js';
+import * as TestRunner from '../../util/TestRunner.js';
+import * as LinearSearch from './LinearSearch.js';
 
 const testLinearSearch = () => {
   const size = 32768;
@@ -27,6 +25,8 @@ const testLinearSearch = () => {
   return true;
 };
 
-if (module === require.main) {
+const main = () => {
   TestRunner.pick(testLinearSearch);
-}
+};
+
+main();

@@ -1,8 +1,6 @@
 #ifndef MUSE_ALGORITHMS_NUMBER_THEORY_COPRIMALITY_H
 #define MUSE_ALGORITHMS_NUMBER_THEORY_COPRIMALITY_H
 
-#include <stdbool.h>
-
 #include <muse/algorithms/number_theory/GreatestCommonDivisor.h>
 
 bool Coprimality_reduceToBinaryGCD(long m, long n) {

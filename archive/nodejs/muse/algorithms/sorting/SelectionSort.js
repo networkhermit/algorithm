@@ -1,6 +1,4 @@
-'use strict';
-
-exports.sort = (arr) => {
+export const sort = (arr) => {
   if (arr.length === 0) {
     return;
   }

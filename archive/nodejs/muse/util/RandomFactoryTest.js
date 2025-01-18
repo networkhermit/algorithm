@@ -1,7 +1,5 @@
-'use strict';
-
-const RandomFactory = require('muse/util/RandomFactory');
-const TestRunner = require('muse/util/TestRunner');
+import * as RandomFactory from './RandomFactory.js';
+import * as TestRunner from './TestRunner.js';
 
 const testIntegerN = () => {
   let value = 0;
@@ -51,10 +49,12 @@ const testGenOdd = () => {
   return true;
 };
 
-if (module === require.main) {
+const main = () => {
   TestRunner.pick(testIntegerN);
 
   TestRunner.pick(testGenEven);
 
   TestRunner.pick(testGenOdd);
-}
+};
+
+main();

@@ -1,7 +1,6 @@
 #ifndef MUSE_DATA_STRUCTURES_CIRCULARLY_LINKED_LIST_H
 #define MUSE_DATA_STRUCTURES_CIRCULARLY_LINKED_LIST_H
 
-#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -25,7 +24,7 @@ CircularlyLinkedList *CircularlyLinkedList_new(void) {
   CircularlyLinkedList *list =
       (CircularlyLinkedList *)malloc(sizeof(CircularlyLinkedList));
 
-  list->tail = NULL;
+  list->tail = nullptr;
   list->length = 0;
 
   return list;
@@ -86,7 +85,7 @@ void CircularlyLinkedList_insert(CircularlyLinkedList *list, size_t index,
       (CircularlyLinkedListNode *)malloc(sizeof(CircularlyLinkedListNode));
 
   node->data = element;
-  node->next = NULL;
+  node->next = nullptr;
 
   if (index == 0) {
     if (list->length == 0) {
@@ -123,7 +122,7 @@ void CircularlyLinkedList_remove(CircularlyLinkedList *list, size_t index) {
   if (index == 0) {
     target = list->tail->next;
     if (list->length == 1) {
-      list->tail = NULL;
+      list->tail = nullptr;
     } else {
       list->tail->next = target->next;
     }

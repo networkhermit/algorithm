@@ -1,7 +1,6 @@
 #ifndef MUSE_DATA_STRUCTURES_ARRAY_QUEUE_H
 #define MUSE_DATA_STRUCTURES_ARRAY_QUEUE_H
 
-#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -23,7 +22,7 @@ typedef struct {
 ArrayQueue *ArrayQueue_new(size_t physicalSize) {
   ArrayQueue *queue = (ArrayQueue *)malloc(sizeof(ArrayQueue));
 
-  queue->data = NULL;
+  queue->data = nullptr;
   queue->front = 0;
   queue->logicalSize = 0;
   queue->physicalSize = ARRAY_QUEUE_DEFAULT_CAPACITY;

@@ -1,7 +1,6 @@
 #ifndef MUSE_DATA_STRUCTURES_LINKED_LIST_H
 #define MUSE_DATA_STRUCTURES_LINKED_LIST_H
 
-#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -25,8 +24,8 @@ typedef struct {
 LinkedList *LinkedList_new(void) {
   LinkedList *list = (LinkedList *)malloc(sizeof(LinkedList));
 
-  list->head = NULL;
-  list->tail = NULL;
+  list->head = nullptr;
+  list->tail = nullptr;
   list->length = 0;
 
   return list;
@@ -86,7 +85,7 @@ void LinkedList_insert(LinkedList *list, size_t index,
   LinkedListNode *node = (LinkedListNode *)malloc(sizeof(LinkedListNode));
 
   node->data = element;
-  node->next = NULL;
+  node->next = nullptr;
 
   if (index == 0) {
     if (list->length != 0) {
@@ -121,8 +120,8 @@ void LinkedList_remove(LinkedList *list, size_t index) {
   if (index == 0) {
     target = list->head;
     if (list->length == 1) {
-      list->head = NULL;
-      list->tail = NULL;
+      list->head = nullptr;
+      list->tail = nullptr;
     } else {
       list->head = target->next;
     }

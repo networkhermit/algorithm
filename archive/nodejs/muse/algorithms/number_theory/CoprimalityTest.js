@@ -1,7 +1,5 @@
-'use strict';
-
-const Coprimality = require('muse/algorithms/number_theory/Coprimality');
-const TestRunner = require('muse/util/TestRunner');
+import * as TestRunner from '../../util/TestRunner.js';
+import * as Coprimality from './Coprimality.js';
 
 const testCoprimality = () => {
   const sample = [
@@ -162,6 +160,8 @@ const testCoprimality = () => {
   return true;
 };
 
-if (module === require.main) {
+const main = () => {
   TestRunner.pick(testCoprimality);
-}
+};
+
+main();

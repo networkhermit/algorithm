@@ -1,6 +1,4 @@
-'use strict';
-
-exports.sort = (arr) => {
+export const sort = (arr) => {
   let target = null;
 
   let cursor = 0;

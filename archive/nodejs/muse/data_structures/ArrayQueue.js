@@ -1,6 +1,4 @@
-'use strict';
-
-exports.ArrayQueue = class {
+export const ArrayQueue = class {
   constructor(physicalSize = 0) {
     this.data = null;
     this.front = 0;

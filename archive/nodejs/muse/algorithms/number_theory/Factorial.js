@@ -1,6 +1,4 @@
-'use strict';
-
-exports.iterativeProcedure = (n) => {
+export const iterativeProcedure = (n) => {
   if (n < 0) {
     return 0;
   }
@@ -13,7 +11,7 @@ exports.iterativeProcedure = (n) => {
   return result;
 };
 
-exports.recursiveProcedure = (n) => {
+export const recursiveProcedure = (n) => {
   if (n < 0) {
     return 0;
   }
@@ -21,5 +19,5 @@ exports.recursiveProcedure = (n) => {
   if (n === 0) {
     return 1;
   }
-  return this.recursiveProcedure(n - 1) * n;
+  return recursiveProcedure(n - 1) * n;
 };

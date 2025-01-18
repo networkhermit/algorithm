@@ -1,8 +1,6 @@
-'use strict';
-
-const BinarySearch = require('muse/algorithms/search/BinarySearch');
-const SequenceBuilder = require('muse/util/SequenceBuilder');
-const TestRunner = require('muse/util/TestRunner');
+import * as SequenceBuilder from '../../util/SequenceBuilder.js';
+import * as TestRunner from '../../util/TestRunner.js';
+import * as BinarySearch from './BinarySearch.js';
 
 const testBinarySearch = () => {
   const size = 32768;
@@ -27,6 +25,8 @@ const testBinarySearch = () => {
   return true;
 };
 
-if (module === require.main) {
+const main = () => {
   TestRunner.pick(testBinarySearch);
-}
+};
+
+main();

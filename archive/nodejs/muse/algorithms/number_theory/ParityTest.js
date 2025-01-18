@@ -1,7 +1,5 @@
-'use strict';
-
-const Parity = require('muse/algorithms/number_theory/Parity');
-const TestRunner = require('muse/util/TestRunner');
+import * as TestRunner from '../../util/TestRunner.js';
+import * as Parity from './Parity.js';
 
 const testParity = () => {
   const sample = [
@@ -186,6 +184,8 @@ const testParity = () => {
   return true;
 };
 
-if (module === require.main) {
+const main = () => {
   TestRunner.pick(testParity);
-}
+};
+
+main();

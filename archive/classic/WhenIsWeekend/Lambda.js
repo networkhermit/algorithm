@@ -1,6 +1,4 @@
-'use strict';
-
-if (module === require.main) {
+const main = () => {
   console.log('When’s Weekend?');
 
   const today = new Date().getDay();
@@ -21,4 +19,6 @@ if (module === require.main) {
     default:
       console.log('Too far away.');
   }
-}
+};
+
+main();

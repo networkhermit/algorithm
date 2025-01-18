@@ -2,15 +2,13 @@
 #define MUSE_ALGORITHMS_NUMBER_THEORY_PRIME_SIEVES_H
 
 #include <math.h>
-#include <stdbool.h>
-#include <stddef.h>
 #include <stdlib.h>
 #include <string.h>
 
 size_t *PrimeSieves_sieveOfEratosthenes(size_t n, size_t *length) {
   if (n < 2) {
     *length = 0;
-    return NULL;
+    return nullptr;
   }
 
   size_t size = (n + 1) >> 1;
