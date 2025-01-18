@@ -1,10 +1,10 @@
 import * as TestRunner from '../util/TestRunner.js';
-import * as LinkedStack from './LinkedStack.js';
+import { LinkedStack } from './LinkedStack.js';
 
 const testLinkedStack = () => {
   const size = 8192;
 
-  const stack = new LinkedStack.LinkedStack();
+  const stack = new LinkedStack();
 
   for (let i = 1; i <= size; i++) {
     stack.push(i);

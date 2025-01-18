@@ -1,10 +1,10 @@
 import * as TestRunner from '../util/TestRunner.js';
-import * as LinkedList from './LinkedList.js';
+import { LinkedList } from './LinkedList.js';
 
 const testLinkedList = () => {
   const size = 8192;
 
-  const list = new LinkedList.LinkedList();
+  const list = new LinkedList();
 
   for (let i = 1; i <= size; i++) {
     list.append(i);

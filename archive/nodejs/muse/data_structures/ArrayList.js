@@ -1,4 +1,4 @@
-export const ArrayList = class {
+export class ArrayList {
   constructor(physicalSize = 0) {
     this.data = null;
     this.logicalSize = 0;
@@ -117,4 +117,4 @@ export const ArrayList = class {
     this.data = temp;
     this.physicalSize = this.logicalSize;
   }
-};
+}

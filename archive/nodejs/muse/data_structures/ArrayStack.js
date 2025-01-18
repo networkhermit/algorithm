@@ -1,4 +1,4 @@
-export const ArrayStack = class {
+export class ArrayStack {
   constructor(physicalSize = 0) {
     this.data = null;
     this.logicalSize = 0;
@@ -73,4 +73,4 @@ export const ArrayStack = class {
     this.data = temp;
     this.physicalSize = this.logicalSize;
   }
-};
+}

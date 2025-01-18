@@ -1,4 +1,4 @@
-export const ArrayQueue = class {
+export class ArrayQueue {
   constructor(physicalSize = 0) {
     this.data = null;
     this.front = 0;
@@ -90,4 +90,4 @@ export const ArrayQueue = class {
     this.front = 0;
     this.physicalSize = this.logicalSize;
   }
-};
+}

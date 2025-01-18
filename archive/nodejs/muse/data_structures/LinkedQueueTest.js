@@ -1,10 +1,10 @@
 import * as TestRunner from '../util/TestRunner.js';
-import * as LinkedQueue from './LinkedQueue.js';
+import { LinkedQueue } from './LinkedQueue.js';
 
 const testLinkedQueue = () => {
   const size = 8192;
 
-  const queue = new LinkedQueue.LinkedQueue();
+  const queue = new LinkedQueue();
 
   for (let i = 1; i <= size; i++) {
     queue.enqueue(i);

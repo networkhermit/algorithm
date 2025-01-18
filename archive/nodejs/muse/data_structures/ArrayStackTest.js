@@ -1,10 +1,10 @@
 import * as TestRunner from '../util/TestRunner.js';
-import * as ArrayStack from './ArrayStack.js';
+import { ArrayStack } from './ArrayStack.js';
 
 const testArrayStack = () => {
   const size = 8192;
 
-  const stack = new ArrayStack.ArrayStack(0);
+  const stack = new ArrayStack(0);
 
   for (let i = 1; i <= size; i++) {
     stack.push(i);

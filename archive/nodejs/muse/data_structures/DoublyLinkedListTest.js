@@ -1,10 +1,10 @@
 import * as TestRunner from '../util/TestRunner.js';
-import * as DoublyLinkedList from './DoublyLinkedList.js';
+import { DoublyLinkedList } from './DoublyLinkedList.js';
 
 const testLinkedList = () => {
   const size = 8192;
 
-  const list = new DoublyLinkedList.DoublyLinkedList();
+  const list = new DoublyLinkedList();
 
   for (let i = 1; i <= size; i++) {
     list.append(i);

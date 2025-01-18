@@ -1,10 +1,10 @@
 import * as TestRunner from '../util/TestRunner.js';
-import * as ArrayList from './ArrayList.js';
+import { ArrayList } from './ArrayList.js';
 
 const testArrayList = () => {
   const size = 8192;
 
-  const list = new ArrayList.ArrayList(0);
+  const list = new ArrayList(0);
 
   for (let i = 1; i <= size; i++) {
     list.append(i);

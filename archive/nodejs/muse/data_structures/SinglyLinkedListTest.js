@@ -1,10 +1,10 @@
 import * as TestRunner from '../util/TestRunner.js';
-import * as SinglyLinkedList from './SinglyLinkedList.js';
+import { SinglyLinkedList } from './SinglyLinkedList.js';
 
 const testSinglyLinkedList = () => {
   const size = 8192;
 
-  const list = new SinglyLinkedList.SinglyLinkedList();
+  const list = new SinglyLinkedList();
 
   for (let i = 1; i <= size; i++) {
     list.append(i);

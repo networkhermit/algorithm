@@ -1,11 +1,11 @@
-const Node = class {
+class Node {
   constructor(element) {
     this.data = element;
     this.next = null;
   }
-};
+}
 
-export const LinkedQueue = class {
+export class LinkedQueue {
   constructor() {
     this.head = null;
     this.tail = null;
@@ -60,4 +60,4 @@ export const LinkedQueue = class {
 
     this.length--;
   }
-};
+}

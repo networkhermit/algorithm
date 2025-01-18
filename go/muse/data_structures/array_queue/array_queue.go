@@ -16,7 +16,7 @@ func New[T any]() *ArrayQueue[T] {
 }
 
 func NewWithCapacity[T any](physicalSize int) *ArrayQueue[T] {
-	queue := &ArrayQueue[T]{data: nil, logicalSize: 0, physicalSize: DEFAULT_CAPACITY}
+	queue := &ArrayQueue[T]{data: nil, front: 0, logicalSize: 0, physicalSize: DEFAULT_CAPACITY}
 
 	if physicalSize > 1 {
 		queue.physicalSize = physicalSize

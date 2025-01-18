@@ -1,10 +1,10 @@
 import * as TestRunner from '../util/TestRunner.js';
-import * as CircularlyLinkedList from './CircularlyLinkedList.js';
+import { CircularlyLinkedList } from './CircularlyLinkedList.js';
 
 const testCircularlyLinkedList = () => {
   const size = 8192;
 
-  const list = new CircularlyLinkedList.CircularlyLinkedList();
+  const list = new CircularlyLinkedList();
 
   for (let i = 1; i <= size; i++) {
     list.append(i);

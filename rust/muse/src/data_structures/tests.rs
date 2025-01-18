@@ -80,3 +80,105 @@ where
         assert_eq!(list.capacity(), 0);
     }
 }
+
+pub(crate) fn queue_derive<'a, T>() -> impl Fn() + 'a
+where
+    T: Default + Queue<i32>,
+{
+    move || {
+        let size: usize = 8192;
+
+        let mut queue = T::default();
+
+        (1..=size).for_each(|i| {
+            queue.enqueue(i as i32);
+        });
+
+        assert_eq!(queue.size(), size);
+
+        (1..=size).for_each(|i| {
+            assert_eq!(*queue.peek(), i as i32);
+            queue.dequeue();
+        });
+
+        assert!(queue.is_empty());
+    }
+}
+
+pub(crate) fn queue_derive_resizable<'a, T>() -> impl Fn() + 'a
+where
+    T: Default + Queue<i32> + Resizable,
+{
+    move || {
+        let size: usize = 8192;
+
+        let mut queue = T::default();
+
+        (1..=size).for_each(|i| {
+            queue.enqueue(i as i32);
+        });
+
+        queue.shrink();
+
+        assert_eq!(queue.capacity(), size);
+
+        (1..=size).for_each(|_| {
+            queue.dequeue();
+        });
+
+        queue.shrink();
+
+        assert_eq!(queue.capacity(), 0);
+    }
+}
+
+pub(crate) fn stack_derive<'a, T>() -> impl Fn() + 'a
+where
+    T: Default + Stack<i32>,
+{
+    move || {
+        let size: usize = 8192;
+
+        let mut stack = T::default();
+
+        (1..=size).for_each(|i| {
+            stack.push(i as i32);
+        });
+
+        assert_eq!(stack.size(), size);
+
+        (1..=size).rev().for_each(|i| {
+            assert_eq!(*stack.peek(), i as i32);
+            stack.pop();
+        });
+
+        assert!(stack.is_empty());
+    }
+}
+
+pub(crate) fn stack_derive_resizable<'a, T>() -> impl Fn() + 'a
+where
+    T: Default + Stack<i32> + Resizable,
+{
+    move || {
+        let size: usize = 8192;
+
+        let mut stack = T::default();
+
+        (1..=size).for_each(|i| {
+            stack.push(i as i32);
+        });
+
+        stack.shrink();
+
+        assert_eq!(stack.capacity(), size);
+
+        (1..=size).rev().for_each(|_| {
+            stack.pop();
+        });
+
+        stack.shrink();
+
+        assert_eq!(stack.capacity(), 0);
+    }
+}

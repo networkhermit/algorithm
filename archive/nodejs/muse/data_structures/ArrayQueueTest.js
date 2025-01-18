@@ -1,10 +1,10 @@
 import * as TestRunner from '../util/TestRunner.js';
-import * as ArrayQueue from './ArrayQueue.js';
+import { ArrayQueue } from './ArrayQueue.js';
 
 const testArrayQueue = () => {
   const size = 8192;
 
-  const queue = new ArrayQueue.ArrayQueue(0);
+  const queue = new ArrayQueue(0);
 
   for (let i = 1; i <= size; i++) {
     queue.enqueue(i);

@@ -1,11 +1,11 @@
-const Node = class {
+class Node {
   constructor(element) {
     this.data = element;
     this.next = null;
   }
-};
+}
 
-export const LinkedList = class {
+export class LinkedList {
   constructor() {
     this.head = null;
     this.tail = null;
@@ -146,4 +146,4 @@ export const LinkedList = class {
   eject() {
     this.remove(this.length - 1);
   }
-};
+}

@@ -1,11 +1,11 @@
-const Node = class {
+class Node {
   constructor(element) {
     this.data = element;
     this.next = null;
   }
-};
+}
 
-export const LinkedStack = class {
+export class LinkedStack {
   constructor() {
     this.head = null;
     this.tail = null;
@@ -65,4 +65,4 @@ export const LinkedStack = class {
 
     this.length--;
   }
-};
+}

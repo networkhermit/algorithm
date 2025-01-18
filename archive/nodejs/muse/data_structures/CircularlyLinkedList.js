@@ -1,11 +1,11 @@
-const Node = class {
+class Node {
   constructor(element) {
     this.data = element;
     this.next = null;
   }
-};
+}
 
-export const CircularlyLinkedList = class {
+export class CircularlyLinkedList {
   constructor() {
     this.tail = null;
     this.length = 0;
@@ -140,4 +140,4 @@ export const CircularlyLinkedList = class {
   eject() {
     this.remove(this.length - 1);
   }
-};
+}
