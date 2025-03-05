@@ -7,5 +7,5 @@ import (
 )
 
 func TestLinkedList(t *testing.T) {
-	t.Run("LinkedList", tests.ListDerive(New))
+	t.Run("LinkedList", tests.ListDerive(New[int]))
 }

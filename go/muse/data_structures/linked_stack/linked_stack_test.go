@@ -7,5 +7,5 @@ import (
 )
 
 func TestLinkedStack(t *testing.T) {
-	t.Run("LinkedStack", tests.StackDerive(New))
+	t.Run("LinkedStack", tests.StackDerive(New[int]))
 }

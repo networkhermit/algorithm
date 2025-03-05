@@ -7,5 +7,5 @@ import (
 )
 
 func TestArrayList(t *testing.T) {
-	t.Run("ArrayList", tests.ListDerive(New))
+	t.Run("ArrayList", tests.ListDerive(New[int]))
 }

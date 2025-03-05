@@ -7,5 +7,5 @@ import (
 )
 
 func TestDoublyLinkedList(t *testing.T) {
-	t.Run("DoublyLinkedList", tests.ListDerive(New))
+	t.Run("DoublyLinkedList", tests.ListDerive(New[int]))
 }

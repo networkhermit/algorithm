@@ -7,5 +7,5 @@ import (
 )
 
 func TestArrayQueue(t *testing.T) {
-	t.Run("ArrayQueue", tests.QueueDerive(New))
+	t.Run("ArrayQueue", tests.QueueDerive(New[int]))
 }

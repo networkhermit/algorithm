@@ -7,5 +7,5 @@ import (
 )
 
 func TestArrayStack(t *testing.T) {
-	t.Run("ArrayStack(", tests.StackDerive(New))
+	t.Run("ArrayStack(", tests.StackDerive(New[int]))
 }

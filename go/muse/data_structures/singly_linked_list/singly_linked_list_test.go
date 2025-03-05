@@ -7,5 +7,5 @@ import (
 )
 
 func TestSinglyLinkedList(t *testing.T) {
-	t.Run("SinglyLinkedList", tests.ListDerive(New))
+	t.Run("SinglyLinkedList", tests.ListDerive(New[int]))
 }

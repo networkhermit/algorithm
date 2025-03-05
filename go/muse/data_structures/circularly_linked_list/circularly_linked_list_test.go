@@ -7,5 +7,5 @@ import (
 )
 
 func TestCircularlyLinkedList(t *testing.T) {
-	t.Run("CircularlyLinkedList", tests.ListDerive(New))
+	t.Run("CircularlyLinkedList", tests.ListDerive(New[int]))
 }

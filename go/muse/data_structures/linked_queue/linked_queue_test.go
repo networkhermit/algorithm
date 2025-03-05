@@ -7,5 +7,5 @@ import (
 )
 
 func TestLinkedQueue(t *testing.T) {
-	t.Run("LinkedQueue", tests.QueueDerive(New))
+	t.Run("LinkedQueue", tests.QueueDerive(New[int]))
 }
