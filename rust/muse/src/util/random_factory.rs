@@ -1,8 +1,8 @@
-use rand::{thread_rng, Rng};
+use rand::{Rng, rng};
 
 pub fn gen_int_n(min: i32, max: i32) -> i32 {
-    let mut rng = thread_rng();
-    rng.gen_range(min..=max)
+    let mut rng = rng();
+    rng.random_range(min..=max)
 }
 
 pub fn gen_int() -> i32 {

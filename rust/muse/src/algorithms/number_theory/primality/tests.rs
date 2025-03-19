@@ -1,5 +1,5 @@
 use crate::algorithms::number_theory::tests::{
-    unique_category_derive, UniqueCategorySample as Sample,
+    UniqueCategorySample as Sample, unique_category_derive,
 };
 
 use super::*;

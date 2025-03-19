@@ -1,4 +1,4 @@
-use rand::{seq::SliceRandom, thread_rng};
+use rand::{rng, seq::SliceRandom};
 
 pub struct Solution {}
 
@@ -54,7 +54,7 @@ impl Solution {
     pub fn find_kth_largest_three_way_partition_with_shuffle(nums: Vec<i32>, k: i32) -> i32 {
         let mut nums = nums;
         let length = nums.len();
-        let mut rng = thread_rng();
+        let mut rng = rng();
         nums.shuffle(&mut rng);
         Self::quick_select_three_way_partition(&mut nums, 0, length, length - k as usize)
             .unwrap_or_default()

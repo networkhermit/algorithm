@@ -1,4 +1,4 @@
-use rand::{seq::SliceRandom, thread_rng};
+use rand::{rng, seq::SliceRandom};
 
 pub fn partition(arr: &mut [i32], lo: usize, hi: usize) -> usize {
     let pivot = arr[lo + ((hi - 1 - lo) >> 1)];
@@ -102,7 +102,7 @@ pub fn partition_three_way(arr: &mut [i32], lo: usize, hi: usize) -> (usize, usi
 }
 
 pub fn sort_three_way_partition_with_shuffle(arr: &mut [i32]) {
-    let mut rng = thread_rng();
+    let mut rng = rng();
     arr.shuffle(&mut rng);
     sort_with_range_three_way_partition(arr, 0, arr.len())
 }

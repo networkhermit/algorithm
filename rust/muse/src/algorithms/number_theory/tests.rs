@@ -67,28 +67,28 @@ fn test_lcm() {
 
 #[test]
 fn test_is_even() {
-    use parity::tests::{derive, Category::Even};
+    use parity::tests::{Category::Even, derive};
 
     derive(&is_even, Even)();
 }
 
 #[test]
 fn test_is_odd() {
-    use parity::tests::{derive, Category::Odd};
+    use parity::tests::{Category::Odd, derive};
 
     derive(&is_odd, Odd)();
 }
 
 #[test]
 fn test_is_prime() {
-    use primality::tests::{derive, Category::Prime};
+    use primality::tests::{Category::Prime, derive};
 
     derive(&is_prime, Prime)();
 }
 
 #[test]
 fn test_is_composite() {
-    use primality::tests::{derive, Category::Composite};
+    use primality::tests::{Category::Composite, derive};
 
     derive(&is_composite, Composite)();
 }

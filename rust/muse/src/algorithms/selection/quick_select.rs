@@ -1,4 +1,4 @@
-use rand::{seq::SliceRandom, thread_rng};
+use rand::{rng, seq::SliceRandom};
 
 use crate::algorithms::sorting::quick_sort::{
     partition, partition_inefficient, partition_three_way,
@@ -27,7 +27,7 @@ fn quick_select(arr: &mut [i32], lo: usize, hi: usize, k: usize) -> Option<i32> 
 
 pub fn find_kth_largest_three_way_partition_with_shuffle(arr: &mut [i32], k: usize) -> i32 {
     let length = arr.len();
-    let mut rng = thread_rng();
+    let mut rng = rng();
     arr.shuffle(&mut rng);
     quick_select_three_way_partition(arr, 0, length, length - k).unwrap_or_default()
 }
