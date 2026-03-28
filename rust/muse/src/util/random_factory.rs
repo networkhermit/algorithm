@@ -1,4 +1,4 @@
-use rand::{Rng, rng};
+use rand::{RngExt, rng};
 
 pub fn gen_int_n(min: i32, max: i32) -> i32 {
     let mut rng = rng();
